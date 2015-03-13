@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Historial list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Navegador</th>
+                <th>Entityname</th>
+                <th>Entityid</th>
+                <th>Ipv4</th>
+                <th>Ipv6</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('usuarios_historial_show', { 'id': entity.id }) }}">{{ entity.navegador }}</a></td>
+                <td>{{ entity.entityName }}</td>
+                <td>{{ entity.entityId }}</td>
+                <td>{{ entity.ipv4 }}</td>
+                <td>{{ entity.ipv6 }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('usuarios_historial_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('usuarios_historial_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('usuarios_historial_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

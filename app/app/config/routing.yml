@@ -1,0 +1,48 @@
+cobe_estadisticas:
+    resource: "@cobeEstadisticasBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_colecciones:
+    resource: "@cobeColeccionesBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_usuarios:
+    resource: "@cobeUsuariosBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_paginas:
+    resource: "@cobePaginasBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_ofertas_laborales:
+    resource: "@cobeOfertasLaboralesBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_mensajes:
+    resource: "@cobeMensajesBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_grupos:
+    resource: "@cobeGruposBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_curriculos:
+    resource: "@cobeCurriculosBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+cobe_common:
+    resource: "@cobeCommonBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+NelmioApiDocBundle:
+  resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+  prefix:   /api-v1/doc

@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Publicacion list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Metadatos</th>
+                <th>Fechaarchiva</th>
+                <th>Idexada</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('paginas_publicacion_show', { 'id': entity.id }) }}">{{ entity.metadatos }}</a></td>
+                <td>{% if entity.fechaArchiva %}{{ entity.fechaArchiva|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.idexada }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('paginas_publicacion_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('paginas_publicacion_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('paginas_publicacion_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

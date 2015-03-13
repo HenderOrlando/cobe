@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Reconocimiento creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('curriculos_reconocimiento') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     cobe
+    database_user:     cobe
+    database_password: HEV6uY2bUGtyYtbY
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            es
+    secret:            bGGeCGh5NvFrPmbB4R7EDzq442zy9RjCRZYxSzdEevXZuDPJ

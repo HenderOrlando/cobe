@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebResourcesPaths">
+    <contentEntries>
+      <entry url="file://$PROJECT_DIR$">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Resources" />
+            <path value="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Resources" />
+            <path value="file://$PROJECT_DIR$/src/cobe/MensajesBundle/Resources" />
+            <path value="file://$PROJECT_DIR$/src/cobe/GruposBundle/Resources" />
+            <path value="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Resources" />
+            <path value="file://$PROJECT_DIR$/src/cobe/CommonBundle/Resources" />
+            <path value="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Resources" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+    </contentEntries>
+  </component>
+</project>

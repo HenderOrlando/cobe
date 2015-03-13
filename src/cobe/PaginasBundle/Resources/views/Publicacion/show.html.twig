@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Publicacion</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Metadatos</th>
+                <td>{{ entity.metadatos }}</td>
+            </tr>
+            <tr>
+                <th>Fechaarchiva</th>
+                <td>{{ entity.fechaArchiva|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Idexada</th>
+                <td>{{ entity.idexada }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('paginas_publicacion') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('paginas_publicacion_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
