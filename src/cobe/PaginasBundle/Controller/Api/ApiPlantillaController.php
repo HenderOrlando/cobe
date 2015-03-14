@@ -29,7 +29,7 @@ use cobe\PaginasBundle\Repository\PlantillaRepository;
 /**
  * API Plantilla Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\PaginasBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiPlantillaController extends ApiController
     public function optionsPlantillasAction(Request $request)
     {
         $opciones = array(
-            '/plantillas' => array(
+            array(
                 'route'         => '/plantillas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los plantillas.',
@@ -65,7 +65,16 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/',
                 ),
             ),
-            '/plantillas/params' => array(
+            array(
+                'route'         => '/plantillas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los plantillas.',
+                'examples'       => array(
+                    '/plantillas/{id}',
+                    '/plantillas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/plantillas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/params/?plantilla[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/plantillas/o{offset}/' => array(
+            array(
                 'route'         => '/plantillas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/o10',
                 ),
             ),
-            '/plantillas/l{limit}/' => array(
+            array(
                 'route'         => '/plantillas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/l10',
                 ),
             ),
-            '/plantillas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/plantillas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/o10/l10',
                 ),
             ),
-            '/plantillas/new' => array(
+            array(
                 'route'         => '/plantillas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/new',
                 ),
             ),
-            '/plantillas' => array(
+            array(
                 'route'         => '/plantillas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/plantillas/',
                     '/plantillas',
+                ),
+            ),
+            array(
+                'route'         => '/plantillas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de plantilla para editar.',
+                'examples'       => array(
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/plantillas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de plantilla.',
+                'examples'       => array(
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/plantillas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de plantilla',
+                'examples'       => array(
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/plantillas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar plantilla.',
+                'examples'       => array(
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/plantillas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra plantilla.',
+                'examples'       => array(
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiPlantillaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Plantillas.
-     *
-     * @Route("/plantillas", name="patch_plantillas")
-     * @Route("/plantillas/", name="patch_plantillas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchPlantillasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiPlantillaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Plantilla existente.
      *
-     * @Route("/plantilla/{slug}", name="patch_plantilla")
-     * @Route("/plantilla/{slug}/", name="patch_plantilla_")
+     * @Route("/plantillas/{slug}", name="patch_plantillas")
+     * @Route("/plantillas/{slug}/", name="patch_plantillas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiPlantillaController extends ApiController
             }
             $rta = $plantilla;
         }
-        return $this->getJsonResponse($plantilla, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiPlantillaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Plantilla.
-     *
-     * @Route("/plantilla/{slug}/remove", name="remove_plantilla")
-     * @Route("/plantilla/{slug}/remove/", name="remove_plantilla_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removePlantillaAction(Request $request, $slug)
-    {
-        $plantilla = $this->getPlantillaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($plantilla){
-            $form = $this->createDeleteForm($slug,'delete_plantilla');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Plantillas
      *
      * @Route("/plantillas/{slug}", name="delete_plantillas")
@@ -452,54 +458,6 @@ class ApiPlantillaController extends ApiController
         );
         if($plantilla){
             $form = $this->createDeleteForm($slug,'delete_plantillas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $plantilla){
-                $em = $this->getManager();
-                $em->remove($plantilla);
-                $em->flush();
-                $rta = $plantilla;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Plantilla
-     *
-     * @Route("/plantilla/{slug}", name="delete_plantilla")
-     * @Route("/plantilla/{slug}/", name="delete_plantilla_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deletePlantillaAction(Request $request, $slug)
-    {
-        $plantilla = $this->getPlantillaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($plantilla){
-            $form = $this->createDeleteForm($slug,'delete_plantilla');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

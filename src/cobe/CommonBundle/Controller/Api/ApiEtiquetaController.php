@@ -56,7 +56,7 @@ class ApiEtiquetaController extends ApiController
     public function optionsEtiquetasAction(Request $request)
     {
         $opciones = array(
-            '/etiquetas' => array(
+            array(
                 'route'         => '/etiquetas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los etiquetas.',
@@ -65,7 +65,16 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/',
                 ),
             ),
-            '/etiquetas/params' => array(
+            array(
+                'route'         => '/etiquetas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los etiquetas.',
+                'examples'       => array(
+                    '/etiquetas/{id}',
+                    '/etiquetas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/etiquetas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/params/?etiqueta[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/etiquetas/o{offset}/' => array(
+            array(
                 'route'         => '/etiquetas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/o10',
                 ),
             ),
-            '/etiquetas/l{limit}/' => array(
+            array(
                 'route'         => '/etiquetas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/l10',
                 ),
             ),
-            '/etiquetas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/etiquetas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/o10/l10',
                 ),
             ),
-            '/etiquetas/new' => array(
+            array(
                 'route'         => '/etiquetas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/new',
                 ),
             ),
-            '/etiquetas' => array(
+            array(
                 'route'         => '/etiquetas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/etiquetas/',
                     '/etiquetas',
+                ),
+            ),
+            array(
+                'route'         => '/etiquetas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de etiqueta para editar.',
+                'examples'       => array(
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/etiquetas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de etiqueta.',
+                'examples'       => array(
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/etiquetas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de etiqueta',
+                'examples'       => array(
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/etiquetas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar etiqueta.',
+                'examples'       => array(
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/etiquetas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra etiqueta.',
+                'examples'       => array(
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiEtiquetaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Etiquetas.
-     *
-     * @Route("/etiquetas", name="patch_etiquetas")
-     * @Route("/etiquetas/", name="patch_etiquetas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchEtiquetasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiEtiquetaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Etiqueta existente.
      *
-     * @Route("/etiqueta/{slug}", name="patch_etiqueta")
-     * @Route("/etiqueta/{slug}/", name="patch_etiqueta_")
+     * @Route("/etiquetas/{slug}", name="patch_etiquetas")
+     * @Route("/etiquetas/{slug}/", name="patch_etiquetas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiEtiquetaController extends ApiController
             }
             $rta = $etiqueta;
         }
-        return $this->getJsonResponse($etiqueta, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiEtiquetaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Etiqueta.
-     *
-     * @Route("/etiqueta/{slug}/remove", name="remove_etiqueta")
-     * @Route("/etiqueta/{slug}/remove/", name="remove_etiqueta_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeEtiquetaAction(Request $request, $slug)
-    {
-        $etiqueta = $this->getEtiquetaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($etiqueta){
-            $form = $this->createDeleteForm($slug,'delete_etiqueta');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Etiquetas
      *
      * @Route("/etiquetas/{slug}", name="delete_etiquetas")
@@ -452,54 +458,6 @@ class ApiEtiquetaController extends ApiController
         );
         if($etiqueta){
             $form = $this->createDeleteForm($slug,'delete_etiquetas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $etiqueta){
-                $em = $this->getManager();
-                $em->remove($etiqueta);
-                $em->flush();
-                $rta = $etiqueta;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Etiqueta
-     *
-     * @Route("/etiqueta/{slug}", name="delete_etiqueta")
-     * @Route("/etiqueta/{slug}/", name="delete_etiqueta_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteEtiquetaAction(Request $request, $slug)
-    {
-        $etiqueta = $this->getEtiquetaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($etiqueta){
-            $form = $this->createDeleteForm($slug,'delete_etiqueta');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

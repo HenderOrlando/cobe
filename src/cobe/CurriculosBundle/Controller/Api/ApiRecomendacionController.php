@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\RecomendacionRepository;
 /**
  * API Recomendacion Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiRecomendacionController extends ApiController
     public function optionsRecomendacionesAction(Request $request)
     {
         $opciones = array(
-            '/recomendaciones' => array(
+            array(
                 'route'         => '/recomendaciones',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los recomendaciones.',
@@ -65,7 +65,16 @@ class ApiRecomendacionController extends ApiController
                     '/recomendaciones/',
                 ),
             ),
-            '/recomendaciones/params' => array(
+            array(
+                'route'         => '/recomendaciones/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los recomendaciones.',
+                'examples'       => array(
+                    '/recomendaciones/{id}',
+                    '/recomendaciones/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/recomendaciones/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiRecomendacionController extends ApiController
                     '/recomendaciones/params/?recomendacion[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/recomendaciones/o{offset}/' => array(
+            array(
                 'route'         => '/recomendaciones/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiRecomendacionController extends ApiController
                     '/recomendaciones/o10',
                 ),
             ),
-            '/recomendaciones/l{limit}/' => array(
+            array(
                 'route'         => '/recomendaciones/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiRecomendacionController extends ApiController
                     '/recomendaciones/l10',
                 ),
             ),
-            '/recomendaciones/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/recomendaciones/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiRecomendacionController extends ApiController
                     '/recomendaciones/o10/l10',
                 ),
             ),
-            '/recomendaciones/new' => array(
+            array(
                 'route'         => '/recomendaciones/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiRecomendacionController extends ApiController
                     '/recomendaciones/new',
                 ),
             ),
-            '/recomendaciones' => array(
+            array(
                 'route'         => '/recomendaciones',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/recomendaciones/',
                     '/recomendaciones',
+                ),
+            ),
+            array(
+                'route'         => '/recomendaciones/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de recomendacion para editar.',
+                'examples'       => array(
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/recomendaciones/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de recomendacion.',
+                'examples'       => array(
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/recomendaciones/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de recomendacion',
+                'examples'       => array(
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/recomendaciones/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar recomendacion.',
+                'examples'       => array(
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/recomendaciones/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra recomendacion.',
+                'examples'       => array(
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiRecomendacionController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Recomendaciones.
-     *
-     * @Route("/recomendaciones", name="patch_recomendaciones")
-     * @Route("/recomendaciones/", name="patch_recomendaciones_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchRecomendacionesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiRecomendacionController extends ApiController
     /**
      * Valida los datos y modifica atributos de Recomendacion existente.
      *
-     * @Route("/recomendacion/{slug}", name="patch_recomendacion")
-     * @Route("/recomendacion/{slug}/", name="patch_recomendacion_")
+     * @Route("/recomendaciones/{slug}", name="patch_recomendaciones")
+     * @Route("/recomendaciones/{slug}/", name="patch_recomendaciones_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiRecomendacionController extends ApiController
             }
             $rta = $recomendacion;
         }
-        return $this->getJsonResponse($recomendacion, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiRecomendacionController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Recomendacion.
-     *
-     * @Route("/recomendacion/{slug}/remove", name="remove_recomendacion")
-     * @Route("/recomendacion/{slug}/remove/", name="remove_recomendacion_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeRecomendacionAction(Request $request, $slug)
-    {
-        $recomendacion = $this->getRecomendacionRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($recomendacion){
-            $form = $this->createDeleteForm($slug,'delete_recomendacion');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Recomendaciones
      *
      * @Route("/recomendaciones/{slug}", name="delete_recomendaciones")
@@ -452,54 +458,6 @@ class ApiRecomendacionController extends ApiController
         );
         if($recomendacion){
             $form = $this->createDeleteForm($slug,'delete_recomendaciones');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $recomendacion){
-                $em = $this->getManager();
-                $em->remove($recomendacion);
-                $em->flush();
-                $rta = $recomendacion;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Recomendacion
-     *
-     * @Route("/recomendacion/{slug}", name="delete_recomendacion")
-     * @Route("/recomendacion/{slug}/", name="delete_recomendacion_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteRecomendacionAction(Request $request, $slug)
-    {
-        $recomendacion = $this->getRecomendacionRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($recomendacion){
-            $form = $this->createDeleteForm($slug,'delete_recomendacion');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

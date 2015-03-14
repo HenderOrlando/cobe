@@ -56,7 +56,7 @@ class ApiPaisController extends ApiController
     public function optionsPaisesAction(Request $request)
     {
         $opciones = array(
-            '/paises' => array(
+            array(
                 'route'         => '/paises',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los paises.',
@@ -65,7 +65,16 @@ class ApiPaisController extends ApiController
                     '/paises/',
                 ),
             ),
-            '/paises/params' => array(
+            array(
+                'route'         => '/paises/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los paises.',
+                'examples'       => array(
+                    '/paises/{id}',
+                    '/paises/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/paises/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiPaisController extends ApiController
                     '/paises/params/?pais[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/paises/o{offset}/' => array(
+            array(
                 'route'         => '/paises/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiPaisController extends ApiController
                     '/paises/o10',
                 ),
             ),
-            '/paises/l{limit}/' => array(
+            array(
                 'route'         => '/paises/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiPaisController extends ApiController
                     '/paises/l10',
                 ),
             ),
-            '/paises/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/paises/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiPaisController extends ApiController
                     '/paises/o10/l10',
                 ),
             ),
-            '/paises/new' => array(
+            array(
                 'route'         => '/paises/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiPaisController extends ApiController
                     '/paises/new',
                 ),
             ),
-            '/paises' => array(
+            array(
                 'route'         => '/paises',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/paises/',
                     '/paises',
+                ),
+            ),
+            array(
+                'route'         => '/paises/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de pais para editar.',
+                'examples'       => array(
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/paises/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de pais.',
+                'examples'       => array(
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/paises/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de pais',
+                'examples'       => array(
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/paises/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar pais.',
+                'examples'       => array(
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/paises/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra pais.',
+                'examples'       => array(
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiPaisController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Paises.
-     *
-     * @Route("/paises", name="patch_paises")
-     * @Route("/paises/", name="patch_paises_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchPaisesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiPaisController extends ApiController
     /**
      * Valida los datos y modifica atributos de Pais existente.
      *
-     * @Route("/pais/{slug}", name="patch_pais")
-     * @Route("/pais/{slug}/", name="patch_pais_")
+     * @Route("/paises/{slug}", name="patch_paises")
+     * @Route("/paises/{slug}/", name="patch_paises_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiPaisController extends ApiController
             }
             $rta = $pais;
         }
-        return $this->getJsonResponse($pais, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiPaisController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Pais.
-     *
-     * @Route("/pais/{slug}/remove", name="remove_pais")
-     * @Route("/pais/{slug}/remove/", name="remove_pais_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removePaisAction(Request $request, $slug)
-    {
-        $pais = $this->getPaisRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($pais){
-            $form = $this->createDeleteForm($slug,'delete_pais');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Paises
      *
      * @Route("/paises/{slug}", name="delete_paises")
@@ -452,54 +458,6 @@ class ApiPaisController extends ApiController
         );
         if($pais){
             $form = $this->createDeleteForm($slug,'delete_paises');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $pais){
-                $em = $this->getManager();
-                $em->remove($pais);
-                $em->flush();
-                $rta = $pais;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Pais
-     *
-     * @Route("/pais/{slug}", name="delete_pais")
-     * @Route("/pais/{slug}/", name="delete_pais_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deletePaisAction(Request $request, $slug)
-    {
-        $pais = $this->getPaisRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($pais){
-            $form = $this->createDeleteForm($slug,'delete_pais');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

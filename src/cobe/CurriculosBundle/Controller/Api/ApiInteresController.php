@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\InteresRepository;
 /**
  * API Interes Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiInteresController extends ApiController
     public function optionsInteresesAction(Request $request)
     {
         $opciones = array(
-            '/intereses' => array(
+            array(
                 'route'         => '/intereses',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los intereses.',
@@ -65,7 +65,16 @@ class ApiInteresController extends ApiController
                     '/intereses/',
                 ),
             ),
-            '/intereses/params' => array(
+            array(
+                'route'         => '/intereses/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los intereses.',
+                'examples'       => array(
+                    '/intereses/{id}',
+                    '/intereses/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/intereses/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiInteresController extends ApiController
                     '/intereses/params/?interes[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/intereses/o{offset}/' => array(
+            array(
                 'route'         => '/intereses/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiInteresController extends ApiController
                     '/intereses/o10',
                 ),
             ),
-            '/intereses/l{limit}/' => array(
+            array(
                 'route'         => '/intereses/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiInteresController extends ApiController
                     '/intereses/l10',
                 ),
             ),
-            '/intereses/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/intereses/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiInteresController extends ApiController
                     '/intereses/o10/l10',
                 ),
             ),
-            '/intereses/new' => array(
+            array(
                 'route'         => '/intereses/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiInteresController extends ApiController
                     '/intereses/new',
                 ),
             ),
-            '/intereses' => array(
+            array(
                 'route'         => '/intereses',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/intereses/',
                     '/intereses',
+                ),
+            ),
+            array(
+                'route'         => '/intereses/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de interes para editar.',
+                'examples'       => array(
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/intereses/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de interes.',
+                'examples'       => array(
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/intereses/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de interes',
+                'examples'       => array(
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/intereses/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar interes.',
+                'examples'       => array(
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/intereses/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra interes.',
+                'examples'       => array(
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiInteresController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Intereses.
-     *
-     * @Route("/intereses", name="patch_intereses")
-     * @Route("/intereses/", name="patch_intereses_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchInteresesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiInteresController extends ApiController
     /**
      * Valida los datos y modifica atributos de Interes existente.
      *
-     * @Route("/interes/{slug}", name="patch_interes")
-     * @Route("/interes/{slug}/", name="patch_interes_")
+     * @Route("/intereses/{slug}", name="patch_intereses")
+     * @Route("/intereses/{slug}/", name="patch_intereses_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiInteresController extends ApiController
             }
             $rta = $interes;
         }
-        return $this->getJsonResponse($interes, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiInteresController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Interes.
-     *
-     * @Route("/interes/{slug}/remove", name="remove_interes")
-     * @Route("/interes/{slug}/remove/", name="remove_interes_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeInteresAction(Request $request, $slug)
-    {
-        $interes = $this->getInteresRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($interes){
-            $form = $this->createDeleteForm($slug,'delete_interes');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Intereses
      *
      * @Route("/intereses/{slug}", name="delete_intereses")
@@ -452,54 +458,6 @@ class ApiInteresController extends ApiController
         );
         if($interes){
             $form = $this->createDeleteForm($slug,'delete_intereses');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $interes){
-                $em = $this->getManager();
-                $em->remove($interes);
-                $em->flush();
-                $rta = $interes;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Interes
-     *
-     * @Route("/interes/{slug}", name="delete_interes")
-     * @Route("/interes/{slug}/", name="delete_interes_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteInteresAction(Request $request, $slug)
-    {
-        $interes = $this->getInteresRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($interes){
-            $form = $this->createDeleteForm($slug,'delete_interes');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

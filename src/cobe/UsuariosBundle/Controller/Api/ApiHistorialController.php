@@ -29,7 +29,7 @@ use cobe\UsuariosBundle\Repository\HistorialRepository;
 /**
  * API Historial Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\UsuariosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiHistorialController extends ApiController
     public function optionsHistorialesAction(Request $request)
     {
         $opciones = array(
-            '/historiales' => array(
+            array(
                 'route'         => '/historiales',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los historiales.',
@@ -65,7 +65,16 @@ class ApiHistorialController extends ApiController
                     '/historiales/',
                 ),
             ),
-            '/historiales/params' => array(
+            array(
+                'route'         => '/historiales/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los historiales.',
+                'examples'       => array(
+                    '/historiales/{id}',
+                    '/historiales/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/historiales/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiHistorialController extends ApiController
                     '/historiales/params/?historial[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/historiales/o{offset}/' => array(
+            array(
                 'route'         => '/historiales/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiHistorialController extends ApiController
                     '/historiales/o10',
                 ),
             ),
-            '/historiales/l{limit}/' => array(
+            array(
                 'route'         => '/historiales/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiHistorialController extends ApiController
                     '/historiales/l10',
                 ),
             ),
-            '/historiales/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/historiales/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiHistorialController extends ApiController
                     '/historiales/o10/l10',
                 ),
             ),
-            '/historiales/new' => array(
+            array(
                 'route'         => '/historiales/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiHistorialController extends ApiController
                     '/historiales/new',
                 ),
             ),
-            '/historiales' => array(
+            array(
                 'route'         => '/historiales',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/historiales/',
                     '/historiales',
+                ),
+            ),
+            array(
+                'route'         => '/historiales/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de historial para editar.',
+                'examples'       => array(
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/historiales/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de historial.',
+                'examples'       => array(
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/historiales/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de historial',
+                'examples'       => array(
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/historiales/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar historial.',
+                'examples'       => array(
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/historiales/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra historial.',
+                'examples'       => array(
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/historiales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiHistorialController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Historiales.
-     *
-     * @Route("/historiales", name="patch_historiales")
-     * @Route("/historiales/", name="patch_historiales_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchHistorialesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiHistorialController extends ApiController
     /**
      * Valida los datos y modifica atributos de Historial existente.
      *
-     * @Route("/historial/{slug}", name="patch_historial")
-     * @Route("/historial/{slug}/", name="patch_historial_")
+     * @Route("/historiales/{slug}", name="patch_historiales")
+     * @Route("/historiales/{slug}/", name="patch_historiales_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiHistorialController extends ApiController
             }
             $rta = $historial;
         }
-        return $this->getJsonResponse($historial, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiHistorialController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Historial.
-     *
-     * @Route("/historial/{slug}/remove", name="remove_historial")
-     * @Route("/historial/{slug}/remove/", name="remove_historial_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeHistorialAction(Request $request, $slug)
-    {
-        $historial = $this->getHistorialRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($historial){
-            $form = $this->createDeleteForm($slug,'delete_historial');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Historiales
      *
      * @Route("/historiales/{slug}", name="delete_historiales")
@@ -452,54 +458,6 @@ class ApiHistorialController extends ApiController
         );
         if($historial){
             $form = $this->createDeleteForm($slug,'delete_historiales');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $historial){
-                $em = $this->getManager();
-                $em->remove($historial);
-                $em->flush();
-                $rta = $historial;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Historial
-     *
-     * @Route("/historial/{slug}", name="delete_historial")
-     * @Route("/historial/{slug}/", name="delete_historial_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteHistorialAction(Request $request, $slug)
-    {
-        $historial = $this->getHistorialRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($historial){
-            $form = $this->createDeleteForm($slug,'delete_historial');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

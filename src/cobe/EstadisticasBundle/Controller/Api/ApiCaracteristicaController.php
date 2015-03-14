@@ -29,7 +29,7 @@ use cobe\EstadisticasBundle\Repository\CaracteristicaRepository;
 /**
  * API Caracteristica Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\EstadisticasBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiCaracteristicaController extends ApiController
     public function optionsCaracteristicasAction(Request $request)
     {
         $opciones = array(
-            '/caracteristicas' => array(
+            array(
                 'route'         => '/caracteristicas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los caracteristicas.',
@@ -65,7 +65,16 @@ class ApiCaracteristicaController extends ApiController
                     '/caracteristicas/',
                 ),
             ),
-            '/caracteristicas/params' => array(
+            array(
+                'route'         => '/caracteristicas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los caracteristicas.',
+                'examples'       => array(
+                    '/caracteristicas/{id}',
+                    '/caracteristicas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/caracteristicas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiCaracteristicaController extends ApiController
                     '/caracteristicas/params/?caracteristica[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/caracteristicas/o{offset}/' => array(
+            array(
                 'route'         => '/caracteristicas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiCaracteristicaController extends ApiController
                     '/caracteristicas/o10',
                 ),
             ),
-            '/caracteristicas/l{limit}/' => array(
+            array(
                 'route'         => '/caracteristicas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiCaracteristicaController extends ApiController
                     '/caracteristicas/l10',
                 ),
             ),
-            '/caracteristicas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/caracteristicas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiCaracteristicaController extends ApiController
                     '/caracteristicas/o10/l10',
                 ),
             ),
-            '/caracteristicas/new' => array(
+            array(
                 'route'         => '/caracteristicas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiCaracteristicaController extends ApiController
                     '/caracteristicas/new',
                 ),
             ),
-            '/caracteristicas' => array(
+            array(
                 'route'         => '/caracteristicas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/caracteristicas/',
                     '/caracteristicas',
+                ),
+            ),
+            array(
+                'route'         => '/caracteristicas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de caracteristica para editar.',
+                'examples'       => array(
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/caracteristicas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de caracteristica.',
+                'examples'       => array(
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/caracteristicas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de caracteristica',
+                'examples'       => array(
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/caracteristicas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar caracteristica.',
+                'examples'       => array(
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/caracteristicas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra caracteristica.',
+                'examples'       => array(
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiCaracteristicaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Caracteristicas.
-     *
-     * @Route("/caracteristicas", name="patch_caracteristicas")
-     * @Route("/caracteristicas/", name="patch_caracteristicas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchCaracteristicasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiCaracteristicaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Caracteristica existente.
      *
-     * @Route("/caracteristica/{slug}", name="patch_caracteristica")
-     * @Route("/caracteristica/{slug}/", name="patch_caracteristica_")
+     * @Route("/caracteristicas/{slug}", name="patch_caracteristicas")
+     * @Route("/caracteristicas/{slug}/", name="patch_caracteristicas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiCaracteristicaController extends ApiController
             }
             $rta = $caracteristica;
         }
-        return $this->getJsonResponse($caracteristica, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiCaracteristicaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Caracteristica.
-     *
-     * @Route("/caracteristica/{slug}/remove", name="remove_caracteristica")
-     * @Route("/caracteristica/{slug}/remove/", name="remove_caracteristica_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeCaracteristicaAction(Request $request, $slug)
-    {
-        $caracteristica = $this->getCaracteristicaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($caracteristica){
-            $form = $this->createDeleteForm($slug,'delete_caracteristica');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Caracteristicas
      *
      * @Route("/caracteristicas/{slug}", name="delete_caracteristicas")
@@ -452,54 +458,6 @@ class ApiCaracteristicaController extends ApiController
         );
         if($caracteristica){
             $form = $this->createDeleteForm($slug,'delete_caracteristicas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $caracteristica){
-                $em = $this->getManager();
-                $em->remove($caracteristica);
-                $em->flush();
-                $rta = $caracteristica;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Caracteristica
-     *
-     * @Route("/caracteristica/{slug}", name="delete_caracteristica")
-     * @Route("/caracteristica/{slug}/", name="delete_caracteristica_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteCaracteristicaAction(Request $request, $slug)
-    {
-        $caracteristica = $this->getCaracteristicaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($caracteristica){
-            $form = $this->createDeleteForm($slug,'delete_caracteristica');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

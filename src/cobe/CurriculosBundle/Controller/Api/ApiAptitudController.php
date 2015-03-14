@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\AptitudRepository;
 /**
  * API Aptitud Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiAptitudController extends ApiController
     public function optionsAptitudesAction(Request $request)
     {
         $opciones = array(
-            '/aptitudes' => array(
+            array(
                 'route'         => '/aptitudes',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los aptitudes.',
@@ -65,7 +65,16 @@ class ApiAptitudController extends ApiController
                     '/aptitudes/',
                 ),
             ),
-            '/aptitudes/params' => array(
+            array(
+                'route'         => '/aptitudes/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los aptitudes.',
+                'examples'       => array(
+                    '/aptitudes/{id}',
+                    '/aptitudes/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/aptitudes/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiAptitudController extends ApiController
                     '/aptitudes/params/?aptitud[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/aptitudes/o{offset}/' => array(
+            array(
                 'route'         => '/aptitudes/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiAptitudController extends ApiController
                     '/aptitudes/o10',
                 ),
             ),
-            '/aptitudes/l{limit}/' => array(
+            array(
                 'route'         => '/aptitudes/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiAptitudController extends ApiController
                     '/aptitudes/l10',
                 ),
             ),
-            '/aptitudes/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/aptitudes/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiAptitudController extends ApiController
                     '/aptitudes/o10/l10',
                 ),
             ),
-            '/aptitudes/new' => array(
+            array(
                 'route'         => '/aptitudes/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiAptitudController extends ApiController
                     '/aptitudes/new',
                 ),
             ),
-            '/aptitudes' => array(
+            array(
                 'route'         => '/aptitudes',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/aptitudes/',
                     '/aptitudes',
+                ),
+            ),
+            array(
+                'route'         => '/aptitudes/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de aptitud para editar.',
+                'examples'       => array(
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/aptitudes/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de aptitud.',
+                'examples'       => array(
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/aptitudes/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de aptitud',
+                'examples'       => array(
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/aptitudes/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar aptitud.',
+                'examples'       => array(
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/aptitudes/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra aptitud.',
+                'examples'       => array(
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiAptitudController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Aptitudes.
-     *
-     * @Route("/aptitudes", name="patch_aptitudes")
-     * @Route("/aptitudes/", name="patch_aptitudes_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchAptitudesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiAptitudController extends ApiController
     /**
      * Valida los datos y modifica atributos de Aptitud existente.
      *
-     * @Route("/aptitud/{slug}", name="patch_aptitud")
-     * @Route("/aptitud/{slug}/", name="patch_aptitud_")
+     * @Route("/aptitudes/{slug}", name="patch_aptitudes")
+     * @Route("/aptitudes/{slug}/", name="patch_aptitudes_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiAptitudController extends ApiController
             }
             $rta = $aptitud;
         }
-        return $this->getJsonResponse($aptitud, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiAptitudController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Aptitud.
-     *
-     * @Route("/aptitud/{slug}/remove", name="remove_aptitud")
-     * @Route("/aptitud/{slug}/remove/", name="remove_aptitud_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeAptitudAction(Request $request, $slug)
-    {
-        $aptitud = $this->getAptitudRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($aptitud){
-            $form = $this->createDeleteForm($slug,'delete_aptitud');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Aptitudes
      *
      * @Route("/aptitudes/{slug}", name="delete_aptitudes")
@@ -452,54 +458,6 @@ class ApiAptitudController extends ApiController
         );
         if($aptitud){
             $form = $this->createDeleteForm($slug,'delete_aptitudes');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $aptitud){
-                $em = $this->getManager();
-                $em->remove($aptitud);
-                $em->flush();
-                $rta = $aptitud;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Aptitud
-     *
-     * @Route("/aptitud/{slug}", name="delete_aptitud")
-     * @Route("/aptitud/{slug}/", name="delete_aptitud_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteAptitudAction(Request $request, $slug)
-    {
-        $aptitud = $this->getAptitudRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($aptitud){
-            $form = $this->createDeleteForm($slug,'delete_aptitud');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

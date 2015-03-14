@@ -29,7 +29,7 @@ use cobe\UsuariosBundle\Repository\PersonaRepository;
 /**
  * API Persona Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\UsuariosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiPersonaController extends ApiController
     public function optionsPersonasAction(Request $request)
     {
         $opciones = array(
-            '/personas' => array(
+            array(
                 'route'         => '/personas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los personas.',
@@ -65,7 +65,16 @@ class ApiPersonaController extends ApiController
                     '/personas/',
                 ),
             ),
-            '/personas/params' => array(
+            array(
+                'route'         => '/personas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los personas.',
+                'examples'       => array(
+                    '/personas/{id}',
+                    '/personas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/personas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiPersonaController extends ApiController
                     '/personas/params/?persona[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/personas/o{offset}/' => array(
+            array(
                 'route'         => '/personas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiPersonaController extends ApiController
                     '/personas/o10',
                 ),
             ),
-            '/personas/l{limit}/' => array(
+            array(
                 'route'         => '/personas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiPersonaController extends ApiController
                     '/personas/l10',
                 ),
             ),
-            '/personas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/personas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiPersonaController extends ApiController
                     '/personas/o10/l10',
                 ),
             ),
-            '/personas/new' => array(
+            array(
                 'route'         => '/personas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiPersonaController extends ApiController
                     '/personas/new',
                 ),
             ),
-            '/personas' => array(
+            array(
                 'route'         => '/personas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/personas/',
                     '/personas',
+                ),
+            ),
+            array(
+                'route'         => '/personas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de persona para editar.',
+                'examples'       => array(
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/personas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de persona.',
+                'examples'       => array(
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/personas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de persona',
+                'examples'       => array(
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/personas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar persona.',
+                'examples'       => array(
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/personas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra persona.',
+                'examples'       => array(
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiPersonaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Personas.
-     *
-     * @Route("/personas", name="patch_personas")
-     * @Route("/personas/", name="patch_personas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchPersonasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiPersonaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Persona existente.
      *
-     * @Route("/persona/{slug}", name="patch_persona")
-     * @Route("/persona/{slug}/", name="patch_persona_")
+     * @Route("/personas/{slug}", name="patch_personas")
+     * @Route("/personas/{slug}/", name="patch_personas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiPersonaController extends ApiController
             }
             $rta = $persona;
         }
-        return $this->getJsonResponse($persona, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiPersonaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Persona.
-     *
-     * @Route("/persona/{slug}/remove", name="remove_persona")
-     * @Route("/persona/{slug}/remove/", name="remove_persona_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removePersonaAction(Request $request, $slug)
-    {
-        $persona = $this->getPersonaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($persona){
-            $form = $this->createDeleteForm($slug,'delete_persona');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Personas
      *
      * @Route("/personas/{slug}", name="delete_personas")
@@ -452,54 +458,6 @@ class ApiPersonaController extends ApiController
         );
         if($persona){
             $form = $this->createDeleteForm($slug,'delete_personas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $persona){
-                $em = $this->getManager();
-                $em->remove($persona);
-                $em->flush();
-                $rta = $persona;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Persona
-     *
-     * @Route("/persona/{slug}", name="delete_persona")
-     * @Route("/persona/{slug}/", name="delete_persona_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deletePersonaAction(Request $request, $slug)
-    {
-        $persona = $this->getPersonaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($persona){
-            $form = $this->createDeleteForm($slug,'delete_persona');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

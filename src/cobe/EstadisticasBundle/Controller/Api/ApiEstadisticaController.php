@@ -29,7 +29,7 @@ use cobe\EstadisticasBundle\Repository\EstadisticaRepository;
 /**
  * API Estadistica Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\EstadisticasBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiEstadisticaController extends ApiController
     public function optionsEstadisticasAction(Request $request)
     {
         $opciones = array(
-            '/estadisticas' => array(
+            array(
                 'route'         => '/estadisticas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los estadisticas.',
@@ -65,7 +65,16 @@ class ApiEstadisticaController extends ApiController
                     '/estadisticas/',
                 ),
             ),
-            '/estadisticas/params' => array(
+            array(
+                'route'         => '/estadisticas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los estadisticas.',
+                'examples'       => array(
+                    '/estadisticas/{id}',
+                    '/estadisticas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/estadisticas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiEstadisticaController extends ApiController
                     '/estadisticas/params/?estadistica[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/estadisticas/o{offset}/' => array(
+            array(
                 'route'         => '/estadisticas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiEstadisticaController extends ApiController
                     '/estadisticas/o10',
                 ),
             ),
-            '/estadisticas/l{limit}/' => array(
+            array(
                 'route'         => '/estadisticas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiEstadisticaController extends ApiController
                     '/estadisticas/l10',
                 ),
             ),
-            '/estadisticas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/estadisticas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiEstadisticaController extends ApiController
                     '/estadisticas/o10/l10',
                 ),
             ),
-            '/estadisticas/new' => array(
+            array(
                 'route'         => '/estadisticas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiEstadisticaController extends ApiController
                     '/estadisticas/new',
                 ),
             ),
-            '/estadisticas' => array(
+            array(
                 'route'         => '/estadisticas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/estadisticas/',
                     '/estadisticas',
+                ),
+            ),
+            array(
+                'route'         => '/estadisticas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de estadistica para editar.',
+                'examples'       => array(
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/estadisticas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de estadistica.',
+                'examples'       => array(
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estadisticas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de estadistica',
+                'examples'       => array(
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estadisticas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar estadistica.',
+                'examples'       => array(
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/estadisticas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra estadistica.',
+                'examples'       => array(
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiEstadisticaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Estadisticas.
-     *
-     * @Route("/estadisticas", name="patch_estadisticas")
-     * @Route("/estadisticas/", name="patch_estadisticas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchEstadisticasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiEstadisticaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Estadistica existente.
      *
-     * @Route("/estadistica/{slug}", name="patch_estadistica")
-     * @Route("/estadistica/{slug}/", name="patch_estadistica_")
+     * @Route("/estadisticas/{slug}", name="patch_estadisticas")
+     * @Route("/estadisticas/{slug}/", name="patch_estadisticas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiEstadisticaController extends ApiController
             }
             $rta = $estadistica;
         }
-        return $this->getJsonResponse($estadistica, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiEstadisticaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Estadistica.
-     *
-     * @Route("/estadistica/{slug}/remove", name="remove_estadistica")
-     * @Route("/estadistica/{slug}/remove/", name="remove_estadistica_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeEstadisticaAction(Request $request, $slug)
-    {
-        $estadistica = $this->getEstadisticaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($estadistica){
-            $form = $this->createDeleteForm($slug,'delete_estadistica');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Estadisticas
      *
      * @Route("/estadisticas/{slug}", name="delete_estadisticas")
@@ -452,54 +458,6 @@ class ApiEstadisticaController extends ApiController
         );
         if($estadistica){
             $form = $this->createDeleteForm($slug,'delete_estadisticas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $estadistica){
-                $em = $this->getManager();
-                $em->remove($estadistica);
-                $em->flush();
-                $rta = $estadistica;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Estadistica
-     *
-     * @Route("/estadistica/{slug}", name="delete_estadistica")
-     * @Route("/estadistica/{slug}/", name="delete_estadistica_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteEstadisticaAction(Request $request, $slug)
-    {
-        $estadistica = $this->getEstadisticaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($estadistica){
-            $form = $this->createDeleteForm($slug,'delete_estadistica');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

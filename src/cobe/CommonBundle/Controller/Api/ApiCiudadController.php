@@ -56,7 +56,7 @@ class ApiCiudadController extends ApiController
     public function optionsCiudadesAction(Request $request)
     {
         $opciones = array(
-            '/ciudades' => array(
+            array(
                 'route'         => '/ciudades',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los ciudades.',
@@ -65,7 +65,16 @@ class ApiCiudadController extends ApiController
                     '/ciudades/',
                 ),
             ),
-            '/ciudades/params' => array(
+            array(
+                'route'         => '/ciudades/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los ciudades.',
+                'examples'       => array(
+                    '/ciudades/{id}',
+                    '/ciudades/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/ciudades/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiCiudadController extends ApiController
                     '/ciudades/params/?ciudad[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/ciudades/o{offset}/' => array(
+            array(
                 'route'         => '/ciudades/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiCiudadController extends ApiController
                     '/ciudades/o10',
                 ),
             ),
-            '/ciudades/l{limit}/' => array(
+            array(
                 'route'         => '/ciudades/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiCiudadController extends ApiController
                     '/ciudades/l10',
                 ),
             ),
-            '/ciudades/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/ciudades/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiCiudadController extends ApiController
                     '/ciudades/o10/l10',
                 ),
             ),
-            '/ciudades/new' => array(
+            array(
                 'route'         => '/ciudades/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiCiudadController extends ApiController
                     '/ciudades/new',
                 ),
             ),
-            '/ciudades' => array(
+            array(
                 'route'         => '/ciudades',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/ciudades/',
                     '/ciudades',
+                ),
+            ),
+            array(
+                'route'         => '/ciudades/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de ciudad para editar.',
+                'examples'       => array(
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/ciudades/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de ciudad.',
+                'examples'       => array(
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/ciudades/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de ciudad',
+                'examples'       => array(
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/ciudades/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar ciudad.',
+                'examples'       => array(
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/ciudades/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra ciudad.',
+                'examples'       => array(
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiCiudadController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Ciudades.
-     *
-     * @Route("/ciudades", name="patch_ciudades")
-     * @Route("/ciudades/", name="patch_ciudades_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchCiudadesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiCiudadController extends ApiController
     /**
      * Valida los datos y modifica atributos de Ciudad existente.
      *
-     * @Route("/ciudad/{slug}", name="patch_ciudad")
-     * @Route("/ciudad/{slug}/", name="patch_ciudad_")
+     * @Route("/ciudades/{slug}", name="patch_ciudades")
+     * @Route("/ciudades/{slug}/", name="patch_ciudades_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiCiudadController extends ApiController
             }
             $rta = $ciudad;
         }
-        return $this->getJsonResponse($ciudad, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiCiudadController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Ciudad.
-     *
-     * @Route("/ciudad/{slug}/remove", name="remove_ciudad")
-     * @Route("/ciudad/{slug}/remove/", name="remove_ciudad_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeCiudadAction(Request $request, $slug)
-    {
-        $ciudad = $this->getCiudadRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($ciudad){
-            $form = $this->createDeleteForm($slug,'delete_ciudad');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Ciudades
      *
      * @Route("/ciudades/{slug}", name="delete_ciudades")
@@ -452,54 +458,6 @@ class ApiCiudadController extends ApiController
         );
         if($ciudad){
             $form = $this->createDeleteForm($slug,'delete_ciudades');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $ciudad){
-                $em = $this->getManager();
-                $em->remove($ciudad);
-                $em->flush();
-                $rta = $ciudad;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Ciudad
-     *
-     * @Route("/ciudad/{slug}", name="delete_ciudad")
-     * @Route("/ciudad/{slug}/", name="delete_ciudad_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteCiudadAction(Request $request, $slug)
-    {
-        $ciudad = $this->getCiudadRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($ciudad){
-            $form = $this->createDeleteForm($slug,'delete_ciudad');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

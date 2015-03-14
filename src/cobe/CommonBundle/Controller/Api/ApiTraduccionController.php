@@ -56,7 +56,7 @@ class ApiTraduccionController extends ApiController
     public function optionsTraduccionesAction(Request $request)
     {
         $opciones = array(
-            '/traducciones' => array(
+            array(
                 'route'         => '/traducciones',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los traducciones.',
@@ -65,7 +65,16 @@ class ApiTraduccionController extends ApiController
                     '/traducciones/',
                 ),
             ),
-            '/traducciones/params' => array(
+            array(
+                'route'         => '/traducciones/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los traducciones.',
+                'examples'       => array(
+                    '/traducciones/{id}',
+                    '/traducciones/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/traducciones/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiTraduccionController extends ApiController
                     '/traducciones/params/?traduccion[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/traducciones/o{offset}/' => array(
+            array(
                 'route'         => '/traducciones/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiTraduccionController extends ApiController
                     '/traducciones/o10',
                 ),
             ),
-            '/traducciones/l{limit}/' => array(
+            array(
                 'route'         => '/traducciones/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiTraduccionController extends ApiController
                     '/traducciones/l10',
                 ),
             ),
-            '/traducciones/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/traducciones/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiTraduccionController extends ApiController
                     '/traducciones/o10/l10',
                 ),
             ),
-            '/traducciones/new' => array(
+            array(
                 'route'         => '/traducciones/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiTraduccionController extends ApiController
                     '/traducciones/new',
                 ),
             ),
-            '/traducciones' => array(
+            array(
                 'route'         => '/traducciones',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/traducciones/',
                     '/traducciones',
+                ),
+            ),
+            array(
+                'route'         => '/traducciones/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de traduccion para editar.',
+                'examples'       => array(
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/traducciones/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de traduccion.',
+                'examples'       => array(
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/traducciones/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de traduccion',
+                'examples'       => array(
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/traducciones/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar traduccion.',
+                'examples'       => array(
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/traducciones/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra traduccion.',
+                'examples'       => array(
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiTraduccionController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Traducciones.
-     *
-     * @Route("/traducciones", name="patch_traducciones")
-     * @Route("/traducciones/", name="patch_traducciones_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchTraduccionesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiTraduccionController extends ApiController
     /**
      * Valida los datos y modifica atributos de Traduccion existente.
      *
-     * @Route("/traduccion/{slug}", name="patch_traduccion")
-     * @Route("/traduccion/{slug}/", name="patch_traduccion_")
+     * @Route("/traducciones/{slug}", name="patch_traducciones")
+     * @Route("/traducciones/{slug}/", name="patch_traducciones_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiTraduccionController extends ApiController
             }
             $rta = $traduccion;
         }
-        return $this->getJsonResponse($traduccion, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiTraduccionController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Traduccion.
-     *
-     * @Route("/traduccion/{slug}/remove", name="remove_traduccion")
-     * @Route("/traduccion/{slug}/remove/", name="remove_traduccion_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeTraduccionAction(Request $request, $slug)
-    {
-        $traduccion = $this->getTraduccionRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($traduccion){
-            $form = $this->createDeleteForm($slug,'delete_traduccion');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Traducciones
      *
      * @Route("/traducciones/{slug}", name="delete_traducciones")
@@ -452,54 +458,6 @@ class ApiTraduccionController extends ApiController
         );
         if($traduccion){
             $form = $this->createDeleteForm($slug,'delete_traducciones');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $traduccion){
-                $em = $this->getManager();
-                $em->remove($traduccion);
-                $em->flush();
-                $rta = $traduccion;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Traduccion
-     *
-     * @Route("/traduccion/{slug}", name="delete_traduccion")
-     * @Route("/traduccion/{slug}/", name="delete_traduccion_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteTraduccionAction(Request $request, $slug)
-    {
-        $traduccion = $this->getTraduccionRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($traduccion){
-            $form = $this->createDeleteForm($slug,'delete_traduccion');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

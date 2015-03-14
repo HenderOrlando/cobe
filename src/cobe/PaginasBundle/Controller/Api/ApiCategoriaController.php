@@ -29,7 +29,7 @@ use cobe\PaginasBundle\Repository\CategoriaRepository;
 /**
  * API Categoria Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\PaginasBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiCategoriaController extends ApiController
     public function optionsCategoriasAction(Request $request)
     {
         $opciones = array(
-            '/categorias' => array(
+            array(
                 'route'         => '/categorias',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los categorias.',
@@ -65,7 +65,16 @@ class ApiCategoriaController extends ApiController
                     '/categorias/',
                 ),
             ),
-            '/categorias/params' => array(
+            array(
+                'route'         => '/categorias/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los categorias.',
+                'examples'       => array(
+                    '/categorias/{id}',
+                    '/categorias/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/categorias/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiCategoriaController extends ApiController
                     '/categorias/params/?categoria[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/categorias/o{offset}/' => array(
+            array(
                 'route'         => '/categorias/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiCategoriaController extends ApiController
                     '/categorias/o10',
                 ),
             ),
-            '/categorias/l{limit}/' => array(
+            array(
                 'route'         => '/categorias/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiCategoriaController extends ApiController
                     '/categorias/l10',
                 ),
             ),
-            '/categorias/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/categorias/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiCategoriaController extends ApiController
                     '/categorias/o10/l10',
                 ),
             ),
-            '/categorias/new' => array(
+            array(
                 'route'         => '/categorias/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiCategoriaController extends ApiController
                     '/categorias/new',
                 ),
             ),
-            '/categorias' => array(
+            array(
                 'route'         => '/categorias',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/categorias/',
                     '/categorias',
+                ),
+            ),
+            array(
+                'route'         => '/categorias/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de categoria para editar.',
+                'examples'       => array(
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/categorias/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de categoria.',
+                'examples'       => array(
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/categorias/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de categoria',
+                'examples'       => array(
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/categorias/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar categoria.',
+                'examples'       => array(
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/categorias/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra categoria.',
+                'examples'       => array(
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiCategoriaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Categorias.
-     *
-     * @Route("/categorias", name="patch_categorias")
-     * @Route("/categorias/", name="patch_categorias_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchCategoriasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiCategoriaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Categoria existente.
      *
-     * @Route("/categoria/{slug}", name="patch_categoria")
-     * @Route("/categoria/{slug}/", name="patch_categoria_")
+     * @Route("/categorias/{slug}", name="patch_categorias")
+     * @Route("/categorias/{slug}/", name="patch_categorias_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiCategoriaController extends ApiController
             }
             $rta = $categoria;
         }
-        return $this->getJsonResponse($categoria, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiCategoriaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Categoria.
-     *
-     * @Route("/categoria/{slug}/remove", name="remove_categoria")
-     * @Route("/categoria/{slug}/remove/", name="remove_categoria_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeCategoriaAction(Request $request, $slug)
-    {
-        $categoria = $this->getCategoriaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($categoria){
-            $form = $this->createDeleteForm($slug,'delete_categoria');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Categorias
      *
      * @Route("/categorias/{slug}", name="delete_categorias")
@@ -452,54 +458,6 @@ class ApiCategoriaController extends ApiController
         );
         if($categoria){
             $form = $this->createDeleteForm($slug,'delete_categorias');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $categoria){
-                $em = $this->getManager();
-                $em->remove($categoria);
-                $em->flush();
-                $rta = $categoria;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Categoria
-     *
-     * @Route("/categoria/{slug}", name="delete_categoria")
-     * @Route("/categoria/{slug}/", name="delete_categoria_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteCategoriaAction(Request $request, $slug)
-    {
-        $categoria = $this->getCategoriaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($categoria){
-            $form = $this->createDeleteForm($slug,'delete_categoria');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

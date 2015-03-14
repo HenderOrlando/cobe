@@ -56,7 +56,7 @@ class ApiRolController extends ApiController
     public function optionsRolesAction(Request $request)
     {
         $opciones = array(
-            '/roles' => array(
+            array(
                 'route'         => '/roles',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los roles.',
@@ -65,7 +65,16 @@ class ApiRolController extends ApiController
                     '/roles/',
                 ),
             ),
-            '/roles/params' => array(
+            array(
+                'route'         => '/roles/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los roles.',
+                'examples'       => array(
+                    '/roles/{id}',
+                    '/roles/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/roles/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiRolController extends ApiController
                     '/roles/params/?rol[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/roles/o{offset}/' => array(
+            array(
                 'route'         => '/roles/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiRolController extends ApiController
                     '/roles/o10',
                 ),
             ),
-            '/roles/l{limit}/' => array(
+            array(
                 'route'         => '/roles/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiRolController extends ApiController
                     '/roles/l10',
                 ),
             ),
-            '/roles/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/roles/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiRolController extends ApiController
                     '/roles/o10/l10',
                 ),
             ),
-            '/roles/new' => array(
+            array(
                 'route'         => '/roles/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiRolController extends ApiController
                     '/roles/new',
                 ),
             ),
-            '/roles' => array(
+            array(
                 'route'         => '/roles',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/roles/',
                     '/roles',
+                ),
+            ),
+            array(
+                'route'         => '/roles/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de rol para editar.',
+                'examples'       => array(
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/roles/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de rol.',
+                'examples'       => array(
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/roles/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de rol',
+                'examples'       => array(
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/roles/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar rol.',
+                'examples'       => array(
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/roles/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra rol.',
+                'examples'       => array(
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiRolController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Roles.
-     *
-     * @Route("/roles", name="patch_roles")
-     * @Route("/roles/", name="patch_roles_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchRolesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiRolController extends ApiController
     /**
      * Valida los datos y modifica atributos de Rol existente.
      *
-     * @Route("/rol/{slug}", name="patch_rol")
-     * @Route("/rol/{slug}/", name="patch_rol_")
+     * @Route("/roles/{slug}", name="patch_roles")
+     * @Route("/roles/{slug}/", name="patch_roles_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiRolController extends ApiController
             }
             $rta = $rol;
         }
-        return $this->getJsonResponse($rol, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiRolController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Rol.
-     *
-     * @Route("/rol/{slug}/remove", name="remove_rol")
-     * @Route("/rol/{slug}/remove/", name="remove_rol_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeRolAction(Request $request, $slug)
-    {
-        $rol = $this->getRolRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($rol){
-            $form = $this->createDeleteForm($slug,'delete_rol');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Roles
      *
      * @Route("/roles/{slug}", name="delete_roles")
@@ -452,54 +458,6 @@ class ApiRolController extends ApiController
         );
         if($rol){
             $form = $this->createDeleteForm($slug,'delete_roles');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $rol){
-                $em = $this->getManager();
-                $em->remove($rol);
-                $em->flush();
-                $rta = $rol;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Rol
-     *
-     * @Route("/rol/{slug}", name="delete_rol")
-     * @Route("/rol/{slug}/", name="delete_rol_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteRolAction(Request $request, $slug)
-    {
-        $rol = $this->getRolRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($rol){
-            $form = $this->createDeleteForm($slug,'delete_rol');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

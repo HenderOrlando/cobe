@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\ReconocimientoRepository;
 /**
  * API Reconocimiento Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiReconocimientoController extends ApiController
     public function optionsReconocimientosAction(Request $request)
     {
         $opciones = array(
-            '/reconocimientos' => array(
+            array(
                 'route'         => '/reconocimientos',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los reconocimientos.',
@@ -65,7 +65,16 @@ class ApiReconocimientoController extends ApiController
                     '/reconocimientos/',
                 ),
             ),
-            '/reconocimientos/params' => array(
+            array(
+                'route'         => '/reconocimientos/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los reconocimientos.',
+                'examples'       => array(
+                    '/reconocimientos/{id}',
+                    '/reconocimientos/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/reconocimientos/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiReconocimientoController extends ApiController
                     '/reconocimientos/params/?reconocimiento[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/reconocimientos/o{offset}/' => array(
+            array(
                 'route'         => '/reconocimientos/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiReconocimientoController extends ApiController
                     '/reconocimientos/o10',
                 ),
             ),
-            '/reconocimientos/l{limit}/' => array(
+            array(
                 'route'         => '/reconocimientos/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiReconocimientoController extends ApiController
                     '/reconocimientos/l10',
                 ),
             ),
-            '/reconocimientos/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/reconocimientos/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiReconocimientoController extends ApiController
                     '/reconocimientos/o10/l10',
                 ),
             ),
-            '/reconocimientos/new' => array(
+            array(
                 'route'         => '/reconocimientos/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiReconocimientoController extends ApiController
                     '/reconocimientos/new',
                 ),
             ),
-            '/reconocimientos' => array(
+            array(
                 'route'         => '/reconocimientos',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/reconocimientos/',
                     '/reconocimientos',
+                ),
+            ),
+            array(
+                'route'         => '/reconocimientos/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de reconocimiento para editar.',
+                'examples'       => array(
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/reconocimientos/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de reconocimiento.',
+                'examples'       => array(
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/reconocimientos/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de reconocimiento',
+                'examples'       => array(
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/reconocimientos/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar reconocimiento.',
+                'examples'       => array(
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/reconocimientos/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra reconocimiento.',
+                'examples'       => array(
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/reconocimientos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiReconocimientoController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Reconocimientos.
-     *
-     * @Route("/reconocimientos", name="patch_reconocimientos")
-     * @Route("/reconocimientos/", name="patch_reconocimientos_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchReconocimientosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiReconocimientoController extends ApiController
     /**
      * Valida los datos y modifica atributos de Reconocimiento existente.
      *
-     * @Route("/reconocimiento/{slug}", name="patch_reconocimiento")
-     * @Route("/reconocimiento/{slug}/", name="patch_reconocimiento_")
+     * @Route("/reconocimientos/{slug}", name="patch_reconocimientos")
+     * @Route("/reconocimientos/{slug}/", name="patch_reconocimientos_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiReconocimientoController extends ApiController
             }
             $rta = $reconocimiento;
         }
-        return $this->getJsonResponse($reconocimiento, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiReconocimientoController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Reconocimiento.
-     *
-     * @Route("/reconocimiento/{slug}/remove", name="remove_reconocimiento")
-     * @Route("/reconocimiento/{slug}/remove/", name="remove_reconocimiento_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeReconocimientoAction(Request $request, $slug)
-    {
-        $reconocimiento = $this->getReconocimientoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($reconocimiento){
-            $form = $this->createDeleteForm($slug,'delete_reconocimiento');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Reconocimientos
      *
      * @Route("/reconocimientos/{slug}", name="delete_reconocimientos")
@@ -452,54 +458,6 @@ class ApiReconocimientoController extends ApiController
         );
         if($reconocimiento){
             $form = $this->createDeleteForm($slug,'delete_reconocimientos');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $reconocimiento){
-                $em = $this->getManager();
-                $em->remove($reconocimiento);
-                $em->flush();
-                $rta = $reconocimiento;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Reconocimiento
-     *
-     * @Route("/reconocimiento/{slug}", name="delete_reconocimiento")
-     * @Route("/reconocimiento/{slug}/", name="delete_reconocimiento_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteReconocimientoAction(Request $request, $slug)
-    {
-        $reconocimiento = $this->getReconocimientoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($reconocimiento){
-            $form = $this->createDeleteForm($slug,'delete_reconocimiento');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\ProyectoRepository;
 /**
  * API Proyecto Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiProyectoController extends ApiController
     public function optionsProyectosAction(Request $request)
     {
         $opciones = array(
-            '/proyectos' => array(
+            array(
                 'route'         => '/proyectos',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los proyectos.',
@@ -65,7 +65,16 @@ class ApiProyectoController extends ApiController
                     '/proyectos/',
                 ),
             ),
-            '/proyectos/params' => array(
+            array(
+                'route'         => '/proyectos/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los proyectos.',
+                'examples'       => array(
+                    '/proyectos/{id}',
+                    '/proyectos/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/proyectos/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiProyectoController extends ApiController
                     '/proyectos/params/?proyecto[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/proyectos/o{offset}/' => array(
+            array(
                 'route'         => '/proyectos/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiProyectoController extends ApiController
                     '/proyectos/o10',
                 ),
             ),
-            '/proyectos/l{limit}/' => array(
+            array(
                 'route'         => '/proyectos/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiProyectoController extends ApiController
                     '/proyectos/l10',
                 ),
             ),
-            '/proyectos/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/proyectos/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiProyectoController extends ApiController
                     '/proyectos/o10/l10',
                 ),
             ),
-            '/proyectos/new' => array(
+            array(
                 'route'         => '/proyectos/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiProyectoController extends ApiController
                     '/proyectos/new',
                 ),
             ),
-            '/proyectos' => array(
+            array(
                 'route'         => '/proyectos',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/proyectos/',
                     '/proyectos',
+                ),
+            ),
+            array(
+                'route'         => '/proyectos/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de proyecto para editar.',
+                'examples'       => array(
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/proyectos/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de proyecto.',
+                'examples'       => array(
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/proyectos/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de proyecto',
+                'examples'       => array(
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/proyectos/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar proyecto.',
+                'examples'       => array(
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/proyectos/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra proyecto.',
+                'examples'       => array(
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiProyectoController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Proyectos.
-     *
-     * @Route("/proyectos", name="patch_proyectos")
-     * @Route("/proyectos/", name="patch_proyectos_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchProyectosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiProyectoController extends ApiController
     /**
      * Valida los datos y modifica atributos de Proyecto existente.
      *
-     * @Route("/proyecto/{slug}", name="patch_proyecto")
-     * @Route("/proyecto/{slug}/", name="patch_proyecto_")
+     * @Route("/proyectos/{slug}", name="patch_proyectos")
+     * @Route("/proyectos/{slug}/", name="patch_proyectos_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiProyectoController extends ApiController
             }
             $rta = $proyecto;
         }
-        return $this->getJsonResponse($proyecto, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiProyectoController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Proyecto.
-     *
-     * @Route("/proyecto/{slug}/remove", name="remove_proyecto")
-     * @Route("/proyecto/{slug}/remove/", name="remove_proyecto_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeProyectoAction(Request $request, $slug)
-    {
-        $proyecto = $this->getProyectoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($proyecto){
-            $form = $this->createDeleteForm($slug,'delete_proyecto');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Proyectos
      *
      * @Route("/proyectos/{slug}", name="delete_proyectos")
@@ -452,54 +458,6 @@ class ApiProyectoController extends ApiController
         );
         if($proyecto){
             $form = $this->createDeleteForm($slug,'delete_proyectos');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $proyecto){
-                $em = $this->getManager();
-                $em->remove($proyecto);
-                $em->flush();
-                $rta = $proyecto;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Proyecto
-     *
-     * @Route("/proyecto/{slug}", name="delete_proyecto")
-     * @Route("/proyecto/{slug}/", name="delete_proyecto_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteProyectoAction(Request $request, $slug)
-    {
-        $proyecto = $this->getProyectoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($proyecto){
-            $form = $this->createDeleteForm($slug,'delete_proyecto');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

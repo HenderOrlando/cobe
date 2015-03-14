@@ -56,7 +56,7 @@ class ApiEstadoController extends ApiController
     public function optionsEstadosAction(Request $request)
     {
         $opciones = array(
-            '/estados' => array(
+            array(
                 'route'         => '/estados',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los estados.',
@@ -65,7 +65,16 @@ class ApiEstadoController extends ApiController
                     '/estados/',
                 ),
             ),
-            '/estados/params' => array(
+            array(
+                'route'         => '/estados/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los estados.',
+                'examples'       => array(
+                    '/estados/{id}',
+                    '/estados/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/estados/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiEstadoController extends ApiController
                     '/estados/params/?estado[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/estados/o{offset}/' => array(
+            array(
                 'route'         => '/estados/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiEstadoController extends ApiController
                     '/estados/o10',
                 ),
             ),
-            '/estados/l{limit}/' => array(
+            array(
                 'route'         => '/estados/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiEstadoController extends ApiController
                     '/estados/l10',
                 ),
             ),
-            '/estados/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/estados/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiEstadoController extends ApiController
                     '/estados/o10/l10',
                 ),
             ),
-            '/estados/new' => array(
+            array(
                 'route'         => '/estados/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiEstadoController extends ApiController
                     '/estados/new',
                 ),
             ),
-            '/estados' => array(
+            array(
                 'route'         => '/estados',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/estados/',
                     '/estados',
+                ),
+            ),
+            array(
+                'route'         => '/estados/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de estado para editar.',
+                'examples'       => array(
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/estados/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de estado.',
+                'examples'       => array(
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estados/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de estado',
+                'examples'       => array(
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estados/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar estado.',
+                'examples'       => array(
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/estados/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra estado.',
+                'examples'       => array(
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiEstadoController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Estados.
-     *
-     * @Route("/estados", name="patch_estados")
-     * @Route("/estados/", name="patch_estados_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchEstadosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiEstadoController extends ApiController
     /**
      * Valida los datos y modifica atributos de Estado existente.
      *
-     * @Route("/estado/{slug}", name="patch_estado")
-     * @Route("/estado/{slug}/", name="patch_estado_")
+     * @Route("/estados/{slug}", name="patch_estados")
+     * @Route("/estados/{slug}/", name="patch_estados_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiEstadoController extends ApiController
             }
             $rta = $estado;
         }
-        return $this->getJsonResponse($estado, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiEstadoController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Estado.
-     *
-     * @Route("/estado/{slug}/remove", name="remove_estado")
-     * @Route("/estado/{slug}/remove/", name="remove_estado_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeEstadoAction(Request $request, $slug)
-    {
-        $estado = $this->getEstadoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($estado){
-            $form = $this->createDeleteForm($slug,'delete_estado');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Estados
      *
      * @Route("/estados/{slug}", name="delete_estados")
@@ -452,54 +458,6 @@ class ApiEstadoController extends ApiController
         );
         if($estado){
             $form = $this->createDeleteForm($slug,'delete_estados');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $estado){
-                $em = $this->getManager();
-                $em->remove($estado);
-                $em->flush();
-                $rta = $estado;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Estado
-     *
-     * @Route("/estado/{slug}", name="delete_estado")
-     * @Route("/estado/{slug}/", name="delete_estado_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteEstadoAction(Request $request, $slug)
-    {
-        $estado = $this->getEstadoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($estado){
-            $form = $this->createDeleteForm($slug,'delete_estado');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

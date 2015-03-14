@@ -29,7 +29,7 @@ use cobe\UsuariosBundle\Repository\EmpresaRepository;
 /**
  * API Empresa Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\UsuariosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiEmpresaController extends ApiController
     public function optionsEmpresasAction(Request $request)
     {
         $opciones = array(
-            '/empresas' => array(
+            array(
                 'route'         => '/empresas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los empresas.',
@@ -65,7 +65,16 @@ class ApiEmpresaController extends ApiController
                     '/empresas/',
                 ),
             ),
-            '/empresas/params' => array(
+            array(
+                'route'         => '/empresas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los empresas.',
+                'examples'       => array(
+                    '/empresas/{id}',
+                    '/empresas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/empresas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiEmpresaController extends ApiController
                     '/empresas/params/?empresa[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/empresas/o{offset}/' => array(
+            array(
                 'route'         => '/empresas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiEmpresaController extends ApiController
                     '/empresas/o10',
                 ),
             ),
-            '/empresas/l{limit}/' => array(
+            array(
                 'route'         => '/empresas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiEmpresaController extends ApiController
                     '/empresas/l10',
                 ),
             ),
-            '/empresas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/empresas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiEmpresaController extends ApiController
                     '/empresas/o10/l10',
                 ),
             ),
-            '/empresas/new' => array(
+            array(
                 'route'         => '/empresas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiEmpresaController extends ApiController
                     '/empresas/new',
                 ),
             ),
-            '/empresas' => array(
+            array(
                 'route'         => '/empresas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/empresas/',
                     '/empresas',
+                ),
+            ),
+            array(
+                'route'         => '/empresas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de empresa para editar.',
+                'examples'       => array(
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/empresas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de empresa.',
+                'examples'       => array(
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/empresas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de empresa',
+                'examples'       => array(
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/empresas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar empresa.',
+                'examples'       => array(
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/empresas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra empresa.',
+                'examples'       => array(
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiEmpresaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Empresas.
-     *
-     * @Route("/empresas", name="patch_empresas")
-     * @Route("/empresas/", name="patch_empresas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchEmpresasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiEmpresaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Empresa existente.
      *
-     * @Route("/empresa/{slug}", name="patch_empresa")
-     * @Route("/empresa/{slug}/", name="patch_empresa_")
+     * @Route("/empresas/{slug}", name="patch_empresas")
+     * @Route("/empresas/{slug}/", name="patch_empresas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiEmpresaController extends ApiController
             }
             $rta = $empresa;
         }
-        return $this->getJsonResponse($empresa, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiEmpresaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Empresa.
-     *
-     * @Route("/empresa/{slug}/remove", name="remove_empresa")
-     * @Route("/empresa/{slug}/remove/", name="remove_empresa_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeEmpresaAction(Request $request, $slug)
-    {
-        $empresa = $this->getEmpresaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($empresa){
-            $form = $this->createDeleteForm($slug,'delete_empresa');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Empresas
      *
      * @Route("/empresas/{slug}", name="delete_empresas")
@@ -452,54 +458,6 @@ class ApiEmpresaController extends ApiController
         );
         if($empresa){
             $form = $this->createDeleteForm($slug,'delete_empresas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $empresa){
-                $em = $this->getManager();
-                $em->remove($empresa);
-                $em->flush();
-                $rta = $empresa;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Empresa
-     *
-     * @Route("/empresa/{slug}", name="delete_empresa")
-     * @Route("/empresa/{slug}/", name="delete_empresa_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteEmpresaAction(Request $request, $slug)
-    {
-        $empresa = $this->getEmpresaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($empresa){
-            $form = $this->createDeleteForm($slug,'delete_empresa');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

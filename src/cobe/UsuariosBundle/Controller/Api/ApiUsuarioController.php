@@ -29,7 +29,7 @@ use cobe\UsuariosBundle\Repository\UsuarioRepository;
 /**
  * API Usuario Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\UsuariosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiUsuarioController extends ApiController
     public function optionsUsuariosAction(Request $request)
     {
         $opciones = array(
-            '/usuarios' => array(
+            array(
                 'route'         => '/usuarios',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los usuarios.',
@@ -65,7 +65,16 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/',
                 ),
             ),
-            '/usuarios/params' => array(
+            array(
+                'route'         => '/usuarios/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los usuarios.',
+                'examples'       => array(
+                    '/usuarios/{id}',
+                    '/usuarios/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/usuarios/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/params/?usuario[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/usuarios/o{offset}/' => array(
+            array(
                 'route'         => '/usuarios/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/o10',
                 ),
             ),
-            '/usuarios/l{limit}/' => array(
+            array(
                 'route'         => '/usuarios/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/l10',
                 ),
             ),
-            '/usuarios/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/usuarios/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/o10/l10',
                 ),
             ),
-            '/usuarios/new' => array(
+            array(
                 'route'         => '/usuarios/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/new',
                 ),
             ),
-            '/usuarios' => array(
+            array(
                 'route'         => '/usuarios',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/usuarios/',
                     '/usuarios',
+                ),
+            ),
+            array(
+                'route'         => '/usuarios/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de usuario para editar.',
+                'examples'       => array(
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/usuarios/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de usuario.',
+                'examples'       => array(
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/usuarios/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de usuario',
+                'examples'       => array(
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/usuarios/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar usuario.',
+                'examples'       => array(
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/usuarios/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra usuario.',
+                'examples'       => array(
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiUsuarioController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Usuarios.
-     *
-     * @Route("/usuarios", name="patch_usuarios")
-     * @Route("/usuarios/", name="patch_usuarios_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchUsuariosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiUsuarioController extends ApiController
     /**
      * Valida los datos y modifica atributos de Usuario existente.
      *
-     * @Route("/usuario/{slug}", name="patch_usuario")
-     * @Route("/usuario/{slug}/", name="patch_usuario_")
+     * @Route("/usuarios/{slug}", name="patch_usuarios")
+     * @Route("/usuarios/{slug}/", name="patch_usuarios_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiUsuarioController extends ApiController
             }
             $rta = $usuario;
         }
-        return $this->getJsonResponse($usuario, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiUsuarioController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Usuario.
-     *
-     * @Route("/usuario/{slug}/remove", name="remove_usuario")
-     * @Route("/usuario/{slug}/remove/", name="remove_usuario_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeUsuarioAction(Request $request, $slug)
-    {
-        $usuario = $this->getUsuarioRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($usuario){
-            $form = $this->createDeleteForm($slug,'delete_usuario');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Usuarios
      *
      * @Route("/usuarios/{slug}", name="delete_usuarios")
@@ -452,54 +458,6 @@ class ApiUsuarioController extends ApiController
         );
         if($usuario){
             $form = $this->createDeleteForm($slug,'delete_usuarios');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $usuario){
-                $em = $this->getManager();
-                $em->remove($usuario);
-                $em->flush();
-                $rta = $usuario;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Usuario
-     *
-     * @Route("/usuario/{slug}", name="delete_usuario")
-     * @Route("/usuario/{slug}/", name="delete_usuario_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteUsuarioAction(Request $request, $slug)
-    {
-        $usuario = $this->getUsuarioRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($usuario){
-            $form = $this->createDeleteForm($slug,'delete_usuario');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

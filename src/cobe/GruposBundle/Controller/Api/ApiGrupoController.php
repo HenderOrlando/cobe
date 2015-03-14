@@ -29,7 +29,7 @@ use cobe\GruposBundle\Repository\GrupoRepository;
 /**
  * API Grupo Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\GruposBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiGrupoController extends ApiController
     public function optionsGruposAction(Request $request)
     {
         $opciones = array(
-            '/grupos' => array(
+            array(
                 'route'         => '/grupos',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los grupos.',
@@ -65,7 +65,16 @@ class ApiGrupoController extends ApiController
                     '/grupos/',
                 ),
             ),
-            '/grupos/params' => array(
+            array(
+                'route'         => '/grupos/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los grupos.',
+                'examples'       => array(
+                    '/grupos/{id}',
+                    '/grupos/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/grupos/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiGrupoController extends ApiController
                     '/grupos/params/?grupo[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/grupos/o{offset}/' => array(
+            array(
                 'route'         => '/grupos/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiGrupoController extends ApiController
                     '/grupos/o10',
                 ),
             ),
-            '/grupos/l{limit}/' => array(
+            array(
                 'route'         => '/grupos/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiGrupoController extends ApiController
                     '/grupos/l10',
                 ),
             ),
-            '/grupos/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/grupos/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiGrupoController extends ApiController
                     '/grupos/o10/l10',
                 ),
             ),
-            '/grupos/new' => array(
+            array(
                 'route'         => '/grupos/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiGrupoController extends ApiController
                     '/grupos/new',
                 ),
             ),
-            '/grupos' => array(
+            array(
                 'route'         => '/grupos',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/grupos/',
                     '/grupos',
+                ),
+            ),
+            array(
+                'route'         => '/grupos/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de grupo para editar.',
+                'examples'       => array(
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/grupos/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de grupo.',
+                'examples'       => array(
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/grupos/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de grupo',
+                'examples'       => array(
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/grupos/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar grupo.',
+                'examples'       => array(
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/grupos/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra grupo.',
+                'examples'       => array(
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiGrupoController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Grupos.
-     *
-     * @Route("/grupos", name="patch_grupos")
-     * @Route("/grupos/", name="patch_grupos_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchGruposAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiGrupoController extends ApiController
     /**
      * Valida los datos y modifica atributos de Grupo existente.
      *
-     * @Route("/grupo/{slug}", name="patch_grupo")
-     * @Route("/grupo/{slug}/", name="patch_grupo_")
+     * @Route("/grupos/{slug}", name="patch_grupos")
+     * @Route("/grupos/{slug}/", name="patch_grupos_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiGrupoController extends ApiController
             }
             $rta = $grupo;
         }
-        return $this->getJsonResponse($grupo, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiGrupoController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Grupo.
-     *
-     * @Route("/grupo/{slug}/remove", name="remove_grupo")
-     * @Route("/grupo/{slug}/remove/", name="remove_grupo_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeGrupoAction(Request $request, $slug)
-    {
-        $grupo = $this->getGrupoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($grupo){
-            $form = $this->createDeleteForm($slug,'delete_grupo');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Grupos
      *
      * @Route("/grupos/{slug}", name="delete_grupos")
@@ -452,54 +458,6 @@ class ApiGrupoController extends ApiController
         );
         if($grupo){
             $form = $this->createDeleteForm($slug,'delete_grupos');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $grupo){
-                $em = $this->getManager();
-                $em->remove($grupo);
-                $em->flush();
-                $rta = $grupo;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Grupo
-     *
-     * @Route("/grupo/{slug}", name="delete_grupo")
-     * @Route("/grupo/{slug}/", name="delete_grupo_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteGrupoAction(Request $request, $slug)
-    {
-        $grupo = $this->getGrupoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($grupo){
-            $form = $this->createDeleteForm($slug,'delete_grupo');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

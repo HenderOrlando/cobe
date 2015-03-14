@@ -29,7 +29,7 @@ use cobe\MensajesBundle\Repository\MensajeRepository;
 /**
  * API Mensaje Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\MensajesBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiMensajeController extends ApiController
     public function optionsMensajesAction(Request $request)
     {
         $opciones = array(
-            '/mensajes' => array(
+            array(
                 'route'         => '/mensajes',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los mensajes.',
@@ -65,7 +65,16 @@ class ApiMensajeController extends ApiController
                     '/mensajes/',
                 ),
             ),
-            '/mensajes/params' => array(
+            array(
+                'route'         => '/mensajes/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los mensajes.',
+                'examples'       => array(
+                    '/mensajes/{id}',
+                    '/mensajes/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/mensajes/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiMensajeController extends ApiController
                     '/mensajes/params/?mensaje[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/mensajes/o{offset}/' => array(
+            array(
                 'route'         => '/mensajes/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiMensajeController extends ApiController
                     '/mensajes/o10',
                 ),
             ),
-            '/mensajes/l{limit}/' => array(
+            array(
                 'route'         => '/mensajes/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiMensajeController extends ApiController
                     '/mensajes/l10',
                 ),
             ),
-            '/mensajes/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/mensajes/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiMensajeController extends ApiController
                     '/mensajes/o10/l10',
                 ),
             ),
-            '/mensajes/new' => array(
+            array(
                 'route'         => '/mensajes/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiMensajeController extends ApiController
                     '/mensajes/new',
                 ),
             ),
-            '/mensajes' => array(
+            array(
                 'route'         => '/mensajes',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/mensajes/',
                     '/mensajes',
+                ),
+            ),
+            array(
+                'route'         => '/mensajes/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de mensaje para editar.',
+                'examples'       => array(
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/mensajes/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de mensaje.',
+                'examples'       => array(
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/mensajes/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de mensaje',
+                'examples'       => array(
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/mensajes/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar mensaje.',
+                'examples'       => array(
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/mensajes/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra mensaje.',
+                'examples'       => array(
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiMensajeController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Mensajes.
-     *
-     * @Route("/mensajes", name="patch_mensajes")
-     * @Route("/mensajes/", name="patch_mensajes_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchMensajesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiMensajeController extends ApiController
     /**
      * Valida los datos y modifica atributos de Mensaje existente.
      *
-     * @Route("/mensaje/{slug}", name="patch_mensaje")
-     * @Route("/mensaje/{slug}/", name="patch_mensaje_")
+     * @Route("/mensajes/{slug}", name="patch_mensajes")
+     * @Route("/mensajes/{slug}/", name="patch_mensajes_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiMensajeController extends ApiController
             }
             $rta = $mensaje;
         }
-        return $this->getJsonResponse($mensaje, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiMensajeController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Mensaje.
-     *
-     * @Route("/mensaje/{slug}/remove", name="remove_mensaje")
-     * @Route("/mensaje/{slug}/remove/", name="remove_mensaje_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeMensajeAction(Request $request, $slug)
-    {
-        $mensaje = $this->getMensajeRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($mensaje){
-            $form = $this->createDeleteForm($slug,'delete_mensaje');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Mensajes
      *
      * @Route("/mensajes/{slug}", name="delete_mensajes")
@@ -452,54 +458,6 @@ class ApiMensajeController extends ApiController
         );
         if($mensaje){
             $form = $this->createDeleteForm($slug,'delete_mensajes');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $mensaje){
-                $em = $this->getManager();
-                $em->remove($mensaje);
-                $em->flush();
-                $rta = $mensaje;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Mensaje
-     *
-     * @Route("/mensaje/{slug}", name="delete_mensaje")
-     * @Route("/mensaje/{slug}/", name="delete_mensaje_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteMensajeAction(Request $request, $slug)
-    {
-        $mensaje = $this->getMensajeRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($mensaje){
-            $form = $this->createDeleteForm($slug,'delete_mensaje');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

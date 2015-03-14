@@ -29,7 +29,7 @@ use cobe\PaginasBundle\Repository\PublicacionRepository;
 /**
  * API Publicacion Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\PaginasBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiPublicacionController extends ApiController
     public function optionsPublicacionesAction(Request $request)
     {
         $opciones = array(
-            '/publicaciones' => array(
+            array(
                 'route'         => '/publicaciones',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los publicaciones.',
@@ -65,7 +65,16 @@ class ApiPublicacionController extends ApiController
                     '/publicaciones/',
                 ),
             ),
-            '/publicaciones/params' => array(
+            array(
+                'route'         => '/publicaciones/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los publicaciones.',
+                'examples'       => array(
+                    '/publicaciones/{id}',
+                    '/publicaciones/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/publicaciones/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiPublicacionController extends ApiController
                     '/publicaciones/params/?publicacion[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/publicaciones/o{offset}/' => array(
+            array(
                 'route'         => '/publicaciones/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiPublicacionController extends ApiController
                     '/publicaciones/o10',
                 ),
             ),
-            '/publicaciones/l{limit}/' => array(
+            array(
                 'route'         => '/publicaciones/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiPublicacionController extends ApiController
                     '/publicaciones/l10',
                 ),
             ),
-            '/publicaciones/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/publicaciones/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiPublicacionController extends ApiController
                     '/publicaciones/o10/l10',
                 ),
             ),
-            '/publicaciones/new' => array(
+            array(
                 'route'         => '/publicaciones/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiPublicacionController extends ApiController
                     '/publicaciones/new',
                 ),
             ),
-            '/publicaciones' => array(
+            array(
                 'route'         => '/publicaciones',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/publicaciones/',
                     '/publicaciones',
+                ),
+            ),
+            array(
+                'route'         => '/publicaciones/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de publicacion para editar.',
+                'examples'       => array(
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/publicaciones/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de publicacion.',
+                'examples'       => array(
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/publicaciones/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de publicacion',
+                'examples'       => array(
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/publicaciones/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar publicacion.',
+                'examples'       => array(
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/publicaciones/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra publicacion.',
+                'examples'       => array(
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiPublicacionController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Publicaciones.
-     *
-     * @Route("/publicaciones", name="patch_publicaciones")
-     * @Route("/publicaciones/", name="patch_publicaciones_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchPublicacionesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiPublicacionController extends ApiController
     /**
      * Valida los datos y modifica atributos de Publicacion existente.
      *
-     * @Route("/publicacion/{slug}", name="patch_publicacion")
-     * @Route("/publicacion/{slug}/", name="patch_publicacion_")
+     * @Route("/publicaciones/{slug}", name="patch_publicaciones")
+     * @Route("/publicaciones/{slug}/", name="patch_publicaciones_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiPublicacionController extends ApiController
             }
             $rta = $publicacion;
         }
-        return $this->getJsonResponse($publicacion, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiPublicacionController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Publicacion.
-     *
-     * @Route("/publicacion/{slug}/remove", name="remove_publicacion")
-     * @Route("/publicacion/{slug}/remove/", name="remove_publicacion_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removePublicacionAction(Request $request, $slug)
-    {
-        $publicacion = $this->getPublicacionRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($publicacion){
-            $form = $this->createDeleteForm($slug,'delete_publicacion');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Publicaciones
      *
      * @Route("/publicaciones/{slug}", name="delete_publicaciones")
@@ -452,54 +458,6 @@ class ApiPublicacionController extends ApiController
         );
         if($publicacion){
             $form = $this->createDeleteForm($slug,'delete_publicaciones');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $publicacion){
-                $em = $this->getManager();
-                $em->remove($publicacion);
-                $em->flush();
-                $rta = $publicacion;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Publicacion
-     *
-     * @Route("/publicacion/{slug}", name="delete_publicacion")
-     * @Route("/publicacion/{slug}/", name="delete_publicacion_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deletePublicacionAction(Request $request, $slug)
-    {
-        $publicacion = $this->getPublicacionRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($publicacion){
-            $form = $this->createDeleteForm($slug,'delete_publicacion');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

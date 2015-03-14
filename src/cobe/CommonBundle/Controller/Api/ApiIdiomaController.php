@@ -56,7 +56,7 @@ class ApiIdiomaController extends ApiController
     public function optionsIdiomasAction(Request $request)
     {
         $opciones = array(
-            '/idiomas' => array(
+            array(
                 'route'         => '/idiomas',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los idiomas.',
@@ -65,7 +65,16 @@ class ApiIdiomaController extends ApiController
                     '/idiomas/',
                 ),
             ),
-            '/idiomas/params' => array(
+            array(
+                'route'         => '/idiomas/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los idiomas.',
+                'examples'       => array(
+                    '/idiomas/{id}',
+                    '/idiomas/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/idiomas/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiIdiomaController extends ApiController
                     '/idiomas/params/?idioma[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/idiomas/o{offset}/' => array(
+            array(
                 'route'         => '/idiomas/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiIdiomaController extends ApiController
                     '/idiomas/o10',
                 ),
             ),
-            '/idiomas/l{limit}/' => array(
+            array(
                 'route'         => '/idiomas/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiIdiomaController extends ApiController
                     '/idiomas/l10',
                 ),
             ),
-            '/idiomas/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/idiomas/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiIdiomaController extends ApiController
                     '/idiomas/o10/l10',
                 ),
             ),
-            '/idiomas/new' => array(
+            array(
                 'route'         => '/idiomas/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiIdiomaController extends ApiController
                     '/idiomas/new',
                 ),
             ),
-            '/idiomas' => array(
+            array(
                 'route'         => '/idiomas',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/idiomas/',
                     '/idiomas',
+                ),
+            ),
+            array(
+                'route'         => '/idiomas/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de idioma para editar.',
+                'examples'       => array(
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/idiomas/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de idioma.',
+                'examples'       => array(
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/idiomas/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de idioma',
+                'examples'       => array(
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/idiomas/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar idioma.',
+                'examples'       => array(
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/idiomas/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra idioma.',
+                'examples'       => array(
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiIdiomaController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Idiomas.
-     *
-     * @Route("/idiomas", name="patch_idiomas")
-     * @Route("/idiomas/", name="patch_idiomas_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchIdiomasAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiIdiomaController extends ApiController
     /**
      * Valida los datos y modifica atributos de Idioma existente.
      *
-     * @Route("/idioma/{slug}", name="patch_idioma")
-     * @Route("/idioma/{slug}/", name="patch_idioma_")
+     * @Route("/idiomas/{slug}", name="patch_idiomas")
+     * @Route("/idiomas/{slug}/", name="patch_idiomas_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiIdiomaController extends ApiController
             }
             $rta = $idioma;
         }
-        return $this->getJsonResponse($idioma, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiIdiomaController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Idioma.
-     *
-     * @Route("/idioma/{slug}/remove", name="remove_idioma")
-     * @Route("/idioma/{slug}/remove/", name="remove_idioma_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeIdiomaAction(Request $request, $slug)
-    {
-        $idioma = $this->getIdiomaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($idioma){
-            $form = $this->createDeleteForm($slug,'delete_idioma');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Idiomas
      *
      * @Route("/idiomas/{slug}", name="delete_idiomas")
@@ -452,54 +458,6 @@ class ApiIdiomaController extends ApiController
         );
         if($idioma){
             $form = $this->createDeleteForm($slug,'delete_idiomas');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $idioma){
-                $em = $this->getManager();
-                $em->remove($idioma);
-                $em->flush();
-                $rta = $idioma;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Idioma
-     *
-     * @Route("/idioma/{slug}", name="delete_idioma")
-     * @Route("/idioma/{slug}/", name="delete_idioma_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteIdiomaAction(Request $request, $slug)
-    {
-        $idioma = $this->getIdiomaRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($idioma){
-            $form = $this->createDeleteForm($slug,'delete_idioma');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

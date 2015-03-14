@@ -29,7 +29,7 @@ use cobe\ColeccionesBundle\Repository\ArchivoRepository;
 /**
  * API Archivo Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\ColeccionesBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiArchivoController extends ApiController
     public function optionsArchivosAction(Request $request)
     {
         $opciones = array(
-            '/archivos' => array(
+            array(
                 'route'         => '/archivos',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los archivos.',
@@ -65,7 +65,16 @@ class ApiArchivoController extends ApiController
                     '/archivos/',
                 ),
             ),
-            '/archivos/params' => array(
+            array(
+                'route'         => '/archivos/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los archivos.',
+                'examples'       => array(
+                    '/archivos/{id}',
+                    '/archivos/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/archivos/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiArchivoController extends ApiController
                     '/archivos/params/?archivo[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/archivos/o{offset}/' => array(
+            array(
                 'route'         => '/archivos/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiArchivoController extends ApiController
                     '/archivos/o10',
                 ),
             ),
-            '/archivos/l{limit}/' => array(
+            array(
                 'route'         => '/archivos/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiArchivoController extends ApiController
                     '/archivos/l10',
                 ),
             ),
-            '/archivos/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/archivos/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiArchivoController extends ApiController
                     '/archivos/o10/l10',
                 ),
             ),
-            '/archivos/new' => array(
+            array(
                 'route'         => '/archivos/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiArchivoController extends ApiController
                     '/archivos/new',
                 ),
             ),
-            '/archivos' => array(
+            array(
                 'route'         => '/archivos',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/archivos/',
                     '/archivos',
+                ),
+            ),
+            array(
+                'route'         => '/archivos/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de archivo para editar.',
+                'examples'       => array(
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/archivos/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de archivo.',
+                'examples'       => array(
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/archivos/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de archivo',
+                'examples'       => array(
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/archivos/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar archivo.',
+                'examples'       => array(
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/archivos/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra archivo.',
+                'examples'       => array(
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiArchivoController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Archivos.
-     *
-     * @Route("/archivos", name="patch_archivos")
-     * @Route("/archivos/", name="patch_archivos_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchArchivosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiArchivoController extends ApiController
     /**
      * Valida los datos y modifica atributos de Archivo existente.
      *
-     * @Route("/archivo/{slug}", name="patch_archivo")
-     * @Route("/archivo/{slug}/", name="patch_archivo_")
+     * @Route("/archivos/{slug}", name="patch_archivos")
+     * @Route("/archivos/{slug}/", name="patch_archivos_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiArchivoController extends ApiController
             }
             $rta = $archivo;
         }
-        return $this->getJsonResponse($archivo, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiArchivoController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Archivo.
-     *
-     * @Route("/archivo/{slug}/remove", name="remove_archivo")
-     * @Route("/archivo/{slug}/remove/", name="remove_archivo_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeArchivoAction(Request $request, $slug)
-    {
-        $archivo = $this->getArchivoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($archivo){
-            $form = $this->createDeleteForm($slug,'delete_archivo');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Archivos
      *
      * @Route("/archivos/{slug}", name="delete_archivos")
@@ -452,54 +458,6 @@ class ApiArchivoController extends ApiController
         );
         if($archivo){
             $form = $this->createDeleteForm($slug,'delete_archivos');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $archivo){
-                $em = $this->getManager();
-                $em->remove($archivo);
-                $em->flush();
-                $rta = $archivo;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Archivo
-     *
-     * @Route("/archivo/{slug}", name="delete_archivo")
-     * @Route("/archivo/{slug}/", name="delete_archivo_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteArchivoAction(Request $request, $slug)
-    {
-        $archivo = $this->getArchivoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($archivo){
-            $form = $this->createDeleteForm($slug,'delete_archivo');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

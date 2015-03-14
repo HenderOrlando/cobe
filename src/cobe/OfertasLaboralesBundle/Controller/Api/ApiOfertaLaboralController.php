@@ -29,7 +29,7 @@ use cobe\OfertasLaboralesBundle\Repository\OfertaLaboralRepository;
 /**
  * API OfertaLaboral Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\OfertasLaboralesBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiOfertaLaboralController extends ApiController
     public function optionsOfertasLaboralesAction(Request $request)
     {
         $opciones = array(
-            '/ofertaslaborales' => array(
+            array(
                 'route'         => '/ofertaslaborales',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los ofertaslaborales.',
@@ -65,7 +65,16 @@ class ApiOfertaLaboralController extends ApiController
                     '/ofertaslaborales/',
                 ),
             ),
-            '/ofertaslaborales/params' => array(
+            array(
+                'route'         => '/ofertaslaborales/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los ofertaslaborales.',
+                'examples'       => array(
+                    '/ofertaslaborales/{id}',
+                    '/ofertaslaborales/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/ofertaslaborales/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiOfertaLaboralController extends ApiController
                     '/ofertaslaborales/params/?ofertalaboral[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/ofertaslaborales/o{offset}/' => array(
+            array(
                 'route'         => '/ofertaslaborales/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiOfertaLaboralController extends ApiController
                     '/ofertaslaborales/o10',
                 ),
             ),
-            '/ofertaslaborales/l{limit}/' => array(
+            array(
                 'route'         => '/ofertaslaborales/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiOfertaLaboralController extends ApiController
                     '/ofertaslaborales/l10',
                 ),
             ),
-            '/ofertaslaborales/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/ofertaslaborales/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiOfertaLaboralController extends ApiController
                     '/ofertaslaborales/o10/l10',
                 ),
             ),
-            '/ofertaslaborales/new' => array(
+            array(
                 'route'         => '/ofertaslaborales/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiOfertaLaboralController extends ApiController
                     '/ofertaslaborales/new',
                 ),
             ),
-            '/ofertaslaborales' => array(
+            array(
                 'route'         => '/ofertaslaborales',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/ofertaslaborales/',
                     '/ofertaslaborales',
+                ),
+            ),
+            array(
+                'route'         => '/ofertaslaborales/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de ofertalaboral para editar.',
+                'examples'       => array(
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/ofertaslaborales/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de ofertalaboral.',
+                'examples'       => array(
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/ofertaslaborales/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de ofertalaboral',
+                'examples'       => array(
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/ofertaslaborales/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar ofertalaboral.',
+                'examples'       => array(
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/ofertaslaborales/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra ofertalaboral.',
+                'examples'       => array(
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiOfertaLaboralController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de OfertasLaborales.
-     *
-     * @Route("/ofertaslaborales", name="patch_ofertaslaborales")
-     * @Route("/ofertaslaborales/", name="patch_ofertaslaborales_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchOfertasLaboralesAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiOfertaLaboralController extends ApiController
     /**
      * Valida los datos y modifica atributos de OfertaLaboral existente.
      *
-     * @Route("/ofertalaboral/{slug}", name="patch_ofertalaboral")
-     * @Route("/ofertalaboral/{slug}/", name="patch_ofertalaboral_")
+     * @Route("/ofertaslaborales/{slug}", name="patch_ofertaslaborales")
+     * @Route("/ofertaslaborales/{slug}/", name="patch_ofertaslaborales_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiOfertaLaboralController extends ApiController
             }
             $rta = $ofertalaboral;
         }
-        return $this->getJsonResponse($ofertalaboral, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiOfertaLaboralController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar OfertaLaboral.
-     *
-     * @Route("/ofertalaboral/{slug}/remove", name="remove_ofertalaboral")
-     * @Route("/ofertalaboral/{slug}/remove/", name="remove_ofertalaboral_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeOfertaLaboralAction(Request $request, $slug)
-    {
-        $ofertalaboral = $this->getOfertaLaboralRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($ofertalaboral){
-            $form = $this->createDeleteForm($slug,'delete_ofertalaboral');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina OfertasLaborales
      *
      * @Route("/ofertaslaborales/{slug}", name="delete_ofertaslaborales")
@@ -452,54 +458,6 @@ class ApiOfertaLaboralController extends ApiController
         );
         if($ofertalaboral){
             $form = $this->createDeleteForm($slug,'delete_ofertaslaborales');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $ofertalaboral){
-                $em = $this->getManager();
-                $em->remove($ofertalaboral);
-                $em->flush();
-                $rta = $ofertalaboral;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina OfertaLaboral
-     *
-     * @Route("/ofertalaboral/{slug}", name="delete_ofertalaboral")
-     * @Route("/ofertalaboral/{slug}/", name="delete_ofertalaboral_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteOfertaLaboralAction(Request $request, $slug)
-    {
-        $ofertalaboral = $this->getOfertaLaboralRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($ofertalaboral){
-            $form = $this->createDeleteForm($slug,'delete_ofertalaboral');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

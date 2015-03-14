@@ -203,4 +203,160 @@ class ApiController extends Controller
         }
         return $rta;
     }
+    /**
+     * Regresa opciones de API para Ciudades.
+     *
+     * @Route("/", name="options")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function optionsCiudadesAction(Request $request)
+    {
+        $opciones = array(
+            '/ciudades' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/ciudades',
+                'description'   => 'Opciones para uso de API de ciudades.',
+            ),
+            '/estados' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/estados',
+                'description'   => 'Opciones para uso de API de estados.',
+            ),
+            '/etiquetas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/etiquetas',
+                'description'   => 'Opciones para uso de API de etiquetas.',
+            ),
+            '/idiomas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/idiomas',
+                'description'   => 'Opciones para uso de API de idiomas.',
+            ),
+            '/paises' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/paises',
+                'description'   => 'Opciones para uso de API de paises.',
+            ),
+            '/roles' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/roles',
+                'description'   => 'Opciones para uso de API de roles.',
+            ),
+            '/tipos' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/tipos',
+                'description'   => 'Opciones para uso de API de tipos.',
+            ),
+            '/traducciones' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/traducciones',
+                'description'   => 'Opciones para uso de API de traducciones.',
+            ),
+            '/aptitudes' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/aptitudes',
+                'description'   => 'Opciones para uso de API de aptitudes.',
+            ),
+            '/centrosestudios' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/centrosestudios',
+                'description'   => 'Opciones para uso de API de centrosestudios.',
+            ),
+            '/estudio' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/estudio',
+                'description'   => 'Opciones para uso de API de estudio.',
+            ),
+            '/intereses' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/intereses',
+                'description'   => 'Opciones para uso de API de intereses.',
+            ),
+            '/proyectos' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/proyectos',
+                'description'   => 'Opciones para uso de API de proyectos.',
+            ),
+            '/recomendaciones' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/recomendaciones',
+                'description'   => 'Opciones para uso de API de recomendaciones.',
+            ),
+            '/reconocimientos' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/reconocimientos',
+                'description'   => 'Opciones para uso de API de reconocimientos.',
+            ),
+            '/caracteristicas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/caracteristicas',
+                'description'   => 'Opciones para uso de API de caracteristicas.',
+            ),
+            '/estadisticas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/estadisticas',
+                'description'   => 'Opciones para uso de API de estadisticas.',
+            ),
+            '/grupos' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/grupos',
+                'description'   => 'Opciones para uso de API de grupos.',
+            ),
+            '/votaciones' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/votaciones',
+                'description'   => 'Opciones para uso de API de votaciones.',
+            ),
+            '/categorias' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/categorias',
+                'description'   => 'Opciones para uso de API de categorias.',
+            ),
+            '/plantillas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/plantillas',
+                'description'   => 'Opciones para uso de API de plantillas.',
+            ),
+            '/publicaciones' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/publicaciones',
+                'description'   => 'Opciones para uso de API de publicaciones.',
+            ),
+            '/mensajes' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/mensajes',
+                'description'   => 'Opciones para uso de API de mensajes.',
+            ),
+            '/ofertaslaborales' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/ofertaslaborales',
+                'description'   => 'Opciones para uso de API de ofertaslaborales.',
+            ),
+            '/empresas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/empresas',
+                'description'   => 'Opciones para uso de API de empresas.',
+            ),
+            '/historiales' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/historiales',
+                'description'   => 'Opciones para uso de API de historiales.',
+            ),
+            '/personas' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/personas',
+                'description'   => 'Opciones para uso de API de personas.',
+            ),
+            '/usuarios' => array(
+                'method'        => 'OPTIONS',
+                'route'         => '/usuarios',
+                'description'   => 'Opciones para uso de API de usuarios.',
+            ),
+        );
+
+        //$opts = $this->getPagerfanta($opciones, 'options_ciudades', true);
+
+        return $this->getJsonResponse($opciones, $request);
+    }
 }

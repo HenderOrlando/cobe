@@ -56,7 +56,7 @@ class ApiTipoController extends ApiController
     public function optionsTiposAction(Request $request)
     {
         $opciones = array(
-            '/tipos' => array(
+            array(
                 'route'         => '/tipos',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los tipos.',
@@ -65,7 +65,16 @@ class ApiTipoController extends ApiController
                     '/tipos/',
                 ),
             ),
-            '/tipos/params' => array(
+            array(
+                'route'         => '/tipos/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los tipos.',
+                'examples'       => array(
+                    '/tipos/{id}',
+                    '/tipos/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/tipos/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiTipoController extends ApiController
                     '/tipos/params/?tipo[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/tipos/o{offset}/' => array(
+            array(
                 'route'         => '/tipos/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiTipoController extends ApiController
                     '/tipos/o10',
                 ),
             ),
-            '/tipos/l{limit}/' => array(
+            array(
                 'route'         => '/tipos/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiTipoController extends ApiController
                     '/tipos/l10',
                 ),
             ),
-            '/tipos/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/tipos/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiTipoController extends ApiController
                     '/tipos/o10/l10',
                 ),
             ),
-            '/tipos/new' => array(
+            array(
                 'route'         => '/tipos/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiTipoController extends ApiController
                     '/tipos/new',
                 ),
             ),
-            '/tipos' => array(
+            array(
                 'route'         => '/tipos',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/tipos/',
                     '/tipos',
+                ),
+            ),
+            array(
+                'route'         => '/tipos/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de tipo para editar.',
+                'examples'       => array(
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/tipos/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de tipo.',
+                'examples'       => array(
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/tipos/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de tipo',
+                'examples'       => array(
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/tipos/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar tipo.',
+                'examples'       => array(
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/tipos/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra tipo.',
+                'examples'       => array(
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiTipoController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Tipos.
-     *
-     * @Route("/tipos", name="patch_tipos")
-     * @Route("/tipos/", name="patch_tipos_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchTiposAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiTipoController extends ApiController
     /**
      * Valida los datos y modifica atributos de Tipo existente.
      *
-     * @Route("/tipo/{slug}", name="patch_tipo")
-     * @Route("/tipo/{slug}/", name="patch_tipo_")
+     * @Route("/tipos/{slug}", name="patch_tipos")
+     * @Route("/tipos/{slug}/", name="patch_tipos_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiTipoController extends ApiController
             }
             $rta = $tipo;
         }
-        return $this->getJsonResponse($tipo, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiTipoController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Tipo.
-     *
-     * @Route("/tipo/{slug}/remove", name="remove_tipo")
-     * @Route("/tipo/{slug}/remove/", name="remove_tipo_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeTipoAction(Request $request, $slug)
-    {
-        $tipo = $this->getTipoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($tipo){
-            $form = $this->createDeleteForm($slug,'delete_tipo');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Tipos
      *
      * @Route("/tipos/{slug}", name="delete_tipos")
@@ -452,54 +458,6 @@ class ApiTipoController extends ApiController
         );
         if($tipo){
             $form = $this->createDeleteForm($slug,'delete_tipos');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $tipo){
-                $em = $this->getManager();
-                $em->remove($tipo);
-                $em->flush();
-                $rta = $tipo;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Tipo
-     *
-     * @Route("/tipo/{slug}", name="delete_tipo")
-     * @Route("/tipo/{slug}/", name="delete_tipo_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteTipoAction(Request $request, $slug)
-    {
-        $tipo = $this->getTipoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($tipo){
-            $form = $this->createDeleteForm($slug,'delete_tipo');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

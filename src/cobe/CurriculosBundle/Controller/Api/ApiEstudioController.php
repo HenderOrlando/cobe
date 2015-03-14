@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\EstudioRepository;
 /**
  * API Estudio Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiEstudioController extends ApiController
     public function optionsEstudiosAction(Request $request)
     {
         $opciones = array(
-            '/estudios' => array(
+            array(
                 'route'         => '/estudios',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los estudios.',
@@ -65,7 +65,16 @@ class ApiEstudioController extends ApiController
                     '/estudios/',
                 ),
             ),
-            '/estudios/params' => array(
+            array(
+                'route'         => '/estudios/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los estudios.',
+                'examples'       => array(
+                    '/estudios/{id}',
+                    '/estudios/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/estudios/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiEstudioController extends ApiController
                     '/estudios/params/?estudio[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/estudios/o{offset}/' => array(
+            array(
                 'route'         => '/estudios/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiEstudioController extends ApiController
                     '/estudios/o10',
                 ),
             ),
-            '/estudios/l{limit}/' => array(
+            array(
                 'route'         => '/estudios/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiEstudioController extends ApiController
                     '/estudios/l10',
                 ),
             ),
-            '/estudios/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/estudios/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiEstudioController extends ApiController
                     '/estudios/o10/l10',
                 ),
             ),
-            '/estudios/new' => array(
+            array(
                 'route'         => '/estudios/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiEstudioController extends ApiController
                     '/estudios/new',
                 ),
             ),
-            '/estudios' => array(
+            array(
                 'route'         => '/estudios',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/estudios/',
                     '/estudios',
+                ),
+            ),
+            array(
+                'route'         => '/estudios/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de estudio para editar.',
+                'examples'       => array(
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/estudios/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de estudio.',
+                'examples'       => array(
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estudios/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de estudio',
+                'examples'       => array(
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estudios/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar estudio.',
+                'examples'       => array(
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/estudios/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra estudio.',
+                'examples'       => array(
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiEstudioController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de Estudios.
-     *
-     * @Route("/estudios", name="patch_estudios")
-     * @Route("/estudios/", name="patch_estudios_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchEstudiosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiEstudioController extends ApiController
     /**
      * Valida los datos y modifica atributos de Estudio existente.
      *
-     * @Route("/estudio/{slug}", name="patch_estudio")
-     * @Route("/estudio/{slug}/", name="patch_estudio_")
+     * @Route("/estudios/{slug}", name="patch_estudios")
+     * @Route("/estudios/{slug}/", name="patch_estudios_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiEstudioController extends ApiController
             }
             $rta = $estudio;
         }
-        return $this->getJsonResponse($estudio, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiEstudioController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar Estudio.
-     *
-     * @Route("/estudio/{slug}/remove", name="remove_estudio")
-     * @Route("/estudio/{slug}/remove/", name="remove_estudio_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeEstudioAction(Request $request, $slug)
-    {
-        $estudio = $this->getEstudioRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($estudio){
-            $form = $this->createDeleteForm($slug,'delete_estudio');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina Estudios
      *
      * @Route("/estudios/{slug}", name="delete_estudios")
@@ -452,54 +458,6 @@ class ApiEstudioController extends ApiController
         );
         if($estudio){
             $form = $this->createDeleteForm($slug,'delete_estudios');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $estudio){
-                $em = $this->getManager();
-                $em->remove($estudio);
-                $em->flush();
-                $rta = $estudio;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Estudio
-     *
-     * @Route("/estudio/{slug}", name="delete_estudio")
-     * @Route("/estudio/{slug}/", name="delete_estudio_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteEstudioAction(Request $request, $slug)
-    {
-        $estudio = $this->getEstudioRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($estudio){
-            $form = $this->createDeleteForm($slug,'delete_estudio');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

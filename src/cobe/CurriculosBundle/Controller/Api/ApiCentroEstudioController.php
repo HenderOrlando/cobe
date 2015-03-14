@@ -29,7 +29,7 @@ use cobe\CurriculosBundle\Repository\CentroEstudioRepository;
 /**
  * API CentroEstudio Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\CurriculosBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
@@ -56,7 +56,7 @@ class ApiCentroEstudioController extends ApiController
     public function optionsCentrosEstudiosAction(Request $request)
     {
         $opciones = array(
-            '/centrosestudios' => array(
+            array(
                 'route'         => '/centrosestudios',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los centrosestudios.',
@@ -65,7 +65,16 @@ class ApiCentroEstudioController extends ApiController
                     '/centrosestudios/',
                 ),
             ),
-            '/centrosestudios/params' => array(
+            array(
+                'route'         => '/centrosestudios/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los centrosestudios.',
+                'examples'       => array(
+                    '/centrosestudios/{id}',
+                    '/centrosestudios/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/centrosestudios/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiCentroEstudioController extends ApiController
                     '/centrosestudios/params/?centroestudio[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/centrosestudios/o{offset}/' => array(
+            array(
                 'route'         => '/centrosestudios/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiCentroEstudioController extends ApiController
                     '/centrosestudios/o10',
                 ),
             ),
-            '/centrosestudios/l{limit}/' => array(
+            array(
                 'route'         => '/centrosestudios/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiCentroEstudioController extends ApiController
                     '/centrosestudios/l10',
                 ),
             ),
-            '/centrosestudios/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/centrosestudios/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiCentroEstudioController extends ApiController
                     '/centrosestudios/o10/l10',
                 ),
             ),
-            '/centrosestudios/new' => array(
+            array(
                 'route'         => '/centrosestudios/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiCentroEstudioController extends ApiController
                     '/centrosestudios/new',
                 ),
             ),
-            '/centrosestudios' => array(
+            array(
                 'route'         => '/centrosestudios',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/centrosestudios/',
                     '/centrosestudios',
+                ),
+            ),
+            array(
+                'route'         => '/centrosestudios/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de centroestudio para editar.',
+                'examples'       => array(
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/centrosestudios/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de centroestudio.',
+                'examples'       => array(
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/centrosestudios/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de centroestudio',
+                'examples'       => array(
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/centrosestudios/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar centroestudio.',
+                'examples'       => array(
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/centrosestudios/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra centroestudio.',
+                'examples'       => array(
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -189,21 +243,6 @@ class ApiCentroEstudioController extends ApiController
         }
 
         return $this->getJsonResponse($form, $request);
-    }
-
-    /**
-     * Valida los datos y modifica atributos de CentrosEstudios.
-     *
-     * @Route("/centrosestudios", name="patch_centrosestudios")
-     * @Route("/centrosestudios/", name="patch_centrosestudios_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchCentrosEstudiosAction()
-    {
-        return array(
-            // ...
-        );
     }
 
     /**
@@ -304,8 +343,8 @@ class ApiCentroEstudioController extends ApiController
     /**
      * Valida los datos y modifica atributos de CentroEstudio existente.
      *
-     * @Route("/centroestudio/{slug}", name="patch_centroestudio")
-     * @Route("/centroestudio/{slug}/", name="patch_centroestudio_")
+     * @Route("/centrosestudios/{slug}", name="patch_centrosestudios")
+     * @Route("/centrosestudios/{slug}/", name="patch_centrosestudios_")
      * @Template()
      * @Method("PATCH")
      */
@@ -361,7 +400,7 @@ class ApiCentroEstudioController extends ApiController
             }
             $rta = $centroestudio;
         }
-        return $this->getJsonResponse($centroestudio, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -398,39 +437,6 @@ class ApiCentroEstudioController extends ApiController
     }
 
     /**
-     * Regresa formulario para Eliminar CentroEstudio.
-     *
-     * @Route("/centroestudio/{slug}/remove", name="remove_centroestudio")
-     * @Route("/centroestudio/{slug}/remove/", name="remove_centroestudio_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeCentroEstudioAction(Request $request, $slug)
-    {
-        $centroestudio = $this->getCentroEstudioRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($centroestudio){
-            $form = $this->createDeleteForm($slug,'delete_centroestudio');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
      * Elimina CentrosEstudios
      *
      * @Route("/centrosestudios/{slug}", name="delete_centrosestudios")
@@ -452,54 +458,6 @@ class ApiCentroEstudioController extends ApiController
         );
         if($centroestudio){
             $form = $this->createDeleteForm($slug,'delete_centrosestudios');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $centroestudio){
-                $em = $this->getManager();
-                $em->remove($centroestudio);
-                $em->flush();
-                $rta = $centroestudio;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina CentroEstudio
-     *
-     * @Route("/centroestudio/{slug}", name="delete_centroestudio")
-     * @Route("/centroestudio/{slug}/", name="delete_centroestudio_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteCentroEstudioAction(Request $request, $slug)
-    {
-        $centroestudio = $this->getCentroEstudioRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($centroestudio){
-            $form = $this->createDeleteForm($slug,'delete_centroestudio');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;

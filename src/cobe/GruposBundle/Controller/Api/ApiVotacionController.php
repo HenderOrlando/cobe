@@ -22,27 +22,27 @@ use Pagerfanta\Adapter\ArrayAdapter;
 use Doctrine\Common\Persistence\ObjectManager;
 use cobe\CommonBundle\Controller\Api\ApiController;
 
-use cobe\GruposBundle\Entity\Grupo;
-use cobe\GruposBundle\Form\GrupoType;
-use cobe\GruposBundle\Repository\GrupoRepository;
+use cobe\GruposBundle\Entity\Votacion;
+use cobe\GruposBundle\Form\VotacionType;
+use cobe\GruposBundle\Repository\VotacionRepository;
 
 /**
- * API Grupo Controller.
+ * API Votacion Controller.
  *
- * @package cobe\CommonBundle\Controller
+ * @package cobe\GruposBundle\Controller
  * @author Hender Orlando Puello Rincón <hender.puello@gmail.com>
  * @Route("/api-v1")
  */
-class ApiGrupoController extends ApiController
+class ApiVotacionController extends ApiController
 {
     /**
-     * Retorna el repositorio de Grupo
+     * Retorna el repositorio de Votacion
      *
-     * @return GrupoRepository
+     * @return VotacionRepository
      */
-    public function getGrupoRepository()
+    public function getVotacionRepository()
     {
-        return $this->getManager()->getRepository('cobeGruposBundle:Grupo');
+        return $this->getManager()->getRepository('cobeGruposBundle:Votacion');
     }
 
     /**
@@ -56,7 +56,7 @@ class ApiGrupoController extends ApiController
     public function optionsVotacionesAction(Request $request)
     {
         $opciones = array(
-            '/votaciones' => array(
+            array(
                 'route'         => '/votaciones',
                 'method'        => 'GET',
                 'description'   => 'Lista todos los votaciones.',
@@ -65,7 +65,16 @@ class ApiGrupoController extends ApiController
                     '/votaciones/',
                 ),
             ),
-            '/votaciones/params' => array(
+            array(
+                'route'         => '/votaciones/{id}',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los votaciones.',
+                'examples'       => array(
+                    '/votaciones/{id}',
+                    '/votaciones/{id}/',
+                ),
+            ),
+            array(
                 'route'         => '/votaciones/params',
                 'method'        => 'GET',
                 'description'   => 'Lista los países que cumplan con los parametros enviados.',
@@ -77,7 +86,7 @@ class ApiGrupoController extends ApiController
                     '/votaciones/params/?votacion[nombre]=republica-bolivariana-de-venezuela',
                 ),
             ),
-            '/votaciones/o{offset}/' => array(
+            array(
                 'route'         => '/votaciones/o{offset}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en el Offset.',
@@ -86,7 +95,7 @@ class ApiGrupoController extends ApiController
                     '/votaciones/o10',
                 ),
             ),
-            '/votaciones/l{limit}/' => array(
+            array(
                 'route'         => '/votaciones/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en 1 hasta limit.',
@@ -95,7 +104,7 @@ class ApiGrupoController extends ApiController
                     '/votaciones/l10',
                 ),
             ),
-            '/votaciones/0{offset}/l{limit}' => array(
+            array(
                 'route'         => '/votaciones/0{offset}/l{limit}',
                 'method'        => 'GET',
                 'description'   => 'Lista los países iniciando en offset hasta limit.',
@@ -104,7 +113,7 @@ class ApiGrupoController extends ApiController
                     '/votaciones/o10/l10',
                 ),
             ),
-            '/votaciones/new' => array(
+            array(
                 'route'         => '/votaciones/new',
                 'method'        => 'GET',
                 'description'   => 'Carga el formulario para agregar un país.',
@@ -113,13 +122,58 @@ class ApiGrupoController extends ApiController
                     '/votaciones/new',
                 ),
             ),
-            '/votaciones' => array(
+            array(
                 'route'         => '/votaciones',
                 'method'        => 'POST',
                 'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
                 'examples'       => array(
                     '/votaciones/',
                     '/votaciones',
+                ),
+            ),
+            array(
+                'route'         => '/votaciones/{id}/edit',
+                'method'        => 'GET',
+                'description'   => 'Formulario de votacion para editar.',
+                'examples'       => array(
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit/',
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/edit',
+                ),
+            ),
+            array(
+                'route'         => '/votaciones/{id}',
+                'method'        => 'PUT',
+                'description'   => 'Sobreescribe los etributos de votacion.',
+                'examples'       => array(
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/votaciones/{id}',
+                'method'        => 'PATCH',
+                'description'   => 'Modifica un atributo de votacion',
+                'examples'       => array(
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/votaciones/{id}/remove',
+                'method'        => 'PATCH',
+                'description'   => 'Formulario para borrar votacion.',
+                'examples'       => array(
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove/',
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/remove',
+                ),
+            ),
+            array(
+                'route'         => '/votaciones/{id}',
+                'method'        => 'DELETE',
+                'description'   => 'Borra votacion.',
+                'examples'       => array(
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
+                    '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
         );
@@ -139,7 +193,7 @@ class ApiGrupoController extends ApiController
      */
     public function getVotacionesAction(Request $request)
     {
-        $repository = $this->getGrupoRepository();
+        $repository = $this->getVotacionRepository();
         $list = $repository->getAll();
 
         return $this->getJsonResponse($list, $request);
@@ -155,7 +209,7 @@ class ApiGrupoController extends ApiController
      */
     public function newVotacionesAction(Request $request)
     {
-        $type = new GrupoType($this->generateUrl('post_votaciones'), 'POST');
+        $type = new VotacionType($this->generateUrl('post_votaciones'), 'POST');
         return $this->getJsonResponse($this->getForm($type), $request);
     }
 
@@ -169,8 +223,8 @@ class ApiGrupoController extends ApiController
      */
     public function postVotacionesAction(Request $request)
     {
-        $votacion = new Grupo();
-        $type = new GrupoType($this->generateUrl('post_votaciones'), 'POST');
+        $votacion = new Votacion();
+        $type = new VotacionType($this->generateUrl('post_votaciones'), 'POST');
         $form = array(
             'errors' => array(
                 '400' => array(
@@ -192,40 +246,25 @@ class ApiGrupoController extends ApiController
     }
 
     /**
-     * Valida los datos y modifica atributos de Votaciones.
-     *
-     * @Route("/votaciones", name="patch_votaciones")
-     * @Route("/votaciones/", name="patch_votaciones_")
-     * @Template()
-     * @Method("PATCH")
-     */
-    public function patchVotacionesAction()
-    {
-        return array(
-            // ...
-        );
-    }
-
-    /**
-     * Regresa Grupo.
+     * Regresa Votacion.
      *
      * @Route("/votaciones/{slug}", name="get_votaciones_slug")
      * @Route("/votaciones/{slug}/", name="get_votaciones_slug_")
      * @Template()
      * @Method("GET")
      */
-    public function getGrupoAction(Request $request, $slug)
+    public function getVotacionAction(Request $request, $slug)
     {
         $votacion = null;
         switch($slug){
             case 'params':
                 $datos = $request->get('votacion', false);
                 if($datos){
-                    $votacion = $this->getGrupoRepository()->getBy($datos, $this->getManager());
+                    $votacion = $this->getVotacionRepository()->getBy($datos, $this->getManager());
                 }
                 break;
             default:
-                $votacion = $this->getGrupoRepository()->find($slug);
+                $votacion = $this->getVotacionRepository()->find($slug);
                 break;
         }
         if (!$votacion) {
@@ -243,16 +282,16 @@ class ApiGrupoController extends ApiController
     }
 
     /**
-     * Regresa el formulario para poder editar Grupo existente.
+     * Regresa el formulario para poder editar Votacion existente.
      *
      * @Route("/votaciones/{slug}/edit", name="edit_votaciones")
      * @Route("/votaciones/{slug}/edit/", name="edit_votaciones_")
      * @Template()
      * @Method("GET")
      */
-    public function editGrupoAction(Request $request, $slug)
+    public function editVotacionAction(Request $request, $slug)
     {
-        $votacion = $this->getGrupoRepository()->find($slug);
+        $votacion = $this->getVotacionRepository()->find($slug);
 
         $rta = array(
             'errors' => array(
@@ -262,7 +301,7 @@ class ApiGrupoController extends ApiController
                 ),
             ),
         );
-        $type = new GrupoType($this->generateUrl('put_votaciones', array('slug' => $slug)), 'PUT');
+        $type = new VotacionType($this->generateUrl('put_votaciones', array('slug' => $slug)), 'PUT');
         $form = $this->getForm( $type, $votacion );
 
         $rta = $this->getJsonResponse( $form, $request );
@@ -270,17 +309,17 @@ class ApiGrupoController extends ApiController
     }
 
     /**
-     * Valida los datos y sobreescribe Grupo existente.
+     * Valida los datos y sobreescribe Votacion existente.
      *
      * @Route("/votaciones/{slug}", name="put_votaciones")
      * @Route("/votaciones/{slug}/", name="put_votaciones_")
      * @Template()
      * @Method("PUT")
      */
-    public function putGrupoAction(Request $request, $slug)
+    public function putVotacionAction(Request $request, $slug)
     {
-        $votacion = $this->getGrupoRepository()->find($slug);
-        $type = new GrupoType($this->generateUrl('put_votaciones', array('slug' => $slug)), 'PUT');
+        $votacion = $this->getVotacionRepository()->find($slug);
+        $type = new VotacionType($this->generateUrl('put_votaciones', array('slug' => $slug)), 'PUT');
         $form = array(
             'errors' => array(
                 '400' => array(
@@ -302,17 +341,17 @@ class ApiGrupoController extends ApiController
     }
 
     /**
-     * Valida los datos y modifica atributos de Grupo existente.
+     * Valida los datos y modifica atributos de Votacion existente.
      *
-     * @Route("/votacion/{slug}", name="patch_votacion")
-     * @Route("/votacion/{slug}/", name="patch_votacion_")
+     * @Route("/votaciones/{slug}", name="patch_votaciones")
+     * @Route("/votaciones/{slug}/", name="patch_votaciones_")
      * @Template()
      * @Method("PATCH")
      */
-    public function patchGrupoAction(Request $request, $slug)
+    public function patchVotacionAction(Request $request, $slug)
     {
-        $votacion = $this->getGrupoRepository()->find($slug);
-        $type = new GrupoType();
+        $votacion = $this->getVotacionRepository()->find($slug);
+        $type = new VotacionType();
         $datos = $request->get($type->getName(), false);
 
         $rta = array(
@@ -325,7 +364,7 @@ class ApiGrupoController extends ApiController
         );
 
         if($datos && $votacion){
-            $repo = $this->getGrupoRepository();
+            $repo = $this->getVotacionRepository();
             $em = $this->getManager();
             $metadata = $em->getClassMetadata(get_class($votacion));
             $isModify = false;
@@ -361,7 +400,7 @@ class ApiGrupoController extends ApiController
             }
             $rta = $votacion;
         }
-        return $this->getJsonResponse($votacion, $request);
+        return $this->getJsonResponse($rta, $request);
     }
 
     /**
@@ -374,7 +413,7 @@ class ApiGrupoController extends ApiController
      */
     public function removeVotacionesAction(Request $request, $slug)
     {
-        $votacion = $this->getGrupoRepository()->find($slug);
+        $votacion = $this->getVotacionRepository()->find($slug);
 
         $rta = array(
             'errors' => array(
@@ -386,39 +425,6 @@ class ApiGrupoController extends ApiController
         );
         if($votacion){
             $form = $this->createDeleteForm($slug,'delete_votaciones');
-            $rta = array(
-                'form'  => array(
-                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                        'form' => $form->createView(),
-                    )),
-                ),
-            );
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Regresa formulario para Eliminar Grupo.
-     *
-     * @Route("/votacion/{slug}/remove", name="remove_votacion")
-     * @Route("/votacion/{slug}/remove/", name="remove_votacion_")
-     * @Template()
-     * @Method("GET")
-     */
-    public function removeGrupoAction(Request $request, $slug)
-    {
-        $votacion = $this->getGrupoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($votacion){
-            $form = $this->createDeleteForm($slug,'delete_votacion');
             $rta = array(
                 'form'  => array(
                     'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
@@ -440,7 +446,7 @@ class ApiGrupoController extends ApiController
      */
     public function deleteVotacionesAction(Request $request, $slug)
     {
-        $votacion = $this->getGrupoRepository()->find($slug);
+        $votacion = $this->getVotacionRepository()->find($slug);
 
         $rta = array(
             'errors' => array(
@@ -452,54 +458,6 @@ class ApiGrupoController extends ApiController
         );
         if($votacion){
             $form = $this->createDeleteForm($slug,'delete_votaciones');
-            $form->handleRequest($request);
-            //$isValid = $form->isValid();
-            $deleted = false;
-            $isValid = true;
-            if($isValid && $votacion){
-                $em = $this->getManager();
-                $em->remove($votacion);
-                $em->flush();
-                $rta = $votacion;
-                $deleted = true;
-            }
-            if(!$deleted){
-                $rta = array(
-                    'form'  => array(
-                        'deleted'   => $deleted,
-                        'isValid'   => $isValid,
-                        'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                            'form' => $form->createView(),
-                        )),
-                    ),
-                );
-            }
-        }
-        return $this->getJsonResponse($rta, $request);
-    }
-
-    /**
-     * Elimina Grupo
-     *
-     * @Route("/votacion/{slug}", name="delete_votacion")
-     * @Route("/votacion/{slug}/", name="delete_votacion_")
-     * @Template()
-     * @Method("DELETE")
-     */
-    public function deleteGrupoAction(Request $request, $slug)
-    {
-        $votacion = $this->getGrupoRepository()->find($slug);
-
-        $rta = array(
-            'errors' => array(
-                '404' => array(
-                    'message'   => 'País no encontrado.',
-                    'code'      => '404',
-                ),
-            ),
-        );
-        if($votacion){
-            $form = $this->createDeleteForm($slug,'delete_votacion');
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $deleted = false;
