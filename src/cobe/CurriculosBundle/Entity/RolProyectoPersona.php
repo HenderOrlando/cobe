@@ -18,6 +18,7 @@ class RolProyectoPersona extends Rol
      */
     public function __construct()
     {
+        parent::__construct();
         $this->proyectoPersona = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

@@ -11,11 +11,7 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
  * @ORM\DiscriminatorMap(
  *     {
  *      "Mensaje"="\cobe\MensajesBundle\Entity\Mensaje",
- *      "Usuario"="\cobe\MensajesBundle\Entity\ComentarioUsuario",
- *      "Grupo"="\cobe\MensajesBundle\Entity\ComentarioGrupo",
- *      "Archivo"="\cobe\MensajesBundle\Entity\ComentarioArchivo",
- *      "Publicacion"="\cobe\MensajesBundle\Entity\ComentarioPublicacion",
- *      "OfertaLaboral"="\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral"
+ *      "Comentario"="\cobe\MensajesBundle\Entity\Comentario",
  *     }
  * )
  */
@@ -73,6 +69,7 @@ class Mensaje extends Obj
      */
     public function __construct()
     {
+        parent::__construct();
         $this->destinatarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasMensaje = new \Doctrine\Common\Collections\ArrayCollection();

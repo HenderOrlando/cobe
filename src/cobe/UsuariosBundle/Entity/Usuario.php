@@ -121,6 +121,7 @@ class Usuario extends Objeto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->historiales = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
         $this->mensajesUsuario = new \Doctrine\Common\Collections\ArrayCollection();

@@ -18,6 +18,7 @@ class TipoOfertaLaboral extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->ofertasLaboralesTipo = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

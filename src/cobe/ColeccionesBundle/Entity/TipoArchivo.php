@@ -17,6 +17,7 @@ class TipoArchivo extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->archivosTipo = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

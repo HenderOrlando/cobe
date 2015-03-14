@@ -18,6 +18,7 @@ class EstadoDestinatario extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->destinatarios = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

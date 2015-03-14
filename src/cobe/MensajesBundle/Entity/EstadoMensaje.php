@@ -18,6 +18,7 @@ class EstadoMensaje extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->mensajes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

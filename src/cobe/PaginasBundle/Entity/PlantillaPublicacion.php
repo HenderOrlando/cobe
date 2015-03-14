@@ -17,6 +17,7 @@ class PlantillaPublicacion extends Plantilla
      */
     public function __construct()
     {
+        parent::__construct();
         $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

@@ -17,6 +17,7 @@ class TipoHistorial extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->historiales = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

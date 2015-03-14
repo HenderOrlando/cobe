@@ -17,6 +17,7 @@ class PlantillaMensaje extends Plantilla
      */
     public function __construct()
     {
+        parent::__construct();
         $this->mensajes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

@@ -1,6 +1,8 @@
 <?php
 namespace cobe\CurriculosBundle\Entity;
+
 use Doctrine\ORM\Mapping AS ORM;
+use cobe\CommonBundle\Entity\Objeto;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\RecomendacionRepository")
@@ -9,25 +11,8 @@ use Doctrine\ORM\Mapping AS ORM;
  *     uniqueConstraints={@ORM\UniqueConstraint(name="recomienda_recomendado", columns={"recomienda","recomendado"})}
  * )
  */
-class Recomendacion
+class Recomendacion extends Objeto
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="guid")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=140, nullable=false, options={"comment":"Texto de la Recomendación"})
-     */
-    private $descripcion;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=false, options={"comment":"Fecha en que se crea la Recomendación"})
-     */
-    private $fechaCreado;
-
     /**
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion", mappedBy="recomendacion")
      */
@@ -55,64 +40,8 @@ class Recomendacion
      */
     public function __construct()
     {
-        $this->fechaCreado = new \DateTime('now');
+        parent::__construct();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return guid 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set descripcion
-     *
-     * @param string $descripcion
-     * @return Recomendacion
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
-
-        return $this;
-    }
-
-    /**
-     * Get descripcion
-     *
-     * @return string 
-     */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-
-    /**
-     * Set fechaCreado
-     *
-     * @param \DateTime $fechaCreado
-     * @return Recomendacion
-     */
-    public function setFechaCreado($fechaCreado)
-    {
-        $this->fechaCreado = $fechaCreado;
-
-        return $this;
-    }
-
-    /**
-     * Get fechaCreado
-     *
-     * @return \DateTime 
-     */
-    public function getFechaCreado()
-    {
-        return $this->fechaCreado;
     }
 
     /**

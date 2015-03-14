@@ -17,6 +17,7 @@ class TipoPublicacion extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->publicacionesTipo = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

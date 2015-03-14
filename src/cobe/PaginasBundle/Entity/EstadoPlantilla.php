@@ -17,6 +17,7 @@ class EstadoPlantilla extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->plantillas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

@@ -48,6 +48,7 @@ class Estudio extends Objeto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->estudioPersonas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }

@@ -17,6 +17,7 @@ class PlantillaEmpresa extends Plantilla
      */
     public function __construct()
     {
+        parent::__construct();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

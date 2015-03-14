@@ -2,36 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86653faa-3454-4ddd-81e3-dea4d92279f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiAptitudController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiAptitudController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiCaracteristicaController.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiCaracteristicaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiCategoriaController.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiCategoriaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiCentroEstudioController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiCentroEstudioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEmpresaController.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEmpresaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiEstadisticaController.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiEstadisticaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEstadoController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEstadoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiEstudioController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiEstudioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEtiquetaController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEtiquetaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiGrupoController.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiGrupoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiHistorialController.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiHistorialController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiIdiomaController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiIdiomaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiInteresController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiInteresController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Controller/Api/ApiMensajeController.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Controller/Api/ApiMensajeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiPaisController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiPaisController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiPersonaController.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiPersonaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPlantillaController.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPlantillaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiProyectoController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiProyectoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiRecomendacionController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiRecomendacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiReconocimientoController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiReconocimientoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiRolController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiRolController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTipoController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTipoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTraduccionController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTraduccionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiUsuarioController.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiUsuarioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiVotacionController.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiVotacionController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Comentario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Caracteristica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Caracteristica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioArchivo.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioArchivo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioGrupo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioOfertaLaboral.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioPublicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioUsuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoDestinatario.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoDestinatario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadoEstadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadoEstadistica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoGrupoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoGrupoPersona.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoMensaje.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/EstadoOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/EstadoOfertaLaboral.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoVotacion.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoVotacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Estudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Estudio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Interes.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Interes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/NivelIdioma.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/NivelIdioma.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEmpresa.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEmpresa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaGrupo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaMensaje.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaPublicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaUsuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Proyecto.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Proyecto.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Recomendacion.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Recomendacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Reconocimiento.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Reconocimiento.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/RolGrupoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/RolGrupoPersona.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/RolOfertaLaboralPersona.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/RolOfertaLaboralPersona.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/RolProyectoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/RolProyectoPersona.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/TipoEstadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/TipoEstadistica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoEstudio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/TipoHistorial.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/TipoHistorial.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/TipoOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/TipoOfertaLaboral.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPlantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPlantilla.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoProyecto.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoProyecto.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPublicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoRecomendacion.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoRecomendacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoReconocimiento.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoReconocimiento.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoVotacionPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoVotacionPublicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Usuario.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Usuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Votacion.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Votacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cobe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,38 +84,7 @@
     <favorites_list name="cobe" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.0" vertical-offset="1245" max-vertical-offset="5520">
-              <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="84" />
-              <folding>
-                <element signature="e#52#78#0#PHP" expanded="true" />
-                <element signature="e#903#1060#0#PHP" expanded="true" />
-                <element signature="e#1185#1358#0#PHP" expanded="true" />
-                <element signature="e#1684#1723#0#PHP" expanded="true" />
-                <element signature="e#2091#2186#0#PHP" expanded="true" />
-                <element signature="e#6612#6756#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiCiudadController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7259259" vertical-offset="1580" max-vertical-offset="6060">
-              <caret line="177" column="14" selection-start-line="177" selection-start-column="14" selection-end-line="177" selection-end-column="14" />
-              <folding>
-                <element signature="e#7996#8197#0#PHP" expanded="true" />
-                <element signature="e#12083#12326#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,57 +92,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Repository/CategoriaRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Form/CaracteristicaType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Form/EstadisticaType.php" />
+        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Proyecto.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Interes.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/NivelIdioma.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/ReconocimientoPersona.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/RolProyectoPersona.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoEstudio.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoProyecto.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoRecomendacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoReconocimiento.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Estudio.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" />
         <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Caracteristica.php" />
         <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" />
-        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Repository/EstadisticaRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Repository/CaracteristicaRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Repository/VotacionRepository.php" />
+        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadoEstadistica.php" />
+        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/TipoEstadistica.php" />
+        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoGrupoPersona.php" />
+        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoVotacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php" />
+        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/RolGrupoPersona.php" />
         <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Votacion.php" />
-        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Form/VotacionType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Form/GrupoType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Repository/GrupoRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php" />
-        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Repository/MensajeRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Form/MensajeType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Repository/OfertaLaboralRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Form/OfertaLaboralType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Form/ArchivoType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PlantillaType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/CategoriaType.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiPersonaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiUsuarioController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiHistorialController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEmpresaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPlantillaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiCategoriaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Controller/Api/ApiMensajeController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiVotacionController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiGrupoController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiEstadisticaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiCaracteristicaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiReconocimientoController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiRecomendacionController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiProyectoController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiInteresController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiEstudioController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiCentroEstudioController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiAptitudController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTraduccionController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTipoController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiRolController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiPaisController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiIdiomaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEtiquetaController.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEstadoController.php" />
+        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoDestinatario.php" />
+        <option value="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoMensaje.php" />
+        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/TipoOfertaLaboral.php" />
+        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/RolOfertaLaboralPersona.php" />
+        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php" />
+        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/EstadoOfertaLaboral.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaUsuario.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaPublicacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaMensaje.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaGrupo.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEmpresa.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoVotacionPublicacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPublicacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPlantilla.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Usuario.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/TipoHistorial.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php" />
+        <option value="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" />
+        <option value="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php" />
+        <option value="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php" />
       </list>
     </option>
   </component>
@@ -153,9 +151,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
     <option name="y" value="31" />
-    <option name="width" value="1600" />
+    <option name="width" value="1440" />
     <option name="height" value="869" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -279,36 +276,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UsuariosBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="PaginasBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -336,36 +303,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PaginasBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -409,11 +346,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="OfertasLaboralesBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
+              <option name="myItemId" value="MensajesBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -432,6 +365,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MensajesBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -480,36 +421,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GruposBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -579,36 +490,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EstadisticasBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="CurriculosBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -636,36 +517,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CurriculosBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -735,15 +586,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CommonBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
+              <option name="myItemId" value="ColeccionesBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -790,30 +633,30 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="145" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="52" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="55" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="160" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="57" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1069" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="317" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="145" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="52" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="55" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="160" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="57" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1069" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="317" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity" />
       <recent name="$PROJECT_DIR$/src/cobe/GruposBundle/Repository" />
       <recent name="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Repository" />
       <recent name="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api" />
       <recent name="$PROJECT_DIR$/src/cobe/PaginasBundle/Repository" />
-      <recent name="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api" />
     </key>
   </component>
   <component name="RunManager">
@@ -831,6 +674,9 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -838,9 +684,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -859,29 +702,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="31" width="1600" height="869" extended-state="6" />
+    <frame x="0" y="31" width="1440" height="869" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3305785" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3305785" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Framework" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1957638" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25288832" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Framework" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19527897" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25178826" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32862645" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -901,9 +744,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25288832" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -927,806 +770,411 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323486" vertical-offset="0" max-vertical-offset="750">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/VotacionPublicacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoVotacionPublicacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPublicacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPlantilla.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6646972" vertical-offset="405" max-vertical-offset="5370">
+          <caret line="123" column="30" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/TipoHistorial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RepresentanteEmpresa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Historial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2055">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6646972" vertical-offset="405" max-vertical-offset="5895">
+          <caret line="117" column="30" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7976366" vertical-offset="0" max-vertical-offset="3375">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboralPersona.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Traduccion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.06646972" vertical-offset="45" max-vertical-offset="1260">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Tipo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Rol.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Pais.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Objeto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1410">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Idioma.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2505">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Estado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Ciudad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="1335">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.3988183" vertical-offset="0" max-vertical-offset="1320">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstudio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="4395">
-          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Caracteristica.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaUsuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="675">
-          <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/EstadisticasBundle/Repository/EstadisticaRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaPublicacion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29126215" vertical-offset="0" max-vertical-offset="618">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <element signature="e#106#239#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/EstadisticasBundle/Repository/CaracteristicaRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13333334" vertical-offset="0" max-vertical-offset="675">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaOfertaLaboral.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="2835">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Votacion.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaMensaje.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="1815">
-          <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Form/VotacionType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaInteres.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49848944" vertical-offset="0" max-vertical-offset="690">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-          <folding>
-            <element signature="e#42#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Form/GrupoType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40785497" vertical-offset="0" max-vertical-offset="675">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Repository/GrupoRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaGrupo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15555556" vertical-offset="0" max-vertical-offset="675">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Repository/VotacionRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaEmpresa.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.044444446" vertical-offset="0" max-vertical-offset="675">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding>
-            <element signature="e#100#230#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="3120">
-          <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/MensajesBundle/Repository/MensajeRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaAptitud.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15555556" vertical-offset="0" max-vertical-offset="675">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/MensajesBundle/Form/MensajeType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoCentroEstudio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26666668" vertical-offset="0" max-vertical-offset="675">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Form/OfertaLaboralType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoAptitud.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.022222223" vertical-offset="45" max-vertical-offset="750">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Repository/OfertaLaboralRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08888889" vertical-offset="0" max-vertical-offset="675">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+        <state vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="2595">
+          <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTraduccion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4" vertical-offset="0" max-vertical-offset="780">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PlantillaType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTrabajo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4888889" vertical-offset="0" max-vertical-offset="675">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/CategoriaType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoReconocimientoPersona.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75555557" vertical-offset="0" max-vertical-offset="675">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Repository/ArchivoRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoRecomendacion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15555556" vertical-offset="0" max-vertical-offset="675">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Form/ArchivoType.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPublicacion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25777778" vertical-offset="21" max-vertical-offset="735">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="49" />
-          <folding>
-            <element signature="e#47#85#0#PHP" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiUsuarioController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoProyecto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0987654" vertical-offset="6664" max-vertical-offset="7380">
-          <caret line="461" column="42" selection-start-line="461" selection-start-column="42" selection-end-line="461" selection-end-column="42" />
-          <folding>
-            <element signature="e#54#80#0#PHP" expanded="true" />
-            <element signature="e#1048#1215#0#PHP" expanded="true" />
-            <element signature="e#1271#1363#0#PHP" expanded="true" />
-            <element signature="e#1505#1720#0#PHP" expanded="true" />
-            <element signature="e#7175#7369#0#PHP" expanded="true" />
-            <element signature="e#7592#7806#0#PHP" expanded="true" />
-            <element signature="e#8030#8231#0#PHP" expanded="true" />
-            <element signature="e#9069#9274#0#PHP" expanded="true" />
-            <element signature="e#10140#10389#0#PHP" expanded="true" />
-            <element signature="e#10995#11224#0#PHP" expanded="true" />
-            <element signature="e#12146#12390#0#PHP" expanded="true" />
-            <element signature="e#14435#14677#0#PHP" expanded="true" />
-            <element signature="e#15485#15689#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEmpresaController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPlantilla.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5760518" vertical-offset="6664" max-vertical-offset="7380">
-          <caret line="468" column="31" selection-start-line="468" selection-start-column="31" selection-end-line="468" selection-end-column="31" />
-          <folding>
-            <element signature="e#54#80#0#PHP" expanded="true" />
-            <element signature="e#1048#1215#0#PHP" expanded="true" />
-            <element signature="e#1271#1363#0#PHP" expanded="true" />
-            <element signature="e#1505#1720#0#PHP" expanded="true" />
-            <element signature="e#7175#7369#0#PHP" expanded="true" />
-            <element signature="e#7592#7806#0#PHP" expanded="true" />
-            <element signature="e#8030#8231#0#PHP" expanded="true" />
-            <element signature="e#9069#9274#0#PHP" expanded="true" />
-            <element signature="e#10140#10389#0#PHP" expanded="true" />
-            <element signature="e#10995#11224#0#PHP" expanded="true" />
-            <element signature="e#12146#12390#0#PHP" expanded="true" />
-            <element signature="e#14435#14677#0#PHP" expanded="true" />
-            <element signature="e#15485#15689#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoMensaje.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3580246" vertical-offset="154" max-vertical-offset="7380">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#1056#1226#0#PHP" expanded="true" />
-            <element signature="e#1286#1386#0#PHP" expanded="true" />
-            <element signature="e#1535#1775#0#PHP" expanded="true" />
-            <element signature="e#7504#7723#0#PHP" expanded="true" />
-            <element signature="e#7955#8194#0#PHP" expanded="true" />
-            <element signature="e#8432#8658#0#PHP" expanded="true" />
-            <element signature="e#9526#9755#0#PHP" expanded="true" />
-            <element signature="e#10661#10934#0#PHP" expanded="true" />
-            <element signature="e#11565#11818#0#PHP" expanded="true" />
-            <element signature="e#12769#13037#0#PHP" expanded="true" />
-            <element signature="e#15130#15397#0#PHP" expanded="true" />
-            <element signature="e#16227#16456#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiHistorialController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoGrupo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-104.375" vertical-offset="195" max-vertical-offset="7380">
-          <caret line="180" column="60" selection-start-line="180" selection-start-column="60" selection-end-line="180" selection-end-column="60" />
-          <folding>
-            <element signature="e#54#80#0#PHP" expanded="true" />
-            <element signature="e#1054#1223#0#PHP" expanded="true" />
-            <element signature="e#1281#1377#0#PHP" expanded="true" />
-            <element signature="e#1523#1753#0#PHP" expanded="true" />
-            <element signature="e#7368#7577#0#PHP" expanded="true" />
-            <element signature="e#7805#8034#0#PHP" expanded="true" />
-            <element signature="e#8266#8482#0#PHP" expanded="true" />
-            <element signature="e#9336#9555#0#PHP" expanded="true" />
-            <element signature="e#10441#10704#0#PHP" expanded="true" />
-            <element signature="e#11323#11566#0#PHP" expanded="true" />
-            <element signature="e#12503#12761#0#PHP" expanded="true" />
-            <element signature="e#14830#15087#0#PHP" expanded="true" />
-            <element signature="e#15907#16126#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPlantillaController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstudioPersona.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.148149" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#53#79#0#PHP" expanded="true" />
-            <element signature="e#1050#1218#0#PHP" expanded="true" />
-            <element signature="e#1276#1372#0#PHP" expanded="true" />
-            <element signature="e#1517#1742#0#PHP" expanded="true" />
-            <element signature="e#7311#7515#0#PHP" expanded="true" />
-            <element signature="e#7742#7966#0#PHP" expanded="true" />
-            <element signature="e#8196#8407#0#PHP" expanded="true" />
-            <element signature="e#9259#9474#0#PHP" expanded="true" />
-            <element signature="e#10360#10619#0#PHP" expanded="true" />
-            <element signature="e#11237#11476#0#PHP" expanded="true" />
-            <element signature="e#12412#12666#0#PHP" expanded="true" />
-            <element signature="e#14735#14987#0#PHP" expanded="true" />
-            <element signature="e#15805#16019#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiCategoriaController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5795981" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="22" />
-          <folding>
-            <element signature="e#1050#1218#0#PHP" expanded="true" />
-            <element signature="e#1276#1372#0#PHP" expanded="true" />
-            <element signature="e#1517#1742#0#PHP" expanded="true" />
-            <element signature="e#7311#7515#0#PHP" expanded="true" />
-            <element signature="e#7742#7966#0#PHP" expanded="true" />
-            <element signature="e#8196#8407#0#PHP" expanded="true" />
-            <element signature="e#9259#9474#0#PHP" expanded="true" />
-            <element signature="e#10360#10619#0#PHP" expanded="true" />
-            <element signature="e#11237#11476#0#PHP" expanded="true" />
-            <element signature="e#12412#12666#0#PHP" expanded="true" />
-            <element signature="e#14735#14987#0#PHP" expanded="true" />
-            <element signature="e#15805#16019#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.148149" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
-          <folding>
-            <element signature="e#62#88#0#PHP" expanded="true" />
-            <element signature="e#1098#1279#0#PHP" expanded="true" />
-            <element signature="e#1341#1445#0#PHP" expanded="true" />
-            <element signature="e#1607#1862#0#PHP" expanded="true" />
-            <element signature="e#7751#7985#0#PHP" expanded="true" />
-            <element signature="e#8222#8476#0#PHP" expanded="true" />
-            <element signature="e#8722#8963#0#PHP" expanded="true" />
-            <element signature="e#9847#10090#0#PHP" expanded="true" />
-            <element signature="e#11016#11303#0#PHP" expanded="true" />
-            <element signature="e#11947#12214#0#PHP" expanded="true" />
-            <element signature="e#13180#13462#0#PHP" expanded="true" />
-            <element signature="e#15579#15861#0#PHP" expanded="true" />
-            <element signature="e#16703#16947#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.2658789" vertical-offset="0" max-vertical-offset="705">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/MensajesBundle/Controller/Api/ApiMensajeController.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoUsuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5432098" vertical-offset="109" max-vertical-offset="7380">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#1048#1215#0#PHP" expanded="true" />
-            <element signature="e#1271#1363#0#PHP" expanded="true" />
-            <element signature="e#1505#1720#0#PHP" expanded="true" />
-            <element signature="e#7175#7369#0#PHP" expanded="true" />
-            <element signature="e#7592#7806#0#PHP" expanded="true" />
-            <element signature="e#8030#8231#0#PHP" expanded="true" />
-            <element signature="e#9069#9274#0#PHP" expanded="true" />
-            <element signature="e#10140#10389#0#PHP" expanded="true" />
-            <element signature="e#10995#11224#0#PHP" expanded="true" />
-            <element signature="e#12146#12390#0#PHP" expanded="true" />
-            <element signature="e#14435#14677#0#PHP" expanded="true" />
-            <element signature="e#15485#15689#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiVotacionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.69135803" vertical-offset="169" max-vertical-offset="7380">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-          <folding>
-            <element signature="e#1043#1209#0#PHP" expanded="true" />
-            <element signature="e#1266#1360#0#PHP" expanded="true" />
-            <element signature="e#1502#1727#0#PHP" expanded="true" />
-            <element signature="e#7285#7489#0#PHP" expanded="true" />
-            <element signature="e#7715#7939#0#PHP" expanded="true" />
-            <element signature="e#8168#8379#0#PHP" expanded="true" />
-            <element signature="e#9226#9440#0#PHP" expanded="true" />
-            <element signature="e#10316#10574#0#PHP" expanded="true" />
-            <element signature="e#11187#11425#0#PHP" expanded="true" />
-            <element signature="e#12355#12608#0#PHP" expanded="true" />
-            <element signature="e#14665#14917#0#PHP" expanded="true" />
-            <element signature="e#15732#15946#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiGrupoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29126215" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="e#1034#1197#0#PHP" expanded="true" />
-            <element signature="e#1251#1339#0#PHP" expanded="true" />
-            <element signature="e#1475#1680#0#PHP" expanded="true" />
-            <element signature="e#7021#7205#0#PHP" expanded="true" />
-            <element signature="e#7424#7628#0#PHP" expanded="true" />
-            <element signature="e#7846#8037#0#PHP" expanded="true" />
-            <element signature="e#8861#9056#0#PHP" expanded="true" />
-            <element signature="e#9902#10141#0#PHP" expanded="true" />
-            <element signature="e#10735#10954#0#PHP" expanded="true" />
-            <element signature="e#11862#12096#0#PHP" expanded="true" />
-            <element signature="e#14117#14349#0#PHP" expanded="true" />
-            <element signature="e#15147#15341#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiEstadisticaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="67" selection-start-line="44" selection-start-column="67" selection-end-line="44" selection-end-column="67" />
-          <folding>
-            <element signature="e#58#84#0#PHP" expanded="true" />
-            <element signature="e#1076#1251#0#PHP" expanded="true" />
-            <element signature="e#1311#1411#0#PHP" expanded="true" />
-            <element signature="e#1565#1800#0#PHP" expanded="true" />
-            <element signature="e#7483#7697#0#PHP" expanded="true" />
-            <element signature="e#7928#8162#0#PHP" expanded="true" />
-            <element signature="e#8398#8619#0#PHP" expanded="true" />
-            <element signature="e#9485#9710#0#PHP" expanded="true" />
-            <element signature="e#10616#10885#0#PHP" expanded="true" />
-            <element signature="e#11515#11764#0#PHP" expanded="true" />
-            <element signature="e#12714#12978#0#PHP" expanded="true" />
-            <element signature="e#15071#15333#0#PHP" expanded="true" />
-            <element signature="e#16161#16385#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiReconocimientoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5925925" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-          <folding>
-            <element signature="e#1077#1253#0#PHP" expanded="true" />
-            <element signature="e#1316#1422#0#PHP" expanded="true" />
-            <element signature="e#1580#1830#0#PHP" expanded="true" />
-            <element signature="e#7684#7913#0#PHP" expanded="true" />
-            <element signature="e#8150#8399#0#PHP" expanded="true" />
-            <element signature="e#8644#8880#0#PHP" expanded="true" />
-            <element signature="e#9767#10007#0#PHP" expanded="true" />
-            <element signature="e#10943#11227#0#PHP" expanded="true" />
-            <element signature="e#11875#12139#0#PHP" expanded="true" />
-            <element signature="e#13110#13389#0#PHP" expanded="true" />
-            <element signature="e#15518#15795#0#PHP" expanded="true" />
-            <element signature="e#16638#16877#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiRecomendacionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="65" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
-          <folding>
-            <element signature="e#56#82#0#PHP" expanded="true" />
-            <element signature="e#1074#1249#0#PHP" expanded="true" />
-            <element signature="e#1311#1415#0#PHP" expanded="true" />
-            <element signature="e#1571#1821#0#PHP" expanded="true" />
-            <element signature="e#7664#7893#0#PHP" expanded="true" />
-            <element signature="e#8129#8378#0#PHP" expanded="true" />
-            <element signature="e#8622#8858#0#PHP" expanded="true" />
-            <element signature="e#9740#9979#0#PHP" expanded="true" />
-            <element signature="e#10905#11188#0#PHP" expanded="true" />
-            <element signature="e#11831#12094#0#PHP" expanded="true" />
-            <element signature="e#13059#13337#0#PHP" expanded="true" />
-            <element signature="e#15454#15731#0#PHP" expanded="true" />
-            <element signature="e#16571#16810#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiProyectoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36407766" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
-          <folding>
-            <element signature="e#1059#1229#0#PHP" expanded="true" />
-            <element signature="e#1286#1380#0#PHP" expanded="true" />
-            <element signature="e#1526#1746#0#PHP" expanded="true" />
-            <element signature="e#7258#7457#0#PHP" expanded="true" />
-            <element signature="e#7682#7901#0#PHP" expanded="true" />
-            <element signature="e#8128#8334#0#PHP" expanded="true" />
-            <element signature="e#9179#9389#0#PHP" expanded="true" />
-            <element signature="e#10265#10519#0#PHP" expanded="true" />
-            <element signature="e#11131#11365#0#PHP" expanded="true" />
-            <element signature="e#12294#12543#0#PHP" expanded="true" />
-            <element signature="e#14600#14847#0#PHP" expanded="true" />
-            <element signature="e#15660#15869#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiInteresController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4854369" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#1056#1225#0#PHP" expanded="true" />
-            <element signature="e#1281#1373#0#PHP" expanded="true" />
-            <element signature="e#1517#1737#0#PHP" expanded="true" />
-            <element signature="e#7238#7437#0#PHP" expanded="true" />
-            <element signature="e#7661#7880#0#PHP" expanded="true" />
-            <element signature="e#8106#8312#0#PHP" expanded="true" />
-            <element signature="e#9152#9361#0#PHP" expanded="true" />
-            <element signature="e#10227#10480#0#PHP" expanded="true" />
-            <element signature="e#11087#11320#0#PHP" expanded="true" />
-            <element signature="e#12243#12491#0#PHP" expanded="true" />
-            <element signature="e#14536#14783#0#PHP" expanded="true" />
-            <element signature="e#15593#15802#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiEstudioController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="65" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
-          <folding>
-            <element signature="e#56#82#0#PHP" expanded="true" />
-            <element signature="e#1056#1225#0#PHP" expanded="true" />
-            <element signature="e#1281#1373#0#PHP" expanded="true" />
-            <element signature="e#1517#1732#0#PHP" expanded="true" />
-            <element signature="e#7187#7381#0#PHP" expanded="true" />
-            <element signature="e#7604#7818#0#PHP" expanded="true" />
-            <element signature="e#8042#8243#0#PHP" expanded="true" />
-            <element signature="e#9081#9286#0#PHP" expanded="true" />
-            <element signature="e#10152#10401#0#PHP" expanded="true" />
-            <element signature="e#11007#11236#0#PHP" expanded="true" />
-            <element signature="e#12158#12402#0#PHP" expanded="true" />
-            <element signature="e#14447#14689#0#PHP" expanded="true" />
-            <element signature="e#15497#15701#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiCentroEstudioController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3883495" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding>
-            <element signature="e#1074#1249#0#PHP" expanded="true" />
-            <element signature="e#1311#1415#0#PHP" expanded="true" />
-            <element signature="e#1571#1821#0#PHP" expanded="true" />
-            <element signature="e#7664#7893#0#PHP" expanded="true" />
-            <element signature="e#8129#8378#0#PHP" expanded="true" />
-            <element signature="e#8622#8858#0#PHP" expanded="true" />
-            <element signature="e#9740#9979#0#PHP" expanded="true" />
-            <element signature="e#10905#11188#0#PHP" expanded="true" />
-            <element signature="e#11831#12094#0#PHP" expanded="true" />
-            <element signature="e#13059#13337#0#PHP" expanded="true" />
-            <element signature="e#15454#15731#0#PHP" expanded="true" />
-            <element signature="e#16571#16810#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiAptitudController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4368932" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="e#1056#1225#0#PHP" expanded="true" />
-            <element signature="e#1281#1373#0#PHP" expanded="true" />
-            <element signature="e#1517#1737#0#PHP" expanded="true" />
-            <element signature="e#7238#7437#0#PHP" expanded="true" />
-            <element signature="e#7661#7880#0#PHP" expanded="true" />
-            <element signature="e#8106#8312#0#PHP" expanded="true" />
-            <element signature="e#9152#9361#0#PHP" expanded="true" />
-            <element signature="e#10227#10480#0#PHP" expanded="true" />
-            <element signature="e#11087#11320#0#PHP" expanded="true" />
-            <element signature="e#12243#12491#0#PHP" expanded="true" />
-            <element signature="e#14536#14783#0#PHP" expanded="true" />
-            <element signature="e#15593#15802#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2184466" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding>
-            <element signature="e#1060#1230#0#PHP" expanded="true" />
-            <element signature="e#1286#1378#0#PHP" expanded="true" />
-            <element signature="e#1523#1738#0#PHP" expanded="true" />
-            <element signature="e#7193#7387#0#PHP" expanded="true" />
-            <element signature="e#7610#7824#0#PHP" expanded="true" />
-            <element signature="e#8048#8249#0#PHP" expanded="true" />
-            <element signature="e#9087#9292#0#PHP" expanded="true" />
-            <element signature="e#10158#10407#0#PHP" expanded="true" />
-            <element signature="e#11013#11242#0#PHP" expanded="true" />
-            <element signature="e#12164#12408#0#PHP" expanded="true" />
-            <element signature="e#14453#14695#0#PHP" expanded="true" />
-            <element signature="e#15503#15707#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiCaracteristicaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="67" selection-start-line="44" selection-start-column="67" selection-end-line="44" selection-end-column="67" />
-          <folding>
-            <element signature="e#58#84#0#PHP" expanded="true" />
-            <element signature="e#1085#1263#0#PHP" expanded="true" />
-            <element signature="e#1326#1432#0#PHP" expanded="true" />
-            <element signature="e#1592#1842#0#PHP" expanded="true" />
-            <element signature="e#7696#7925#0#PHP" expanded="true" />
-            <element signature="e#8162#8411#0#PHP" expanded="true" />
-            <element signature="e#8656#8892#0#PHP" expanded="true" />
-            <element signature="e#9779#10019#0#PHP" expanded="true" />
-            <element signature="e#10955#11239#0#PHP" expanded="true" />
-            <element signature="e#11887#12151#0#PHP" expanded="true" />
-            <element signature="e#13122#13401#0#PHP" expanded="true" />
-            <element signature="e#15530#15807#0#PHP" expanded="true" />
-            <element signature="e#16650#16889#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiPersonaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2962962" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="7" column="59" selection-start-line="0" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
-          <folding>
-            <element signature="e#1048#1215#0#PHP" expanded="true" />
-            <element signature="e#1271#1363#0#PHP" expanded="true" />
-            <element signature="e#1505#1720#0#PHP" expanded="true" />
-            <element signature="e#7175#7369#0#PHP" expanded="true" />
-            <element signature="e#7592#7806#0#PHP" expanded="true" />
-            <element signature="e#8030#8231#0#PHP" expanded="true" />
-            <element signature="e#9069#9274#0#PHP" expanded="true" />
-            <element signature="e#10140#10389#0#PHP" expanded="true" />
-            <element signature="e#10995#11224#0#PHP" expanded="true" />
-            <element signature="e#12146#12390#0#PHP" expanded="true" />
-            <element signature="e#14435#14677#0#PHP" expanded="true" />
-            <element signature="e#15485#15689#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTraduccionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46116504" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding>
-            <element signature="e#1049#1217#0#PHP" expanded="true" />
-            <element signature="e#1276#1374#0#PHP" expanded="true" />
-            <element signature="e#1520#1755#0#PHP" expanded="true" />
-            <element signature="e#7427#7641#0#PHP" expanded="true" />
-            <element signature="e#7871#8105#0#PHP" expanded="true" />
-            <element signature="e#8340#8561#0#PHP" expanded="true" />
-            <element signature="e#9422#9646#0#PHP" expanded="true" />
-            <element signature="e#10542#10810#0#PHP" expanded="true" />
-            <element signature="e#11435#11683#0#PHP" expanded="true" />
-            <element signature="e#12627#12890#0#PHP" expanded="true" />
-            <element signature="e#14971#15233#0#PHP" expanded="true" />
-            <element signature="e#16058#16282#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTipoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29126215" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="e#1031#1193#0#PHP" expanded="true" />
-            <element signature="e#1246#1332#0#PHP" expanded="true" />
-            <element signature="e#1466#1666#0#PHP" expanded="true" />
-            <element signature="e#6950#7129#0#PHP" expanded="true" />
-            <element signature="e#7346#7545#0#PHP" expanded="true" />
-            <element signature="e#7760#7946#0#PHP" expanded="true" />
-            <element signature="e#8763#8953#0#PHP" expanded="true" />
-            <element signature="e#9789#10023#0#PHP" expanded="true" />
-            <element signature="e#10611#10825#0#PHP" expanded="true" />
-            <element signature="e#11726#11955#0#PHP" expanded="true" />
-            <element signature="e#13964#14191#0#PHP" expanded="true" />
-            <element signature="e#14984#15173#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiRolController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#52#78#0#PHP" expanded="true" />
-            <element signature="e#1028#1189#0#PHP" expanded="true" />
-            <element signature="e#1241#1325#0#PHP" expanded="true" />
-            <element signature="e#1457#1657#0#PHP" expanded="true" />
-            <element signature="e#6930#7109#0#PHP" expanded="true" />
-            <element signature="e#7325#7524#0#PHP" expanded="true" />
-            <element signature="e#7738#7924#0#PHP" expanded="true" />
-            <element signature="e#8736#8925#0#PHP" expanded="true" />
-            <element signature="e#9751#9984#0#PHP" expanded="true" />
-            <element signature="e#10567#10780#0#PHP" expanded="true" />
-            <element signature="e#11675#11903#0#PHP" expanded="true" />
-            <element signature="e#13900#14127#0#PHP" expanded="true" />
-            <element signature="e#14917#15106#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiPaisController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#52#78#0#PHP" expanded="true" />
-            <element signature="e#1031#1193#0#PHP" expanded="true" />
-            <element signature="e#1246#1332#0#PHP" expanded="true" />
-            <element signature="e#1466#1671#0#PHP" expanded="true" />
-            <element signature="e#7001#7185#0#PHP" expanded="true" />
-            <element signature="e#7403#7607#0#PHP" expanded="true" />
-            <element signature="e#7824#8015#0#PHP" expanded="true" />
-            <element signature="e#8834#9028#0#PHP" expanded="true" />
-            <element signature="e#9864#10102#0#PHP" expanded="true" />
-            <element signature="e#10691#10909#0#PHP" expanded="true" />
-            <element signature="e#11811#12044#0#PHP" expanded="true" />
-            <element signature="e#14053#14285#0#PHP" expanded="true" />
-            <element signature="e#15080#15274#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiIdiomaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29126215" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="e#1037#1201#0#PHP" expanded="true" />
-            <element signature="e#1256#1346#0#PHP" expanded="true" />
-            <element signature="e#1484#1694#0#PHP" expanded="true" />
-            <element signature="e#7092#7281#0#PHP" expanded="true" />
-            <element signature="e#7502#7711#0#PHP" expanded="true" />
-            <element signature="e#7932#8128#0#PHP" expanded="true" />
-            <element signature="e#8959#9159#0#PHP" expanded="true" />
-            <element signature="e#10015#10259#0#PHP" expanded="true" />
-            <element signature="e#10859#11083#0#PHP" expanded="true" />
-            <element signature="e#11998#12237#0#PHP" expanded="true" />
-            <element signature="e#14270#14507#0#PHP" expanded="true" />
-            <element signature="e#15310#15509#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEtiquetaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#52#78#0#PHP" expanded="true" />
-            <element signature="e#1043#1209#0#PHP" expanded="true" />
-            <element signature="e#1266#1360#0#PHP" expanded="true" />
-            <element signature="e#1502#1722#0#PHP" expanded="true" />
-            <element signature="e#7234#7433#0#PHP" expanded="true" />
-            <element signature="e#7658#7877#0#PHP" expanded="true" />
-            <element signature="e#8104#8310#0#PHP" expanded="true" />
-            <element signature="e#9155#9365#0#PHP" expanded="true" />
-            <element signature="e#10241#10495#0#PHP" expanded="true" />
-            <element signature="e#11107#11341#0#PHP" expanded="true" />
-            <element signature="e#12270#12519#0#PHP" expanded="true" />
-            <element signature="e#14576#14823#0#PHP" expanded="true" />
-            <element signature="e#15636#15845#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEstadoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0679612" vertical-offset="0" max-vertical-offset="7380">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-          <folding>
-            <element signature="e#52#78#0#PHP" expanded="true" />
-            <element signature="e#1037#1201#0#PHP" expanded="true" />
-            <element signature="e#1256#1346#0#PHP" expanded="true" />
-            <element signature="e#1484#1694#0#PHP" expanded="true" />
-            <element signature="e#7092#7281#0#PHP" expanded="true" />
-            <element signature="e#7502#7711#0#PHP" expanded="true" />
-            <element signature="e#7932#8128#0#PHP" expanded="true" />
-            <element signature="e#8959#9159#0#PHP" expanded="true" />
-            <element signature="e#10015#10259#0#PHP" expanded="true" />
-            <element signature="e#10859#11083#0#PHP" expanded="true" />
-            <element signature="e#11998#12237#0#PHP" expanded="true" />
-            <element signature="e#14270#14507#0#PHP" expanded="true" />
-            <element signature="e#15310#15509#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0" vertical-offset="1245" max-vertical-offset="5520">
-          <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="84" />
-          <folding>
-            <element signature="e#52#78#0#PHP" expanded="true" />
-            <element signature="e#903#1060#0#PHP" expanded="true" />
-            <element signature="e#1185#1358#0#PHP" expanded="true" />
-            <element signature="e#1684#1723#0#PHP" expanded="true" />
-            <element signature="e#2091#2186#0#PHP" expanded="true" />
-            <element signature="e#6612#6756#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7259259" vertical-offset="1580" max-vertical-offset="6060">
-          <caret line="177" column="14" selection-start-line="177" selection-start-column="14" selection-end-line="177" selection-end-column="14" />
-          <folding>
-            <element signature="e#7996#8197#0#PHP" expanded="true" />
-            <element signature="e#12083#12326#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

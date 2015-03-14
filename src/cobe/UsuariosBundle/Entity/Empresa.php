@@ -79,6 +79,7 @@ class Empresa extends Persona
      */
     public function __construct()
     {
+        parent::__construct();
         $this->representantes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasEmpresa = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();

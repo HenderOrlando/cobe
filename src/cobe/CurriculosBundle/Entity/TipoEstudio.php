@@ -18,6 +18,7 @@ class TipoEstudio extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->estudios = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

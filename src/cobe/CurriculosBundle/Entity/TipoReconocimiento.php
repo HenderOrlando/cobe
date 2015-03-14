@@ -17,6 +17,7 @@ class TipoReconocimiento extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->reconocimientos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

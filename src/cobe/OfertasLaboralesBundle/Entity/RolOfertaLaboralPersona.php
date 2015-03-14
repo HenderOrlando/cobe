@@ -21,6 +21,7 @@ class RolOfertaLaboralPersona extends Rol
      */
     public function __construct()
     {
+        parent::__construct();
         $this->ofertaLaboralPersona = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

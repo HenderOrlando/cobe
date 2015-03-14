@@ -28,6 +28,7 @@ class Categoria extends Etiqueta
      */
     public function __construct()
     {
+        parent::__construct();
         $this->subcategorias = new \Doctrine\Common\Collections\ArrayCollection();
         $this->publicacionesCategoria = new \Doctrine\Common\Collections\ArrayCollection();
     }

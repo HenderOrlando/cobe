@@ -33,6 +33,7 @@ class Interes extends Etiqueta
      */
     public function __construct()
     {
+        parent::__construct();
         $this->estadisticasInteres = new \Doctrine\Common\Collections\ArrayCollection();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->personas = new \Doctrine\Common\Collections\ArrayCollection();

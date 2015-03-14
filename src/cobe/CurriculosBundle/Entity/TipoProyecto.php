@@ -18,6 +18,7 @@ class TipoProyecto extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->proyectos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

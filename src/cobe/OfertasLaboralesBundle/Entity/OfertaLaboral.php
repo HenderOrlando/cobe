@@ -105,6 +105,7 @@ class OfertaLaboral extends Obj
      */
     public function __construct()
     {
+        parent::__construct();
         $this->ofertaLaboralPersonas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivo = new \Doctrine\Common\Collections\ArrayCollection();

@@ -18,6 +18,7 @@ class RolGrupoPersona extends Rol
      */
     public function __construct()
     {
+        parent::__construct();
         $this->grupoPersona = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

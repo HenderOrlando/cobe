@@ -89,6 +89,7 @@ class Archivo extends Objeto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
     }

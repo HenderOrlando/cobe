@@ -17,6 +17,7 @@ class TipoEstadistica extends Tipo
      */
     public function __construct()
     {
+        parent::__construct();
         $this->estadisticasTipo = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

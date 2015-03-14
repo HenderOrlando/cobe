@@ -17,6 +17,7 @@ class EstadoVotacion extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->votaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

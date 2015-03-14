@@ -84,6 +84,7 @@ class Estadistica extends Objeto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->estadisticasPublicacion = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasOfertaLaboral = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasUsuario = new \Doctrine\Common\Collections\ArrayCollection();

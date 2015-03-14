@@ -33,6 +33,7 @@ class Aptitud extends Etiqueta
      */
     public function __construct()
     {
+        parent::__construct();
         $this->archivosAptitud = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasAptitud = new \Doctrine\Common\Collections\ArrayCollection();
         $this->personas = new \Doctrine\Common\Collections\ArrayCollection();

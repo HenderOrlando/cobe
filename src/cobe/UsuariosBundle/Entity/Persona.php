@@ -115,6 +115,7 @@ class Persona extends Usuario
      */
     public function __construct()
     {
+        parent::__construct();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estudiosPersona = new \Doctrine\Common\Collections\ArrayCollection();
         $this->recomendados = new \Doctrine\Common\Collections\ArrayCollection();

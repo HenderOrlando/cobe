@@ -52,6 +52,7 @@ class Plantilla extends Objeto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->subplantillas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }

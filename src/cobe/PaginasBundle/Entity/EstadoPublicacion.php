@@ -17,6 +17,7 @@ class EstadoPublicacion extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->publicacionesEstado = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

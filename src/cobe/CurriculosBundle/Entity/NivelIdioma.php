@@ -17,6 +17,7 @@ class NivelIdioma extends Etiqueta
      */
     public function __construct()
     {
+        parent::__construct();
         $this->idiomaPersona = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

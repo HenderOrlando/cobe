@@ -1,12 +1,12 @@
 <?php
 namespace cobe\MensajesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
-use cobe\MensajesBundle\Entity\Mensaje;
+use cobe\MensajesBundle\Entity\Comentario;
 
 /**
  * @ORM\Entity
  */
-class ComentarioPublicacion extends Mensaje
+class ComentarioPublicacion extends Comentario
 {
     /**
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", inversedBy="comentarios")

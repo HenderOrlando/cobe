@@ -17,6 +17,7 @@ class Caracteristica extends Etiqueta
      */
     public function __construct()
     {
+        parent::__construct();
         $this->estadisticasCaracteristica = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

@@ -62,6 +62,7 @@ class Grupo extends Obj
      */
     public function __construct()
     {
+        parent::__construct();
         $this->grupoPersonas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();

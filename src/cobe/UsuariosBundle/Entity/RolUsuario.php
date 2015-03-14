@@ -18,6 +18,7 @@ class RolUsuario extends Rol
      */
     public function __construct()
     {
+        parent::__construct();
         $this->usuarios = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

@@ -17,6 +17,7 @@ class EstadoArchivo extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->archivosEstado = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

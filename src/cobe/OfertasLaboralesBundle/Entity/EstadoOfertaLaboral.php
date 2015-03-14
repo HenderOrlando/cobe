@@ -18,6 +18,7 @@ class EstadoOfertaLaboral extends Estado
      */
     public function __construct()
     {
+        parent::__construct();
         $this->ofertasLaboralesEstado = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

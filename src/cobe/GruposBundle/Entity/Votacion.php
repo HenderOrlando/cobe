@@ -7,9 +7,10 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
  * @ORM\Entity(repositoryClass="cobe\GruposBundle\Repository\VotacionRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="herenciaVotacion", type="string")
- * @ORM\DiscriminatorMap(
- *     {"Votacion"="cobe\GruposBundle\Entity\Votacion","Publicacion"="\cobe\PaginasBundle\Entity\VotacionPublicacion"}
- * )
+ * @ORM\DiscriminatorMap({
+ *      "Votacion"="cobe\GruposBundle\Entity\Votacion",
+ *      "Publicacion"="\cobe\PaginasBundle\Entity\VotacionPublicacion"
+ * })
  */
 class Votacion extends Obj
 {
@@ -43,6 +44,7 @@ class Votacion extends Obj
      */
     public function __construct()
     {
+        parent::__construct();
         $this->votacionesGrupoPersona = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

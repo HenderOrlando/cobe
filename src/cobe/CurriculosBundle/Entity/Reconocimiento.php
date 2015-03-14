@@ -39,6 +39,7 @@ class Reconocimiento extends Obj
      */
     public function __construct()
     {
+        parent::__construct();
         $this->reconocimientoPersonas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
     }
