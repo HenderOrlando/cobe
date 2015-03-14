@@ -2,11 +2,11 @@
 
 namespace cobe\PaginasBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CategoriaType extends AbstractType
+class CategoriaType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,9 +14,14 @@ class CategoriaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $this->addObjectForm($builder, $options);
+
+        /*$builder
             ->add('categoria')
-        ;
+        ;*/
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -34,6 +39,6 @@ class CategoriaType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_paginasbundle_categoria';
+        return 'categoria';
     }
 }

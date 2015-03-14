@@ -2,11 +2,11 @@
 
 namespace cobe\GruposBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class VotacionType extends AbstractType
+class VotacionType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,12 +14,17 @@ class VotacionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('opciones')
             ->add('fechaFin')
-            ->add('opcionSeleccionada')
+            /*->add('opcionSeleccionada')*/
             ->add('estado')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -37,6 +42,6 @@ class VotacionType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_gruposbundle_votacion';
+        return 'votacion';
     }
 }

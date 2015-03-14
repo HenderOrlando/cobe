@@ -2,11 +2,11 @@
 
 namespace cobe\UsuariosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class HistorialType extends AbstractType
+class HistorialType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -23,6 +23,9 @@ class HistorialType extends AbstractType
             ->add('accion')
             ->add('usuario')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -40,6 +43,6 @@ class HistorialType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_usuariosbundle_historial';
+        return 'historial';
     }
 }

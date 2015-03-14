@@ -2,11 +2,11 @@
 
 namespace cobe\EstadisticasBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CaracteristicaType extends AbstractType
+class CaracteristicaType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,9 +14,14 @@ class CaracteristicaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $this->addObjectForm($builder, $options);
+
+        /*$builder
             ->add('estadisticasCaracteristica')
-        ;
+        ;*/
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -34,6 +39,6 @@ class CaracteristicaType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_estadisticasbundle_caracteristica';
+        return 'caracteristica';
     }
 }

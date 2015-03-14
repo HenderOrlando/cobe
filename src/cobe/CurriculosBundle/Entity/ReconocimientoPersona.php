@@ -3,7 +3,7 @@ namespace cobe\CurriculosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
- * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\Repository")
+ * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\ReconocimientoPersonaRepository")
  * @ORM\Table(
  *     options={"comment":"Reconocimientos de la Persona"},
  *     uniqueConstraints={@ORM\UniqueConstraint(name="persona_reconocimiento", columns={"persona","reconocimiento"})}

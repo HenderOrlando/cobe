@@ -2,11 +2,11 @@
 
 namespace cobe\OfertasLaboralesBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Repository\ObjectRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OfertaLaboralType extends AbstractType
+class OfertaLaboralType extends ObjectRepository
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,16 +14,21 @@ class OfertaLaboralType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
-            ->add('estadoOfertasLaborales')
+            /*->add('estadoOfertasLaborales')
+            ->add('publicacion')*/
             ->add('tipoOfertasLaborales')
             ->add('usuario')
-            ->add('publicacion')
             ->add('aptitudes')
             ->add('etiquetas')
             ->add('idiomas')
             ->add('ciudades')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -41,6 +46,6 @@ class OfertaLaboralType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_ofertaslaboralesbundle_ofertalaboral';
+        return 'oofertalaboral';
     }
 }

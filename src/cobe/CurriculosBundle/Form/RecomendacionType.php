@@ -2,11 +2,11 @@
 
 namespace cobe\CurriculosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class RecomendacionType extends AbstractType
+class RecomendacionType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,11 +16,13 @@ class RecomendacionType extends AbstractType
     {
         $builder
             ->add('descripcion')
-            ->add('fechaCreado')
             ->add('recomienda')
             ->add('recomendado')
             ->add('tipo')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -38,6 +40,6 @@ class RecomendacionType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_curriculosbundle_recomendacion';
+        return 'recomendacion';
     }
 }

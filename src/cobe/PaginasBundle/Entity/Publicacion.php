@@ -4,8 +4,9 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PublicacionRepository")
  * @ORM\Table(
+ *     options={"comment":"Publicaciones realizadas en el sistema"},
  *     indexes={@ORM\Index(name="categoria", columns={"categoria"}),@ORM\Index(name="grupo_editor", columns={})}
  * )
  */

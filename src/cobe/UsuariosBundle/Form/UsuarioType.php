@@ -2,11 +2,11 @@
 
 namespace cobe\UsuariosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UsuarioType extends AbstractType
+class UsuarioType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,17 +14,20 @@ class UsuarioType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
         $builder
             ->add('clave')
-            ->add('salt')
             ->add('email')
-            ->add('token')
             ->add('rol')
             ->add('estado')
+            /*->add('salt')
+            ->add('token')
             ->add('plantilla')
             ->add('solicitantes')
-            ->add('solicitados')
+            ->add('solicitados')*/
         ;
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -42,6 +45,6 @@ class UsuarioType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_usuariosbundle_usuario';
+        return 'usuario';
     }
 }

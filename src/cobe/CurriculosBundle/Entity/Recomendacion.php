@@ -55,6 +55,7 @@ class Recomendacion
      */
     public function __construct()
     {
+        $this->fechaCreado = new \DateTime('now');
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

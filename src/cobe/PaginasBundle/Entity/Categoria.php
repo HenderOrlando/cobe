@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Etiqueta;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\CategoriaRepository")
  */
 class Categoria extends Etiqueta
 {

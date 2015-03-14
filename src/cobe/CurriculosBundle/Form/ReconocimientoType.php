@@ -2,11 +2,11 @@
 
 namespace cobe\CurriculosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ReconocimientoType extends AbstractType
+class ReconocimientoType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,11 +14,16 @@ class ReconocimientoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('fechaOtorgado')
             ->add('tipo')
             ->add('empresas')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**

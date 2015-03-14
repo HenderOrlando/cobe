@@ -2,11 +2,11 @@
 
 namespace cobe\UsuariosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PersonaType extends AbstractType
+class PersonaType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,8 +14,9 @@ class PersonaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
-            ->add('nombres')
             ->add('doc_id')
             ->add('direccion')
             ->add('telefono')
@@ -23,6 +24,9 @@ class PersonaType extends AbstractType
             ->add('intereses')
             ->add('aptitudes')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -40,6 +44,6 @@ class PersonaType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_usuariosbundle_persona';
+        return 'persona';
     }
 }

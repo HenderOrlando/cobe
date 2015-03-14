@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
 
 /**
- * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\Repository")
+ * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\MensajeRepository")
  * @ORM\Table(options={"comment":"Mensajes en el sistema"})
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="herenciaMensaje", length=25, type="string")

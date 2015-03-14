@@ -2,11 +2,11 @@
 
 namespace cobe\UsuariosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EmpresaType extends AbstractType
+class EmpresaType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,15 +14,20 @@ class EmpresaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('fechaNace')
-            ->add('plantillaEmpresa')
+            /*->add('plantillaEmpresa')*/
             ->add('etiquetas')
             ->add('ciudades')
             ->add('intereses')
             ->add('proyectos')
             ->add('reconocimientos')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -40,6 +45,6 @@ class EmpresaType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_usuariosbundle_empresa';
+        return 'empresa';
     }
 }

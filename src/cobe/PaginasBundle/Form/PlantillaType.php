@@ -2,11 +2,11 @@
 
 namespace cobe\PaginasBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PlantillaType extends AbstractType
+class PlantillaType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,11 +14,16 @@ class PlantillaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
-            ->add('plantilla')
+            /*->add('plantilla')*/
             ->add('tipo')
             ->add('estado')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -36,6 +41,6 @@ class PlantillaType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_paginasbundle_plantilla';
+        return 'plantilla';
     }
 }

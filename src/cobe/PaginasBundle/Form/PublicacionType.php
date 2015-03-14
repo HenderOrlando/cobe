@@ -2,11 +2,11 @@
 
 namespace cobe\PaginasBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PublicacionType extends AbstractType
+class PublicacionType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,6 +14,8 @@ class PublicacionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('metadatos')
             ->add('fechaArchiva')
@@ -26,6 +28,9 @@ class PublicacionType extends AbstractType
             ->add('grupoEditor')
             ->add('etiquetas')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -43,6 +48,6 @@ class PublicacionType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_paginasbundle_publicacion';
+        return 'publicacion';
     }
 }

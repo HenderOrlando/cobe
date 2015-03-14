@@ -2,11 +2,11 @@
 
 namespace cobe\GruposBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class GrupoType extends AbstractType
+class GrupoType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,11 +14,16 @@ class GrupoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
-            ->add('plantilla')
+            /*->add('plantilla')*/
             ->add('interesesGrupo')
             ->add('etiquetas')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -36,6 +41,6 @@ class GrupoType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_gruposbundle_grupo';
+        return 'grupo';
     }
 }

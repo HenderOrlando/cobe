@@ -2,11 +2,11 @@
 
 namespace cobe\CurriculosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AptitudType extends AbstractType
+class AptitudType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,10 +14,14 @@ class AptitudType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $this->addObjectForm($builder, $options);
+
+        /*$builder
             ->add('personas')
             ->add('ofertasLaboralesAptitud')
-        ;
+        ;*/
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -35,6 +39,6 @@ class AptitudType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_curriculosbundle_aptitud';
+        return 'aptitud';
     }
 }

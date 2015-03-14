@@ -2,11 +2,11 @@
 
 namespace cobe\CurriculosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EstudioType extends AbstractType
+class EstudioType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,11 +14,16 @@ class EstudioType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('titulacion')
             ->add('centroEstudio')
             ->add('tipo')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -36,6 +41,6 @@ class EstudioType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_curriculosbundle_estudio';
+        return 'estudio';
     }
 }

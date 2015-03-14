@@ -15,6 +15,7 @@ class ArchivoType extends ObjectType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addObjectForm($builder, $options);
+
         $builder
             /*->add('url')
             ->add('fullUrl')
@@ -44,6 +45,6 @@ class ArchivoType extends ObjectType
      */
     public function getName()
     {
-        return 'cobe_coleccionesbundle_archivo';
+        return 'archivo';
     }
 }

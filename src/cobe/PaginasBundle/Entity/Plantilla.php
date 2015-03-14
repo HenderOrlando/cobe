@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PlantillaRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="herenciaPlantilla", type="string")
  * @ORM\DiscriminatorMap(

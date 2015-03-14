@@ -16,11 +16,6 @@ use cobe\UsuariosBundle\Entity\Usuario;
 class Persona extends Usuario
 {
     /**
-     * @ORM\Column(type="string", length=80, nullable=false, options={"comment":"Nombres de la Persona"})
-     */
-    private $nombres;
-
-    /**
      * @ORM\Column(
      *     type="smallint",
      *     length=12,

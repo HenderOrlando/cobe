@@ -14,6 +14,8 @@ class MensajeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('usuarioMensaje')
             ->add('estadoMensaje')
@@ -21,6 +23,9 @@ class MensajeType extends AbstractType
             ->add('mensajes')
             ->add('mensajesRespuesta')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -38,6 +43,6 @@ class MensajeType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_mensajesbundle_mensaje';
+        return 'mensaje';
     }
 }

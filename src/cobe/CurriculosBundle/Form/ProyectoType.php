@@ -2,11 +2,11 @@
 
 namespace cobe\CurriculosBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ProyectoType extends AbstractType
+class ProyectoType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,12 +14,17 @@ class ProyectoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
             ->add('fechaInicio')
             ->add('fechaFin')
             ->add('tipo')
             ->add('empresas')
         ;
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
     }
     
     /**
@@ -37,6 +42,6 @@ class ProyectoType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_curriculosbundle_proyecto';
+        return 'proyecto';
     }
 }

@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\HistorialRepository")
+ * @ORM\Table(options={"comment":"Historial de las acciones de los usuarios"})
  */
 class Historial extends Objeto
 {

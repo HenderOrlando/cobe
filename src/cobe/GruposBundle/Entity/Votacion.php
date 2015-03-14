@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\GruposBundle\Repository\VotacionRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="herenciaVotacion", type="string")
  * @ORM\DiscriminatorMap(
