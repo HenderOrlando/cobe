@@ -77,11 +77,11 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los idiomas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/idiomas/params/?idioma[nombre]=Ecuador',
                     '/idiomas/params/?idioma[descripcion]=Suramérica',
-                    '/idiomas/params/?idioma[descripcion]=País-Suraméricano',
+                    '/idiomas/params/?idioma[descripcion]=Idioma-Suraméricano',
                     '/idiomas/params/?idioma[nombre]=República-Bolivariana-de-Venezuela&idioma[descripcion]=suramerica',
                     '/idiomas/params/?idioma[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los idiomas iniciando en el Offset.',
                 'examples'       => array(
                     '/idiomas/o1/',
                     '/idiomas/o10',
@@ -98,7 +98,7 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los idiomas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/idiomas/l2/',
                     '/idiomas/l10',
@@ -107,7 +107,7 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los idiomas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/idiomas/o1/l2/',
                     '/idiomas/o10/l10',
@@ -116,7 +116,7 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un idioma.',
                 'examples'       => array(
                     '/idiomas/new/',
                     '/idiomas/new',
@@ -125,7 +125,7 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea idiomas. Puede recibir datos de varios idiomas.',
                 'examples'       => array(
                     '/idiomas/',
                     '/idiomas',
@@ -143,7 +143,7 @@ class ApiIdiomaController extends ApiController
             array(
                 'route'         => '/idiomas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de idioma.',
+                'description'   => 'Sobreescribe los atributos de idioma.',
                 'examples'       => array(
                     '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/idiomas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiIdiomaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Idioma.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiIdiomaController extends ApiController
             $idioma = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Idioma no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiIdiomaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Idioma no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiIdiomaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Idioma.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiIdiomaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Idioma.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiIdiomaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Idioma no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiIdiomaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Idioma no encontrado.',
                     'code'      => '404',
                 ),
             ),

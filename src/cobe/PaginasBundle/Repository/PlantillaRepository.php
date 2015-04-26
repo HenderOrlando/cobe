@@ -1,6 +1,6 @@
 <?php
 
-namespace cobe\PlantillasBundle\Repository;
+namespace cobe\PaginasBundle\Repository;
 
 use cobe\CommonBundle\Repository\ObjectRepository;
 

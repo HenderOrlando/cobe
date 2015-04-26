@@ -2,11 +2,11 @@
 
 namespace cobe\OfertasLaboralesBundle\Form;
 
-use cobe\CommonBundle\Repository\ObjectRepository;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OfertaLaboralType extends ObjectRepository
+class OfertaLaboralType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder

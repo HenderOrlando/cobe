@@ -59,7 +59,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los etiquetas.',
+                'description'   => 'Lista todos las etiquetas.',
                 'examples'       => array(
                     '/etiquetas',
                     '/etiquetas/',
@@ -68,7 +68,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los etiquetas.',
+                'description'   => 'Lista todos las etiquetas.',
                 'examples'       => array(
                     '/etiquetas/{id}',
                     '/etiquetas/{id}/',
@@ -77,11 +77,11 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las etiquetas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/etiquetas/params/?etiqueta[nombre]=Ecuador',
                     '/etiquetas/params/?etiqueta[descripcion]=Suramérica',
-                    '/etiquetas/params/?etiqueta[descripcion]=País-Suraméricano',
+                    '/etiquetas/params/?etiqueta[descripcion]=Etiqueta-Suraméricano',
                     '/etiquetas/params/?etiqueta[nombre]=República-Bolivariana-de-Venezuela&etiqueta[descripcion]=suramerica',
                     '/etiquetas/params/?etiqueta[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las etiquetas iniciando en el Offset.',
                 'examples'       => array(
                     '/etiquetas/o1/',
                     '/etiquetas/o10',
@@ -98,7 +98,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las etiquetas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/etiquetas/l2/',
                     '/etiquetas/l10',
@@ -107,7 +107,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las etiquetas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/etiquetas/o1/l2/',
                     '/etiquetas/o10/l10',
@@ -116,7 +116,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una etiqueta.',
                 'examples'       => array(
                     '/etiquetas/new/',
                     '/etiquetas/new',
@@ -125,7 +125,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea etiquetas. Puede recibir datos de varias etiquetas.',
                 'examples'       => array(
                     '/etiquetas/',
                     '/etiquetas',
@@ -143,7 +143,7 @@ class ApiEtiquetaController extends ApiController
             array(
                 'route'         => '/etiquetas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de etiqueta.',
+                'description'   => 'Sobreescribe los atributos de etiqueta.',
                 'examples'       => array(
                     '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiEtiquetaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Etiqueta.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiEtiquetaController extends ApiController
             $etiqueta = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Etiqueta no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiEtiquetaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Etiqueta no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiEtiquetaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Etiqueta.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiEtiquetaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Etiqueta.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiEtiquetaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Etiqueta no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiEtiquetaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Etiqueta no encontrada.',
                     'code'      => '404',
                 ),
             ),

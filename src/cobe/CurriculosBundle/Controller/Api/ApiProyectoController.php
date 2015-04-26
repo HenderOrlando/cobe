@@ -77,11 +77,11 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los proyectos que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/proyectos/params/?proyecto[nombre]=Ecuador',
                     '/proyectos/params/?proyecto[descripcion]=Suramérica',
-                    '/proyectos/params/?proyecto[descripcion]=País-Suraméricano',
+                    '/proyectos/params/?proyecto[descripcion]=Proyecto-Suraméricano',
                     '/proyectos/params/?proyecto[nombre]=República-Bolivariana-de-Venezuela&proyecto[descripcion]=suramerica',
                     '/proyectos/params/?proyecto[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los proyectos iniciando en el Offset.',
                 'examples'       => array(
                     '/proyectos/o1/',
                     '/proyectos/o10',
@@ -98,7 +98,7 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los proyectos iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/proyectos/l2/',
                     '/proyectos/l10',
@@ -107,7 +107,7 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los proyectos iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/proyectos/o1/l2/',
                     '/proyectos/o10/l10',
@@ -116,7 +116,7 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un proyecto.',
                 'examples'       => array(
                     '/proyectos/new/',
                     '/proyectos/new',
@@ -125,7 +125,7 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea proyectos. Puede recibir datos de varios proyectos.',
                 'examples'       => array(
                     '/proyectos/',
                     '/proyectos',
@@ -143,7 +143,7 @@ class ApiProyectoController extends ApiController
             array(
                 'route'         => '/proyectos/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de proyecto.',
+                'description'   => 'Sobreescribe los atributos de proyecto.',
                 'examples'       => array(
                     '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/proyectos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiProyectoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Proyecto.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiProyectoController extends ApiController
             $proyecto = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Proyecto no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiProyectoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Proyecto no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiProyectoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Proyecto.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiProyectoController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Proyecto.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiProyectoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Proyecto no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiProyectoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Proyecto no encontrado.',
                     'code'      => '404',
                 ),
             ),

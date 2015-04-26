@@ -77,7 +77,7 @@ class ApiArchivoController extends ApiController
             array(
                 'route'         => '/archivos/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los archivos que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/archivos/params/?archivo[nombre]=Ecuador',
                     '/archivos/params/?archivo[descripcion]=Suramérica',
@@ -89,7 +89,7 @@ class ApiArchivoController extends ApiController
             array(
                 'route'         => '/archivos/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los archivos iniciando en el Offset.',
                 'examples'       => array(
                     '/archivos/o1/',
                     '/archivos/o10',
@@ -98,7 +98,7 @@ class ApiArchivoController extends ApiController
             array(
                 'route'         => '/archivos/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los archivos iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/archivos/l2/',
                     '/archivos/l10',
@@ -107,7 +107,7 @@ class ApiArchivoController extends ApiController
             array(
                 'route'         => '/archivos/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los archivos iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/archivos/o1/l2/',
                     '/archivos/o10/l10',
@@ -116,7 +116,7 @@ class ApiArchivoController extends ApiController
             array(
                 'route'         => '/archivos/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un archivo.',
                 'examples'       => array(
                     '/archivos/new/',
                     '/archivos/new',
@@ -125,7 +125,7 @@ class ApiArchivoController extends ApiController
             array(
                 'route'         => '/archivos',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea archivo. Puede recibir datos de varios archivos.',
                 'examples'       => array(
                     '/archivos/',
                     '/archivos',

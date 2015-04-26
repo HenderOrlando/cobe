@@ -77,11 +77,11 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los centrosestudios que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/centrosestudios/params/?centroestudio[nombre]=Ecuador',
                     '/centrosestudios/params/?centroestudio[descripcion]=Suramérica',
-                    '/centrosestudios/params/?centroestudio[descripcion]=País-Suraméricano',
+                    '/centrosestudios/params/?centroestudio[descripcion]=CentroEstudio-Suraméricano',
                     '/centrosestudios/params/?centroestudio[nombre]=República-Bolivariana-de-Venezuela&centroestudio[descripcion]=suramerica',
                     '/centrosestudios/params/?centroestudio[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los centrosestudios iniciando en el Offset.',
                 'examples'       => array(
                     '/centrosestudios/o1/',
                     '/centrosestudios/o10',
@@ -98,7 +98,7 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los centrosestudios iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/centrosestudios/l2/',
                     '/centrosestudios/l10',
@@ -107,7 +107,7 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los centrosestudios iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/centrosestudios/o1/l2/',
                     '/centrosestudios/o10/l10',
@@ -116,7 +116,7 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un centroestudio.',
                 'examples'       => array(
                     '/centrosestudios/new/',
                     '/centrosestudios/new',
@@ -125,7 +125,7 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea centrosestudios. Puede recibir datos de varios centrosestudios.',
                 'examples'       => array(
                     '/centrosestudios/',
                     '/centrosestudios',
@@ -143,7 +143,7 @@ class ApiCentroEstudioController extends ApiController
             array(
                 'route'         => '/centrosestudios/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de centroestudio.',
+                'description'   => 'Sobreescribe los atributos de centroestudio.',
                 'examples'       => array(
                     '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/centrosestudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiCentroEstudioController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el CentroEstudio.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiCentroEstudioController extends ApiController
             $centroestudio = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'CentroEstudio no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiCentroEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'CentroEstudio no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiCentroEstudioController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el CentroEstudio.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiCentroEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el CentroEstudio.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiCentroEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'CentroEstudio no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiCentroEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'CentroEstudio no encontrado.',
                     'code'      => '404',
                 ),
             ),

@@ -143,7 +143,7 @@ class ApiPaisController extends ApiController
             array(
                 'route'         => '/paises/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de pais.',
+                'description'   => 'Sobreescribe los atributos de pais.',
                 'examples'       => array(
                     '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/paises/038a3156-c9c1-11e4-b1eb-0022b003a0e2',

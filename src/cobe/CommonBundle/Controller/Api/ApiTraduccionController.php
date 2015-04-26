@@ -77,7 +77,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las traducciones que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/traducciones/params/?traduccion[nombre]=Ecuador',
                     '/traducciones/params/?traduccion[descripcion]=Suramérica',
@@ -89,7 +89,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las traducciones iniciando en el Offset.',
                 'examples'       => array(
                     '/traducciones/o1/',
                     '/traducciones/o10',
@@ -98,7 +98,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las traducciones iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/traducciones/l2/',
                     '/traducciones/l10',
@@ -107,7 +107,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las traducciones iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/traducciones/o1/l2/',
                     '/traducciones/o10/l10',
@@ -116,7 +116,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una traducción.',
                 'examples'       => array(
                     '/traducciones/new/',
                     '/traducciones/new',
@@ -125,7 +125,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea traducciones. Puede recibir datos de varias traducciones.',
                 'examples'       => array(
                     '/traducciones/',
                     '/traducciones',
@@ -143,7 +143,7 @@ class ApiTraduccionController extends ApiController
             array(
                 'route'         => '/traducciones/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de traduccion.',
+                'description'   => 'Sobreescribe los atributos de traduccion.',
                 'examples'       => array(
                     '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/traducciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiTraduccionController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Traducción.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiTraduccionController extends ApiController
             $traduccion = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'País no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiTraduccionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'País no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiTraduccionController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Traducción.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiTraduccionController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Traducción.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiTraduccionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'País no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiTraduccionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'País no encontrada.',
                     'code'      => '404',
                 ),
             ),

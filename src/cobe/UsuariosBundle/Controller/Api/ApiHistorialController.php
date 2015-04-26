@@ -77,11 +77,11 @@ class ApiHistorialController extends ApiController
             array(
                 'route'         => '/historiales/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los historiales que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/historiales/params/?historial[nombre]=Ecuador',
                     '/historiales/params/?historial[descripcion]=Suramérica',
-                    '/historiales/params/?historial[descripcion]=País-Suraméricano',
+                    '/historiales/params/?historial[descripcion]=Historial-Suraméricano',
                     '/historiales/params/?historial[nombre]=República-Bolivariana-de-Venezuela&historial[descripcion]=suramerica',
                     '/historiales/params/?historial[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiHistorialController extends ApiController
             array(
                 'route'         => '/historiales/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los historiales iniciando en el Offset.',
                 'examples'       => array(
                     '/historiales/o1/',
                     '/historiales/o10',
@@ -98,7 +98,7 @@ class ApiHistorialController extends ApiController
             array(
                 'route'         => '/historiales/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los historiales iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/historiales/l2/',
                     '/historiales/l10',
@@ -107,7 +107,7 @@ class ApiHistorialController extends ApiController
             array(
                 'route'         => '/historiales/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los historiales iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/historiales/o1/l2/',
                     '/historiales/o10/l10',
@@ -116,7 +116,7 @@ class ApiHistorialController extends ApiController
             array(
                 'route'         => '/historiales/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un historial.',
                 'examples'       => array(
                     '/historiales/new/',
                     '/historiales/new',
@@ -125,7 +125,7 @@ class ApiHistorialController extends ApiController
             array(
                 'route'         => '/historiales',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea historiales. Puede recibir datos de varios historiales.',
                 'examples'       => array(
                     '/historiales/',
                     '/historiales',
@@ -228,7 +228,7 @@ class ApiHistorialController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Historial.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiHistorialController extends ApiController
             $historial = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Historial no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiHistorialController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Historial no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiHistorialController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Historial.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiHistorialController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Historial.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiHistorialController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Historial no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiHistorialController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Historial no encontrado.',
                     'code'      => '404',
                 ),
             ),

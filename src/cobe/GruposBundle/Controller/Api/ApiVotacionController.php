@@ -77,11 +77,11 @@ class ApiVotacionController extends ApiController
             array(
                 'route'         => '/votaciones/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los votaciones que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/votaciones/params/?votacion[nombre]=Ecuador',
                     '/votaciones/params/?votacion[descripcion]=Suramérica',
-                    '/votaciones/params/?votacion[descripcion]=País-Suraméricano',
+                    '/votaciones/params/?votacion[descripcion]=Votación-Suraméricano',
                     '/votaciones/params/?votacion[nombre]=República-Bolivariana-de-Venezuela&votacion[descripcion]=suramerica',
                     '/votaciones/params/?votacion[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiVotacionController extends ApiController
             array(
                 'route'         => '/votaciones/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los votaciones iniciando en el Offset.',
                 'examples'       => array(
                     '/votaciones/o1/',
                     '/votaciones/o10',
@@ -98,7 +98,7 @@ class ApiVotacionController extends ApiController
             array(
                 'route'         => '/votaciones/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los votaciones iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/votaciones/l2/',
                     '/votaciones/l10',
@@ -107,7 +107,7 @@ class ApiVotacionController extends ApiController
             array(
                 'route'         => '/votaciones/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los votaciones iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/votaciones/o1/l2/',
                     '/votaciones/o10/l10',
@@ -125,7 +125,7 @@ class ApiVotacionController extends ApiController
             array(
                 'route'         => '/votaciones',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea votaciones. Puede recibir datos de varios votaciones.',
                 'examples'       => array(
                     '/votaciones/',
                     '/votaciones',
@@ -143,7 +143,7 @@ class ApiVotacionController extends ApiController
             array(
                 'route'         => '/votaciones/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de votacion.',
+                'description'   => 'Sobreescribe los atributos de votacion.',
                 'examples'       => array(
                     '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiVotacionController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Votación.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiVotacionController extends ApiController
             $votacion = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Votación no enconrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiVotacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Votación no enconrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiVotacionController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Votación.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiVotacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Votación.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiVotacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Votación no enconrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiVotacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Votación no enconrada.',
                     'code'      => '404',
                 ),
             ),

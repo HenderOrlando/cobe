@@ -59,7 +59,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los empresas.',
+                'description'   => 'Lista todas las empresas.',
                 'examples'       => array(
                     '/empresas',
                     '/empresas/',
@@ -68,7 +68,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los empresas.',
+                'description'   => 'Lista todas las empresas.',
                 'examples'       => array(
                     '/empresas/{id}',
                     '/empresas/{id}/',
@@ -77,11 +77,11 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las empresas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/empresas/params/?empresa[nombre]=Ecuador',
                     '/empresas/params/?empresa[descripcion]=Suramérica',
-                    '/empresas/params/?empresa[descripcion]=País-Suraméricano',
+                    '/empresas/params/?empresa[descripcion]=Empresa-Suraméricano',
                     '/empresas/params/?empresa[nombre]=República-Bolivariana-de-Venezuela&empresa[descripcion]=suramerica',
                     '/empresas/params/?empresa[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las empresas iniciando en el Offset.',
                 'examples'       => array(
                     '/empresas/o1/',
                     '/empresas/o10',
@@ -98,7 +98,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las empresas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/empresas/l2/',
                     '/empresas/l10',
@@ -107,7 +107,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las empresas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/empresas/o1/l2/',
                     '/empresas/o10/l10',
@@ -116,7 +116,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una empresa.',
                 'examples'       => array(
                     '/empresas/new/',
                     '/empresas/new',
@@ -125,7 +125,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea empresas. Puede recibir datos de varias empresas.',
                 'examples'       => array(
                     '/empresas/',
                     '/empresas',
@@ -143,7 +143,7 @@ class ApiEmpresaController extends ApiController
             array(
                 'route'         => '/empresas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de empresa.',
+                'description'   => 'Sobreescribe los atributos de empresa.',
                 'examples'       => array(
                     '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/empresas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiEmpresaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Empresa.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiEmpresaController extends ApiController
             $empresa = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Empresa no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiEmpresaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Empresa no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiEmpresaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Empresa.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiEmpresaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Empresa.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiEmpresaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Empresa no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiEmpresaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Empresa no encontrada.',
                     'code'      => '404',
                 ),
             ),

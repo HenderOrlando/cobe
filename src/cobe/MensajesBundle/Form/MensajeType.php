@@ -2,11 +2,11 @@
 
 namespace cobe\MensajesBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MensajeType extends AbstractType
+class MensajeType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder

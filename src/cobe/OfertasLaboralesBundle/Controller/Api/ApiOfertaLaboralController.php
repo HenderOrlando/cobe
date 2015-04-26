@@ -59,7 +59,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los ofertaslaborales.',
+                'description'   => 'Lista todas las ofertaslaborales.',
                 'examples'       => array(
                     '/ofertaslaborales',
                     '/ofertaslaborales/',
@@ -68,7 +68,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los ofertaslaborales.',
+                'description'   => 'Lista todas las ofertaslaborales.',
                 'examples'       => array(
                     '/ofertaslaborales/{id}',
                     '/ofertaslaborales/{id}/',
@@ -77,11 +77,11 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las ofertaslaborales que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/ofertaslaborales/params/?ofertalaboral[nombre]=Ecuador',
                     '/ofertaslaborales/params/?ofertalaboral[descripcion]=Suramérica',
-                    '/ofertaslaborales/params/?ofertalaboral[descripcion]=País-Suraméricano',
+                    '/ofertaslaborales/params/?ofertalaboral[descripcion]=OfertaLaboral-Suraméricano',
                     '/ofertaslaborales/params/?ofertalaboral[nombre]=República-Bolivariana-de-Venezuela&ofertalaboral[descripcion]=suramerica',
                     '/ofertaslaborales/params/?ofertalaboral[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las ofertaslaborales iniciando en el Offset.',
                 'examples'       => array(
                     '/ofertaslaborales/o1/',
                     '/ofertaslaborales/o10',
@@ -98,7 +98,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las ofertaslaborales iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/ofertaslaborales/l2/',
                     '/ofertaslaborales/l10',
@@ -107,7 +107,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las ofertaslaborales iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/ofertaslaborales/o1/l2/',
                     '/ofertaslaborales/o10/l10',
@@ -116,7 +116,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una ofertaslaboral.',
                 'examples'       => array(
                     '/ofertaslaborales/new/',
                     '/ofertaslaborales/new',
@@ -125,7 +125,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea ofertaslaborales. Puede recibir datos de varias ofertaslaborales.',
                 'examples'       => array(
                     '/ofertaslaborales/',
                     '/ofertaslaborales',
@@ -143,7 +143,7 @@ class ApiOfertaLaboralController extends ApiController
             array(
                 'route'         => '/ofertaslaborales/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de ofertalaboral.',
+                'description'   => 'Sobreescribe los atributos de ofertalaboral.',
                 'examples'       => array(
                     '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/ofertaslaborales/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiOfertaLaboralController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la OfertaLaboral.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiOfertaLaboralController extends ApiController
             $ofertalaboral = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'OfertaLaboral no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiOfertaLaboralController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'OfertaLaboral no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiOfertaLaboralController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la OfertaLaboral.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiOfertaLaboralController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la OfertaLaboral.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiOfertaLaboralController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'OfertaLaboral no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiOfertaLaboralController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'OfertaLaboral no encontrada.',
                     'code'      => '404',
                 ),
             ),

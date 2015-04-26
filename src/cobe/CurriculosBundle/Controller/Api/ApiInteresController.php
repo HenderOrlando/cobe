@@ -77,11 +77,11 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los interéses que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/intereses/params/?interes[nombre]=Ecuador',
                     '/intereses/params/?interes[descripcion]=Suramérica',
-                    '/intereses/params/?interes[descripcion]=País-Suraméricano',
+                    '/intereses/params/?interes[descripcion]=Interés-Suraméricano',
                     '/intereses/params/?interes[nombre]=República-Bolivariana-de-Venezuela&interes[descripcion]=suramerica',
                     '/intereses/params/?interes[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los interéses iniciando en el Offset.',
                 'examples'       => array(
                     '/intereses/o1/',
                     '/intereses/o10',
@@ -98,7 +98,7 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los interéses iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/intereses/l2/',
                     '/intereses/l10',
@@ -107,7 +107,7 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los interéses iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/intereses/o1/l2/',
                     '/intereses/o10/l10',
@@ -116,7 +116,7 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un interés.',
                 'examples'       => array(
                     '/intereses/new/',
                     '/intereses/new',
@@ -125,7 +125,7 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea interéses. Puede recibir datos de varios interéses.',
                 'examples'       => array(
                     '/intereses/',
                     '/intereses',
@@ -143,7 +143,7 @@ class ApiInteresController extends ApiController
             array(
                 'route'         => '/intereses/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de interes.',
+                'description'   => 'Sobreescribe los atributos de interes.',
                 'examples'       => array(
                     '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/intereses/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiInteresController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Interés.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiInteresController extends ApiController
             $interes = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Interés no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiInteresController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Interés no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiInteresController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Interés.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiInteresController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Interés.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiInteresController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Interés no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiInteresController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Interés no encontrado.',
                     'code'      => '404',
                 ),
             ),

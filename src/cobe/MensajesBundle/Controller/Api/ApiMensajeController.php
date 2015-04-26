@@ -77,11 +77,11 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los mensajes que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/mensajes/params/?mensaje[nombre]=Ecuador',
                     '/mensajes/params/?mensaje[descripcion]=Suramérica',
-                    '/mensajes/params/?mensaje[descripcion]=País-Suraméricano',
+                    '/mensajes/params/?mensaje[descripcion]=Mensaje-Suraméricano',
                     '/mensajes/params/?mensaje[nombre]=República-Bolivariana-de-Venezuela&mensaje[descripcion]=suramerica',
                     '/mensajes/params/?mensaje[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los mensajes iniciando en el Offset.',
                 'examples'       => array(
                     '/mensajes/o1/',
                     '/mensajes/o10',
@@ -98,7 +98,7 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los mensajes iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/mensajes/l2/',
                     '/mensajes/l10',
@@ -107,7 +107,7 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los mensajes iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/mensajes/o1/l2/',
                     '/mensajes/o10/l10',
@@ -116,7 +116,7 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un mensaj.',
                 'examples'       => array(
                     '/mensajes/new/',
                     '/mensajes/new',
@@ -125,7 +125,7 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea mensajes. Puede recibir datos de varios mensajes.',
                 'examples'       => array(
                     '/mensajes/',
                     '/mensajes',
@@ -143,7 +143,7 @@ class ApiMensajeController extends ApiController
             array(
                 'route'         => '/mensajes/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de mensaje.',
+                'description'   => 'Sobreescribe los atributos de mensaje.',
                 'examples'       => array(
                     '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiMensajeController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Mensaje.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiMensajeController extends ApiController
             $mensaje = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Mensaje no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiMensajeController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Mensaje no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiMensajeController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Mensaje.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiMensajeController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Mensaje.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiMensajeController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Mensaje no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiMensajeController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Mensaje no encontrado.',
                     'code'      => '404',
                 ),
             ),

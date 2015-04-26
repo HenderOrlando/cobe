@@ -77,11 +77,11 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los estudios que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/estudios/params/?estudio[nombre]=Ecuador',
                     '/estudios/params/?estudio[descripcion]=Suramérica',
-                    '/estudios/params/?estudio[descripcion]=País-Suraméricano',
+                    '/estudios/params/?estudio[descripcion]=Estudio-Suraméricano',
                     '/estudios/params/?estudio[nombre]=República-Bolivariana-de-Venezuela&estudio[descripcion]=suramerica',
                     '/estudios/params/?estudio[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los estudios iniciando en el Offset.',
                 'examples'       => array(
                     '/estudios/o1/',
                     '/estudios/o10',
@@ -98,7 +98,7 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los estudios iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/estudios/l2/',
                     '/estudios/l10',
@@ -107,7 +107,7 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los estudios iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/estudios/o1/l2/',
                     '/estudios/o10/l10',
@@ -116,7 +116,7 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un estudio.',
                 'examples'       => array(
                     '/estudios/new/',
                     '/estudios/new',
@@ -125,7 +125,7 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea estudios. Puede recibir datos de varios estudios.',
                 'examples'       => array(
                     '/estudios/',
                     '/estudios',
@@ -143,7 +143,7 @@ class ApiEstudioController extends ApiController
             array(
                 'route'         => '/estudios/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de estudio.',
+                'description'   => 'Sobreescribe los atributos de estudio.',
                 'examples'       => array(
                     '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/estudios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiEstudioController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Estudio.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiEstudioController extends ApiController
             $estudio = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Estudio no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estudio no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiEstudioController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Estudio.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Estudio.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estudio no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiEstudioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estudio no encontrado.',
                     'code'      => '404',
                 ),
             ),

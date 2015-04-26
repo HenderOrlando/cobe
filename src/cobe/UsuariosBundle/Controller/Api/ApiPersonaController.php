@@ -59,7 +59,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los personas.',
+                'description'   => 'Lista todas las personas.',
                 'examples'       => array(
                     '/personas',
                     '/personas/',
@@ -68,7 +68,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los personas.',
+                'description'   => 'Lista todas las personas.',
                 'examples'       => array(
                     '/personas/{id}',
                     '/personas/{id}/',
@@ -77,11 +77,11 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las personas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/personas/params/?persona[nombre]=Ecuador',
                     '/personas/params/?persona[descripcion]=Suramérica',
-                    '/personas/params/?persona[descripcion]=País-Suraméricano',
+                    '/personas/params/?persona[descripcion]=Persona-Suraméricano',
                     '/personas/params/?persona[nombre]=República-Bolivariana-de-Venezuela&persona[descripcion]=suramerica',
                     '/personas/params/?persona[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las personas iniciando en el Offset.',
                 'examples'       => array(
                     '/personas/o1/',
                     '/personas/o10',
@@ -98,7 +98,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las personas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/personas/l2/',
                     '/personas/l10',
@@ -107,7 +107,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las personas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/personas/o1/l2/',
                     '/personas/o10/l10',
@@ -116,7 +116,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una persona.',
                 'examples'       => array(
                     '/personas/new/',
                     '/personas/new',
@@ -125,7 +125,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea personas. Puede recibir datos de varias personas.',
                 'examples'       => array(
                     '/personas/',
                     '/personas',
@@ -143,7 +143,7 @@ class ApiPersonaController extends ApiController
             array(
                 'route'         => '/personas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de persona.',
+                'description'   => 'Sobreescribe los atributos de persona.',
                 'examples'       => array(
                     '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiPersonaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Persona.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiPersonaController extends ApiController
             $persona = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Persona no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiPersonaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Persona no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiPersonaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Persona.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiPersonaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Persona.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiPersonaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Persona no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiPersonaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Persona no encontrada.',
                     'code'      => '404',
                 ),
             ),

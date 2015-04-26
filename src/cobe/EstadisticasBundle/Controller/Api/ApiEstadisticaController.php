@@ -59,7 +59,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los estadisticas.',
+                'description'   => 'Lista todas las estadisticas.',
                 'examples'       => array(
                     '/estadisticas',
                     '/estadisticas/',
@@ -68,7 +68,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los estadisticas.',
+                'description'   => 'Lista todas las estadisticas.',
                 'examples'       => array(
                     '/estadisticas/{id}',
                     '/estadisticas/{id}/',
@@ -77,11 +77,11 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las estadísticas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/estadisticas/params/?estadistica[nombre]=Ecuador',
                     '/estadisticas/params/?estadistica[descripcion]=Suramérica',
-                    '/estadisticas/params/?estadistica[descripcion]=País-Suraméricano',
+                    '/estadisticas/params/?estadistica[descripcion]=Estadística-Suraméricano',
                     '/estadisticas/params/?estadistica[nombre]=República-Bolivariana-de-Venezuela&estadistica[descripcion]=suramerica',
                     '/estadisticas/params/?estadistica[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las estadísticas iniciando en el Offset.',
                 'examples'       => array(
                     '/estadisticas/o1/',
                     '/estadisticas/o10',
@@ -98,7 +98,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las estadísticas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/estadisticas/l2/',
                     '/estadisticas/l10',
@@ -107,7 +107,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las estadísticas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/estadisticas/o1/l2/',
                     '/estadisticas/o10/l10',
@@ -116,7 +116,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una estadística.',
                 'examples'       => array(
                     '/estadisticas/new/',
                     '/estadisticas/new',
@@ -125,7 +125,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea estadísticas. Puede recibir datos de varias estadísticas.',
                 'examples'       => array(
                     '/estadisticas/',
                     '/estadisticas',
@@ -143,7 +143,7 @@ class ApiEstadisticaController extends ApiController
             array(
                 'route'         => '/estadisticas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de estadistica.',
+                'description'   => 'Sobreescribe los atributos de estadistica.',
                 'examples'       => array(
                     '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/estadisticas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiEstadisticaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Estadística.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiEstadisticaController extends ApiController
             $estadistica = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Estadística no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiEstadisticaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estadística no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiEstadisticaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Estadística.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiEstadisticaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Estadística.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiEstadisticaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estadística no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiEstadisticaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estadística no encontrada.',
                     'code'      => '404',
                 ),
             ),

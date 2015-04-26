@@ -59,7 +59,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los aptitudes.',
+                'description'   => 'Lista todos las aptitudes.',
                 'examples'       => array(
                     '/aptitudes',
                     '/aptitudes/',
@@ -68,7 +68,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los aptitudes.',
+                'description'   => 'Lista todos las aptitudes.',
                 'examples'       => array(
                     '/aptitudes/{id}',
                     '/aptitudes/{id}/',
@@ -77,11 +77,11 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las aptiudes que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/aptitudes/params/?aptitud[nombre]=Ecuador',
                     '/aptitudes/params/?aptitud[descripcion]=Suramérica',
-                    '/aptitudes/params/?aptitud[descripcion]=País-Suraméricano',
+                    '/aptitudes/params/?aptitud[descripcion]=Aptiud-Suraméricano',
                     '/aptitudes/params/?aptitud[nombre]=República-Bolivariana-de-Venezuela&aptitud[descripcion]=suramerica',
                     '/aptitudes/params/?aptitud[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las aptiudes iniciando en el Offset.',
                 'examples'       => array(
                     '/aptitudes/o1/',
                     '/aptitudes/o10',
@@ -98,7 +98,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las aptiudes iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/aptitudes/l2/',
                     '/aptitudes/l10',
@@ -107,7 +107,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las aptiudes iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/aptitudes/o1/l2/',
                     '/aptitudes/o10/l10',
@@ -116,7 +116,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una aptiud.',
                 'examples'       => array(
                     '/aptitudes/new/',
                     '/aptitudes/new',
@@ -125,7 +125,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea aptiudes. Puede recibir datos de varias aptiudes.',
                 'examples'       => array(
                     '/aptitudes/',
                     '/aptitudes',
@@ -143,7 +143,7 @@ class ApiAptitudController extends ApiController
             array(
                 'route'         => '/aptitudes/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de aptitud.',
+                'description'   => 'Sobreescribe los atributos de aptitud.',
                 'examples'       => array(
                     '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/aptitudes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiAptitudController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Aptiud.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiAptitudController extends ApiController
             $aptitud = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Aptiud no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiAptitudController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Aptiud no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiAptitudController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Aptiud.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiAptitudController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Aptiud.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiAptitudController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Aptiud no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiAptitudController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Aptiud no encontrada.',
                     'code'      => '404',
                 ),
             ),

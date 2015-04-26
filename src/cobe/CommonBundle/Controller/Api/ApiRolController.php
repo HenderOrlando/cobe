@@ -77,11 +77,11 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los roles que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/roles/params/?rol[nombre]=Ecuador',
                     '/roles/params/?rol[descripcion]=Suramérica',
-                    '/roles/params/?rol[descripcion]=País-Suraméricano',
+                    '/roles/params/?rol[descripcion]=Rol-Suraméricano',
                     '/roles/params/?rol[nombre]=República-Bolivariana-de-Venezuela&rol[descripcion]=suramerica',
                     '/roles/params/?rol[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los roles iniciando en el Offset.',
                 'examples'       => array(
                     '/roles/o1/',
                     '/roles/o10',
@@ -98,7 +98,7 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los roles iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/roles/l2/',
                     '/roles/l10',
@@ -107,7 +107,7 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los roles iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/roles/o1/l2/',
                     '/roles/o10/l10',
@@ -116,7 +116,7 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un rol.',
                 'examples'       => array(
                     '/roles/new/',
                     '/roles/new',
@@ -125,7 +125,7 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea roles. Puede recibir datos de varios roles.',
                 'examples'       => array(
                     '/roles/',
                     '/roles',
@@ -143,7 +143,7 @@ class ApiRolController extends ApiController
             array(
                 'route'         => '/roles/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de rol.',
+                'description'   => 'Sobreescribe los atributos de rol.',
                 'examples'       => array(
                     '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiRolController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Rol.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiRolController extends ApiController
             $rol = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Rol no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiRolController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Rol no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiRolController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Rol.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiRolController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Rol.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiRolController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Rol no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiRolController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Rol no encontrado.',
                     'code'      => '404',
                 ),
             ),

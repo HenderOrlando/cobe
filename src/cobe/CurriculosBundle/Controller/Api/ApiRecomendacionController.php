@@ -59,7 +59,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los recomendaciones.',
+                'description'   => 'Lista todos las recomendaciones.',
                 'examples'       => array(
                     '/recomendaciones',
                     '/recomendaciones/',
@@ -68,7 +68,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los recomendaciones.',
+                'description'   => 'Lista todos las recomendaciones.',
                 'examples'       => array(
                     '/recomendaciones/{id}',
                     '/recomendaciones/{id}/',
@@ -77,11 +77,11 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las recomendaciones que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/recomendaciones/params/?recomendacion[nombre]=Ecuador',
                     '/recomendaciones/params/?recomendacion[descripcion]=Suramérica',
-                    '/recomendaciones/params/?recomendacion[descripcion]=País-Suraméricano',
+                    '/recomendaciones/params/?recomendacion[descripcion]=Recomendación-Suraméricano',
                     '/recomendaciones/params/?recomendacion[nombre]=República-Bolivariana-de-Venezuela&recomendacion[descripcion]=suramerica',
                     '/recomendaciones/params/?recomendacion[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las recomendaciones iniciando en el Offset.',
                 'examples'       => array(
                     '/recomendaciones/o1/',
                     '/recomendaciones/o10',
@@ -98,7 +98,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las recomendaciones iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/recomendaciones/l2/',
                     '/recomendaciones/l10',
@@ -107,7 +107,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las recomendaciones iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/recomendaciones/o1/l2/',
                     '/recomendaciones/o10/l10',
@@ -116,7 +116,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un recomendación.',
                 'examples'       => array(
                     '/recomendaciones/new/',
                     '/recomendaciones/new',
@@ -125,7 +125,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea recomendaciones. Puede recibir datos de varias recomendaciones.',
                 'examples'       => array(
                     '/recomendaciones/',
                     '/recomendaciones',
@@ -143,7 +143,7 @@ class ApiRecomendacionController extends ApiController
             array(
                 'route'         => '/recomendaciones/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de recomendacion.',
+                'description'   => 'Sobreescribe los atributos de recomendacion.',
                 'examples'       => array(
                     '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/recomendaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiRecomendacionController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Recomendación.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiRecomendacionController extends ApiController
             $recomendacion = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Recomendación no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiRecomendacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Recomendación no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiRecomendacionController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Recomendación.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiRecomendacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Recomendación.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiRecomendacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Recomendación no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiRecomendacionController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Recomendación no encontrada.',
                     'code'      => '404',
                 ),
             ),

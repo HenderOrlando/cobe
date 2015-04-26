@@ -77,11 +77,11 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los usuarios que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/usuarios/params/?usuario[nombre]=Ecuador',
                     '/usuarios/params/?usuario[descripcion]=Suramérica',
-                    '/usuarios/params/?usuario[descripcion]=País-Suraméricano',
+                    '/usuarios/params/?usuario[descripcion]=Usuario-Suraméricano',
                     '/usuarios/params/?usuario[nombre]=República-Bolivariana-de-Venezuela&usuario[descripcion]=suramerica',
                     '/usuarios/params/?usuario[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los usuarios iniciando en el Offset.',
                 'examples'       => array(
                     '/usuarios/o1/',
                     '/usuarios/o10',
@@ -98,7 +98,7 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los usuarios iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/usuarios/l2/',
                     '/usuarios/l10',
@@ -107,7 +107,7 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los usuarios iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/usuarios/o1/l2/',
                     '/usuarios/o10/l10',
@@ -116,7 +116,7 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un usuario.',
                 'examples'       => array(
                     '/usuarios/new/',
                     '/usuarios/new',
@@ -125,7 +125,7 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea usuarios. Puede recibir datos de varios usuarios.',
                 'examples'       => array(
                     '/usuarios/',
                     '/usuarios',
@@ -143,7 +143,7 @@ class ApiUsuarioController extends ApiController
             array(
                 'route'         => '/usuarios/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de usuario.',
+                'description'   => 'Sobreescribe los atributos de usuario.',
                 'examples'       => array(
                     '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiUsuarioController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Usuario.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiUsuarioController extends ApiController
             $usuario = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Usuario no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiUsuarioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Usuario no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiUsuarioController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Usuario.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiUsuarioController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Usuario.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiUsuarioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Usuario no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiUsuarioController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Usuario no encontrado.',
                     'code'      => '404',
                 ),
             ),

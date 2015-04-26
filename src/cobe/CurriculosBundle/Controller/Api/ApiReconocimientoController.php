@@ -77,11 +77,11 @@ class ApiReconocimientoController extends ApiController
             array(
                 'route'         => '/reconocimientos/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los reconicimientos que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/reconocimientos/params/?reconocimiento[nombre]=Ecuador',
                     '/reconocimientos/params/?reconocimiento[descripcion]=Suramérica',
-                    '/reconocimientos/params/?reconocimiento[descripcion]=País-Suraméricano',
+                    '/reconocimientos/params/?reconocimiento[descripcion]=Reconicimiento-Suraméricano',
                     '/reconocimientos/params/?reconocimiento[nombre]=República-Bolivariana-de-Venezuela&reconocimiento[descripcion]=suramerica',
                     '/reconocimientos/params/?reconocimiento[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiReconocimientoController extends ApiController
             array(
                 'route'         => '/reconocimientos/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los reconicimientos iniciando en el Offset.',
                 'examples'       => array(
                     '/reconocimientos/o1/',
                     '/reconocimientos/o10',
@@ -98,7 +98,7 @@ class ApiReconocimientoController extends ApiController
             array(
                 'route'         => '/reconocimientos/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los reconicimientos iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/reconocimientos/l2/',
                     '/reconocimientos/l10',
@@ -107,7 +107,7 @@ class ApiReconocimientoController extends ApiController
             array(
                 'route'         => '/reconocimientos/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los reconicimientos iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/reconocimientos/o1/l2/',
                     '/reconocimientos/o10/l10',
@@ -116,7 +116,7 @@ class ApiReconocimientoController extends ApiController
             array(
                 'route'         => '/reconocimientos/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un reconicimiento.',
                 'examples'       => array(
                     '/reconocimientos/new/',
                     '/reconocimientos/new',
@@ -125,7 +125,7 @@ class ApiReconocimientoController extends ApiController
             array(
                 'route'         => '/reconocimientos',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea reconicimientos. Puede recibir datos de varios reconicimientos.',
                 'examples'       => array(
                     '/reconocimientos/',
                     '/reconocimientos',
@@ -228,7 +228,7 @@ class ApiReconocimientoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Reconicimiento.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiReconocimientoController extends ApiController
             $reconocimiento = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Reconicimiento no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiReconocimientoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Reconicimiento no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiReconocimientoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Reconicimiento.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiReconocimientoController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Reconicimiento.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiReconocimientoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Reconicimiento no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiReconocimientoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Reconicimiento no encontrado.',
                     'code'      => '404',
                 ),
             ),

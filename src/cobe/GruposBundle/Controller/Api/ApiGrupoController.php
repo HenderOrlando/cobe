@@ -77,11 +77,11 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los grupos que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/grupos/params/?grupo[nombre]=Ecuador',
                     '/grupos/params/?grupo[descripcion]=Suramérica',
-                    '/grupos/params/?grupo[descripcion]=País-Suraméricano',
+                    '/grupos/params/?grupo[descripcion]=Grupo-Suraméricano',
                     '/grupos/params/?grupo[nombre]=República-Bolivariana-de-Venezuela&grupo[descripcion]=suramerica',
                     '/grupos/params/?grupo[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los grupos iniciando en el Offset.',
                 'examples'       => array(
                     '/grupos/o1/',
                     '/grupos/o10',
@@ -98,7 +98,7 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los grupos iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/grupos/l2/',
                     '/grupos/l10',
@@ -107,7 +107,7 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los grupos iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/grupos/o1/l2/',
                     '/grupos/o10/l10',
@@ -116,7 +116,7 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un grupo.',
                 'examples'       => array(
                     '/grupos/new/',
                     '/grupos/new',
@@ -125,7 +125,7 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea grupos. Puede recibir datos de varios grupos.',
                 'examples'       => array(
                     '/grupos/',
                     '/grupos',
@@ -143,7 +143,7 @@ class ApiGrupoController extends ApiController
             array(
                 'route'         => '/grupos/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de grupo.',
+                'description'   => 'Sobreescribe los atributos de grupo.',
                 'examples'       => array(
                     '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiGrupoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Grupo.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiGrupoController extends ApiController
             $grupo = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Grupo no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiGrupoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Grupo no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiGrupoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Grupo.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiGrupoController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Grupo.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiGrupoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Grupo no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiGrupoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Grupo no encontrado.',
                     'code'      => '404',
                 ),
             ),

@@ -59,7 +59,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los caracteristicas.',
+                'description'   => 'Lista todos las caracteristicas.',
                 'examples'       => array(
                     '/caracteristicas',
                     '/caracteristicas/',
@@ -68,7 +68,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los caracteristicas.',
+                'description'   => 'Lista todos las caracteristicas.',
                 'examples'       => array(
                     '/caracteristicas/{id}',
                     '/caracteristicas/{id}/',
@@ -77,11 +77,11 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las caracetrísticas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/caracteristicas/params/?caracteristica[nombre]=Ecuador',
                     '/caracteristicas/params/?caracteristica[descripcion]=Suramérica',
-                    '/caracteristicas/params/?caracteristica[descripcion]=País-Suraméricano',
+                    '/caracteristicas/params/?caracteristica[descripcion]=Caracetrística-Suraméricano',
                     '/caracteristicas/params/?caracteristica[nombre]=República-Bolivariana-de-Venezuela&caracteristica[descripcion]=suramerica',
                     '/caracteristicas/params/?caracteristica[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las caracetrísticas iniciando en el Offset.',
                 'examples'       => array(
                     '/caracteristicas/o1/',
                     '/caracteristicas/o10',
@@ -98,7 +98,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las caracetrísticas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/caracteristicas/l2/',
                     '/caracteristicas/l10',
@@ -107,7 +107,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las caracetrísticas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/caracteristicas/o1/l2/',
                     '/caracteristicas/o10/l10',
@@ -116,7 +116,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una caracetrística.',
                 'examples'       => array(
                     '/caracteristicas/new/',
                     '/caracteristicas/new',
@@ -125,7 +125,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea caracetrísticas. Puede recibir datos de varias caracetrísticas.',
                 'examples'       => array(
                     '/caracteristicas/',
                     '/caracteristicas',
@@ -143,7 +143,7 @@ class ApiCaracteristicaController extends ApiController
             array(
                 'route'         => '/caracteristicas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de caracteristica.',
+                'description'   => 'Sobreescribe los atributos de caracteristica.',
                 'examples'       => array(
                     '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/caracteristicas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiCaracteristicaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Caracetrística.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiCaracteristicaController extends ApiController
             $caracteristica = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Caracetrística no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiCaracteristicaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Caracetrística no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiCaracteristicaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Caracetrística.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiCaracteristicaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Caracetrística.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiCaracteristicaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Caracetrística no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiCaracteristicaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Caracetrística no encontrada.',
                     'code'      => '404',
                 ),
             ),

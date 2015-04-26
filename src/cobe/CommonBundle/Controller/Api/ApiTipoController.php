@@ -77,11 +77,11 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los tipos que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/tipos/params/?tipo[nombre]=Ecuador',
                     '/tipos/params/?tipo[descripcion]=Suramérica',
-                    '/tipos/params/?tipo[descripcion]=País-Suraméricano',
+                    '/tipos/params/?tipo[descripcion]=Tipo-Suraméricano',
                     '/tipos/params/?tipo[nombre]=República-Bolivariana-de-Venezuela&tipo[descripcion]=suramerica',
                     '/tipos/params/?tipo[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los tipos iniciando en el Offset.',
                 'examples'       => array(
                     '/tipos/o1/',
                     '/tipos/o10',
@@ -98,7 +98,7 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los tipos iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/tipos/l2/',
                     '/tipos/l10',
@@ -107,7 +107,7 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los tipos iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/tipos/o1/l2/',
                     '/tipos/o10/l10',
@@ -116,7 +116,7 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un tipo.',
                 'examples'       => array(
                     '/tipos/new/',
                     '/tipos/new',
@@ -125,7 +125,7 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea tipos. Puede recibir datos de varios tipos.',
                 'examples'       => array(
                     '/tipos/',
                     '/tipos',
@@ -143,7 +143,7 @@ class ApiTipoController extends ApiController
             array(
                 'route'         => '/tipos/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de tipo.',
+                'description'   => 'Sobreescribe los atributos de tipo.',
                 'examples'       => array(
                     '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiTipoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Tipo.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiTipoController extends ApiController
             $tipo = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Tipo no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiTipoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Tipo no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiTipoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Tipo.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiTipoController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Tipo.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiTipoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Tipo no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiTipoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Tipo no encontrado.',
                     'code'      => '404',
                 ),
             ),

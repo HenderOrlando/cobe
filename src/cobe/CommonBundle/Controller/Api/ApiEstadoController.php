@@ -77,11 +77,11 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista los estados que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/estados/params/?estado[nombre]=Ecuador',
                     '/estados/params/?estado[descripcion]=Suramérica',
-                    '/estados/params/?estado[descripcion]=País-Suraméricano',
+                    '/estados/params/?estado[descripcion]=Estado-Suraméricano',
                     '/estados/params/?estado[nombre]=República-Bolivariana-de-Venezuela&estado[descripcion]=suramerica',
                     '/estados/params/?estado[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista los estados iniciando en el Offset.',
                 'examples'       => array(
                     '/estados/o1/',
                     '/estados/o10',
@@ -98,7 +98,7 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista los estados iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/estados/l2/',
                     '/estados/l10',
@@ -107,7 +107,7 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista los estados iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/estados/o1/l2/',
                     '/estados/o10/l10',
@@ -116,7 +116,7 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar un estado.',
                 'examples'       => array(
                     '/estados/new/',
                     '/estados/new',
@@ -125,7 +125,7 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea estados. Puede recibir datos de varios estados.',
                 'examples'       => array(
                     '/estados/',
                     '/estados',
@@ -143,7 +143,7 @@ class ApiEstadoController extends ApiController
             array(
                 'route'         => '/estados/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de estado.',
+                'description'   => 'Sobreescribe los atributos de estado.',
                 'examples'       => array(
                     '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiEstadoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Estado.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiEstadoController extends ApiController
             $estado = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Estado no encontrado.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiEstadoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estado no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiEstadoController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Estado.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiEstadoController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear el Estado.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiEstadoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estado no encontrado.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiEstadoController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Estado no encontrado.',
                     'code'      => '404',
                 ),
             ),

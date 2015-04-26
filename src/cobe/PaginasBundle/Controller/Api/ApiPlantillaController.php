@@ -59,7 +59,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los plantillas.',
+                'description'   => 'Lista todas las plantillas.',
                 'examples'       => array(
                     '/plantillas',
                     '/plantillas/',
@@ -68,7 +68,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los plantillas.',
+                'description'   => 'Lista todas las plantillas.',
                 'examples'       => array(
                     '/plantillas/{id}',
                     '/plantillas/{id}/',
@@ -77,11 +77,11 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las plantillas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/plantillas/params/?plantilla[nombre]=Ecuador',
                     '/plantillas/params/?plantilla[descripcion]=Suramérica',
-                    '/plantillas/params/?plantilla[descripcion]=País-Suraméricano',
+                    '/plantillas/params/?plantilla[descripcion]=Plantilla-Suraméricano',
                     '/plantillas/params/?plantilla[nombre]=República-Bolivariana-de-Venezuela&plantilla[descripcion]=suramerica',
                     '/plantillas/params/?plantilla[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las plantillas iniciando en el Offset.',
                 'examples'       => array(
                     '/plantillas/o1/',
                     '/plantillas/o10',
@@ -98,7 +98,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las plantillas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/plantillas/l2/',
                     '/plantillas/l10',
@@ -107,7 +107,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las plantillas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/plantillas/o1/l2/',
                     '/plantillas/o10/l10',
@@ -125,7 +125,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea plantillas. Puede recibir datos de varias plantillas.',
                 'examples'       => array(
                     '/plantillas/',
                     '/plantillas',
@@ -143,7 +143,7 @@ class ApiPlantillaController extends ApiController
             array(
                 'route'         => '/plantillas/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de plantilla.',
+                'description'   => 'Sobreescribe los atributos de plantilla.',
                 'examples'       => array(
                     '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiPlantillaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Plantilla.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiPlantillaController extends ApiController
             $plantilla = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Plantilla no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiPlantillaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Plantilla no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiPlantillaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Plantilla.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiPlantillaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Plantilla.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiPlantillaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Plantilla no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiPlantillaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Plantilla no encontrada.',
                     'code'      => '404',
                 ),
             ),

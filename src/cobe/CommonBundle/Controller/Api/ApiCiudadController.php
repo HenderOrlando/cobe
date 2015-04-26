@@ -59,7 +59,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los ciudades.',
+                'description'   => 'Lista todos las ciudades.',
                 'examples'       => array(
                     '/ciudades',
                     '/ciudades/',
@@ -68,7 +68,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los ciudades.',
+                'description'   => 'Lista todos las ciudades.',
                 'examples'       => array(
                     '/ciudades/{id}',
                     '/ciudades/{id}/',
@@ -77,7 +77,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las ciudades que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/ciudades/params/?ciudad[nombre]=Ecuador',
                     '/ciudades/params/?ciudad[descripcion]=Suramérica',
@@ -89,7 +89,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las ciudades iniciando en el Offset.',
                 'examples'       => array(
                     '/ciudades/o1/',
                     '/ciudades/o10',
@@ -98,7 +98,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las ciudades iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/ciudades/l2/',
                     '/ciudades/l10',
@@ -107,7 +107,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las ciudades iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/ciudades/o1/l2/',
                     '/ciudades/o10/l10',
@@ -116,7 +116,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una ciudad.',
                 'examples'       => array(
                     '/ciudades/new/',
                     '/ciudades/new',
@@ -125,7 +125,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea ciudades. Puede recibir datos de varias ciudades.',
                 'examples'       => array(
                     '/ciudades/',
                     '/ciudades',
@@ -143,7 +143,7 @@ class ApiCiudadController extends ApiController
             array(
                 'route'         => '/ciudades/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de ciudad.',
+                'description'   => 'Sobreescribe los atributos de ciudad.',
                 'examples'       => array(
                     '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/ciudades/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiCiudadController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Ciudad.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiCiudadController extends ApiController
             $ciudad = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'País no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiCiudadController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'País no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiCiudadController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Ciudad.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiCiudadController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Ciudad.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiCiudadController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'País no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiCiudadController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'País no encontrada.',
                     'code'      => '404',
                 ),
             ),

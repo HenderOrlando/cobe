@@ -59,7 +59,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los categorias.',
+                'description'   => 'Lista todos las categorias.',
                 'examples'       => array(
                     '/categorias',
                     '/categorias/',
@@ -68,7 +68,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todos los categorias.',
+                'description'   => 'Lista todos las categorias.',
                 'examples'       => array(
                     '/categorias/{id}',
                     '/categorias/{id}/',
@@ -77,11 +77,11 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/params',
                 'method'        => 'GET',
-                'description'   => 'Lista los países que cumplan con los parametros enviados.',
+                'description'   => 'Lista las categorías que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/categorias/params/?categoria[nombre]=Ecuador',
                     '/categorias/params/?categoria[descripcion]=Suramérica',
-                    '/categorias/params/?categoria[descripcion]=País-Suraméricano',
+                    '/categorias/params/?categoria[descripcion]=Categoría-Suraméricano',
                     '/categorias/params/?categoria[nombre]=República-Bolivariana-de-Venezuela&categoria[descripcion]=suramerica',
                     '/categorias/params/?categoria[nombre]=republica-bolivariana-de-venezuela',
                 ),
@@ -89,7 +89,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en el Offset.',
+                'description'   => 'Lista las categorías iniciando en el Offset.',
                 'examples'       => array(
                     '/categorias/o1/',
                     '/categorias/o10',
@@ -98,7 +98,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en 1 hasta limit.',
+                'description'   => 'Lista las categorías iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/categorias/l2/',
                     '/categorias/l10',
@@ -107,7 +107,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista los países iniciando en offset hasta limit.',
+                'description'   => 'Lista las categorías iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/categorias/o1/l2/',
                     '/categorias/o10/l10',
@@ -116,7 +116,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar un país.',
+                'description'   => 'Carga el formulario para agregar una categoría.',
                 'examples'       => array(
                     '/categorias/new/',
                     '/categorias/new',
@@ -125,7 +125,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea países. Puede recibir datos de varios países.',
+                'description'   => 'Valida los datos y crea categorías. Puede recibir datos de varias categorías.',
                 'examples'       => array(
                     '/categorias/',
                     '/categorias',
@@ -143,7 +143,7 @@ class ApiCategoriaController extends ApiController
             array(
                 'route'         => '/categorias/{id}',
                 'method'        => 'PUT',
-                'description'   => 'Sobreescribe los etributos de categoria.',
+                'description'   => 'Sobreescribe los atributos de categoria.',
                 'examples'       => array(
                     '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/categorias/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
@@ -228,7 +228,7 @@ class ApiCategoriaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Categoría.',
                     'code'      => '400',
                 ),
             ),
@@ -271,7 +271,7 @@ class ApiCategoriaController extends ApiController
             $categoria = array(
                 'errors' => array(
                     '404' => array(
-                        'message'   => 'País no encontrado.',
+                        'message'   => 'Categoría no encontrada.',
                         'code'      => '404',
                     ),
                 ),
@@ -296,7 +296,7 @@ class ApiCategoriaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Categoría no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -323,7 +323,7 @@ class ApiCategoriaController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Categoría.',
                     'code'      => '400',
                 ),
             ),
@@ -357,7 +357,7 @@ class ApiCategoriaController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear el País.',
+                    'message'   => 'No se encuentran los datos para crear la Categoría.',
                     'code'      => '400',
                 ),
             ),
@@ -418,7 +418,7 @@ class ApiCategoriaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Categoría no encontrada.',
                     'code'      => '404',
                 ),
             ),
@@ -451,7 +451,7 @@ class ApiCategoriaController extends ApiController
         $rta = array(
             'errors' => array(
                 '404' => array(
-                    'message'   => 'País no encontrado.',
+                    'message'   => 'Categoría no encontrada.',
                     'code'      => '404',
                 ),
             ),
