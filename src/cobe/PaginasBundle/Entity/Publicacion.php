@@ -72,7 +72,7 @@ class Publicacion extends Obj
 
     /**
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaPublicacion", inversedBy="publicaciones")
-     * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 

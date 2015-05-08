@@ -26,7 +26,7 @@ class Empresa extends Persona
 
     /**
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaEmpresa", inversedBy="empresas")
-     * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantillaEmpresa;
 

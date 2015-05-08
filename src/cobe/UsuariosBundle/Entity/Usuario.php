@@ -98,7 +98,7 @@ class Usuario extends Objeto
 
     /**
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaUsuario", inversedBy="usuarios")
-     * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 
