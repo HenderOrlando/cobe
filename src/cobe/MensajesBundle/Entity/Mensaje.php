@@ -12,11 +12,11 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
  *     {
  *      "Mensaje"="\cobe\MensajesBundle\Entity\Mensaje",
  *      "Comentario"="\cobe\MensajesBundle\Entity\Comentario",
- *      "Usuario"="\cobe\MensajesBundle\Entity\ComentarioUsuario",
- *      "Grupo"="\cobe\MensajesBundle\Entity\ComentarioGrupo",
- *      "Archivo"="\cobe\MensajesBundle\Entity\ComentarioArchivo",
- *      "Publicacion"="\cobe\MensajesBundle\Entity\ComentarioPublicacion",
- *      "OfertaLaboral"="\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral"
+ *      "ComentarioUsuario"="\cobe\MensajesBundle\Entity\ComentarioUsuario",
+ *      "ComentarioGrupo"="\cobe\MensajesBundle\Entity\ComentarioGrupo",
+ *      "ComentarioArchivo"="\cobe\MensajesBundle\Entity\ComentarioArchivo",
+ *      "ComentarioPublicacion"="\cobe\MensajesBundle\Entity\ComentarioPublicacion",
+ *      "ComentarioOfertaLaboral"="\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral"
  *     }
  * )
  */
