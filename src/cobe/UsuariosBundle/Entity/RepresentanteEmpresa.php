@@ -3,7 +3,10 @@ namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\RepresentanteEmpresaRepository")
+ * @ORM\Table(
+ *     options={"comment":"Representante de Empresa en el sistema"}
+ * )
  */
 class RepresentanteEmpresa
 {
@@ -41,10 +44,11 @@ class RepresentanteEmpresa
      */
     private $persona;
 
+
     /**
      * Get id
      *
-     * @return guid 
+     * @return guid
      */
     public function getId()
     {
@@ -67,7 +71,7 @@ class RepresentanteEmpresa
     /**
      * Get fechaInicio
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFechaInicio()
     {
@@ -90,7 +94,7 @@ class RepresentanteEmpresa
     /**
      * Get fechaFin
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFechaFin()
     {
@@ -113,7 +117,7 @@ class RepresentanteEmpresa
     /**
      * Get actual
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActual()
     {
@@ -136,7 +140,7 @@ class RepresentanteEmpresa
     /**
      * Get empresa
      *
-     * @return \cobe\UsuariosBundle\Entity\Empresa 
+     * @return \cobe\UsuariosBundle\Entity\Empresa
      */
     public function getEmpresa()
     {
@@ -159,7 +163,7 @@ class RepresentanteEmpresa
     /**
      * Get persona
      *
-     * @return \cobe\UsuariosBundle\Entity\Persona 
+     * @return \cobe\UsuariosBundle\Entity\Persona
      */
     public function getPersona()
     {

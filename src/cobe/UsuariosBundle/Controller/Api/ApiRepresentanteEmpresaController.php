@@ -59,7 +59,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas',
                 'method'        => 'GET',
-                'description'   => 'Lista todas las representantesEmpresas.',
+                'description'   => 'Lista todos los representantesEmpresas.',
                 'examples'       => array(
                     '/representantesEmpresas',
                     '/representantesEmpresas/',
@@ -68,7 +68,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas/{id}',
                 'method'        => 'GET',
-                'description'   => 'Lista todas las representantesEmpresas.',
+                'description'   => 'Lista todos los representantesEmpresas.',
                 'examples'       => array(
                     '/representantesEmpresas/{id}',
                     '/representantesEmpresas/{id}/',
@@ -77,7 +77,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas/params',
                 'method'        => 'GET',
-                'description'   => 'Lista las representantesEmpresas que cumplan con los parametros enviados.',
+                'description'   => 'Lista los representantesEmpresas que cumplan con los parametros enviados.',
                 'examples'       => array(
                     '/representantesEmpresas/params/?representanteEmpresa[nombre]=Ecuador',
                     '/representantesEmpresas/params/?representanteEmpresa[descripcion]=Suramérica',
@@ -89,7 +89,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas/o{offset}',
                 'method'        => 'GET',
-                'description'   => 'Lista las representantesEmpresas iniciando en el Offset.',
+                'description'   => 'Lista los representantesEmpresas iniciando en el Offset.',
                 'examples'       => array(
                     '/representantesEmpresas/o1/',
                     '/representantesEmpresas/o10',
@@ -98,7 +98,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista las representantesEmpresas iniciando en 1 hasta limit.',
+                'description'   => 'Lista los representantesEmpresas iniciando en 1 hasta limit.',
                 'examples'       => array(
                     '/representantesEmpresas/l2/',
                     '/representantesEmpresas/l10',
@@ -107,7 +107,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas/0{offset}/l{limit}',
                 'method'        => 'GET',
-                'description'   => 'Lista las representantesEmpresas iniciando en offset hasta limit.',
+                'description'   => 'Lista los representantesEmpresas iniciando en offset hasta limit.',
                 'examples'       => array(
                     '/representantesEmpresas/o1/l2/',
                     '/representantesEmpresas/o10/l10',
@@ -116,7 +116,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas/new',
                 'method'        => 'GET',
-                'description'   => 'Carga el formulario para agregar una representanteEmpresa.',
+                'description'   => 'Carga el formulario para agregar un representanteEmpresa.',
                 'examples'       => array(
                     '/representantesEmpresas/new/',
                     '/representantesEmpresas/new',
@@ -125,7 +125,7 @@ class ApiRepresentanteEmpresaController extends ApiController
             array(
                 'route'         => '/representantesEmpresas',
                 'method'        => 'POST',
-                'description'   => 'Valida los datos y crea representantesEmpresas. Puede recibir datos de varias representantesEmpresas.',
+                'description'   => 'Valida los datos y crea representantesEmpresas. Puede recibir datos de varios representantesEmpresas.',
                 'examples'       => array(
                     '/representantesEmpresas/',
                     '/representantesEmpresas',
