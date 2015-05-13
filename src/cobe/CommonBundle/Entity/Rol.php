@@ -21,15 +21,6 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
 class Rol extends Obj
 {
 
-    public function setHerenciaRol($tipo){
-        $this->herenciaRol = $tipo;
-
-        return $this;
-    }
-
-    public function getHerenciaRol(){
-        return $this->herenciaRol;
-    }
 
     /**
      * Get id

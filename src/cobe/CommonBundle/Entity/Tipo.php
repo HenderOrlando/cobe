@@ -28,16 +28,6 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
 class Tipo extends Obj
 {
 
-    public function setHerenciaTipo($tipo){
-        $this->herenciaTipo = $tipo;
-
-        return $this;
-    }
-
-    public function getHerenciaTipo(){
-        return $this->herenciaTipo;
-    }
-
 
     /**
      * Get id

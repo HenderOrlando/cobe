@@ -6,12 +6,17 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 /**
  * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\MensajeRepository")
  * @ORM\Table(options={"comment":"Mensajes en el sistema"})
- * @ORM\InheritanceType("JOINED")
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="herenciaMensaje", length=25, type="string")
  * @ORM\DiscriminatorMap(
  *     {
  *      "Mensaje"="\cobe\MensajesBundle\Entity\Mensaje",
  *      "Comentario"="\cobe\MensajesBundle\Entity\Comentario",
+ *      "Usuario"="\cobe\MensajesBundle\Entity\ComentarioUsuario",
+ *      "Grupo"="\cobe\MensajesBundle\Entity\ComentarioGrupo",
+ *      "Archivo"="\cobe\MensajesBundle\Entity\ComentarioArchivo",
+ *      "Publicacion"="\cobe\MensajesBundle\Entity\ComentarioPublicacion",
+ *      "OfertaLaboral"="\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral"
  *     }
  * )
  */
