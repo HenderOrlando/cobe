@@ -12,8 +12,8 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
  *     {
  *     "Estado"="\cobe\CommonBundle\Entity\Estado",
  *     "Usuario"="\cobe\UsuariosBundle\Entity\EstadoUsuario",
- *     "GrupoPersona"="cobe\GruposBundle\Entity\EstadoGrupoPersona",
- *     "Votacion"="cobe\GruposBundle\Entity\EstadoVotacion",
+ *     "GrupoPersona"="\cobe\GruposBundle\Entity\EstadoGrupoPersona",
+ *     "Votacion"="\cobe\GruposBundle\Entity\EstadoVotacion",
  *     "Trabajo"="\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral",
  *     "Mensaje"="\cobe\MensajesBundle\Entity\EstadoMensaje",
  *     "Destinatario"="\cobe\MensajesBundle\Entity\EstadoDestinatario",
@@ -26,7 +26,21 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
  */
 class Estado extends Obj
 {
-
+    public function getHerencias(){
+        return array(
+            'Estado'        =>'\cobe\CommonBundle\Entity\Estado',
+            'Usuario'       =>'\cobe\UsuariosBundle\Entity\EstadoUsuario',
+            'GrupoPersona'  =>'\cobe\GruposBundle\Entity\EstadoGrupoPersona',
+            'Votacion'      =>'\cobe\GruposBundle\Entity\EstadoVotacion',
+            'Trabajo'       =>'\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral',
+            'Mensaje'       =>'\cobe\MensajesBundle\Entity\EstadoMensaje',
+            'Destinatario'  =>'\cobe\MensajesBundle\Entity\EstadoDestinatario',
+            'Publicacion'   =>'\cobe\PaginasBundle\Entity\EstadoPublicacion',
+            'Plantilla'     =>'\cobe\PaginasBundle\Entity\EstadoPlantilla',
+            'Archivo'       =>'\cobe\ColeccionesBundle\Entity\EstadoArchivo',
+            'Estadistica'   =>'\cobe\EstadisticasBundle\Entity\EstadoEstadistica'
+        );
+    }
 
     /**
      * Get id

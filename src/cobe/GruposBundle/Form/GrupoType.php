@@ -31,9 +31,15 @@ class GrupoType extends ObjectType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $defaults = array(
             'data_class' => 'cobe\GruposBundle\Entity\Grupo'
-        ));
+        );
+        if($this->dataClass){
+            $defaults = array(
+                'data_class' => $this->dataClass
+            );
+        }
+        $resolver->setDefaults($defaults);
     }
 
     /**

@@ -270,4 +270,15 @@ class Etiqueta extends Obj
     {
         return $this->estadisticasEtiqueta;
     }
+    
+    public function getHerencias(){
+        return array(
+            'Etiqueta'=>'\cobe\CommonBundle\Entity\Etiqueta',
+            'Interes'=>'\cobe\CurriculosBundle\Entity\Interes',
+            'Aptitud'=>'\cobe\CurriculosBundle\Entity\Aptitud',
+            'NivelIdioma'=>'\cobe\CurriculosBundle\Entity\NivelIdioma',
+            'Categoria'=>'\cobe\PaginasBundle\Entity\Categoria',
+            'Caracteristica'=>'\cobe\EstadisticasBundle\Entity\Caracteristica'
+        );
+    }
 }

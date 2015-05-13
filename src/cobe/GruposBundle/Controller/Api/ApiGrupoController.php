@@ -235,6 +235,13 @@ class ApiGrupoController extends ApiController
         );
 
         if($request->get($type->getName(), false)){
+            $datos = $request->get($type->getName(), false);
+            $herencias = $grupo->getHerencias();
+            if($datos['herencia'] && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $grupoHerencia = $herencias[$datos['herencia']];
+                $grupo = new $grupoHerencia();
+                $type = new GrupoType($this->generateUrl('post_grupos'), 'POST', array(), $grupoHerencia);
+            }
             $form = $this->getForm($type, $grupo, $request,true);
         }
 

@@ -235,6 +235,13 @@ class ApiMensajeController extends ApiController
         );
 
         if($request->get($type->getName(), false)){
+            $datos = $request->get($type->getName(), false);
+            $herencias = $mensaje->getHerencias();
+            if($datos['herencia'] && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $mensajeHerencia = $herencias[$datos['herencia']];
+                $mensaje = new $mensajeHerencia();
+                $type = new MensajeType($this->generateUrl('post_mensajes'), 'POST', array(), $mensajeHerencia);
+            }
             $form = $this->getForm($type, $mensaje, $request,true);
         }
 

@@ -35,9 +35,15 @@ class ArchivoType extends ObjectType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $defaults = array(
             'data_class' => 'cobe\ColeccionesBundle\Entity\Archivo'
-        ));
+        );
+        if($this->dataClass){
+            $defaults = array(
+                'data_class' => $this->dataClass
+            );
+        }
+        $resolver->setDefaults($defaults);
     }
 
     /**

@@ -235,6 +235,13 @@ class ApiTipoController extends ApiController
         );
 
         if($request->get($type->getName(), false)){
+            $datos = $request->get($type->getName(), false);
+            $herencias = $tipo->getHerencias();
+            if($datos['herencia'] && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $tipoHerencia = $herencias[$datos['herencia']];
+                $tipo = new $tipoHerencia();
+                $type = new TipoType($this->generateUrl('post_tipos'), 'POST', array(), $tipoHerencia);
+            }
             $form = $this->getForm($type, $tipo, $request,true);
         }
 

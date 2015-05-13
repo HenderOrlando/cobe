@@ -13,14 +13,22 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
  *     "Rol"="\cobe\CommonBundle\Entity\Rol",
  *     "Usuario"="\cobe\UsuariosBundle\Entity\RolUsuario",
  *     "ProyectoPersona"="\cobe\CurriculosBundle\Entity\RolProyectoPersona",
- *     "GrupoPersona"="cobe\GruposBundle\Entity\RolGrupoPersona",
+ *     "GrupoPersona"="\cobe\GruposBundle\Entity\RolGrupoPersona",
  *     "TrabajoPersona"="\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona"
  * }
  * )
  */
 class Rol extends Obj
 {
-
+    public function getHerencias(){
+        return array(
+            "Rol"=>'\cobe\CommonBundle\Entity\Rol',
+            "Usuario"=>'\cobe\UsuariosBundle\Entity\RolUsuario',
+            "ProyectoPersona"=>'\cobe\CurriculosBundle\Entity\RolProyectoPersona',
+            "GrupoPersona"=>'\cobe\GruposBundle\Entity\RolGrupoPersona',
+            "TrabajoPersona"=>'\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona'
+        );
+    }
 
     /**
      * Get id

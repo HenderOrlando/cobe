@@ -235,6 +235,13 @@ class ApiEstadoController extends ApiController
         );
 
         if($request->get($type->getName(), false)){
+            $datos = $request->get($type->getName(), false);
+            $herencias = $estado->getHerencias();
+            if($datos['herencia'] && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $estadoHerencia = $herencias[$datos['herencia']];
+                $estado = new $estadoHerencia();
+                $type = new EstadoType($this->generateUrl('post_estados'), 'POST', array(), $estadoHerencia);
+            }
             $form = $this->getForm($type, $estado, $request,true);
         }
 

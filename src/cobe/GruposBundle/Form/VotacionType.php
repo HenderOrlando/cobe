@@ -32,9 +32,15 @@ class VotacionType extends ObjectType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $defaults = array(
             'data_class' => 'cobe\GruposBundle\Entity\Votacion'
-        ));
+        );
+        if($this->dataClass){
+            $defaults = array(
+                'data_class' => $this->dataClass
+            );
+        }
+        $resolver->setDefaults($defaults);
     }
 
     /**

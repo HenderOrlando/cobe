@@ -306,4 +306,32 @@ class Archivo extends Objeto
     {
         return $this->etiquetas;
     }
+    
+    public function getHerencias(){
+        return array(
+            "Archivo"                   =>'\cobe\ColeccionesBundle\Entity\Archivo',
+            'Plantilla'                 =>'\cobe\ColeccionesBundle\Entity\ArchivoPlantilla',
+            'Usuario'                   =>'\cobe\ColeccionesBundle\Entity\ArchivoUsuario',
+            'ReconocimientoPersona'     =>'\cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona',
+            'Proyecto'                  =>'\cobe\ColeccionesBundle\Entity\ArchivoProyecto',
+            'Mensaje'                   =>'\cobe\ColeccionesBundle\Entity\ArchivoMensaje',
+            'Trabajo'                   =>'\cobe\ColeccionesBundle\Entity\ArchivoTrabajo',
+            'Estudio'                   =>'\cobe\ColeccionesBundle\Entity\ArchivoEstudio',
+            'EstudioPersona'            =>'\cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona',
+            'CentroEstudio'             =>'\cobe\ColeccionesBundle\Entity\ArchivoCentroEstudio',
+            'Aptitud'                   =>'\cobe\ColeccionesBundle\Entity\ArchivoAptitud',
+            'Grupo'                     =>'\cobe\ColeccionesBundle\Entity\ArchivoGrupo',
+            'Recomendacion'             =>'\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion',
+            'EstadisticaUsuario'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaUsuario',
+            'EstadisticaPublicacion'    =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion',
+            'EstadisticaOfertaLaboral'  =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral',
+            'EstadisticaGrupo'          =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo',
+            'EstadisticaEmpresa'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa',
+            'EstadisticaMensaje'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje',
+            'Publicacion'               =>'\cobe\ColeccionesBundle\Entity\ArchivoPublicacion',
+            'EstadisticaAptitud'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud',
+            'EstadisticaInteres'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres',
+            'Traduccion'                =>'\cobe\ColeccionesBundle\Entity\ArchivoTraduccion'
+        );
+    }
 }

@@ -181,4 +181,11 @@ class Votacion extends Obj
     {
         return $this->estado;
     }
+    
+    public function getHerencias(){
+        return array(
+            'Votacion'=>'cobe\GruposBundle\Entity\Votacion',
+            'Publicacion'=>'\cobe\PaginasBundle\Entity\VotacionPublicacion'
+        );
+    }
 }

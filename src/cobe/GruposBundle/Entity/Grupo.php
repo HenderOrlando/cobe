@@ -8,7 +8,10 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
  * @ORM\Table(options={"comment":"Grupos en el sistema"})
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="herenciaGrupo", type="string")
- * @ORM\DiscriminatorMap({"Grupo"="cobe\GruposBundle\Entity\Grupo","Editor"="\cobe\PaginasBundle\Entity\GrupoEditor"})
+ * @ORM\DiscriminatorMap({
+ *      "Grupo"="cobe\GruposBundle\Entity\Grupo",
+ *      "Editor"="\cobe\PaginasBundle\Entity\GrupoEditor"
+ * })
  */
 class Grupo extends Obj
 {
@@ -299,5 +302,12 @@ class Grupo extends Obj
     public function getEtiquetas()
     {
         return $this->etiquetas;
+    }
+    
+    public function getHerencias(){
+        return array(
+            'Grupo' =>'cobe\GruposBundle\Entity\Grupo',
+            'Editor'=>'\cobe\PaginasBundle\Entity\GrupoEditor'
+        );
     }
 }

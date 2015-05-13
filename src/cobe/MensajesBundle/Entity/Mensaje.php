@@ -324,4 +324,16 @@ class Mensaje extends Obj
     {
         return $this->mensajesRespuesta;
     }
+    
+    public function getHerencias(){
+        return array(
+            'Mensaje'                   =>'\cobe\MensajesBundle\Entity\Mensaje',
+            'Comentario'                =>'\cobe\MensajesBundle\Entity\Comentario',
+            'ComentarioGrupo'           =>'\cobe\MensajesBundle\Entity\ComentarioGrupo',
+            'ComentarioUsuario'         =>'\cobe\MensajesBundle\Entity\ComentarioUsuario',
+            'ComentarioArchivo'         =>'\cobe\MensajesBundle\Entity\ComentarioArchivo',
+            'ComentarioPublicacion'     =>'\cobe\MensajesBundle\Entity\ComentarioPublicacion',
+            'ComentarioOfertaLaboral'   =>'\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral'
+        );
+    }
 }

@@ -200,4 +200,15 @@ class Plantilla extends Objeto
     {
         return $this->estado;
     }
+    
+    public function getHerencias(){
+        return array(
+            'Plantilla'     =>'\cobe\PaginasBundle\Entity\Plantilla',
+            'Usuario'       =>'\cobe\PaginasBundle\Entity\PlantillaUsuario',
+            'Empresa'       =>'\cobe\PaginasBundle\Entity\PlantillaEmpresa',
+            'Grupo'         =>'\cobe\PaginasBundle\Entity\PlantillaGrupo',
+            'Mensaje'       =>'\cobe\PaginasBundle\Entity\PlantillaMensaje',
+            'Publicacion'   =>'\cobe\PaginasBundle\Entity\PlantillaPublicacion'
+        );
+    }
 }

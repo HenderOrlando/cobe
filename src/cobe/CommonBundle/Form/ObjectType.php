@@ -28,11 +28,13 @@ abstract class ObjectType extends AbstractType
     protected $action = NULL;
     protected $method = NULL;
     protected $buttons = NULL;
+    protected $dataClass = NULL;
 
-    public function __construct($action = NULL, $method = NULL, $buttons = array()){
+    public function __construct($action = NULL, $method = NULL, $buttons = array(), $dataClass = null){
         $this->action = $action;
         $this->buttons = $buttons;
         $this->method = $this->hasVerbHttp($method)?$method:'POST';
+        $this->dataClass = $dataClass;
     }
 
     public function addObjectForm(FormBuilderInterface $builder, array $options)

@@ -33,9 +33,15 @@ class MensajeType extends ObjectType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $defaults = array(
             'data_class' => 'cobe\MensajesBundle\Entity\Mensaje'
-        ));
+        );
+        if($this->dataClass){
+            $defaults = array(
+                'data_class' => $this->dataClass
+            );
+        }
+        $resolver->setDefaults($defaults);
     }
 
     /**

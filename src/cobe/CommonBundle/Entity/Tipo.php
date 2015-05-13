@@ -27,7 +27,22 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
  */
 class Tipo extends Obj
 {
-
+    public function getHerencias(){
+        return array(
+      'Tipo'                =>'\cobe\CommonBundle\Entity\Tipo',
+      'Historial'           =>'\cobe\UsuariosBundle\Entity\TipoHistorial',
+      'Estudio'             =>'\cobe\CurriculosBundle\Entity\TipoEstudio',
+      'Recomendacion'       =>'\cobe\CurriculosBundle\Entity\TipoRecomendacion',
+      'Reconocimiento'      =>'\cobe\CurriculosBundle\Entity\TipoProyecto',
+      'Proyecto'            =>'\cobe\CurriculosBundle\Entity\TipoReconocimiento',
+      'OfertaLaboral'       =>'\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral',
+      'Publicacion'         =>'\cobe\PaginasBundle\Entity\TipoPublicacion',
+      'VotacionPublicacion' =>'\cobe\PaginasBundle\Entity\TipoVotacionPublicacion',
+      'Archivo'             =>'\cobe\ColeccionesBundle\Entity\TipoArchivo',
+      'Estadistica'         =>'\cobe\EstadisticasBundle\Entity\TipoEstadistica',
+      'Plantilla'           =>'\cobe\PaginasBundle\Entity\TipoPlantilla'
+        );
+    }
 
     /**
      * Get id

@@ -31,9 +31,15 @@ class PlantillaType extends ObjectType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $defaults = array(
             'data_class' => 'cobe\PaginasBundle\Entity\Plantilla'
-        ));
+        );
+        if($this->dataClass){
+            $defaults = array(
+                'data_class' => $this->dataClass
+            );
+        }
+        $resolver->setDefaults($defaults);
     }
 
     /**
