@@ -27,6 +27,15 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
 class Estado extends Obj
 {
 
+    public function setHerenciaEstado($tipo){
+        $this->herenciaEstado = $tipo;
+
+        return $this;
+    }
+
+    public function getHerenciaEstado(){
+        return $this->herenciaEstado;
+    }
 
     /**
      * Get id
