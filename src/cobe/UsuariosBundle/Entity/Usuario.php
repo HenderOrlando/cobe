@@ -14,8 +14,7 @@ class Usuario extends Objeto
 {
     /**
      * @ORM\Column(
-     *     type="string",
-     *     length=50,
+     *     type="text",
      *     nullable=false,
      *     options={"comment":"Clave del Usuario para entrar al sistema"}
      * )
@@ -150,7 +149,7 @@ class Usuario extends Objeto
      */
     public function setClave($clave)
     {
-        $this->clave = $clave;
+        $this->clave = hash("SHA256",$clave,true);
 
         return $this;
     }
@@ -197,6 +196,8 @@ class Usuario extends Objeto
     public function setEmail($email)
     {
         $this->email = $email;
+        $this->setSalt(sha1($email.'-'.$this->getId()));
+        $this->setToken(sha1($email.'-'.$this->getId()));
 
         return $this;
     }

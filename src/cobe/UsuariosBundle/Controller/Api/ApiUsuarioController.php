@@ -233,7 +233,6 @@ class ApiUsuarioController extends ApiController
                 ),
             ),
         );
-
         if($request->get($type->getName(), false)){
             $form = $this->getForm($type, $usuario, $request,true);
         }

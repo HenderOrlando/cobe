@@ -2,6 +2,7 @@
 
 namespace cobe\CommonBundle\Controller\Api;
 
+use cobe\UsuariosBundle\Entity\RolUsuario;
 use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -160,6 +161,11 @@ class ApiController extends Controller
             //$isValid = $form->isValid();
             $isValid = true;
             if($isValid){
+                /*
+                var_dump($request->get($type->getName(), false));
+                echo '----------------';
+                var_dump($form->getData());
+                die;*/
                 if($save){
                     $em = $this->getManager();
                     $em->persist($obj);

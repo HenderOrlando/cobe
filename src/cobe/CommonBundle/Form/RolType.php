@@ -16,6 +16,8 @@ class RolType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
+        $builder->add('herenciaRol');
+
         if(is_string($this->action)){
             $builder->setAction($this->action);
         }

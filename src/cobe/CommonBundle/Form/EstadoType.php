@@ -16,6 +16,8 @@ class EstadoType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
+        $builder->add('herenciaEstado');
+
         if(is_string($this->action)){
             $builder->setAction($this->action);
         }

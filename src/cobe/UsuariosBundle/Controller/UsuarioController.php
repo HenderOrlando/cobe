@@ -109,19 +109,31 @@ class UsuarioController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $rta = array(
+            "error"     => false,
+            "message"   => 'Mostrando Usuario',
+        );
 
         $entity = $em->getRepository('cobeUsuariosBundle:Usuario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Usuario entity.');
+            $rta = array(
+                "error"     => true,
+                "message"   => 'Usuario no encontrado',
+            );
+            //throw $this->createNotFoundException('Unable to find Usuario entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+        if(!$rta['error']){
+            $rta = array_merge($rta, array(
+                'entity'      => $entity,
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }
+
+        return $rta;
     }
 
     /**
@@ -134,21 +146,31 @@ class UsuarioController extends Controller
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $rta = array(
+            "error"     => false,
+            "message"   => 'Mostrando Usuario',
+        );
 
         $entity = $em->getRepository('cobeUsuariosBundle:Usuario')->find($id);
 
         if (!$entity) {
+            $rta = array(
+                "error"     => true,
+                "message"   => 'Usuario no encontrado',
+            );
             throw $this->createNotFoundException('Unable to find Usuario entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        if(!$rta['error']){
+            $rta = array_merge($rta, array(
+                'entity'      => $entity,
+                'edit_form'   => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }
+        return $rta;
     }
 
     /**
@@ -179,6 +201,10 @@ class UsuarioController extends Controller
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
+        $rta = array(
+            "error"     => false,
+            "message"   => 'Mostrando Usuario',
+        );
 
         $entity = $em->getRepository('cobeUsuariosBundle:Usuario')->find($id);
 
@@ -193,14 +219,18 @@ class UsuarioController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('usuarios_usuario_edit', array('id' => $id)));
+            //return $this->redirect($this->generateUrl('usuarios_usuario_edit', array('id' => $id)));
         }
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        if(!$rta['error']){
+            $rta = array_merge($rta, array(
+                'entity'      => $entity,
+                'edit_form'   => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }
+
+        return $rta;
     }
     /**
      * Deletes a Usuario entity.

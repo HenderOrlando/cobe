@@ -16,6 +16,8 @@ class TipoType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
+        $builder->add('herenciaTipo');
+
         if(is_string($this->action)){
             $builder->setAction($this->action);
         }
