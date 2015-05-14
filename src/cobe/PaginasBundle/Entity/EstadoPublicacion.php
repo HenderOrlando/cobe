@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Estado;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\EstadoPublicacionRepository")
+ * @ORM\Table(options={"comment":"Estados para las Publicaciones"})
  */
 class EstadoPublicacion extends Estado
 {
@@ -62,4 +63,6 @@ class EstadoPublicacion extends Estado
     {
         return $this->publicacionesEstado;
     }
+
+
 }

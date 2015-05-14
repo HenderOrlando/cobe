@@ -5,6 +5,7 @@ use cobe\CommonBundle\Entity\Etiqueta;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\CategoriaRepository")
+ * @ORM\Table(options={"comment":"Categorías de las publicaciones"})
  */
 class Categoria extends Etiqueta
 {
@@ -130,4 +131,5 @@ class Categoria extends Etiqueta
     {
         return $this->categoria;
     }
+
 }

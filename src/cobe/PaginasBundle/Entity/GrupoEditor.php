@@ -7,7 +7,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\GruposBundle\Entity\Grupo;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\GrupoEditorRepository")
+ * @ORM\Table(options={"comment":"Grupos Editores de las Publicaciones"})
  */
 class GrupoEditor extends Grupo
 {
@@ -65,4 +66,6 @@ class GrupoEditor extends Grupo
     {
         return $this->publicaciones;
     }
+
+
 }

@@ -104,6 +104,7 @@ class ApiEtiquetaController extends ApiController
                     '/etiquetas/params/?etiqueta[descripcion]=Etiqueta-Suraméricano',
                     '/etiquetas/params/?etiqueta[nombre]=República-Bolivariana-de-Venezuela&etiqueta[descripcion]=suramerica',
                     '/etiquetas/params/?etiqueta[nombre]=republica-bolivariana-de-venezuela',
+                    '/etiquetas/params/?etiqueta[herencia]=usuario',
                 ),
             ),
             array(

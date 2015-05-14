@@ -524,4 +524,5 @@ class Publicacion extends Obj
     {
         return $this->etiquetas;
     }
+
 }

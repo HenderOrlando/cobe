@@ -602,4 +602,6 @@ class Usuario extends Objeto
     {
         return $this->solicitados;
     }
+
+
 }

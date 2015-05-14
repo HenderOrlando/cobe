@@ -63,4 +63,5 @@ class RolUsuario extends Rol
     {
         return $this->usuarios;
     }
+
 }

@@ -72,6 +72,24 @@ class ObjectRepository extends EntityRepository{
         if(!is_a($qb,'Doctrine\ORM\QueryBuilder')){
             $qb = $this->createQueryBuilder($tableName);
         }
+        if($metadata->isInheritanceTypeSingleTable() && isset($datos['herencia'])){
+            $name = $metadata->getName();
+            $obj = new $name();
+            $dato = ucfirst(strtolower($datos['herencia']));
+            if(method_exists($obj,'getHerencias')){
+                $herencias = $obj->getHerencias();
+                if(array_key_exists($dato,$herencias)){
+                    $herencia = $herencias[$dato];
+                    $qb->andWhere($tableName.' INSTANCE OF '.$herencia);
+                    unset($datos['herencia']);
+                }elseif(strtolower($dato) === strtolower($tableName)){
+                    unset($datos['herencia']);
+                }
+            }
+            /*var_dump($qb->getDQL());
+            echo '---------------------';
+            die;*/
+        }
         foreach($datos as $id => $dato){
             if($metadata->hasField($id)){
                 // boolean | number | bigint | decimal | integer | smallint | float | string | text | datetime | date | time
@@ -84,14 +102,12 @@ class ObjectRepository extends EntityRepository{
                 }
                 $qb->andWhere($q);
                 unset($datos[$id]);
-            }
-        }
-        if($metadata->isInheritanceTypeSingleTable()){
-            $qb->andWhere($tableName.' INSTANCE OF '.$metadata->getName());
-            var_dump($qb->getDQL());
-            echo '---------------------';
-            var_dump($qb->getQuery());
-            die;
+            }/*elseif($id == 'herencia'){
+                $qb->andWhere($qb->expr()->like($tableName.'.'.$id,$qb->expr()->literal('%'.$dato.'%')));
+                var_dump($id);
+                var_dump($dato);
+                die;
+            }*/
         }
         $rta = $qb;
         if(!$queryBuilder){

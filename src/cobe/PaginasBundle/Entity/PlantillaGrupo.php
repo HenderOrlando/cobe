@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\PaginasBundle\Entity\Plantilla;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PlantillaGrupoRepository")
+ * @ORM\Table(options={"comment":"Plantillas para los Grupos"})
  */
 class PlantillaGrupo extends Plantilla
 {
@@ -62,4 +63,5 @@ class PlantillaGrupo extends Plantilla
     {
         return $this->grupos;
     }
+
 }

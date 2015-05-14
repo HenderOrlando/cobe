@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Tipo;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\TipoPlantillaRepository")
+ * @ORM\Table(options={"comment":"Tipos de Plantillas"})
  */
 class TipoPlantilla extends Tipo
 {
@@ -62,4 +63,5 @@ class TipoPlantilla extends Tipo
     {
         return $this->plantillas;
     }
+
 }

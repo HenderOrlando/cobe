@@ -100,6 +100,7 @@ class ApiGrupoController extends ApiController
                     '/grupos/params/?grupo[descripcion]=Grupo-Suraméricano',
                     '/grupos/params/?grupo[nombre]=República-Bolivariana-de-Venezuela&grupo[descripcion]=suramerica',
                     '/grupos/params/?grupo[nombre]=republica-bolivariana-de-venezuela',
+                    '/grupos/params/?grupo[herencia]=usuario',
                 ),
             ),
             array(

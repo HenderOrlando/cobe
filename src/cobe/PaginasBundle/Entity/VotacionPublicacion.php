@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\GruposBundle\Entity\Votacion;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\VotacionPublicacionRepository")
+ * @ORM\Table(options={"comment":"Votaciones para Publicaciones"})
  */
 class VotacionPublicacion extends Votacion
 {
@@ -74,4 +75,5 @@ class VotacionPublicacion extends Votacion
     {
         return $this->publicacion;
     }
+
 }

@@ -215,4 +215,6 @@ class Historial extends Objeto
     {
         return $this->usuario;
     }
+
+
 }

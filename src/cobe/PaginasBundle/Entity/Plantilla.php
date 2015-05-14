@@ -211,4 +211,6 @@ class Plantilla extends Objeto
             'Publicacion'   =>'\cobe\PaginasBundle\Entity\PlantillaPublicacion'
         );
     }
+
+
 }

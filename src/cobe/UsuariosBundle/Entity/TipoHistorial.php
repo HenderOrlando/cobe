@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Tipo;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\TipoHistorialRepository")
+ * @ORM\Table(options={"comment":"Tipos de Historiales"})
  */
 class TipoHistorial extends Tipo
 {
@@ -62,4 +63,6 @@ class TipoHistorial extends Tipo
     {
         return $this->historiales;
     }
+
+
 }

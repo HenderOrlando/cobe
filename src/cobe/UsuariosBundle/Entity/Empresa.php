@@ -374,4 +374,6 @@ class Empresa extends Persona
     {
         return $this->reconocimientos;
     }
+
+
 }

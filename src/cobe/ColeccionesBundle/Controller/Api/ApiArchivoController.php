@@ -121,6 +121,7 @@ class ApiArchivoController extends ApiController
                     '/archivos/params/?archivo[descripcion]=País-Suraméricano',
                     '/archivos/params/?archivo[nombre]=República-Bolivariana-de-Venezuela&archivo[descripcion]=suramerica',
                     '/archivos/params/?archivo[nombre]=republica-bolivariana-de-venezuela',
+                    '/archivos/params/?archivo[herencia]=usuario',
                 ),
             ),
             array(

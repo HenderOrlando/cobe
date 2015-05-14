@@ -100,6 +100,7 @@ class ApiVotacionController extends ApiController
                     '/votaciones/params/?votacion[descripcion]=Votación-Suraméricano',
                     '/votaciones/params/?votacion[nombre]=República-Bolivariana-de-Venezuela&votacion[descripcion]=suramerica',
                     '/votaciones/params/?votacion[nombre]=republica-bolivariana-de-venezuela',
+                    '/votaciones/params/?votacion[herencia]=usuario',
                 ),
             ),
             array(

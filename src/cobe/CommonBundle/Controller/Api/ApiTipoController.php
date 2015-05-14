@@ -110,6 +110,7 @@ class ApiTipoController extends ApiController
                     '/tipos/params/?tipo[descripcion]=Tipo-Suraméricano',
                     '/tipos/params/?tipo[nombre]=República-Bolivariana-de-Venezuela&tipo[descripcion]=suramerica',
                     '/tipos/params/?tipo[nombre]=republica-bolivariana-de-venezuela',
+                    '/tipos/params/?tipo[herencia]=usuario',
                 ),
             ),
             array(

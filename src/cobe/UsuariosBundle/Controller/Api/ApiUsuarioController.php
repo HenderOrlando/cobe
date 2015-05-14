@@ -100,6 +100,7 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/params/?usuario[descripcion]=Usuario-Suraméricano',
                     '/usuarios/params/?usuario[nombre]=República-Bolivariana-de-Venezuela&usuario[descripcion]=suramerica',
                     '/usuarios/params/?usuario[nombre]=republica-bolivariana-de-venezuela',
+                    '/usuarios/params/?usuario[herencia]=usuario',
                 ),
             ),
             array(

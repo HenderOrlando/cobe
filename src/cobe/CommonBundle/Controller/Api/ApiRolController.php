@@ -103,6 +103,7 @@ class ApiRolController extends ApiController
                     '/roles/params/?rol[descripcion]=Rol-Suraméricano',
                     '/roles/params/?rol[nombre]=República-Bolivariana-de-Venezuela&rol[descripcion]=suramerica',
                     '/roles/params/?rol[nombre]=republica-bolivariana-de-venezuela',
+                    '/roles/params/?rol[herencia]=usuario',
                 ),
             ),
             array(

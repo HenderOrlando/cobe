@@ -105,6 +105,7 @@ class ApiMensajeController extends ApiController
                     '/mensajes/params/?mensaje[descripcion]=Mensaje-Suraméricano',
                     '/mensajes/params/?mensaje[nombre]=República-Bolivariana-de-Venezuela&mensaje[descripcion]=suramerica',
                     '/mensajes/params/?mensaje[nombre]=republica-bolivariana-de-venezuela',
+                    '/mensajes/params/?mensaje[herencia]=usuario',
                 ),
             ),
             array(

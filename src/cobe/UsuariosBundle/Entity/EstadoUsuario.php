@@ -63,4 +63,6 @@ class EstadoUsuario extends Estado
     {
         return $this->usuarios;
     }
+
+
 }

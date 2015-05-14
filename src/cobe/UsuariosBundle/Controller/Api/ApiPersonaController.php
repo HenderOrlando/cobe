@@ -100,6 +100,7 @@ class ApiPersonaController extends ApiController
                     '/personas/params/?persona[descripcion]=Persona-Suraméricano',
                     '/personas/params/?persona[nombre]=República-Bolivariana-de-Venezuela&persona[descripcion]=suramerica',
                     '/personas/params/?persona[nombre]=republica-bolivariana-de-venezuela',
+                    '/personas/params/?persona[herencia]=usuario',
                 ),
             ),
             array(

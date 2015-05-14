@@ -104,6 +104,7 @@ class ApiPlantillaController extends ApiController
                     '/plantillas/params/?plantilla[descripcion]=Plantilla-Suraméricano',
                     '/plantillas/params/?plantilla[nombre]=República-Bolivariana-de-Venezuela&plantilla[descripcion]=suramerica',
                     '/plantillas/params/?plantilla[nombre]=republica-bolivariana-de-venezuela',
+                    '/plantillas/params/?plantilla[herencia]=usuario',
                 ),
             ),
             array(

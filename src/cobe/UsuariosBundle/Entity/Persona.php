@@ -649,4 +649,6 @@ class Persona extends Usuario
     {
         return $this->aptitudes;
     }
+
+
 }

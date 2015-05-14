@@ -109,6 +109,7 @@ class ApiEstadoController extends ApiController
                     '/estados/params/?estado[descripcion]=Estado-Suraméricano',
                     '/estados/params/?estado[nombre]=República-Bolivariana-de-Venezuela&estado[descripcion]=suramerica',
                     '/estados/params/?estado[nombre]=republica-bolivariana-de-venezuela',
+                    '/estados/params/?estado[herencia]=usuario',
                 ),
             ),
             array(

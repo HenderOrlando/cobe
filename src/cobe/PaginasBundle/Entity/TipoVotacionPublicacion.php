@@ -4,7 +4,8 @@ use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Tipo;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\TipoVotacionRepository")
+ * @ORM\Table(options={"comment":"Tipos de Votaciones"})
  */
 class TipoVotacionPublicacion extends Tipo
 {
@@ -62,4 +63,5 @@ class TipoVotacionPublicacion extends Tipo
     {
         return $this->votaciones;
     }
+
 }
