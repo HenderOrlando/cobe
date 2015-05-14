@@ -4,6 +4,7 @@ namespace cobe\UsuariosBundle\Repository;
 
 use cobe\CommonBundle\Repository\ObjectRepository;
 use cobe\UsuariosBundle\Entity\Usuario;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
  * UsuarioRepository
@@ -18,10 +19,17 @@ class UsuarioRepository extends ObjectRepository
         $usr = new Usuario();
         $clave = $usr->setClave($clave)->getClave();
         $qb
-            ->andWhere($qb->expr()->orX($qb->expr()->like('u.email',$email),$qb->expr()->like('u.nombre',$nombre)))
-            ->andWhere($qb->expr()->like('u.clave',$clave))
+            ->andWhere($qb->expr()->orX($qb->expr()->like('u.email',$qb->expr()->literal($email)),$qb->expr()->like('u.nombre',$qb->expr()->literal($nombre))))
+            ->andWhere($qb->expr()->like('u.clave',$qb->expr()->literal($clave)))
             ->setMaxResults(1)
         ;
-        return $qb->getQuery()->getFirstResult();
+        //$rta = $qb->getQuery()->execute();
+        $rta = $qb->getQuery()->getResult();
+        if(isset($rta[0])){
+            $rta = $rta[0];
+        }else{
+            $rta = null;
+        }
+        return $rta;
     }
 }

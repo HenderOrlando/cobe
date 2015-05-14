@@ -202,6 +202,19 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/aplicaciones',
                 ),
             ),
+            array(
+                'route'         => '/validaUsuarios',
+                'method'        => '{GET, POST}',
+                'description'   => 'Comprobar que un usuario exista en la BD. Retorna el Usuario validado. Para sólo retornar un boolean hacer return=false',
+                'examples'       => array(
+                    '/validaUsuarios/',
+                    '/validaUsuarios',
+                    '/validaUsuarios/?nombre=carlos&clave=123&return=false',
+                    '/validaUsuarios/?nombre=carlos&clave=123&return=0',
+                    '/validaUsuarios/?nombre=carlos&clave=123',
+                    '/validaUsuarios?email=carlos@email.com&clave=123&nombre=carlos',
+                ),
+            ),
         );
 
         //$opts = $this->getPagerfanta($opciones, 'options_usuarios', true);
@@ -215,28 +228,44 @@ class ApiUsuarioController extends ApiController
      * @Route("/validaUsuarios", name="valida_usuarios")
      * @Route("/validaUsuarios/", name="valida_usuarios_")
      * @Template()
-     * @Method("GET")
+     * @Method({"POST","GET"})
      */
     public function getValidaUsuarioAction(Request $request)
     {
-        $email = $request->get('email');
-        $username = $request->get('username');
-        $clave = $request->get('clave');
-
-        $repository = $this->getUsuarioRepository();
-        $valido = $repository->validaUsuario($clave, $email, $username);
-        if(!$valido){
-            $list = array(
-                'errors' => array(
-                    '400' => array(
-                        'message'   => 'El Usuario no es válido.',
-                        'code'      => '400',
-                    ),
-                ),
-            );
+        $usuario = $request->get('usuario');
+        if($usuario){
+            $email = isset($usuario['email'])?$usuario['email']:null;
+            $nombre = isset($usuario['nombre'])?$usuario['nombre']:null;
+            $clave = isset($usuario['clave'])?$usuario['clave']:null;
+        }else{
+            $email = $request->get('email', null);
+            $nombre = $request->get('nombre', null);
+            $clave = $request->get('clave', null);
         }
 
-        return $this->getJsonResponse($list, $request);
+        $repository = $this->getUsuarioRepository();
+        $usuario = $repository->validaUsuario($clave, $email, $nombre);
+        $return = $request->get('return', true);
+        if(!$usuario){
+            if(!$return || $return === 'false'){
+                $usuario = false;
+            }elseif($return){
+                $usuario = array(
+                    'errors' => array(
+                        '400' => array(
+                            'message'   => 'El Usuario no es válido.',
+                            'code'      => '400',
+                        ),
+                    ),
+                );
+            }
+        }else{
+            if(!$return || $return === 'false'){
+                $usuario = true;
+            }
+        }
+
+        return $this->getJsonResponse($usuario, $request);
     }
 
     /**

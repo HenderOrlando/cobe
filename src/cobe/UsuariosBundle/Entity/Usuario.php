@@ -151,8 +151,9 @@ class Usuario extends Objeto
     {
         $clave = sha1($clave);
         if(!$this->getSalt()){
-            $this->setSalt($clave.(rand(0,1000)*rand(0,500)));
+            $this->setSalt(sha1($clave.(rand(0,1000)*rand(0,500))));
         }
+        $this->clave = $clave;
 
         return $this;
     }
