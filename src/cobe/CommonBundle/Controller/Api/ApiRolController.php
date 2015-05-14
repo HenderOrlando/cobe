@@ -46,6 +46,25 @@ class ApiRolController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Roles.
+     *
+     * @Route("/roles/aplicaciones", name="aplicaciones_roles")
+     * @Route("/roles/aplicaciones/", name="aplicaciones_roles_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasRolesAction(Request $request){
+        $herencias = array(
+            "Rol"               => "Rol",
+            "Usuario"           => "Rol para un Usuario",
+            "ProyectoPersona"   => "Rol para una Persona en un Proyecto",
+            "GrupoPersona"      => "Rol para una Persona en un Grupo",
+            "TrabajoPersona"    => "Rol para una Persona en un Trabajo"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Roles.
      *
      * @Route("/roles", name="options_roles")
@@ -174,6 +193,15 @@ class ApiRolController extends ApiController
                 'examples'       => array(
                     '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/roles/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/roles/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Rol.',
+                'examples'       => array(
+                    '/roles/aplicaciones/',
+                    '/roles/aplicaciones',
                 ),
             ),
         );

@@ -46,6 +46,26 @@ class ApiEtiquetaController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Etiquetas.
+     *
+     * @Route("/etiquetas/aplicaciones", name="aplicaciones_etiquetas")
+     * @Route("/etiquetas/aplicaciones/", name="aplicaciones_etiquetas_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasEtiquetasAction(Request $request){
+        $herencias = array(
+            "Etiqueta"      => "Etiqueta",
+            "Interes"       => "Etiqueta de Interés",
+            "Aptitud"       => "Etiqueta de Aptitud",
+            "NivelIdioma"   => "Etiqueta de Nivel de Idioma",
+            "Categoria"     => "Etiqueta de Categoría",
+            "Caracteristica"=> "Etiqueta de Característica"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Etiquetas.
      *
      * @Route("/etiquetas", name="options_etiquetas")
@@ -174,6 +194,15 @@ class ApiEtiquetaController extends ApiController
                 'examples'       => array(
                     '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/etiquetas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/etiquetas/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Etiqueta.',
+                'examples'       => array(
+                    '/etiquetas/aplicaciones/',
+                    '/etiquetas/aplicaciones',
                 ),
             ),
         );

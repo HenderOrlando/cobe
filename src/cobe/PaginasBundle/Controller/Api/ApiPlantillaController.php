@@ -46,6 +46,26 @@ class ApiPlantillaController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Plantillas.
+     *
+     * @Route("/plantillas/aplicaciones", name="aplicaciones_plantillas")
+     * @Route("/plantillas/aplicacioens/", name="aplicaciones_plantillas_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasPlantillasAction(Request $request){
+        $herencias = array(
+                "Plantilla"     => "Plantilla",
+                "Usuario"       => "Plantilla para Usuario",
+                "Empresa"       => "Plantilla para Empresa",
+                "Grupo"         => "Plantilla para Grupo",
+                "Mensaje"       => "Plantilla para Mensaje",
+                "Publicacion"   => "Plantilla para Publicación"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Plantillas.
      *
      * @Route("/plantillas", name="options_plantillas")
@@ -174,6 +194,15 @@ class ApiPlantillaController extends ApiController
                 'examples'       => array(
                     '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/plantillas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/plantillas/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Plantilla.',
+                'examples'       => array(
+                    '/plantillas/aplicaciones/',
+                    '/plantillas/aplicaciones',
                 ),
             ),
         );

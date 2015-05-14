@@ -3,6 +3,7 @@
 namespace cobe\UsuariosBundle\Repository;
 
 use cobe\CommonBundle\Repository\ObjectRepository;
+use cobe\UsuariosBundle\Entity\Usuario;
 
 /**
  * UsuarioRepository
@@ -12,4 +13,15 @@ use cobe\CommonBundle\Repository\ObjectRepository;
  */
 class UsuarioRepository extends ObjectRepository
 {
+    public function validaUsuario($clave, $email = '', $nombre = ''){
+        $qb = $this->createQueryBuilder('u');
+        $usr = new Usuario();
+        $clave = $usr->setClave($clave)->getClave();
+        $qb
+            ->andWhere($qb->expr()->orX($qb->expr()->like('u.email',$email),$qb->expr()->like('u.nombre',$nombre)))
+            ->andWhere($qb->expr()->like('u.clave',$clave))
+            ->setMaxResults(1)
+        ;
+        return $qb->getQuery()->getFirstResult();
+    }
 }

@@ -46,6 +46,22 @@ class ApiVotacionController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Votaciones.
+     *
+     * @Route("/votaciones/aplicaciones", name="aplicaciones_votaciones")
+     * @Route("/votaciones/aplicaciones/", name="aplicaciones_votaciones_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasVotacionesAction(Request $request){
+        $herencias = array(
+            "Votacion"      => "Votacion",
+            "Publicacion"   => "Votacion en Publicación"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Votaciones.
      *
      * @Route("/votaciones", name="options_votaciones")
@@ -174,6 +190,15 @@ class ApiVotacionController extends ApiController
                 'examples'       => array(
                     '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/votaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/votaciones/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Estado.',
+                'examples'       => array(
+                    '/votaciones/aplicaciones/',
+                    '/votaciones/aplicaciones',
                 ),
             ),
         );

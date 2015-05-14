@@ -46,6 +46,31 @@ class ApiEstadoController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Estados.
+     *
+     * @Route("/estados/aplicaciones", name="aplicaciones_estados")
+     * @Route("/estados/aplicaciones/", name="aplicaciones_estados_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasEstadosAction(Request $request){
+        $herencias = array(
+            "Estado"        => "Estado",
+            "Usuario"       => "Estado para un Usuario",
+            "GrupoPersona"  => "Estado para una Persona en un Grupo",
+            "Votacion"      => "Estado para una Votación",
+            "Trabajo"       => "Estado para un Trabajo",
+            "Mensaje"       => "Estado para un Mensaje",
+            "Destinatario"  => "Estado para un Destinatario en un Mensaje",
+            "Publicacion"   => "Estado para una Publicación",
+            "Plantilla"     => "Estado para una Plantilla",
+            "Archivo"       => "Estado para un Archivo",
+            "Estadistica"   => "Estado para una Estadística"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Estados.
      *
      * @Route("/estados", name="options_estados")
@@ -174,6 +199,15 @@ class ApiEstadoController extends ApiController
                 'examples'       => array(
                     '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/estados/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/estados/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Estado.',
+                'examples'       => array(
+                    '/estados/aplicaciones/',
+                    '/estados/aplicaciones',
                 ),
             ),
         );

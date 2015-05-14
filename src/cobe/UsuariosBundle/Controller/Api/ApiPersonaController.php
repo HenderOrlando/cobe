@@ -46,6 +46,22 @@ class ApiPersonaController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Personas.
+     *
+     * @Route("/personas/aplicaciones", name="aplicaciones_personas")
+     * @Route("/personas/aplicaciones/", name="aplicaciones_personas_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasPersonasAction(Request $request){
+        $herencias = array(
+            "Persona"=>"Persona natural",
+            "Empresa"=>"Persona jurídica"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Personas.
      *
      * @Route("/personas", name="options_personas")
@@ -174,6 +190,15 @@ class ApiPersonaController extends ApiController
                 'examples'       => array(
                     '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/personas/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/personas/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Persona.',
+                'examples'       => array(
+                    '/personas/aplicaciones/',
+                    '/personas/aplicaciones',
                 ),
             ),
         );

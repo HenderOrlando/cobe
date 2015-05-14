@@ -46,6 +46,22 @@ class ApiUsuarioController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Usuarios.
+     *
+     * @Route("/usuarios/aplicaciones", name="aplicaciones_usuarios")
+     * @Route("/usuarios/aplicaciones/", name="aplicaciones_usuarios_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasUsuariosAction(Request $request){
+        $herencias = array(
+            "Usuario"=>"Usuario de la Plataforma",
+            "Persona"=>"Usuario de la Plataforma con datos personales"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Usuarios.
      *
      * @Route("/usuarios", name="options_usuarios")
@@ -176,11 +192,50 @@ class ApiUsuarioController extends ApiController
                     '/usuarios/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
                 ),
             ),
+            array(
+                'route'         => '/usuarios/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Usuario.',
+                'examples'       => array(
+                    '/usuarios/aplicaciones/',
+                    '/usuarios/aplicaciones',
+                ),
+            ),
         );
 
         //$opts = $this->getPagerfanta($opciones, 'options_usuarios', true);
 
         return $this->getJsonResponse($opciones, $request);
+    }
+
+    /**
+     * Valida la clave y el email de un Usuario
+     *
+     * @Route("/validaUsuarios", name="valida_usuarios")
+     * @Route("/validaUsuarios/", name="valida_usuarios_")
+     * @Template()
+     * @Method("GET")
+     */
+    public function getValidaUsuarioAction(Request $request)
+    {
+        $email = $request->get('email');
+        $username = $request->get('username');
+        $clave = $request->get('clave');
+
+        $repository = $this->getUsuarioRepository();
+        $valido = $repository->validaUsuario($clave, $email, $username);
+        if(!$valido){
+            $list = array(
+                'errors' => array(
+                    '400' => array(
+                        'message'   => 'El Usuario no es válido.',
+                        'code'      => '400',
+                    ),
+                ),
+            );
+        }
+
+        return $this->getJsonResponse($list, $request);
     }
 
     /**

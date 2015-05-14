@@ -46,6 +46,32 @@ class ApiTipoController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Tipos.
+     *
+     * @Route("/tipos/aplicaciones", name="aplicaciones_tipos")
+     * @Route("/tipos/aplicaciones/", name="aplicaciones_tipos_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasTiposAction(Request $request){
+        $herencias = array(
+            "Tipo"                  => "Tipo",
+            "Historial"             => "Tipo para un Historial",
+            "Estudio"               => "Tipo para un Estudio",
+            "Recomendacion"         => "Tipo para una Recomendación",
+            "Reconocimiento"        => "Tipo para un Reconocimiento",
+            "Proyecto"              => "Tipo para un Proyecto",
+            "OfertaLaboral"         => "Tipo para una Oferta Laboral",
+            "Publicacion"           => "Tipo para una Publicación",
+            "VotacionPublicacion"   => "Tipo para una Votación en una Publicación",
+            "Archivo"               => "Tipo para un Archivo",
+            "Estadistica"           => "Tipo para una Estadística",
+            "Plantilla"             => "Tipo para una Plantilla"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Tipos.
      *
      * @Route("/tipos", name="options_tipos")
@@ -174,6 +200,15 @@ class ApiTipoController extends ApiController
                 'examples'       => array(
                     '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/tipos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/tipos/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Tipo.',
+                'examples'       => array(
+                    '/tipos/aplicaciones/',
+                    '/tipos/aplicaciones',
                 ),
             ),
         );

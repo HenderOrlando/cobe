@@ -46,6 +46,22 @@ class ApiGrupoController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Grupos.
+     *
+     * @Route("/grupos/aplicaciones", name="aplicaciones_grupos")
+     * @Route("/grupos/aplicaciones/", name="aplicaciones_grupos_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasGruposAction(Request $request){
+        $herencias = array(
+            "Grupo"     => "Grupo",
+            "Editor"    => "Grupo Editor de una Publicación"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Grupos.
      *
      * @Route("/grupos", name="options_grupos")
@@ -174,6 +190,15 @@ class ApiGrupoController extends ApiController
                 'examples'       => array(
                     '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/grupos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/grupos/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Grupo.',
+                'examples'       => array(
+                    '/grupos/aplicaciones/',
+                    '/grupos/aplicaciones',
                 ),
             ),
         );

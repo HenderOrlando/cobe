@@ -46,6 +46,43 @@ class ApiArchivoController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Archivos.
+     *
+     * @Route("/archivos/aplicaciones", name="aplicaciones_archivos")
+     * @Route("/archivos/aplicaciones/", name="aplicaciones_archivos_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasArchivosAction(Request $request){
+        $herencias = array(
+            "Archivo"                   => "Archivo",
+            "Grupo"                     => "Archivo de Grupo",
+            "Usuario"                   => "Archivo de Usuario",
+            "Mensaje"                   => "Archivo de Mensaje",
+            "Trabajo"                   => "Archivo que valida un Trabajo",
+            "Estudio"                   => "Archivo de Estudio",
+            "Aptitud"                   => "Archivo que valida la Aptitud",
+            "Proyecto"                  => "Archivo que valida un Proyecto",
+            "Plantilla"                 => "Archivo de Plantilla",
+            "Traduccion"                => "Archivo de una Traducción",
+            "Publicacion"               => "Archivo de una Publicación",
+            "CentroEstudio"             => "Archivo de Centro de Estudio",
+            "Recomendacion"             => "Archivo que valida una Recomendación",
+            "EstudioPersona"            => "Archivo que valida el Estudio de una Persona (Certificación)",
+            "EstadisticaGrupo"          => "Archivo de una Estadística de un Grupo",
+            "EstadisticaEmpresa"        => "Archivo de una Estadística de una Empresa",
+            "EstadisticaUsuario"        => "Archivo de una Estadística de un Usuario",
+            "EstadisticaMensaje"        => "Archivo de una Estadística de un Mensaje",
+            "EstadisticaAptitud"        => "Archivo de una Estadística de una Aptitud",
+            "EstadisticaInteres"        => "Archivo de una Estadística de un Interés",
+            "ReconocimientoPersona"     => "Archivo que valida un Reconocimiento de una Persona",
+            "EstadisticaPublicacion"    => "Archivo de una Estadística de una Publicación",
+            "EstadisticaOfertaLaboral"  => "Archivo de una Estadística de una Oferta Laboral",
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Archivos.
      *
      * @Route("/archivos", name="options_archivos")
@@ -174,6 +211,15 @@ class ApiArchivoController extends ApiController
                 'examples'       => array(
                     '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/archivos/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/archivos/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Archivo.',
+                'examples'       => array(
+                    '/archivos/aplicaciones/',
+                    '/archivos/aplicaciones',
                 ),
             ),
         );

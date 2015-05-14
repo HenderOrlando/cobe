@@ -46,6 +46,27 @@ class ApiMensajeController extends ApiController
     }
 
     /**
+     * Regresa herencias de API para Mensajes.
+     *
+     * @Route("/mensajes/aplicaciones", name="aplicaciones_mensajes")
+     * @Route("/mensajes/aplicacioens/", name="aplicaciones_mensajes_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function herenciasMensajesAction(Request $request){
+        $herencias = array(
+                "Mensaje"                   => "Mensaje",
+                "Comentario"                => "Mensaje Comentario",
+                "ComentarioUsuario"         => "Comentario a Usuario",
+                "ComentarioGrupo"           => "Comentario a Grupo",
+                "ComentarioArchivo"         => "Comentario a Archivo",
+                "ComentarioPublicacion"     => "Comentario a Publicación",
+                "ComentarioOfertaLaboral"   => "Comentario a Oferta Laboral"
+        );
+        return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
      * Regresa opciones de API para Mensajes.
      *
      * @Route("/mensajes", name="options_mensajes")
@@ -174,6 +195,15 @@ class ApiMensajeController extends ApiController
                 'examples'       => array(
                     '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/mensajes/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                ),
+            ),
+            array(
+                'route'         => '/mensajes/aplicaciones',
+                'method'        => 'OPTIONS',
+                'description'   => 'Ver las aplicaciones de Mensaje.',
+                'examples'       => array(
+                    '/mensajes/aplicaciones/',
+                    '/mensajes/aplicaciones',
                 ),
             ),
         );

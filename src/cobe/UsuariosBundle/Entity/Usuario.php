@@ -149,10 +149,10 @@ class Usuario extends Objeto
      */
     public function setClave($clave)
     {
+        $clave = sha1($clave);
         if(!$this->getSalt()){
-            $this->setSalt(sha1($clave));
+            $this->setSalt($clave.(rand(0,1000)*rand(0,500)));
         }
-        $this->clave = crypt($clave,$this->getSalt());
 
         return $this;
     }
@@ -199,9 +199,6 @@ class Usuario extends Objeto
     public function setEmail($email)
     {
         $this->email = $email;
-        if(!$this->getSalt()){
-            $this->setSalt(crypt($email));
-        }
         $this->setToken(sha1($email));
 
         return $this;
