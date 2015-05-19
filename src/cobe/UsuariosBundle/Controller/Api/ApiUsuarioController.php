@@ -209,9 +209,11 @@ class ApiUsuarioController extends ApiController
                 'examples'       => array(
                     '/validaUsuarios/',
                     '/validaUsuarios',
-                    '/validaUsuarios/?nombre=carlos&clave=123&return=false',
-                    '/validaUsuarios/?nombre=carlos&clave=123&return=0',
+                    '/validaUsuarios/?usuario[nombre]=carlos&usuario[clave]=123&return=false',
+                    '/validaUsuarios/?persona[nombre]=carlos&persona[clave]=123&return=0',
                     '/validaUsuarios/?nombre=carlos&clave=123',
+                    '/validaUsuarios/?doc_id=carlos&clave=123',
+                    '/validaUsuarios/?persona[doc_id]',
                     '/validaUsuarios?email=carlos@email.com&clave=123&nombre=carlos',
                 ),
             ),
@@ -232,19 +234,29 @@ class ApiUsuarioController extends ApiController
      */
     public function getValidaUsuarioAction(Request $request)
     {
-        $usuario = $request->get('usuario');
+        $usuario = $request->get('usuario', false);
         if($usuario){
+            $docId = isset($usuario['doc_id'])?$usuario['doc_id']:null;
             $email = isset($usuario['email'])?$usuario['email']:null;
             $nombre = isset($usuario['nombre'])?$usuario['nombre']:null;
             $clave = isset($usuario['clave'])?$usuario['clave']:null;
         }else{
-            $email = $request->get('email', null);
-            $nombre = $request->get('nombre', null);
-            $clave = $request->get('clave', null);
+            $persona = $request->get('persona', false);
+            if($persona){
+                $docId = isset($persona['doc_id'])?$persona['doc_id']:null;
+                $email = isset($persona['email'])?$persona['email']:null;
+                $nombre = isset($persona['nombre'])?$persona['nombre']:null;
+                $clave = isset($persona['clave'])?$persona['clave']:null;
+            }else{
+                $docId = $request->get('doc_id', null);
+                $email = $request->get('email', null);
+                $nombre = $request->get('nombre', null);
+                $clave = $request->get('clave', null);
+            }
         }
 
         $repository = $this->getUsuarioRepository();
-        $usuario = $repository->validaUsuario($clave, $email, $nombre);
+        $usuario = $repository->validaUsuario($clave, $email, $nombre, $docId);
         $return = $request->get('return', true);
         if(!$usuario){
             if(!$return || $return === 'false'){

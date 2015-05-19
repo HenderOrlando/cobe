@@ -15,6 +15,14 @@ class UsuarioType extends ObjectType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addObjectForm($builder, $options);
+
+        $this->getBuilderForm($builder, $options);
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
+    }
+
+    public function getBuilderForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add('clave')
             ->add('email')
@@ -26,8 +34,6 @@ class UsuarioType extends ObjectType
             ->add('solicitantes')
             ->add('solicitados')*/
         ;
-        $builder->setMethod($this->method);
-        $this->addSubmit($builder);
     }
     
     /**

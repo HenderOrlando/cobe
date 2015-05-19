@@ -149,11 +149,10 @@ class Usuario extends Objeto
      */
     public function setClave($clave)
     {
-        $clave = sha1($clave);
         if(!$this->getSalt()){
-            $this->setSalt(sha1($clave.(rand(0,1000)*rand(0,500))));
+            $this->setSalt(sha1(uniqid(mt_rand())));
         }
-        $this->clave = $clave;
+        $this->clave = hash('sha256',$clave.$this->getSalt());
 
         return $this;
     }

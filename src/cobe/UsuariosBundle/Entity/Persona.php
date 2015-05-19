@@ -17,7 +17,7 @@ class Persona extends Usuario
 {
     /**
      * @ORM\Column(
-     *     type="smallint",
+     *     type="bigint",
      *     length=12,
      *     nullable=false,
      *     options={"comment":"Identificador de la Persona","unsigned":true}

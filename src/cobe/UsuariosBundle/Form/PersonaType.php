@@ -6,7 +6,7 @@ use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PersonaType extends ObjectType
+class PersonaType extends UsuarioType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,6 +15,8 @@ class PersonaType extends ObjectType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addObjectForm($builder, $options);
+
+        $this->getBuilderForm($builder,$options);
 
         $builder
             ->add('doc_id')
