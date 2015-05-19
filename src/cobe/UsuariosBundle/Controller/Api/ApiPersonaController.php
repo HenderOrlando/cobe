@@ -259,6 +259,15 @@ class ApiPersonaController extends ApiController
                 ),
             ),
         );
+        $datos = $request->get($type->getName());
+        if($datos['usuario']){
+            $em = $this->getManager();
+            $usuario = $em->getRepository('cobeUsuariosBundle:Usuario')->find($datos['usuario']);
+            if($usuario){
+                //$persona->setId($usuario->getId());
+                //$persona = (Persona)$usuario;
+            }
+        }
 
         if($request->get($type->getName(), false)){
             $form = $this->getForm($type, $persona, $request,true);

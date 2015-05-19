@@ -19,7 +19,7 @@ class Persona extends Usuario
      * @ORM\Column(
      *     type="bigint",
      *     length=12,
-     *     nullable=false,
+     *     nullable=true,
      *     options={"comment":"Identificador de la Persona","unsigned":true}
      * )
      */
@@ -137,6 +137,12 @@ class Persona extends Usuario
      */
     public function getId(){
         return parent::getId();
+    }
+
+    public function setId($id){
+        parent::setId($id);
+
+        return $this;
     }
 
     /**

@@ -141,6 +141,11 @@ class Usuario extends Objeto
         return parent::getId();
     }
 
+    public function setId($id){
+        parent::setId($id);
+        return $this;
+    }
+
     /**
      * Set clave
      *
