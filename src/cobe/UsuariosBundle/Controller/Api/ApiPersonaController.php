@@ -260,7 +260,7 @@ class ApiPersonaController extends ApiController
             ),
         );
         $datos = $request->get($type->getName());
-        if($datos['usuario']){
+        if(isset($datos['usuario'])){
             $em = $this->getManager();
             $usuario = $em->getRepository('cobeUsuariosBundle:Usuario')->find($datos['usuario']);
             if($usuario){
