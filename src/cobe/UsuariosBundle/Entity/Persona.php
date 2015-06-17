@@ -11,7 +11,11 @@ use cobe\UsuariosBundle\Entity\Usuario;
  * )
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="herencia", length=10, type="string")
- * @ORM\DiscriminatorMap({"Persona"="\cobe\UsuariosBundle\Entity\Persona","Empresa"="\cobe\UsuariosBundle\Entity\Empresa"})
+ * @ORM\DiscriminatorMap({
+ *  "Persona"="\cobe\UsuariosBundle\Entity\Persona",
+ *  "Empresa"="\cobe\UsuariosBundle\Entity\Empresa",
+ *  "Estudiante"="\cobe\UsuariosBundle\Entity\Estudiante"
+ * })
  */
 class Persona extends Usuario
 {

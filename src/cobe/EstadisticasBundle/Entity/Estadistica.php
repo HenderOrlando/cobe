@@ -34,6 +34,11 @@ class Estadistica extends Objeto
     private $estadisticasEmpresa;
 
     /**
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante", mappedBy="estadistica")
+     */
+    private $estadisticasEstudiante;
+
+    /**
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaGrupo", mappedBy="estadistica")
      */
     private $estadisticasGrupo;
@@ -260,6 +265,39 @@ class Estadistica extends Objeto
     public function getEstadisticasEmpresa()
     {
         return $this->estadisticasEmpresa;
+    }
+
+    /**
+     * Add estadisticasEstudiante
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante
+     * @return Estadistica
+     */
+    public function addEstadisticasEstudiante(\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante)
+    {
+        $this->estadisticasEstudiante[] = $estadisticasEstudiante;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadisticasEstudiante
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante
+     */
+    public function removeEstadisticasEstudiante(\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante)
+    {
+        $this->estadisticasEstudiante->removeElement($estadisticasEstudiante);
+    }
+
+    /**
+     * Get estadisticasEstudiante
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstadisticasEstudiante()
+    {
+        return $this->estadisticasEstudiante;
     }
 
     /**

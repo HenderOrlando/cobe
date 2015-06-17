@@ -22,6 +22,10 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Etiqueta extends Obj
 {
     /**
+     * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Estudiante", mappedBy="etiquetas")
+     */
+    private $estudiantes;
+    /**
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", mappedBy="etiquetas")
      */
     private $empresas;
@@ -56,6 +60,7 @@ class Etiqueta extends Obj
     public function __construct()
     {
         parent::__construct();
+        $this->estudiantes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->grupos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
@@ -104,6 +109,39 @@ class Etiqueta extends Obj
     public function getEmpresas()
     {
         return $this->empresas;
+    }
+
+    /**
+     * Add estudiantes
+     *
+     * @param \cobe\UsuariosBundle\Entity\Estudiante $estudiantes
+     * @return Etiqueta
+     */
+    public function addEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
+    {
+        $this->estudiantes[] = $estudiantes;
+
+        return $this;
+    }
+
+    /**
+     * Remove estudiantes
+     *
+     * @param \cobe\UsuariosBundle\Entity\Estudiante $estudiantes
+     */
+    public function removeEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
+    {
+        $this->estudiantes->removeElement($estudiantes);
+    }
+
+    /**
+     * Get estudiantes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstudiantes()
+    {
+        return $this->estudiantes;
     }
 
     /**

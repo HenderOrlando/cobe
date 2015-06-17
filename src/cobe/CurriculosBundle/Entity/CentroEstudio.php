@@ -18,6 +18,11 @@ class CentroEstudio extends Objeto
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoCentroEstudio", mappedBy="centroEstudio")
      */
     private $archivos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Estudiante", mappedBy="centroEstudio")
+     */
+    private $estudiantes;
     /**
      * Constructor
      */
@@ -101,5 +106,28 @@ class CentroEstudio extends Objeto
     public function getArchivos()
     {
         return $this->archivos;
+    }
+
+    /**
+     * Add estudiantes
+     *
+     * @param \cobe\UsuariosBundle\Entity\Estudiante $estudiantes
+     * @return CentroEstudio
+     */
+    public function addEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
+    {
+        $this->estudiantes[] = $estudiantes;
+
+        return $this;
+    }
+
+    /**
+     * Remove estudiantes
+     *
+     * @param \cobe\UsuariosBundle\Entity\Estudiante $estudiantes
+     */
+    public function removeEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
+    {
+        $this->estudiantes->removeElement($estudiantes);
     }
 }

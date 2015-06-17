@@ -12,6 +12,7 @@ use cobe\CommonBundle\Entity\Objeto;
  *     "Plantilla"="\cobe\PaginasBundle\Entity\Plantilla",
  *     "Usuario"="\cobe\PaginasBundle\Entity\PlantillaUsuario",
  *     "Empresa"="\cobe\PaginasBundle\Entity\PlantillaEmpresa",
+ *     "Estudiante"="\cobe\PaginasBundle\Entity\PlantillaEstudiante",
  *     "Grupo"="\cobe\PaginasBundle\Entity\PlantillaGrupo",
  *     "Mensaje"="\cobe\PaginasBundle\Entity\PlantillaMensaje",
  *     "Publicacion"="\cobe\PaginasBundle\Entity\PlantillaPublicacion"
