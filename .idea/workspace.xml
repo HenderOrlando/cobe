@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86653faa-3454-4ddd-81e3-dea4d92279f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaEstudiante.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaEstudiante.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Estudiante.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEstudiante.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/check.php" afterPath="$PROJECT_DIR$/app/check.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEstudianteController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Repository/EstudianteRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cobe.iws" />
@@ -73,31 +59,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Etiqueta.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php">
+      <file leaf-file-name="ApiEstudianteController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEstudianteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.1153846" vertical-offset="742" max-vertical-offset="5559">
-              <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+            <state vertical-scroll-proportion="-17.0" vertical-offset="4437" max-vertical-offset="7990">
+              <caret line="309" column="0" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <file leaf-file-name="CentroEstudio.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15699208" vertical-offset="0" max-vertical-offset="758">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="2346">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Empresa.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php">
+      <file leaf-file-name="EstudianteRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Repository/EstudianteRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="6528">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.34836066" vertical-offset="0" max-vertical-offset="732">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,8 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Repository/RepresentanteEmpresaRepository.php" />
-        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiRepresentanteEmpresaController.php" />
         <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php" />
         <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Historial.php" />
         <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php" />
@@ -162,6 +146,8 @@
         <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php" />
         <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEstudianteController.php" />
+        <option value="$PROJECT_DIR$/src/cobe/UsuariosBundle/Repository/EstudianteRepository.php" />
       </list>
     </option>
   </component>
@@ -1329,32 +1315,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cobe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ColeccionesBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1452,11 +1412,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\git\cobe\src\cobe\UsuariosBundle\Repository" />
+      <recent name="C:\wamp\www\git\cobe\src\cobe\UsuariosBundle\Controller\Api" />
       <recent name="C:\wamp\www\git\cobe\src\cobe\ColeccionesBundle\Entity" />
       <recent name="C:\wamp\www\git\cobe\src\cobe\EstadisticasBundle\Entity" />
       <recent name="C:\wamp\www\git\cobe\src\cobe\PaginasBundle\Entity" />
-      <recent name="C:\wamp\www\git\cobe\src\cobe\UsuariosBundle\Entity" />
-      <recent name="$PROJECT_DIR$/src/cobe/UsuariosBundle/Repository" />
     </key>
   </component>
   <component name="RunManager">
@@ -1526,10 +1486,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.34987277" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1699" y="140" width="1181" height="578" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.34987277" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1699" y="140" width="1181" height="578" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967907" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1593,27 +1553,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.583334" vertical-offset="703" max-vertical-offset="1380">
-          <caret line="132" column="5" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.583334" vertical-offset="88" max-vertical-offset="765">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.958334" vertical-offset="103" max-vertical-offset="780">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.84194976" vertical-offset="105" max-vertical-offset="825">
@@ -1800,6 +1739,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="5175">
           <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
+          <folding>
+            <element signature="e#52#94#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1901,14 +1843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="2346">
-          <caret line="22" column="100" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35928962" vertical-offset="825" max-vertical-offset="3196">
@@ -1933,14 +1867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6528">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Estudiante.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.692307" vertical-offset="357" max-vertical-offset="2754">
@@ -1959,8 +1885,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15699208" vertical-offset="0" max-vertical-offset="758">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6528">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Controller/Api/ApiEstudianteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0" vertical-offset="4437" max-vertical-offset="7990">
+          <caret line="309" column="0" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/ProyectoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="2346">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/UsuariosBundle/Repository/EstudianteRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34836066" vertical-offset="0" max-vertical-offset="732">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
