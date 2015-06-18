@@ -166,7 +166,7 @@ class ApiController extends Controller
                     $em = $this->getManager();
                     $em->persist($obj);
                     $obj = $this->captureErrorFlush($em, $obj, 'crear');
-                    if($obj['errors']){
+                    if(!is_object($obj) && $obj['errors']){
                         $errors = $obj['errors'];
                     }else{
                         $saved = true;
