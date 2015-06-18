@@ -40,6 +40,16 @@ class Persona extends Usuario
     private $telefono;
 
     /**
+     * @ORM\Column(type="string", length=100, nullable=true, options={"comment":"Nombres de la Persona"})
+     */
+    private $nombres;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true, options={"comment":"Apellidos de la Persona"})
+     */
+    private $apellidos;
+
+    /**
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\RepresentanteEmpresa", mappedBy="persona")
      */
     private $empresas;
@@ -65,7 +75,7 @@ class Persona extends Usuario
     private $idiomasPersona;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", mappedBy="persona")
+     * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="persona")
      */
     private $proyectosPersona;
 
@@ -409,10 +419,10 @@ class Persona extends Usuario
     /**
      * Add proyectosPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
      * @return Persona
      */
-    public function addProyectosPersona(\cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona)
+    public function addProyectosPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
     {
         $this->proyectosPersona[] = $proyectosPersona;
 
@@ -422,9 +432,9 @@ class Persona extends Usuario
     /**
      * Remove proyectosPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
      */
-    public function removeProyectosPersona(\cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona)
+    public function removeProyectosPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
     {
         $this->proyectosPersona->removeElement($proyectosPersona);
     }

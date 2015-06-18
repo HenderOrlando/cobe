@@ -4,6 +4,7 @@ namespace cobe\CommonBundle\Controller\Api;
 
 use cobe\UsuariosBundle\Entity\RolUsuario;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -200,7 +201,7 @@ class ApiController extends Controller
         return $rta;
     }
 
-    public function validateTypeField($type, $value){
+    public function validateTypeField($type, $value, \Doctrine\ORM\QueryBuilder $qb = null){
         $valid = false;
         if($value && !empty($value)){
             switch($type){
@@ -208,6 +209,9 @@ class ApiController extends Controller
                 case 'text':
                     if(is_string($value)){
                         $valid = true;
+                        if($qb){
+                            $valid = $qb->expr()->literal($value);
+                        }
                     }
                     break;
                 case 'date':
@@ -216,6 +220,9 @@ class ApiController extends Controller
                 case 'datetimetz':
                     if((is_object($value) && is_a($value,'DateTime')) || (is_string($value) && \DateTime::createFromFormat('m/d/Y', $value) !== false)){
                         $valid = true;
+                        if($qb){
+                            $valid = $qb->expr()->literal($value);
+                        }
                     }
                     break;
                 case 'integer':
@@ -223,22 +230,34 @@ class ApiController extends Controller
                 case 'bigint': // String
                     if(is_int($value)){
                         $valid = true;
+                        if($qb){
+                            $valid = $value;
+                        }
                     }
                     break;
                 case 'boolean':
                     if(is_bool($value)){
                         $valid = true;
+                        if($qb){
+                            $valid = $value;
+                        }
                     }
                     break;
                 case 'decimal': // string
                 case 'float': // double
                     if(is_double($value)){
                         $valid = true;
+                        if($qb){
+                            $valid = $value;
+                        }
                     }
                     break;
                 case 'guid':
                     if(preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', $value)){
                         $valid = true;
+                        if($qb){
+                            $valid = $value;
+                        }
                     }
                     break;
             }
@@ -246,7 +265,7 @@ class ApiController extends Controller
         return $valid;
     }
 
-    public function validateFields($obj, $classMetadata, $excepts = array('canonical','slug','salt','token')){
+    public function validateFields($obj, ClassMetadata $classMetadata, $excepts = array('canonical','slug','salt','token')){
         $msgs = array();
         foreach($classMetadata->getFieldNames() as $fieldName){
             $except = false;
@@ -262,8 +281,18 @@ class ApiController extends Controller
                     if(!$field['nullable']){
                         $msgs[$fieldName]['nullable'] = 'El atributo "'.$fieldName.'" no debe ser VACÍO.';
                     }
-                }elseif(!$this->validateTypeField($field['type'], $value)){
-                    $msgs[$fieldName]['valid'] = 'El atributo "'.$fieldName.'" debe ser de tipo "'.strtoupper($field['type']).'".';
+                }else{
+                    if($field['unique']){
+                        $qb = $this->getManager()->getRepository($classMetadata->getName())->createQueryBuilder('a');
+                        $valQuery = $this->validateTypeField($field['type'], $value, $qb);
+                        $qb->select('count(a.id) as num')->where($qb->expr()->eq('a.'.$classMetadata->getColumnName($fieldName),$valQuery));
+                        $unique = $qb->getQuery()->getResult();
+                        if($unique[0]['num'] > 0){
+                            $msgs[$fieldName]['unique'] = 'El atributo "'.$fieldName.'" con valor "'.$value.'" ya existe.';
+                        };
+                    }elseif(!$this->validateTypeField($field['type'], $value)){
+                        $msgs[$fieldName]['valid'] = 'El atributo "'.$fieldName.'" debe ser de tipo "'.strtoupper($field['type']).'".';
+                    }
                 }
             }
         }

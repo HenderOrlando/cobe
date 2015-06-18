@@ -8,7 +8,12 @@ use cobe\CommonBundle\Entity\Objeto;
  * @ORM\Table(options={"comment":"Usuarios del sistema"})
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="herencia", length=10, type="string")
- * @ORM\DiscriminatorMap({"Usuario"="\cobe\UsuariosBundle\Entity\Usuario","Persona"="\cobe\UsuariosBundle\Entity\Persona"})
+ * @ORM\DiscriminatorMap({
+ *  "Usuario"="\cobe\UsuariosBundle\Entity\Usuario",
+ *  "Persona"="\cobe\UsuariosBundle\Entity\Persona",
+ *  "Empresa"="\cobe\UsuariosBundle\Entity\Empresa",
+ *  "Estudiante"="\cobe\UsuariosBundle\Entity\Estudiante"
+ * })
  */
 class Usuario extends Objeto
 {

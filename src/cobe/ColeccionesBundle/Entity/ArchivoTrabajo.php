@@ -9,7 +9,7 @@ use cobe\ColeccionesBundle\Entity\Archivo;
 class ArchivoTrabajo extends Archivo
 {
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", inversedBy="archivo")
+     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", inversedBy="archivos")
      * @ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)
      */
     private $ofertaLaboral;

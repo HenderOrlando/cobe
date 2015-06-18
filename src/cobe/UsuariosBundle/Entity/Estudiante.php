@@ -10,7 +10,7 @@ use cobe\UsuariosBundle\Entity\Persona;
 class Estudiante extends Persona
 {
     /**
-     * @ORM\Column(type="string", length=20, nullable=false, options={"comment":"Código del estudiante"})
+     * @ORM\Column(type="string", length=20, unique=true, nullable=false, options={"comment":"Código del estudiante"})
      */
     private $codigo;
 
