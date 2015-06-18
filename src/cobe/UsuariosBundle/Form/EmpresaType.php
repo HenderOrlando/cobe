@@ -6,7 +6,7 @@ use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EmpresaType extends ObjectType
+class EmpresaType extends PersonaType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,6 +15,8 @@ class EmpresaType extends ObjectType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addObjectForm($builder, $options);
+
+        $this->getBuilderPersonaForm($builder, $options);
 
         $builder
             ->add('ciudades')

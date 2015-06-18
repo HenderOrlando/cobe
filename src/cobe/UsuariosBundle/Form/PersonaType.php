@@ -16,7 +16,14 @@ class PersonaType extends UsuarioType
     {
         $this->addObjectForm($builder, $options);
 
-        $this->getBuilderForm($builder,$options);
+        $this->getBuilderPersonaForm($builder, $options);
+
+        $builder->setMethod($this->method);
+        $this->addSubmit($builder);
+    }
+
+    public function getBuilderPersonaForm($builder, $options){
+        $this->getBuilderUsuarioForm($builder,$options);
 
         $builder
             ->add('ciudad')
@@ -24,9 +31,6 @@ class PersonaType extends UsuarioType
             ->add('doc_id')
             ->add('telefono')
         ;
-
-        $builder->setMethod($this->method);
-        $this->addSubmit($builder);
     }
     
     /**

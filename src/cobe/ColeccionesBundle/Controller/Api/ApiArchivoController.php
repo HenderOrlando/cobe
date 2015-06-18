@@ -284,7 +284,7 @@ class ApiArchivoController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $archivo->getHerencias();
-            if($datos['herencia'] && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+            if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
                 $archivoHerencia = $herencias[$datos['herencia']];
                 $archivo = new $archivoHerencia();
                 $type = new ArchivoType($this->generateUrl('post_archivos'), 'POST', array(), $archivoHerencia);

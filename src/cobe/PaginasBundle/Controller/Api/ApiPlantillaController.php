@@ -58,6 +58,7 @@ class ApiPlantillaController extends ApiController
                 "Plantilla"     => "Plantilla",
                 "Usuario"       => "Plantilla para Usuario",
                 "Empresa"       => "Plantilla para Empresa",
+                "Estudiante"       => "Plantilla para Estudiante",
                 "Grupo"         => "Plantilla para Grupo",
                 "Mensaje"       => "Plantilla para Mensaje",
                 "Publicacion"   => "Plantilla para Publicación"
@@ -267,7 +268,7 @@ class ApiPlantillaController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $plantilla->getHerencias();
-            if($datos['herencia'] && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+            if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
                 $plantillaHerencia = $herencias[$datos['herencia']];
                 $plantilla = new $plantillaHerencia();
                 $type = new PlantillaType($this->generateUrl('post_plantillas'), 'POST', array(), $plantillaHerencia);
@@ -491,7 +492,7 @@ class ApiPlantillaController extends ApiController
                 $em->remove($plantilla);
                 $plantilla = $this->captureErrorFlush($em, $plantilla, 'borrar');
                 $rta = $plantilla;
-                if(!$plantilla['errors']){
+                if(!$rta['errors']){
                     $deleted = true;
                 }
             }

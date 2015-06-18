@@ -16,13 +16,13 @@ class UsuarioType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        $this->getBuilderForm($builder, $options);
+        $this->getBuilderUsuarioForm($builder, $options);
 
         $builder->setMethod($this->method);
         $this->addSubmit($builder);
     }
 
-    public function getBuilderForm(FormBuilderInterface $builder, array $options){
+    public function getBuilderUsuarioForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add('clave')
             ->add('email')

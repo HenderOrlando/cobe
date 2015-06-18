@@ -65,7 +65,7 @@ class Persona extends Usuario
     private $idiomasPersona;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="persona")
+     * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", mappedBy="persona")
      */
     private $proyectosPersona;
 
@@ -125,10 +125,10 @@ class Persona extends Usuario
         $this->recomendados = new \Doctrine\Common\Collections\ArrayCollection();
         $this->recomendaciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idiomasPersona = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->proyectoPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->proyectosPersona = new \Doctrine\Common\Collections\ArrayCollection();
         $this->reconocimientosPersona = new \Doctrine\Common\Collections\ArrayCollection();
         $this->gruposPersona = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->ofertaLaboralesPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ofertasLaboralesPersona = new \Doctrine\Common\Collections\ArrayCollection();
         $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->intereses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->aptitudes = new \Doctrine\Common\Collections\ArrayCollection();
@@ -407,36 +407,36 @@ class Persona extends Usuario
     }
 
     /**
-     * Add proyectoPersona
+     * Add proyectosPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
+     * @param \cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona
      * @return Persona
      */
-    public function addProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
+    public function addProyectosPersona(\cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona)
     {
-        $this->proyectoPersona[] = $proyectosPersona;
+        $this->proyectosPersona[] = $proyectosPersona;
 
         return $this;
     }
 
     /**
-     * Remove proyectoPersona
+     * Remove proyectosPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
+     * @param \cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona
      */
-    public function removeProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
+    public function removeProyectosPersona(\cobe\CurriculosBundle\Entity\Proyecto $proyectosPersona)
     {
-        $this->proyectoPersona->removeElement($proyectosPersona);
+        $this->proyectosPersona->removeElement($proyectosPersona);
     }
 
     /**
-     * Get proyectoPersona
+     * Get proyectosPersona
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProyectoPersona()
+    public function getProyectosPersona()
     {
-        return $this->proyectoPersona;
+        return $this->proyectosPersona;
     }
 
     /**
@@ -506,36 +506,36 @@ class Persona extends Usuario
     }
 
     /**
-     * Add ofertaLaboralesPersona
+     * Add ofertasLaboralesPersona
      *
      * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona
      * @return Persona
      */
-    public function addOfertaLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona)
+    public function addOfertasLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona)
     {
-        $this->ofertaLaboralesPersona[] = $ofertasLaboralesPersona;
+        $this->ofertasLaboralesPersona[] = $ofertasLaboralesPersona;
 
         return $this;
     }
 
     /**
-     * Remove ofertaLaboralesPersona
+     * Remove ofertasLaboralesPersona
      *
      * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona
      */
-    public function removeOfertaLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona)
+    public function removeOfertasLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona)
     {
-        $this->ofertaLaboralesPersona->removeElement($ofertasLaboralesPersona);
+        $this->ofertasLaboralesPersona->removeElement($ofertasLaboralesPersona);
     }
 
     /**
-     * Get ofertaLaboralesPersona
+     * Get ofertasLaboralesPersona
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getOfertaLaboralesPersona()
+    public function getOfertasLaboralesPersona()
     {
-        return $this->ofertaLaboralesPersona;
+        return $this->ofertasLaboralesPersona;
     }
 
     /**

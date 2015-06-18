@@ -126,7 +126,7 @@ class Usuario extends Objeto
         $this->mensajesUsuario = new \Doctrine\Common\Collections\ArrayCollection();
         $this->destinatarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentariosUsuario = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->archivo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->solicitantes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->solicitados = new \Doctrine\Common\Collections\ArrayCollection();
@@ -413,9 +413,9 @@ class Usuario extends Objeto
      * @param \cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos
      * @return Usuario
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos)
     {
-        $this->archivo[] = $archivos;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
@@ -425,9 +425,9 @@ class Usuario extends Objeto
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos)
     {
-        $this->archivo->removeElement($archivos);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
@@ -435,9 +435,9 @@ class Usuario extends Objeto
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivo()
+    public function getArchivos()
     {
-        return $this->archivo;
+        return $this->archivos;
     }
 
     /**

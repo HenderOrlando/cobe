@@ -6,7 +6,7 @@ use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EstudianteType extends ObjectType
+class EstudianteType extends PersonaType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,7 +16,7 @@ class EstudianteType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        $this->getBuilderForm($builder,$options);
+        $this->getBuilderPersonaForm($builder, $options);
 
         $builder
             ->add('centroEstudio')
