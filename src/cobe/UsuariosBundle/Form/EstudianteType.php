@@ -1,12 +1,12 @@
 <?php
 
-namespace cobe\CurriculosBundle\Form;
+namespace cobe\UsuariosBundle\Form;
 
 use cobe\CommonBundle\Form\ObjectType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EstudioType extends ObjectType
+class EstudianteType extends ObjectType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,10 +16,13 @@ class EstudioType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
+        $this->getBuilderForm($builder,$options);
+
         $builder
             ->add('centroEstudio')
-            ->add('tipo')
-            ->add('titulacion')
+            ->add('codigo')
+            ->add('fechaGrado')
+            ->add('plantillaEstudiante')
         ;
 
         $builder->setMethod($this->method);
@@ -32,7 +35,7 @@ class EstudioType extends ObjectType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'cobe\CurriculosBundle\Entity\Estudio'
+            'data_class' => 'cobe\UsuariosBundle\Entity\Estudiante'
         ));
     }
 
@@ -41,6 +44,6 @@ class EstudioType extends ObjectType
      */
     public function getName()
     {
-        return 'estudio';
+        return 'estudiante';
     }
 }

@@ -383,20 +383,7 @@ class ApiProyectoController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($proyecto));
-                    $name = $name[count($name)-1];
-                    $proyecto = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $proyecto = $this->captureErrorFlush($em, $proyecto, 'editar');
             }
             $rta = $proyecto;
         }
@@ -465,9 +452,11 @@ class ApiProyectoController extends ApiController
             if($isValid && $proyecto){
                 $em = $this->getManager();
                 $em->remove($proyecto);
-                $em->flush();
+                $proyecto = $this->captureErrorFlush($em, $proyecto, 'borrar');
                 $rta = $proyecto;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

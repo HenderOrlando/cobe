@@ -16,9 +16,9 @@ class CategoriaType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        /*$builder
+        $builder
             ->add('categoria')
-        ;*/
+        ;
 
         $builder->setMethod($this->method);
         $this->addSubmit($builder);

@@ -421,20 +421,7 @@ class ApiMensajeController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($mensaje));
-                    $name = $name[count($name)-1];
-                    $mensaje = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $mensaje = $this->captureErrorFlush($em, $mensaje, 'editar');
             }
             $rta = $mensaje;
         }
@@ -503,9 +490,11 @@ class ApiMensajeController extends ApiController
             if($isValid && $mensaje){
                 $em = $this->getManager();
                 $em->remove($mensaje);
-                $em->flush();
+                $mensaje = $this->captureErrorFlush($em, $mensaje, 'borrar');
                 $rta = $mensaje;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

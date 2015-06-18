@@ -383,20 +383,7 @@ class ApiEstudianteController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($estudiante));
-                    $name = $name[count($name)-1];
-                    $estudiante = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $estudiante = $this->captureErrorFlush($em, $estudiante, 'editar');
             }
             $rta = $estudiante;
         }
@@ -465,9 +452,11 @@ class ApiEstudianteController extends ApiController
             if($isValid && $estudiante){
                 $em = $this->getManager();
                 $em->remove($estudiante);
-                $em->flush();
+                $estudiante = $this->captureErrorFlush($em, $estudiante, 'borrar');
                 $rta = $estudiante;
-                $deleted = true;
+                if(!$estudiante['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

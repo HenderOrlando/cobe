@@ -17,9 +17,9 @@ class PlantillaType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            /*->add('plantilla')*/
-            ->add('tipo')
             ->add('estado')
+            ->add('plantilla')
+            ->add('tipo')
         ;
 
         $builder->setMethod($this->method);

@@ -420,20 +420,7 @@ class ApiPlantillaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($plantilla));
-                    $name = $name[count($name)-1];
-                    $plantilla = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $plantilla = $this->captureErrorFlush($em, $plantilla, 'editar');
             }
             $rta = $plantilla;
         }
@@ -502,9 +489,11 @@ class ApiPlantillaController extends ApiController
             if($isValid && $plantilla){
                 $em = $this->getManager();
                 $em->remove($plantilla);
-                $em->flush();
+                $plantilla = $this->captureErrorFlush($em, $plantilla, 'borrar');
                 $rta = $plantilla;
-                $deleted = true;
+                if(!$plantilla['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

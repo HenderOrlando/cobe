@@ -383,20 +383,7 @@ class ApiCaracteristicaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($caracteristica));
-                    $name = $name[count($name)-1];
-                    $caracteristica = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $caracteristica = $this->captureErrorFlush($em, $caracteristica, 'editar');
             }
             $rta = $caracteristica;
         }
@@ -465,9 +452,11 @@ class ApiCaracteristicaController extends ApiController
             if($isValid && $caracteristica){
                 $em = $this->getManager();
                 $em->remove($caracteristica);
-                $em->flush();
+                $caracteristica = $this->captureErrorFlush($em, $caracteristica, 'borrar');
                 $rta = $caracteristica;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

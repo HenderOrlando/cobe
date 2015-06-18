@@ -426,20 +426,7 @@ class ApiTipoController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($tipo));
-                    $name = $name[count($name)-1];
-                    $tipo = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $tipo = $this->captureErrorFlush($em, $tipo, 'editar');
             }
             $rta = $tipo;
         }
@@ -508,9 +495,11 @@ class ApiTipoController extends ApiController
             if($isValid && $tipo){
                 $em = $this->getManager();
                 $em->remove($tipo);
-                $em->flush();
+                $tipo = $this->captureErrorFlush($em, $tipo, 'borrar');
                 $rta = $tipo;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

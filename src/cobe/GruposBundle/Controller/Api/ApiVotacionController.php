@@ -416,20 +416,7 @@ class ApiVotacionController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($votacion));
-                    $name = $name[count($name)-1];
-                    $votacion = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $votacion = $this->captureErrorFlush($em, $votacion, 'editar');
             }
             $rta = $votacion;
         }
@@ -498,9 +485,11 @@ class ApiVotacionController extends ApiController
             if($isValid && $votacion){
                 $em = $this->getManager();
                 $em->remove($votacion);
-                $em->flush();
+                $votacion = $this->captureErrorFlush($em, $votacion, 'borrar');
                 $rta = $votacion;
-                $deleted = true;
+                if(!$votacion['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

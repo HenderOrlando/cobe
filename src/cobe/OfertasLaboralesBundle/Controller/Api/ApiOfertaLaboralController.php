@@ -383,20 +383,7 @@ class ApiOfertaLaboralController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($ofertalaboral));
-                    $name = $name[count($name)-1];
-                    $ofertalaboral = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $ofertalaboral = $this->captureErrorFlush($em, $ofertalaboral, 'editar');
             }
             $rta = $ofertalaboral;
         }
@@ -465,9 +452,11 @@ class ApiOfertaLaboralController extends ApiController
             if($isValid && $ofertalaboral){
                 $em = $this->getManager();
                 $em->remove($ofertalaboral);
-                $em->flush();
+                $ofertalaboral = $this->captureErrorFlush($em, $ofertalaboral, 'borrar');
                 $rta = $ofertalaboral;
-                $deleted = true;
+                if(!$ofertalaboral['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

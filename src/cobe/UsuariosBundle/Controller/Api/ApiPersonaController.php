@@ -418,20 +418,7 @@ class ApiPersonaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($persona));
-                    $name = $name[count($name)-1];
-                    $persona = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $persona = $this->captureErrorFlush($em, $persona, 'editar');
             }
             $rta = $persona;
         }
@@ -500,9 +487,11 @@ class ApiPersonaController extends ApiController
             if($isValid && $persona){
                 $em = $this->getManager();
                 $em->remove($persona);
-                $em->flush();
+                $persona = $this->captureErrorFlush($em, $persona, 'borrar');
                 $rta = $persona;
-                $deleted = true;
+                if(!$persona['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

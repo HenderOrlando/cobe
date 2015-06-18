@@ -479,20 +479,7 @@ class ApiUsuarioController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($usuario));
-                    $name = $name[count($name)-1];
-                    $usuario = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $usuario = $this->captureErrorFlush($em, $usuario, 'editar');
             }
             $rta = $usuario;
         }
@@ -561,9 +548,11 @@ class ApiUsuarioController extends ApiController
             if($isValid && $usuario){
                 $em = $this->getManager();
                 $em->remove($usuario);
-                $em->flush();
+                $usuario = $this->captureErrorFlush($em, $usuario, 'borrar');
                 $rta = $usuario;
-                $deleted = true;
+                if(!$usuario['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

@@ -26,13 +26,9 @@ class UsuarioType extends ObjectType
         $builder
             ->add('clave')
             ->add('email')
-            ->add('rol')
             ->add('estado')
-            /*->add('salt')
-            ->add('token')
             ->add('plantilla')
-            ->add('solicitantes')
-            ->add('solicitados')*/
+            ->add('rol')
         ;
     }
     

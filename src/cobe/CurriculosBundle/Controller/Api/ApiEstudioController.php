@@ -383,20 +383,7 @@ class ApiEstudioController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($estudio));
-                    $name = $name[count($name)-1];
-                    $estudio = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $estudio = $this->captureErrorFlush($em, $estudio, 'editar');
             }
             $rta = $estudio;
         }
@@ -465,9 +452,11 @@ class ApiEstudioController extends ApiController
             if($isValid && $estudio){
                 $em = $this->getManager();
                 $em->remove($estudio);
-                $em->flush();
+                $estudio = $this->captureErrorFlush($em, $estudio, 'borrar');
                 $rta = $estudio;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

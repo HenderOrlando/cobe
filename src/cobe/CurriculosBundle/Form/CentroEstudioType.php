@@ -16,6 +16,11 @@ class CentroEstudioType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
+        /*$builder
+            ->add('estudiantes')
+            ->add('estudios')
+        ;*/
+
         $builder->setMethod($this->method);
         $this->addSubmit($builder);
     }

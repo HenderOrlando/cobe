@@ -76,7 +76,7 @@ class Usuario extends Objeto
     /**
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoUsuario", mappedBy="usuario")
      */
-    private $archivo;
+    private $archivos;
 
     /**
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaUsuario", mappedBy="usuario")
@@ -410,12 +410,12 @@ class Usuario extends Objeto
     /**
      * Add archivo
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivo
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos
      * @return Usuario
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivo)
+    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos)
     {
-        $this->archivo[] = $archivo;
+        $this->archivo[] = $archivos;
 
         return $this;
     }
@@ -423,11 +423,11 @@ class Usuario extends Objeto
     /**
      * Remove archivo
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivo
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivo)
+    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoUsuario $archivos)
     {
-        $this->archivo->removeElement($archivo);
+        $this->archivo->removeElement($archivos);
     }
 
     /**

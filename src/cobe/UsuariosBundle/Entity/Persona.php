@@ -67,7 +67,7 @@ class Persona extends Usuario
     /**
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="persona")
      */
-    private $proyectoPersona;
+    private $proyectosPersona;
 
     /**
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ReconocimientoPersona", mappedBy="persona")
@@ -82,7 +82,7 @@ class Persona extends Usuario
     /**
      * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona", mappedBy="persona")
      */
-    private $ofertaLaboralesPersona;
+    private $ofertasLaboralesPersona;
 
     /**
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="autor")
@@ -409,12 +409,12 @@ class Persona extends Usuario
     /**
      * Add proyectoPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersona
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
      * @return Persona
      */
-    public function addProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersona)
+    public function addProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
     {
-        $this->proyectoPersona[] = $proyectoPersona;
+        $this->proyectoPersona[] = $proyectosPersona;
 
         return $this;
     }
@@ -422,11 +422,11 @@ class Persona extends Usuario
     /**
      * Remove proyectoPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersona
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
      */
-    public function removeProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersona)
+    public function removeProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
     {
-        $this->proyectoPersona->removeElement($proyectoPersona);
+        $this->proyectoPersona->removeElement($proyectosPersona);
     }
 
     /**
@@ -508,12 +508,12 @@ class Persona extends Usuario
     /**
      * Add ofertaLaboralesPersona
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralesPersona
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona
      * @return Persona
      */
-    public function addOfertaLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralesPersona)
+    public function addOfertaLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona)
     {
-        $this->ofertaLaboralesPersona[] = $ofertaLaboralesPersona;
+        $this->ofertaLaboralesPersona[] = $ofertasLaboralesPersona;
 
         return $this;
     }
@@ -521,11 +521,11 @@ class Persona extends Usuario
     /**
      * Remove ofertaLaboralesPersona
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralesPersona
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona
      */
-    public function removeOfertaLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralesPersona)
+    public function removeOfertaLaboralesPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertasLaboralesPersona)
     {
-        $this->ofertaLaboralesPersona->removeElement($ofertaLaboralesPersona);
+        $this->ofertaLaboralesPersona->removeElement($ofertasLaboralesPersona);
     }
 
     /**

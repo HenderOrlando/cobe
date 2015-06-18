@@ -383,20 +383,7 @@ class ApiCentroEstudioController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($centroestudio));
-                    $name = $name[count($name)-1];
-                    $centroestudio = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $centroestudio = $this->captureErrorFlush($em, $centroestudio, 'editar');
             }
             $rta = $centroestudio;
         }
@@ -465,9 +452,11 @@ class ApiCentroEstudioController extends ApiController
             if($isValid && $centroestudio){
                 $em = $this->getManager();
                 $em->remove($centroestudio);
-                $em->flush();
+                $centroestudio = $this->captureErrorFlush($em, $centroestudio, 'borrar');
                 $rta = $centroestudio;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

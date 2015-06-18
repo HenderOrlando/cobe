@@ -20,7 +20,6 @@ class ProyectoType extends ObjectType
             ->add('fechaInicio')
             ->add('fechaFin')
             ->add('tipo')
-            ->add('empresas')
         ;
 
         $builder->setMethod($this->method);

@@ -30,7 +30,7 @@ class OfertaLaboral extends Obj
     /**
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoTrabajo", mappedBy="ofertaLaboral")
      */
-    private $archivo;
+    private $archivos;
 
     /**
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral", mappedBy="ofertaLaboral")
@@ -108,7 +108,7 @@ class OfertaLaboral extends Obj
         parent::__construct();
         $this->ofertaLaboralPersonas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->archivo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->aptitudes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
@@ -194,12 +194,12 @@ class OfertaLaboral extends Obj
     /**
      * Add archivo
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivo
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos
      * @return OfertaLaboral
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivo)
+    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
     {
-        $this->archivo[] = $archivo;
+        $this->archivo[] = $archivos;
 
         return $this;
     }
@@ -207,11 +207,11 @@ class OfertaLaboral extends Obj
     /**
      * Remove archivo
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivo
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivo)
+    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
     {
-        $this->archivo->removeElement($archivo);
+        $this->archivo->removeElement($archivos);
     }
 
     /**

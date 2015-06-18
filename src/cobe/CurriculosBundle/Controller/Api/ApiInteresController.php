@@ -383,20 +383,7 @@ class ApiInteresController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($interes));
-                    $name = $name[count($name)-1];
-                    $interes = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $interes = $this->captureErrorFlush($em, $interes, 'editar');
             }
             $rta = $interes;
         }
@@ -465,9 +452,11 @@ class ApiInteresController extends ApiController
             if($isValid && $interes){
                 $em = $this->getManager();
                 $em->remove($interes);
-                $em->flush();
+                $interes = $this->captureErrorFlush($em, $interes, 'borrar');
                 $rta = $interes;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

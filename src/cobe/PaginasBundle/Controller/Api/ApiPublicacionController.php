@@ -383,20 +383,7 @@ class ApiPublicacionController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($publicacion));
-                    $name = $name[count($name)-1];
-                    $publicacion = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $publicacion = $this->captureErrorFlush($em, $publicacion, 'editar');
             }
             $rta = $publicacion;
         }
@@ -465,9 +452,11 @@ class ApiPublicacionController extends ApiController
             if($isValid && $publicacion){
                 $em = $this->getManager();
                 $em->remove($publicacion);
-                $em->flush();
+                $pais = $this->captureErrorFlush($em, $pais, 'borrar');
                 $rta = $publicacion;
-                $deleted = true;
+                if(!$publicacion['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

@@ -383,20 +383,7 @@ class ApiEstadisticaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($estadistica));
-                    $name = $name[count($name)-1];
-                    $estadistica = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $estadistica = $this->captureErrorFlush($em, $estadistica, 'editar');
             }
             $rta = $estadistica;
         }
@@ -465,9 +452,11 @@ class ApiEstadisticaController extends ApiController
             if($isValid && $estadistica){
                 $em = $this->getManager();
                 $em->remove($estadistica);
-                $em->flush();
+                $estadistica = $this->captureErrorFlush($em, $estadistica, 'borrar');
                 $rta = $estadistica;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

@@ -17,13 +17,9 @@ class EmpresaType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            ->add('fechaNace')
-            /*->add('plantillaEmpresa')*/
-            ->add('etiquetas')
             ->add('ciudades')
-            ->add('intereses')
-            ->add('proyectos')
-            ->add('reconocimientos')
+            ->add('fechaNace')
+            ->add('plantillaEmpresa')
         ;
 
         $builder->setMethod($this->method);

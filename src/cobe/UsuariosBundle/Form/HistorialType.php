@@ -14,13 +14,15 @@ class HistorialType extends ObjectType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
-            ->add('navegador')
-            ->add('entityName')
+            ->add('accion')
             ->add('entityId')
+            ->add('entityName')
             ->add('ipv4')
             ->add('ipv6')
-            ->add('accion')
+            ->add('navegador')
             ->add('usuario')
         ;
 

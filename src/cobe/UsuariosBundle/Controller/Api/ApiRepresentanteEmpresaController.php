@@ -383,20 +383,7 @@ class ApiRepresentanteEmpresaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($representanteEmpresa));
-                    $name = $name[count($name)-1];
-                    $representanteEmpresa = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $representanteEmpresa = $this->captureErrorFlush($em, $representanteEmpresa, 'editar');
             }
             $rta = $representanteEmpresa;
         }
@@ -465,9 +452,11 @@ class ApiRepresentanteEmpresaController extends ApiController
             if($isValid && $representanteEmpresa){
                 $em = $this->getManager();
                 $em->remove($representanteEmpresa);
-                $em->flush();
+                $representanteEmpresa = $this->captureErrorFlush($em, $representanteEmpresa, 'borrar');
                 $rta = $representanteEmpresa;
-                $deleted = true;
+                if(!$representanteEmpresa['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

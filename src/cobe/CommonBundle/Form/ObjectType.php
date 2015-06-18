@@ -52,6 +52,6 @@ abstract class ObjectType extends AbstractType
      */
     public function getName()
     {
-        // TODO: Implement getName() method.
+        return 'object';
     }
 }

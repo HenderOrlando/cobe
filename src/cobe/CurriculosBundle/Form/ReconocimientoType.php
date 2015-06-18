@@ -19,7 +19,6 @@ class ReconocimientoType extends ObjectType
         $builder
             ->add('fechaOtorgado')
             ->add('tipo')
-            ->add('empresas')
         ;
 
         $builder->setMethod($this->method);

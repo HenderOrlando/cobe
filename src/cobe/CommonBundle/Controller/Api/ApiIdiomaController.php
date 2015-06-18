@@ -383,20 +383,7 @@ class ApiIdiomaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($idioma));
-                    $name = $name[count($name)-1];
-                    $idioma = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $idioma = $this->captureErrorFlush($em, $idioma, 'editar');
             }
             $rta = $idioma;
         }
@@ -465,9 +452,11 @@ class ApiIdiomaController extends ApiController
             if($isValid && $idioma){
                 $em = $this->getManager();
                 $em->remove($idioma);
-                $em->flush();
+                $idioma = $this->captureErrorFlush($em, $idioma, 'borrar');
                 $rta = $idioma;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

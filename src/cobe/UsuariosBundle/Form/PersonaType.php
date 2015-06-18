@@ -19,12 +19,10 @@ class PersonaType extends UsuarioType
         $this->getBuilderForm($builder,$options);
 
         $builder
-            ->add('doc_id')
-            ->add('direccion')
-            ->add('telefono')
             ->add('ciudad')
-            ->add('intereses')
-            ->add('aptitudes')
+            ->add('direccion')
+            ->add('doc_id')
+            ->add('telefono')
         ;
 
         $builder->setMethod($this->method);

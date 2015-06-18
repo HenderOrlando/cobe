@@ -383,20 +383,7 @@ class ApiRecomendacionController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($recomendacion));
-                    $name = $name[count($name)-1];
-                    $recomendacion = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $recomendacion = $this->captureErrorFlush($em, $recomendacion, 'editar');
             }
             $rta = $recomendacion;
         }
@@ -465,9 +452,11 @@ class ApiRecomendacionController extends ApiController
             if($isValid && $recomendacion){
                 $em = $this->getManager();
                 $em->remove($recomendacion);
-                $em->flush();
+                $recomendacion = $this->captureErrorFlush($em, $recomendacion, 'borrar');
                 $rta = $recomendacion;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

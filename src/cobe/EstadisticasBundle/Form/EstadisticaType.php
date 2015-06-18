@@ -19,8 +19,6 @@ class EstadisticaType extends ObjectType
         $builder
             ->add('tipo')
             ->add('estado')
-            ->add('etiquetas')
-            ->add('caracteristicas')
         ;
 
         $builder->setMethod($this->method);

@@ -383,20 +383,7 @@ class ApiCiudadController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($ciudad));
-                    $name = $name[count($name)-1];
-                    $ciudad = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $ciudad = $this->captureErrorFlush($em, $ciudad, 'editar');
             }
             $rta = $ciudad;
         }
@@ -465,9 +452,11 @@ class ApiCiudadController extends ApiController
             if($isValid && $ciudad){
                 $em = $this->getManager();
                 $em->remove($ciudad);
-                $em->flush();
+                $ciudad = $this->captureErrorFlush($em, $ciudad, 'borrar');
                 $rta = $ciudad;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

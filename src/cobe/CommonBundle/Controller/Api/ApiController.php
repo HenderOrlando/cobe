@@ -3,6 +3,7 @@
 namespace cobe\CommonBundle\Controller\Api;
 
 use cobe\UsuariosBundle\Entity\RolUsuario;
+use Doctrine\Common\Collections\ArrayCollection;
 use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -164,19 +165,12 @@ class ApiController extends Controller
                 if($save){
                     $em = $this->getManager();
                     $em->persist($obj);
-                    /*try{*/
-                    $em->flush();
-                    $saved = true;
-                    /*}catch (\Exception $e){
-                        $name = explode('\\',get_class($obj));
-                        $name = $name[count($name)-1];
-                        $errors = array(
-                            array(
-                                'message'   => 'No se pudo crear el recurso "'.$name,
-                                'code'      => "400",
-                            )
-                        );
-                    }*/
+                    $obj = $this->captureErrorFlush($em, $obj, 'crear');
+                    if($obj['errors']){
+                        $errors = $obj['errors'];
+                    }else{
+                        $saved = true;
+                    }
                 }
             }else{
                 $errors = array(
@@ -187,16 +181,17 @@ class ApiController extends Controller
                 );
             }
         }
-        $rta = array(
-            'form'  => array(
-                'saved'     => $saved,
-                'isValid'   => $isValid,
-                'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
-                    'form' => $form->createView(),
-                )),
-            ),
-        );
-        if(!empty($errors)){
+        if(empty($errors)){
+            $rta = array(
+                'form'  => array(
+                    'saved'     => $saved,
+                    'isValid'   => $isValid,
+                    'html'      => $this->renderView('cobeCommonBundle:Api:_form.html.twig', array(
+                        'form' => $form->createView(),
+                    )),
+                ),
+            );
+        }else{
             $rta['errors'] = $errors;
         }
         if($saved){
@@ -204,160 +199,172 @@ class ApiController extends Controller
         }
         return $rta;
     }
-    /**
-     * Regresa opciones de API para Ciudades.
-     *
-     * @Route("/", name="options")
-     * @Template()
-     * @Method("OPTIONS")
-     */
-    public function optionsCiudadesAction(Request $request)
-    {
-        $opciones = array(
-            '/ciudades' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/ciudades',
-                'description'   => 'Opciones para uso de API de ciudades.',
-            ),
-            '/estados' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/estados',
-                'description'   => 'Opciones para uso de API de estados.',
-            ),
-            '/etiquetas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/etiquetas',
-                'description'   => 'Opciones para uso de API de etiquetas.',
-            ),
-            '/idiomas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/idiomas',
-                'description'   => 'Opciones para uso de API de idiomas.',
-            ),
-            '/paises' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/paises',
-                'description'   => 'Opciones para uso de API de paises.',
-            ),
-            '/roles' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/roles',
-                'description'   => 'Opciones para uso de API de roles.',
-            ),
-            '/tipos' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/tipos',
-                'description'   => 'Opciones para uso de API de tipos.',
-            ),
-            '/traducciones' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/traducciones',
-                'description'   => 'Opciones para uso de API de traducciones.',
-            ),
-            '/aptitudes' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/aptitudes',
-                'description'   => 'Opciones para uso de API de aptitudes.',
-            ),
-            '/centrosestudios' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/centrosestudios',
-                'description'   => 'Opciones para uso de API de centrosestudios.',
-            ),
-            '/estudio' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/estudio',
-                'description'   => 'Opciones para uso de API de estudio.',
-            ),
-            '/intereses' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/intereses',
-                'description'   => 'Opciones para uso de API de intereses.',
-            ),
-            '/proyectos' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/proyectos',
-                'description'   => 'Opciones para uso de API de proyectos.',
-            ),
-            '/recomendaciones' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/recomendaciones',
-                'description'   => 'Opciones para uso de API de recomendaciones.',
-            ),
-            '/reconocimientos' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/reconocimientos',
-                'description'   => 'Opciones para uso de API de reconocimientos.',
-            ),
-            '/caracteristicas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/caracteristicas',
-                'description'   => 'Opciones para uso de API de caracteristicas.',
-            ),
-            '/estadisticas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/estadisticas',
-                'description'   => 'Opciones para uso de API de estadisticas.',
-            ),
-            '/grupos' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/grupos',
-                'description'   => 'Opciones para uso de API de grupos.',
-            ),
-            '/votaciones' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/votaciones',
-                'description'   => 'Opciones para uso de API de votaciones.',
-            ),
-            '/categorias' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/categorias',
-                'description'   => 'Opciones para uso de API de categorias.',
-            ),
-            '/plantillas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/plantillas',
-                'description'   => 'Opciones para uso de API de plantillas.',
-            ),
-            '/publicaciones' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/publicaciones',
-                'description'   => 'Opciones para uso de API de publicaciones.',
-            ),
-            '/mensajes' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/mensajes',
-                'description'   => 'Opciones para uso de API de mensajes.',
-            ),
-            '/ofertaslaborales' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/ofertaslaborales',
-                'description'   => 'Opciones para uso de API de ofertaslaborales.',
-            ),
-            '/empresas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/empresas',
-                'description'   => 'Opciones para uso de API de empresas.',
-            ),
-            '/historiales' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/historiales',
-                'description'   => 'Opciones para uso de API de historiales.',
-            ),
-            '/personas' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/personas',
-                'description'   => 'Opciones para uso de API de personas.',
-            ),
-            '/usuarios' => array(
-                'method'        => 'OPTIONS',
-                'route'         => '/usuarios',
-                'description'   => 'Opciones para uso de API de usuarios.',
-            ),
-        );
 
-        //$opts = $this->getPagerfanta($opciones, 'options_ciudades', true);
-
-        return $this->getJsonResponse($opciones, $request);
+    public function validateTypeField($type, $value){
+        $valid = false;
+        if($value && !empty($value)){
+            switch($type){
+                case 'string':
+                case 'text':
+                    if(is_string($value)){
+                        $valid = true;
+                    }
+                    break;
+                case 'date':
+                case 'time':
+                case 'datetime':
+                case 'datetimetz':
+                    if((is_object($value) && is_a($value,'DateTime')) || (is_string($value) && \DateTime::createFromFormat('m/d/Y', $value) !== false)){
+                        $valid = true;
+                    }
+                    break;
+                case 'integer':
+                case 'smallint':
+                case 'bigint': // String
+                    if(is_int($value)){
+                        $valid = true;
+                    }
+                    break;
+                case 'boolean':
+                    if(is_bool($value)){
+                        $valid = true;
+                    }
+                    break;
+                case 'decimal': // string
+                case 'float': // double
+                    if(is_double($value)){
+                        $valid = true;
+                    }
+                    break;
+                case 'guid':
+                    if(preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', $value)){
+                        $valid = true;
+                    }
+                    break;
+            }
+        }
+        return $valid;
     }
+
+    public function validateFields($obj, $classMetadata, $excepts = array('canonical','slug','salt','token')){
+        $msgs = array();
+        foreach($classMetadata->getFieldNames() as $fieldName){
+            $except = false;
+            foreach($excepts as $ex){
+                if(strpos(strtolower($fieldName), strtolower($ex)) !== false){
+                    $except = true;
+                }
+            }
+            if(!$except){
+                $field = $classMetadata->getFieldMapping($fieldName);
+                $value = $classMetadata->getFieldValue($obj, $fieldName);
+                if(!$value || empty($value)){
+                    if(!$field['nullable']){
+                        $msgs[$fieldName]['nullable'] = 'El atributo "'.$fieldName.'" no debe ser VACÍO.';
+                    }
+                }elseif(!$this->validateTypeField($field['type'], $value)){
+                    $msgs[$fieldName]['valid'] = 'El atributo "'.$fieldName.'" debe ser de tipo "'.strtoupper($field['type']).'".';
+                }
+            }
+        }
+        return $msgs;
+    }
+
+    public function validateAssociations($obj, ClassMetadata $classMetadata){
+        $msgs = array();
+        $accessor = PropertyAccess::createPropertyAccessor();
+        foreach($classMetadata->getAssociationNames() as $associationName){
+            $association = $classMetadata->getAssociationMapping($associationName);
+            $configJoin = null;
+            $value = $accessor->getValue($obj, $associationName);
+            if(isset($association['joinColumns'])){
+                $configJoin = $association['joinColumns'];
+            }
+            if($value){
+                $valid = true;
+                if($classMetadata->isCollectionValuedAssociation($associationName) && is_array($value)){
+                    //$objs = new ArrayCollection();
+                    foreach($value as $v){
+                        if(!is_a($v, $association['targetEntity'])){
+                            if($this->validateTypeField('guid', $v)){
+                                $entity = $this->getManager()->getRepository($association['targetEntity'])->find($v);
+                                if(!$entity){
+                                    $valid = false;
+                                }
+                            }else{
+                                $valid = false;
+                            }
+                            if(!$valid){
+                                break;
+                            }
+                        }
+                    }
+                    if(!$valid){
+                        $msgs[$associationName]['valid'] = '"'.$associationName.'" no es una colección de Objetos de "'.strtoupper($association['targetEntity']).'".';
+                    }
+                }elseif($classMetadata->isSingleValuedAssociation($associationName)){
+                    if(!is_a($value, $association['targetEntity'])){
+                        if($this->validateTypeField('guid', $value)){
+                            $entity = $this->getManager()->getRepository($association['targetEntity'])->find($v);
+                            if(!$entity){
+                                $valid = false;
+                            }
+                        }else{
+                            $valid = false;
+                        }
+                    }
+                    if(!$valid){
+                        $msgs[$associationName]['valid'] = 'Se esperaba que "'.$associationName.'" fuera un Objeto "'.strtoupper($association['targetEntity']).'".';
+                    }
+                }
+            }/*elseif($classMetadata->isNullable($associationName)){
+                $msgs[$associationName]['valid'] = '"'.$associationName.'" no debe ser VACÍO.';
+            }*/
+            elseif($configJoin && !$configJoin[0]['nullable']){
+                $msgs[$associationName]['valid'] = '"'.$associationName.'" no es válido.';
+            }
+        }
+        return $msgs;
+    }
+
+    public function captureErrorFlush($em, $obj, $msg){
+        try{
+            $em->flush();
+        }catch(\Exception $e){
+            $classMetadata = $this->getClassMetadata($obj);
+            $msgs = 'No details.';
+            if($classMetadata){
+                $msgs = $this->validateFields($obj, $classMetadata);
+                $msgs = array_merge($msgs, $this->validateAssociations($obj, $classMetadata));
+            }
+            $name = explode('\\',get_class($obj));
+            $name = $name[count($name)-1];
+            $nombre = '';
+            if(method_exists($obj,'getNombre') && $obj->getNombre()){
+                $nombre = '" de nombre "'.$obj->getNombre();
+            }
+            switch($msg){
+                case 'borrar':
+                    $msg = 'No se pudo borrar el recurso "'.$name.$nombre.'"';
+                    break;
+                case 'crear':
+                    $msg = 'No se pudo agregar el recurso "'.$name.$nombre.'"';
+                    break;
+                case 'editar':
+                    $msg = 'No se pudo actualizar el recurso "'.$name.$nombre.'"';
+                    break;
+            }
+            $obj = array(
+                'errors' => array(
+                    '400' => array(
+                        'message'   => $msg,
+                        'code'      => "400",
+                        'details'   => $msgs,
+                    ),
+                ),
+            );
+        }
+        return $obj;
+    }
+
 }

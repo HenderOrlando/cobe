@@ -419,20 +419,7 @@ class ApiRolController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($rol));
-                    $name = $name[count($name)-1];
-                    $rol = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $rol = $this->captureErrorFlush($em, $rol, 'editar');
             }
             $rta = $rol;
         }
@@ -501,9 +488,11 @@ class ApiRolController extends ApiController
             if($isValid && $rol){
                 $em = $this->getManager();
                 $em->remove($rol);
-                $em->flush();
+                $rol = $this->captureErrorFlush($em, $rol, 'borrar');
                 $rta = $rol;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

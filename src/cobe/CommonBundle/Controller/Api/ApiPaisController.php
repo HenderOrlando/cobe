@@ -383,20 +383,7 @@ class ApiPaisController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($pais));
-                    $name = $name[count($name)-1];
-                    $pais = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $pais = $this->captureErrorFlush($em, $pais, 'editar');
             }
             $rta = $pais;
         }
@@ -465,9 +452,11 @@ class ApiPaisController extends ApiController
             if($isValid && $pais){
                 $em = $this->getManager();
                 $em->remove($pais);
-                $em->flush();
+                $pais = $this->captureErrorFlush($em, $pais, 'borrar');
                 $rta = $pais;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

@@ -425,20 +425,7 @@ class ApiEstadoController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($estado));
-                    $name = $name[count($name)-1];
-                    $estado = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $estado = $this->captureErrorFlush($em, $estado, 'editar');
             }
             $rta = $estado;
         }
@@ -507,9 +494,11 @@ class ApiEstadoController extends ApiController
             if($isValid && $estado){
                 $em = $this->getManager();
                 $em->remove($estado);
-                $em->flush();
+                $estado = $this->captureErrorFlush($em, $estado, 'borrar');
                 $rta = $estado;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

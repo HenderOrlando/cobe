@@ -383,20 +383,7 @@ class ApiAptitudController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($aptitud));
-                    $name = $name[count($name)-1];
-                    $aptitud = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $aptitud = $this->captureErrorFlush($em, $aptitud, 'editar');
             }
             $rta = $aptitud;
         }
@@ -465,9 +452,11 @@ class ApiAptitudController extends ApiController
             if($isValid && $aptitud){
                 $em = $this->getManager();
                 $em->remove($aptitud);
-                $em->flush();
+                $aptitud = $this->captureErrorFlush($em, $aptitud, 'borrar');
                 $rta = $aptitud;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

@@ -17,11 +17,9 @@ class MensajeType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            ->add('usuarioMensaje')
             ->add('estadoMensaje')
             ->add('plantilla')
-            ->add('mensajes')
-            ->add('mensajesRespuesta')
+            ->add('usuarioMensaje')
         ;
 
         $builder->setMethod($this->method);

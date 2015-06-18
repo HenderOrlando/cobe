@@ -437,20 +437,7 @@ class ApiArchivoController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($archivo));
-                    $name = $name[count($name)-1];
-                    $archivo = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $archivo = $this->captureErrorFlush($em, $archivo, 'editar');
             }
             $rta = $archivo;
         }
@@ -519,9 +506,11 @@ class ApiArchivoController extends ApiController
             if($isValid && $archivo){
                 $em = $this->getManager();
                 $em->remove($archivo);
-                $em->flush();
+                $archivo = $this->captureErrorFlush($em, $archivo, 'borrar');
                 $rta = $archivo;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

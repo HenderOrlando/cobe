@@ -383,20 +383,7 @@ class ApiCategoriaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($categoria));
-                    $name = $name[count($name)-1];
-                    $categoria = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $categoria = $this->captureErrorFlush($em, $categoria, 'editar');
             }
             $rta = $categoria;
         }
@@ -465,9 +452,11 @@ class ApiCategoriaController extends ApiController
             if($isValid && $categoria){
                 $em = $this->getManager();
                 $em->remove($categoria);
-                $em->flush();
+                $categoria = $this->captureErrorFlush($em, $categoria, 'borrar');
                 $rta = $categoria;
-                $deleted = true;
+                if(!$categoria['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

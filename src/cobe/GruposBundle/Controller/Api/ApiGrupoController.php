@@ -416,20 +416,7 @@ class ApiGrupoController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($grupo));
-                    $name = $name[count($name)-1];
-                    $grupo = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $grupo = $this->captureErrorFlush($em, $grupo, 'editar');
             }
             $rta = $grupo;
         }
@@ -498,9 +485,11 @@ class ApiGrupoController extends ApiController
             if($isValid && $grupo){
                 $em = $this->getManager();
                 $em->remove($grupo);
-                $em->flush();
+                $grupo = $this->captureErrorFlush($em, $grupo, 'borrar');
                 $rta = $grupo;
-                $deleted = true;
+                if(!$grupo){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

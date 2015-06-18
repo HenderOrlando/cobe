@@ -14,8 +14,9 @@ class RecomendacionType extends ObjectType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->addObjectForm($builder, $options);
+
         $builder
-            ->add('descripcion')
             ->add('recomienda')
             ->add('recomendado')
             ->add('tipo')

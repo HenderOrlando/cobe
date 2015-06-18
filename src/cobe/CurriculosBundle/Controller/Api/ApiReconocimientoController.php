@@ -383,20 +383,7 @@ class ApiReconocimientoController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($reconocimiento));
-                    $name = $name[count($name)-1];
-                    $reconocimiento = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $reconocimiento = $this->captureErrorFlush($em, $reconocimiento, 'editar');
             }
             $rta = $reconocimiento;
         }
@@ -465,9 +452,11 @@ class ApiReconocimientoController extends ApiController
             if($isValid && $reconocimiento){
                 $em = $this->getManager();
                 $em->remove($reconocimiento);
-                $em->flush();
+                $reconocimiento = $this->captureErrorFlush($em, $reconocimiento, 'borrar');
                 $rta = $reconocimiento;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

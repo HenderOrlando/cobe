@@ -420,20 +420,7 @@ class ApiEtiquetaController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($etiqueta));
-                    $name = $name[count($name)-1];
-                    $etiqueta = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $etiqueta = $this->captureErrorFlush($em, $etiqueta, 'editar');
             }
             $rta = $etiqueta;
         }
@@ -502,9 +489,11 @@ class ApiEtiquetaController extends ApiController
             if($isValid && $etiqueta){
                 $em = $this->getManager();
                 $em->remove($etiqueta);
-                $em->flush();
+                $etiqueta = $this->captureErrorFlush($em, $etiqueta, 'borrar');
                 $rta = $etiqueta;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

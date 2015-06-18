@@ -15,10 +15,10 @@ class RepresentanteEmpresaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaInicio')
-            ->add('fechaFin')
             ->add('actual')
             ->add('empresa')
+            ->add('fechaInicio')
+            ->add('fechaFin')
             ->add('persona')
         ;
     }
@@ -38,6 +38,6 @@ class RepresentanteEmpresaType extends AbstractType
      */
     public function getName()
     {
-        return 'cobe_usuariosbundle_representanteempresa';
+        return 'representanteempresa';
     }
 }

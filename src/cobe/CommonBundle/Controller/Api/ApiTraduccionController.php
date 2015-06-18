@@ -383,20 +383,7 @@ class ApiTraduccionController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($traduccion));
-                    $name = $name[count($name)-1];
-                    $traduccion = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $traduccion = $this->captureErrorFlush($em, $traduccion, 'editar');
             }
             $rta = $traduccion;
         }
@@ -465,9 +452,11 @@ class ApiTraduccionController extends ApiController
             if($isValid && $traduccion){
                 $em = $this->getManager();
                 $em->remove($traduccion);
-                $em->flush();
+                $traduccion = $this->captureErrorFlush($em, $traduccion, 'borrar');
                 $rta = $traduccion;
-                $deleted = true;
+                if(!$rta['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

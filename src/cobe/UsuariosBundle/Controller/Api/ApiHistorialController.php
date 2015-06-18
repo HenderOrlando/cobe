@@ -383,20 +383,7 @@ class ApiHistorialController extends ApiController
                 }
             }
             if($isModify){
-                try{
-                    $em->flush();
-                }catch(\Exception $e){
-                    $name = explode('\\',get_class($historial));
-                    $name = $name[count($name)-1];
-                    $historial = array(
-                        'errors' => array(
-                            '400' => array(
-                                'message'   => 'No se pudo actualizar "'.$id.'" del recurso "'.$name,
-                                'code'      => "400",
-                            ),
-                        ),
-                    );
-                }
+                $historial = $this->captureErrorFlush($em, $historial, 'editar');
             }
             $rta = $historial;
         }
@@ -465,9 +452,11 @@ class ApiHistorialController extends ApiController
             if($isValid && $historial){
                 $em = $this->getManager();
                 $em->remove($historial);
-                $em->flush();
+                $historial = $this->captureErrorFlush($em, $historial, 'borrar');
                 $rta = $historial;
-                $deleted = true;
+                if(!$historial['errors']){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

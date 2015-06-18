@@ -66,6 +66,75 @@ class Estudiante extends Persona
     }
 
     /**
+     * Set codigo
+     *
+     * @param string $codigo
+     * @return Estudiante
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+
+        return $this;
+    }
+
+    /**
+     * Get codigo
+     *
+     * @return string
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * Set fechaGrado
+     *
+     * @param datetime $fechaGrado
+     * @return Estudiante
+     */
+    public function setFechaGrado($fechaGrado)
+    {
+        $this->fechaGrado = $fechaGrado;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaGrado
+     *
+     * @return datetime
+     */
+    public function getFechaGrado()
+    {
+        return $this->fechaGrado;
+    }
+
+    /**
+     * Set centroEstudio
+     *
+     * @param datetime $centroEstudio
+     * @return Estudiante
+     */
+    public function setCentroEstudio($centroEstudio)
+    {
+        $this->centroEstudio = $centroEstudio;
+
+        return $this;
+    }
+
+    /**
+     * Get centroEstudio
+     *
+     * @return datetime
+     */
+    public function getCentroEstudio()
+    {
+        return $this->centroEstudio;
+    }
+
+    /**
      * Add estadisticasEstudiante
      *
      * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante

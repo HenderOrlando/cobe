@@ -17,9 +17,7 @@ class GrupoType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            /*->add('plantilla')*/
-            ->add('interesesGrupo')
-            ->add('etiquetas')
+            ->add('plantilla')
         ;
 
         $builder->setMethod($this->method);

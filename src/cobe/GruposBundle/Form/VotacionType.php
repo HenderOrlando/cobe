@@ -17,10 +17,10 @@ class VotacionType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            ->add('opciones')
-            ->add('fechaFin')
-            /*->add('opcionSeleccionada')*/
             ->add('estado')
+            ->add('fechaFin')
+            ->add('opciones')
+            ->add('opcionSeleccionada')
         ;
 
         $builder->setMethod($this->method);
