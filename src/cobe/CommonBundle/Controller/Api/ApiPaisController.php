@@ -48,6 +48,20 @@ class ApiPaisController extends ApiController
     /**
      * Regresa opciones de API para Paises.
      *
+     * @Route("/paises/attributes", name="options_paises_validate")
+     * @Route("/paises/attributes/", name="options_paises_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Pais();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Paises.
+     *
      * @Route("/paises", name="options_paises")
      * @Route("/paises/", name="options_paises_")
      * @Template()

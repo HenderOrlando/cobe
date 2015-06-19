@@ -74,6 +74,20 @@ class ApiTipoController extends ApiController
     /**
      * Regresa opciones de API para Tipos.
      *
+     * @Route("/tipos/attributes", name="options_tipos_validate")
+     * @Route("/tipos/attributes/", name="options_tipos_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Tipo();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Tipos.
+     *
      * @Route("/tipos", name="options_tipos")
      * @Route("/tipos/", name="options_tipos_")
      * @Template()

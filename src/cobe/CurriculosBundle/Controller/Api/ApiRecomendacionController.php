@@ -48,6 +48,20 @@ class ApiRecomendacionController extends ApiController
     /**
      * Regresa opciones de API para Recomendaciones.
      *
+     * @Route("/recomendaciones/attributes", name="options_recomendaciones_validate")
+     * @Route("/recomendaciones/attributes/", name="options_recomendaciones_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Recomendacion();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Recomendaciones.
+     *
      * @Route("/recomendaciones", name="options_recomendaciones")
      * @Route("/recomendaciones/", name="options_recomendaciones_")
      * @Template()

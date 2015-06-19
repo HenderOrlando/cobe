@@ -48,6 +48,20 @@ class ApiCategoriaController extends ApiController
     /**
      * Regresa opciones de API para Categorias.
      *
+     * @Route("/categorias/attributes", name="options_categorias_validate")
+     * @Route("/categorias/attributes/", name="options_categorias_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Categoria();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Categorias.
+     *
      * @Route("/categorias", name="options_categorias")
      * @Route("/categorias/", name="options_categorias_")
      * @Template()

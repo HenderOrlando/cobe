@@ -46,6 +46,20 @@ class ApiGrupoController extends ApiController
     }
 
     /**
+     * Regresa opciones de API para Grupos.
+     *
+     * @Route("/grupos/attributes", name="options_grupos_validate")
+     * @Route("/grupos/attributes/", name="options_grupos_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Grupo();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
      * Regresa herencias de API para Grupos.
      *
      * @Route("/grupos/aplicaciones", name="aplicaciones_grupos")

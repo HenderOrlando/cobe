@@ -67,6 +67,20 @@ class ApiRolController extends ApiController
     /**
      * Regresa opciones de API para Roles.
      *
+     * @Route("/roles/attributes", name="options_roles_validate")
+     * @Route("/roles/attributes/", name="options_roles_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Rol();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Roles.
+     *
      * @Route("/roles", name="options_roles")
      * @Route("/roles/", name="options_roles_")
      * @Template()

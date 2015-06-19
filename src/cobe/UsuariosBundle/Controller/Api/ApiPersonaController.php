@@ -56,9 +56,24 @@ class ApiPersonaController extends ApiController
     public function herenciasPersonasAction(Request $request){
         $herencias = array(
             "Persona"=>"Persona natural",
-            "Empresa"=>"Persona jurídica"
+            "Empresa"=>"Persona jurídica",
+            "Estudiante"=>"Persona Estudiante",
         );
         return $this->getJsonResponse($herencias, $request);
+    }
+
+    /**
+     * Regresa opciones de API para Personas.
+     *
+     * @Route("/personas/attributes", name="options_personas_validate")
+     * @Route("/personas/attributes/", name="options_personas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Persona();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
     }
 
     /**

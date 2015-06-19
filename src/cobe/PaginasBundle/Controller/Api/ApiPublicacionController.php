@@ -48,6 +48,20 @@ class ApiPublicacionController extends ApiController
     /**
      * Regresa opciones de API para Publicaciones.
      *
+     * @Route("/publicaciones/attributes", name="options_publicaciones_validate")
+     * @Route("/publicaciones/attributes/", name="options_publicaciones_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Publicacion();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Publicaciones.
+     *
      * @Route("/publicaciones", name="options_publicaciones")
      * @Route("/publicaciones/", name="options_publicaciones_")
      * @Template()

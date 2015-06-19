@@ -48,6 +48,20 @@ class ApiProyectoController extends ApiController
     /**
      * Regresa opciones de API para Proyectos.
      *
+     * @Route("/proyectos/attributes", name="options_proyectos_validate")
+     * @Route("/proyectos/attributes/", name="options_proyectos_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Proyecto();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Proyectos.
+     *
      * @Route("/proyectos", name="options_proyectos")
      * @Route("/proyectos/", name="options_proyectos_")
      * @Template()

@@ -46,6 +46,20 @@ class ApiRepresentanteEmpresaController extends ApiController
     }
 
     /**
+     * Regresa opciones de API para Representantes de Empresas.
+     *
+     * @Route("/representantesEmpresas/attributes", name="options_representantesEmpresas_validate")
+     * @Route("/representantesEmpresas/attributes/", name="options_representantesEmpresas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new RepresentanteEmpresa();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
      * Regresa opciones de API para RepresentantesEmpresas.
      *
      * @Route("/representantesEmpresas", name="options_representantesEmpresas")

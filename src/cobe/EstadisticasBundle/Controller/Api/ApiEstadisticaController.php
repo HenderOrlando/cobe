@@ -48,6 +48,20 @@ class ApiEstadisticaController extends ApiController
     /**
      * Regresa opciones de API para Estadisticas.
      *
+     * @Route("/estadisticas/attributes", name="options_estadisticas_validate")
+     * @Route("/estadisticas/attributes/", name="options_estadisticas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Estadistica();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Estadisticas.
+     *
      * @Route("/estadisticas", name="options_estadisticas")
      * @Route("/estadisticas/", name="options_estadisticas_")
      * @Template()

@@ -48,6 +48,20 @@ class ApiAptitudController extends ApiController
     /**
      * Regresa opciones de API para Aptitudes.
      *
+     * @Route("/aptitudes/attributes", name="options_aptitudes_validate")
+     * @Route("/aptitudes/attributes/", name="options_aptitudes_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Aptitud();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Aptitudes.
+     *
      * @Route("/aptitudes", name="options_aptitudes")
      * @Route("/aptitudes/", name="options_aptitudes_")
      * @Template()

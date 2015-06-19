@@ -48,6 +48,20 @@ class ApiTraduccionController extends ApiController
     /**
      * Regresa opciones de API para Traducciones.
      *
+     * @Route("/traducciones/attributes", name="options_traducciones_validate")
+     * @Route("/traducciones/attributes/", name="options_traducciones_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Idioma();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Traducciones.
+     *
      * @Route("/traducciones", name="options_traducciones")
      * @Route("/traducciones/", name="options_traducciones_")
      * @Template()

@@ -68,6 +68,20 @@ class ApiEtiquetaController extends ApiController
     /**
      * Regresa opciones de API para Etiquetas.
      *
+     * @Route("/etiquetas/attributes", name="options_etiquetas_validate")
+     * @Route("/etiquetas/attributes/", name="options_etiquetas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Etiqueta();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Etiquetas.
+     *
      * @Route("/etiquetas", name="options_etiquetas")
      * @Route("/etiquetas/", name="options_etiquetas_")
      * @Template()

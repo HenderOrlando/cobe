@@ -48,6 +48,20 @@ class ApiReconocimientoController extends ApiController
     /**
      * Regresa opciones de API para Reconocimientos.
      *
+     * @Route("/reconocimientos/attributes", name="options_reconocimientos_validate")
+     * @Route("/reconocimientos/attributes/", name="options_reconocimientos_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Reconocimiento();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Reconocimientos.
+     *
      * @Route("/reconocimientos", name="options_reconocimientos")
      * @Route("/reconocimientos/", name="options_reconocimientos_")
      * @Template()

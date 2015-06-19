@@ -48,6 +48,20 @@ class ApiEmpresaController extends ApiController
     /**
      * Regresa opciones de API para Empresas.
      *
+     * @Route("/empresas/attributes", name="options_empresas_validate")
+     * @Route("/empresas/attributes/", name="options_empresas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Empresa();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Empresas.
+     *
      * @Route("/empresas", name="options_empresas")
      * @Route("/empresas/", name="options_empresas_")
      * @Template()

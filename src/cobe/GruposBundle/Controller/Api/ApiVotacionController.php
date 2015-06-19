@@ -64,6 +64,20 @@ class ApiVotacionController extends ApiController
     /**
      * Regresa opciones de API para Votaciones.
      *
+     * @Route("/votaciones/attributes", name="options_votaciones_validate")
+     * @Route("/votaciones/attributes/", name="options_votaciones_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Votacion();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Votaciones.
+     *
      * @Route("/votaciones", name="options_votaciones")
      * @Route("/votaciones/", name="options_votaciones_")
      * @Template()

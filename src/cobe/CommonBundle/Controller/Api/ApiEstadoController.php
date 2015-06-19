@@ -73,6 +73,20 @@ class ApiEstadoController extends ApiController
     /**
      * Regresa opciones de API para Estados.
      *
+     * @Route("/estados/attributes", name="options_estados_validate")
+     * @Route("/estados/attributes/", name="options_estados_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Estado();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Estados.
+     *
      * @Route("/estados", name="options_estados")
      * @Route("/estados/", name="options_estados_")
      * @Template()

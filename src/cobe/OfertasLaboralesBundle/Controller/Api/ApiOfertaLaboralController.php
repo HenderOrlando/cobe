@@ -46,6 +46,20 @@ class ApiOfertaLaboralController extends ApiController
     }
 
     /**
+     * Regresa opciones de API para Ofertas Laborales.
+     *
+     * @Route("/ofertaslaborales/attributes", name="options_ofertaslaborales_validate")
+     * @Route("/ofertaslaborales/attributes/", name="options_ofertaslaborales_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new OfertaLaboral();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
      * Regresa opciones de API para OfertasLaborales.
      *
      * @Route("/ofertaslaborales", name="options_ofertaslaborales")

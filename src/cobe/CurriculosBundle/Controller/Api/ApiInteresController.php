@@ -48,6 +48,20 @@ class ApiInteresController extends ApiController
     /**
      * Regresa opciones de API para Intereses.
      *
+     * @Route("/intereses/attributes", name="options_intereses_validate")
+     * @Route("/intereses/attributes/", name="options_intereses_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Interes();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Intereses.
+     *
      * @Route("/intereses", name="options_intereses")
      * @Route("/intereses/", name="options_intereses_")
      * @Template()

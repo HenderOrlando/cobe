@@ -48,6 +48,20 @@ class ApiHistorialController extends ApiController
     /**
      * Regresa opciones de API para Historiales.
      *
+     * @Route("/historiales/attributes", name="options_historiales_validate")
+     * @Route("/historiales/attributes/", name="options_historiales_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Historial();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Historiales.
+     *
      * @Route("/historiales", name="options_historiales")
      * @Route("/historiales/", name="options_historiales_")
      * @Template()

@@ -64,6 +64,26 @@ class ApiUsuarioController extends ApiController
     /**
      * Regresa opciones de API para Usuarios.
      *
+     * @Route("/usuarios/attributes", name="options_usuarios_validate")
+     * @Route("/usuarios/attributes/", name="options_usuarios_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Usuario();
+        $herencia = $request->get('herencia', false);
+        $datos = $request->get('usuario', false);
+        if($datos){
+            //validar
+        }else{
+            $datos = $this->getConfigObject($obj, $herencia);
+        }
+        return $this->getJsonResponse($datos, $request);
+    }
+
+    /**
+     * Regresa opciones de API para Usuarios.
+     *
      * @Route("/usuarios", name="options_usuarios")
      * @Route("/usuarios/", name="options_usuarios_")
      * @Template()

@@ -48,6 +48,20 @@ class ApiCaracteristicaController extends ApiController
     /**
      * Regresa opciones de API para Caracteristicas.
      *
+     * @Route("/caracteristicas/attributes", name="options_caracteristicas_validate")
+     * @Route("/caracteristicas/attributes/", name="options_caracteristicas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Caracteristica();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Caracteristicas.
+     *
      * @Route("/caracteristicas", name="options_caracteristicas")
      * @Route("/caracteristicas/", name="options_caracteristicas_")
      * @Template()

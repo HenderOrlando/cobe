@@ -48,6 +48,20 @@ class ApiEstudianteController extends ApiController
     /**
      * Regresa opciones de API para Estudiantes.
      *
+     * @Route("/estudiantes/attributes", name="options_estudiantes_validate")
+     * @Route("/estudiantes/attributes/", name="options_estudiantes_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Estudiante();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Estudiantes.
+     *
      * @Route("/estudiantes", name="options_estudiantes")
      * @Route("/estudiantes/", name="options_estudiantes_")
      * @Template()

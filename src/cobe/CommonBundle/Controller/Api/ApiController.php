@@ -201,6 +201,46 @@ class ApiController extends Controller
         return $rta;
     }
 
+    public function getConfigObject($obj, $herencia){
+        $herencias = null;
+        if($herencia && method_exists($obj, 'getHerencias')){
+            $herencias = $obj->getHerencias();
+            if(is_array($herencias) && array_key_exists(ucfirst($herencia),$herencias)){
+                $objHerencia = $herencias[ucfirst($herencia)];
+                $obj = new $objHerencia();
+            }
+        }
+        $classmetadata = $this->getClassMetadata($obj);
+        $datos = array();
+        $source = explode('\\',$classmetadata->getName());
+        $source = strtolower($source[count($source)-1]);
+
+        foreach($classmetadata->getFieldNames() as $fieldname){
+            $map = $classmetadata->getFieldMapping($fieldname);
+            $datos[$fieldname]['unique'] = $map['unique'];
+            $datos[$fieldname]['nullable'] = $map['nullable'];
+            $datos[$fieldname]['type'] = $map['type'];
+            $datos[$fieldname]['collection'] = false;
+        }
+        foreach($classmetadata->getAssociationMappings() as $map){
+            //$fieldname = str_replace(ucfirst($source),'',str_replace($source,'',$map['fieldName']));
+            $fieldname = $map['fieldName'];
+            $target = explode('\\',$map['targetEntity']);
+            $target = strtolower($target[count($target)-1]);
+            if(isset($association['joinColumns'])){
+                $configJoin = $association['joinColumns'][0];
+                $datos[$fieldname]['nullable'] = $configJoin['nullable'];
+                $datos[$fieldname]['unique'] = $configJoin['unique'];
+            }else{
+                $datos[$fieldname]['nullable'] = true;
+                $datos[$fieldname]['unique'] = false;
+            }
+            $datos[$fieldname]['collection'] = $classmetadata->isCollectionValuedAssociation($fieldname);
+            $datos[$fieldname]['type'] = str_replace($source,'',$target);
+        }
+        return $datos;
+    }
+
     public function validateTypeField($type, $value, \Doctrine\ORM\QueryBuilder $qb = null){
         $valid = false;
         if($value && !empty($value)){

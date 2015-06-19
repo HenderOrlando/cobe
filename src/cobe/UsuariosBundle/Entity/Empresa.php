@@ -10,11 +10,6 @@ use cobe\UsuariosBundle\Entity\Persona;
 class Empresa extends Persona
 {
     /**
-     * @ORM\Column(type="date", nullable=true, options={"comment":"Fecha en que nace la Empresa"})
-     */
-    private $fechaNace;
-
-    /**
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\RepresentanteEmpresa", mappedBy="empresa")
      */
     private $representantes;
@@ -96,29 +91,6 @@ class Empresa extends Persona
      */
     public function getId(){
         return parent::getId();
-    }
-
-    /**
-     * Set fechaNace
-     *
-     * @param \DateTime $fechaNace
-     * @return Empresa
-     */
-    public function setFechaNace($fechaNace)
-    {
-        $this->fechaNace = $fechaNace;
-
-        return $this;
-    }
-
-    /**
-     * Get fechaNace
-     *
-     * @return \DateTime 
-     */
-    public function getFechaNace()
-    {
-        return $this->fechaNace;
     }
 
     /**

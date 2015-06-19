@@ -85,13 +85,26 @@ class ApiArchivoController extends ApiController
     /**
      * Regresa opciones de API para Archivos.
      *
+     * @Route("/archivos/attributes", name="options_archivos_validate")
+     * @Route("/archivos/attributes/", name="options_archivos_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Archivo();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Archivos.
+     *
      * @Route("/archivos", name="options_archivos")
      * @Route("/archivos/", name="options_archivos_")
      * @Template()
      * @Method("OPTIONS")
      */
-    public function optionsArchivosAction(Request $request)
-    {
+    public function optionsArchivosAction(Request $request){
         $opciones = array(
             array(
                 'route'         => '/archivos',

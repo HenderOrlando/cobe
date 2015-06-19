@@ -48,6 +48,20 @@ class ApiIdiomaController extends ApiController
     /**
      * Regresa opciones de API para Idiomas.
      *
+     * @Route("/idiomas/attributes", name="options_idiomas_validate")
+     * @Route("/idiomas/attributes/", name="options_idiomas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Idioma();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Idiomas.
+     *
      * @Route("/idiomas", name="options_idiomas")
      * @Route("/idiomas/", name="options_idiomas_")
      * @Template()

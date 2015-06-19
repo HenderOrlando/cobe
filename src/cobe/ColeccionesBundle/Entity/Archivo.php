@@ -328,6 +328,7 @@ class Archivo extends Objeto
             'EstadisticaOfertaLaboral'  =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral',
             'EstadisticaGrupo'          =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo',
             'EstadisticaEmpresa'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa',
+            'EstadisticaEstuiante'      =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante',
             'EstadisticaMensaje'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje',
             'Publicacion'               =>'\cobe\ColeccionesBundle\Entity\ArchivoPublicacion',
             'EstadisticaAptitud'        =>'\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud',

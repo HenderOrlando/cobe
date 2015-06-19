@@ -46,6 +46,20 @@ class ApiMensajeController extends ApiController
     }
 
     /**
+     * Regresa opciones de API para Mensajes.
+     *
+     * @Route("/mensajes/attributes", name="options_mensajes_validate")
+     * @Route("/mensajes/attributes/", name="options_mensajes_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Mensaje();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
      * Regresa herencias de API para Mensajes.
      *
      * @Route("/mensajes/aplicaciones", name="aplicaciones_mensajes")

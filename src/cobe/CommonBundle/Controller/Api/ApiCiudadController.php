@@ -48,6 +48,20 @@ class ApiCiudadController extends ApiController
     /**
      * Regresa opciones de API para Ciudades.
      *
+     * @Route("/ciudades/attributes", name="options_ciudades_validate")
+     * @Route("/ciudades/attributes/", name="options_ciudades_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Ciudad();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Ciudades.
+     *
      * @Route("/ciudades", name="options_ciudades")
      * @Route("/ciudades/", name="options_ciudades_")
      * @Template()

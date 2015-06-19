@@ -46,6 +46,20 @@ class ApiPlantillaController extends ApiController
     }
 
     /**
+     * Regresa opciones de API para Plantillas.
+     *
+     * @Route("/plantillas/attributes", name="options_plantillas_validate")
+     * @Route("/plantillas/attributes/", name="options_plantillas_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Plantilla();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
      * Regresa herencias de API para Plantillas.
      *
      * @Route("/plantillas/aplicaciones", name="aplicaciones_plantillas")

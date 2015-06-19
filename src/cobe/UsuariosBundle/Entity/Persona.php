@@ -20,6 +20,10 @@ use cobe\UsuariosBundle\Entity\Usuario;
 class Persona extends Usuario
 {
     /**
+     * @ORM\Column(type="date", nullable=true, options={"comment":"Fecha en que nace la Persona"})
+     */
+    private $fechaNace;
+    /**
      * @ORM\Column(
      *     type="bigint",
      *     length=12,
@@ -160,6 +164,29 @@ class Persona extends Usuario
     }
 
     /**
+     * Set fechaNace
+     *
+     * @param \DateTime $fechaNace
+     * @return Empresa
+     */
+    public function setFechaNace($fechaNace)
+    {
+        $this->fechaNace = $fechaNace;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaNace
+     *
+     * @return \DateTime
+     */
+    public function getFechaNace()
+    {
+        return $this->fechaNace;
+    }
+
+    /**
      * Set nombres
      *
      * @param string $nombres
@@ -180,6 +207,29 @@ class Persona extends Usuario
     public function getNombres()
     {
         return $this->nombres;
+    }
+
+    /**
+     * Set apellidos
+     *
+     * @param string $apellidos
+     * @return Persona
+     */
+    public function setApellidos($apellidos)
+    {
+        $this->apellidos = $apellidos;
+
+        return $this;
+    }
+
+    /**
+     * Get apellidos
+     *
+     * @return string 
+     */
+    public function getApellidos()
+    {
+        return $this->apellidos;
     }
 
     /**

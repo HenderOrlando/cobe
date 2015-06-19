@@ -48,6 +48,20 @@ class ApiEstudioController extends ApiController
     /**
      * Regresa opciones de API para Estudios.
      *
+     * @Route("/estudios/attributes", name="options_estudios_validate")
+     * @Route("/estudios/attributes/", name="options_estudios_validate_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getAtributesAction(Request $request){
+        $obj = new Estudio();
+        $herencia = $request->get('herencia', false);
+        return $this->getJsonResponse($this->getConfigObject($obj, $herencia), $request);
+    }
+
+    /**
+     * Regresa opciones de API para Estudios.
+     *
      * @Route("/estudios", name="options_estudios")
      * @Route("/estudios/", name="options_estudios_")
      * @Template()
