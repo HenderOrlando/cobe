@@ -39,7 +39,7 @@ class Persona extends Usuario
     private $direccion;
 
     /**
-     * @ORM\Column(type="smallint", length=12, nullable=true, options={"comment":"Teléfono de la Persona","unsigned":true})
+     * @ORM\Column(type="string", length=12, nullable=true, options={"comment":"Teléfono de la Persona","unsigned":true})
      */
     private $telefono;
 
