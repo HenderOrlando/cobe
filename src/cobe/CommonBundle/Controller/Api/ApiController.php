@@ -400,6 +400,8 @@ class ApiController extends Controller
         try{
             $em->flush();
         }catch(\Exception $e){
+            var_dump($e);
+            die;
             $classMetadata = $this->getClassMetadata($obj);
             $msgs = 'No details.';
             if($classMetadata){
@@ -421,6 +423,9 @@ class ApiController extends Controller
                     break;
                 case 'editar':
                     $msg = 'No se pudo actualizar el recurso "'.$name.$nombre.'"';
+                    break;
+                case 'default':
+                    $msg = 'No se pudo realizar la acción en el recurso "'.$name.$nombre.'"';
                     break;
             }
             $obj = array(

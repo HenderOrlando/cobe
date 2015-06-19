@@ -117,7 +117,57 @@ class ObjectRepository extends EntityRepository{
         return $rta;
     }
 
-    public function sanearDato($dato, $type){
-        return $dato;
+    public function sanearDato($value, $type){
+        $valid = null;
+        if($value && !empty($value)){
+            switch($type){
+                case 'string':
+                case 'text':
+                    if(is_string($value)){
+                        $valid = trim($value);
+                    }
+                    break;
+                case 'date':
+                case 'time':
+                case 'datetime':
+                case 'datetimetz':
+                    if((is_object($value) && is_a($value,'DateTime')) || (is_string($value) && (
+                                \DateTime::createFromFormat('Y/m/d H:i:s', $value) !== false ||
+                                \DateTime::createFromFormat('Y-m-d H:i:s', $value) !== false ||
+                                \DateTime::createFromFormat('d/m/Y H:i:s', $value) !== false ||
+                                \DateTime::createFromFormat('d-m-Y H:i:s', $value) !== false ||
+                                \DateTime::createFromFormat('d/m/Y', $value) !== false ||
+                                \DateTime::createFromFormat('d-m-Y', $value) !== false ||
+                                \DateTime::createFromFormat('Y/m/d', $value) !== false ||
+                                \DateTime::createFromFormat('Y-m-d', $value) !== false
+                            ))){
+                        $valid = new \DateTime($value);
+                    }
+                case 'integer':
+                case 'smallint':
+                case 'bigint': // String
+                    if(is_int($value)){
+                        $valid = $value;
+                    }
+                    break;
+                case 'boolean':
+                    if(is_bool($value)){
+                        $valid = $value;
+                    }
+                    break;
+                case 'decimal': // string
+                case 'float': // double
+                    if(is_double($value)){
+                        $valid = $value;
+                    }
+                    break;
+                case 'guid':
+                    if(preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', $value)){
+                        $valid = $value;
+                    }
+                    break;
+            }
+        }
+        return $valid;
     }
 }
