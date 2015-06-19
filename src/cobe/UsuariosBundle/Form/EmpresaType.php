@@ -20,7 +20,6 @@ class EmpresaType extends PersonaType
 
         $builder
             ->add('ciudades')
-            ->add('fechaNace')
             ->add('plantillaEmpresa')
         ;
 

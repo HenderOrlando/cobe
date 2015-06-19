@@ -26,13 +26,16 @@ class PersonaType extends UsuarioType
         $this->getBuilderUsuarioForm($builder,$options);
 
         $builder
+            ->add('apellidos')
             ->add('ciudad')
             ->add('direccion')
             ->add('doc_id')
+            ->add('fechaNace')
+            ->add('nombres')
             ->add('telefono')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
