@@ -277,6 +277,7 @@ class ApiVotacionController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $votacion->getHerencias();
+            $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
             if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
                 $votacionHerencia = $herencias[$datos['herencia']];
                 $votacion = new $votacionHerencia();

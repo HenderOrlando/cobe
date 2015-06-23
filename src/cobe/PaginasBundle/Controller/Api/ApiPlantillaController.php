@@ -282,6 +282,7 @@ class ApiPlantillaController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $plantilla->getHerencias();
+            $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
             if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
                 $plantillaHerencia = $herencias[$datos['herencia']];
                 $plantilla = new $plantillaHerencia();
