@@ -400,8 +400,8 @@ class ApiController extends Controller
         try{
             $em->flush();
         }catch(\Exception $e){
-            var_dump($e);
-            die;
+            /*var_dump($e);
+            die;*/
             $classMetadata = $this->getClassMetadata($obj);
             $msgs = 'No details.';
             if($classMetadata){

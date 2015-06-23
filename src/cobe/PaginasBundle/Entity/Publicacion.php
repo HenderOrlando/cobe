@@ -84,7 +84,7 @@ class Publicacion extends Obj
 
     /**
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\GrupoEditor", inversedBy="publicaciones")
-     * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=true)
      */
     private $grupoEditor;
 
