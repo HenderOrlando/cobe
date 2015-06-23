@@ -103,6 +103,7 @@ class Publicacion extends Obj
     public function __construct()
     {
         parent::__construct();
+        $this->indexada = false;
         $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->votacion = new \Doctrine\Common\Collections\ArrayCollection();

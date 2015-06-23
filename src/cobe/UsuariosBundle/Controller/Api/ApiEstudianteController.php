@@ -337,12 +337,14 @@ class ApiEstudianteController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear la Estudiante.',
+                    'message'   => 'No se encuentran los datos para sobreescribir al Estudiante.',
                     'code'      => '400',
                 ),
             ),
         );
-
+        /*var_dump($type->getName());
+        var_dump($request->get($type->getName(), false));
+        die;*/
         if($request->get($type->getName(), false)){
             $form = $this->getForm($type, $estudiante, $request,true);
         }
