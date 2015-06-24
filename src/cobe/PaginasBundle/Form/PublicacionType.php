@@ -27,6 +27,12 @@ class PublicacionType extends ObjectType
             ->add('plantilla')
             ->add('idexada')
             ->add('tipoPublicacion')
+            ->add('ofertasLaborales')
+            ->add('comentarios')
+            ->add('votacion')
+            ->add('archivosPublicacion')
+            ->add('categoriaPublicacion')
+            ->add('etiquetas')
         ;
 
         $builder->setMethod($this->method);

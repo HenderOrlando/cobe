@@ -66,7 +66,7 @@ class OfertaLaboral extends Obj
     /**
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", inversedBy="ofertasLaborales")
-     * @ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=true)
      */
     private $publicacion;
 

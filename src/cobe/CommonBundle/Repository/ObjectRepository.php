@@ -58,6 +58,10 @@ class ObjectRepository extends EntityRepository{
             $this->getByParams($datos, $metadata, $qb, true);
         }
         $rta = $qb;
+        /*var_dump($qb->getDQL());
+        echo '<br/>';
+        var_dump($qb->getQuery()->getSQL());
+        die;*/
         if(!$queryBuilder){
             $rta = $qb->getQuery()->execute();
         }
@@ -95,9 +99,13 @@ class ObjectRepository extends EntityRepository{
                 // boolean | number | bigint | decimal | integer | smallint | float | string | text | datetime | date | time
                 $type = $metadata->getTypeOfField($id);
                 $dato = $this->sanearDato($dato, $type);
+                if($type == 'string' || $type == 'text' || $type == 'guid'){
+                    $dato = $qb->expr()->literal('%'.$dato.'%');
+                }
                 if($type == 'string' || $type == 'text'){
-                    $q = $qb->expr()->like($tableName.'.'.$id,$qb->expr()->literal('%'.$dato.'%'));
+                    $q = $qb->expr()->like($tableName.'.'.$id,$dato);
                 }else{
+                    $dato = str_replace('%','',$dato);
                     $q = $qb->expr()->eq($tableName.'.'.$id,$dato);
                 }
                 $qb->andWhere($q);
@@ -162,7 +170,7 @@ class ObjectRepository extends EntityRepository{
                     }
                     break;
                 case 'guid':
-                    if(preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', $value)){
+                    if(preg_match('/^\{?[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}\}?$/', $value)){
                         $valid = $value;
                     }
                     break;

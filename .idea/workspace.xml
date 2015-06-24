@@ -2,142 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86653faa-3454-4ddd-81e3-dea4d92279f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiAptitudController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiAptitudController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiCaracteristicaController.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiCaracteristicaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiCategoriaController.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiCategoriaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiCentroEstudioController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiCentroEstudioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiCiudadController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiEstadisticaController.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Controller/Api/ApiEstadisticaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEstadoController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEstadoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiEstudioController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiEstudioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEtiquetaController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiEtiquetaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiGrupoController.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiGrupoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiIdiomaController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiIdiomaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiInteresController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiInteresController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Controller/Api/ApiMensajeController.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Controller/Api/ApiMensajeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiPaisController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiPaisController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPlantillaController.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPlantillaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiProyectoController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiProyectoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiRecomendacionController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiRecomendacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiReconocimientoController.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Controller/Api/ApiReconocimientoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiRolController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiRolController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTipoController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTipoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTraduccionController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiTraduccionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiVotacionController.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Controller/Api/ApiVotacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/Archivo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoAptitud.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoAptitud.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoCentroEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoCentroEstudio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaAptitud.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaAptitud.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaEmpresa.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaEmpresa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaEstudiante.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaEstudiante.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaGrupo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaInteres.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaInteres.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaMensaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaOfertaLaboral.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstadisticaUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstudio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstudioPersona.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoEstudioPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoGrupo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoMensaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPlantilla.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPlantilla.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoProyecto.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoProyecto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoRecomendacion.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoRecomendacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoReconocimientoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoReconocimientoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTrabajo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTrabajo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTraduccion.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTraduccion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Caracteristica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Caracteristica.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Ciudad.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Ciudad.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Comentario.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Comentario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioArchivo.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioArchivo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioGrupo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioOfertaLaboral.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/ComentarioUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Destinatario.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Destinatario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Empresa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/Estadistica.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaAptitud.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaAptitud.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaEmpresa.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaEmpresa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaEstudiante.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaEstudiante.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaGrupo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaInteres.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaInteres.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaMensaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaOfertaLaboral.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadisticaUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoDestinatario.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoDestinatario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadoEstadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/EstadoEstadistica.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoGrupoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoGrupoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/EstadoMensaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/EstadoOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/EstadoOfertaLaboral.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPlantilla.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/EstadoUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoVotacion.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/EstadoVotacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Estudiante.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Estudiante.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Estudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Estudio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/EstudioPersona.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/EstudioPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/GrupoEditor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/GrupoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/GrupoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Historial.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Historial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Idioma.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Idioma.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/IdiomaPersona.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/IdiomaPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Interes.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Interes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php" afterPath="$PROJECT_DIR$/src/cobe/MensajesBundle/Entity/Mensaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/NivelIdioma.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/NivelIdioma.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Objeto.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Objeto.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Repository/ObjectRepository.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Repository/ObjectRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboralPersona.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboralPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Pais.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Pais.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Persona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Plantilla.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEmpresa.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEmpresa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEstudiante.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaEstudiante.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaGrupo.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaGrupo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaMensaje.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaMensaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/PlantillaUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Proyecto.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Proyecto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/ProyectoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/ProyectoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Repository/PublicacionRepository.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Repository/PublicacionRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Recomendacion.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Recomendacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Reconocimiento.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Reconocimiento.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/ReconocimientoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/ReconocimientoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RepresentanteEmpresa.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RepresentanteEmpresa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/RolGrupoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/RolGrupoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/RolOfertaLaboralPersona.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/RolOfertaLaboralPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/RolProyectoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/RolProyectoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/RolUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php" afterPath="$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/TipoEstadistica.php" afterPath="$PROJECT_DIR$/src/cobe/EstadisticasBundle/Entity/TipoEstadistica.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoEstudio.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoEstudio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/TipoHistorial.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/TipoHistorial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/TipoOfertaLaboral.php" afterPath="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/TipoOfertaLaboral.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPlantilla.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPlantilla.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoProyecto.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoProyecto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoRecomendacion.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoRecomendacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoReconocimiento.php" afterPath="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoReconocimiento.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoVotacionPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/TipoVotacionPublicacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Traduccion.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Traduccion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Usuario.php" afterPath="$PROJECT_DIR$/src/cobe/UsuariosBundle/Entity/Usuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Votacion.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Votacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/VotacionGrupoPersona.php" afterPath="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/VotacionGrupoPersona.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/VotacionPublicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/VotacionPublicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cobe.iws" />
@@ -163,14 +30,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Publicacion.php" pinned="true" current-in-tab="true">
+      <file leaf-file-name="Publicacion.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3551532" vertical-offset="0" max-vertical-offset="9316">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state vertical-scroll-proportion="-19.615385" vertical-offset="1377" max-vertical-offset="9316">
+              <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="22" />
               <folding>
                 <element signature="e#43#75#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiPublicacionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.076923" vertical-offset="4004" max-vertical-offset="8058">
+              <caret line="276" column="73" selection-start-line="276" selection-start-column="73" selection-end-line="276" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Repository/ObjectRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.846154" vertical-offset="441" max-vertical-offset="3145">
+              <caret line="43" column="73" selection-start-line="43" selection-start-column="73" selection-end-line="43" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiOfertaLaboralController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="2754" max-vertical-offset="8058">
+              <caret line="194" column="84" selection-start-line="194" selection-start-column="84" selection-end-line="194" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OfertaLaboral.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5769231" vertical-offset="867" max-vertical-offset="8653">
+              <caret line="68" column="83" selection-start-line="68" selection-start-column="83" selection-end-line="68" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OfertaLaboralType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Form/OfertaLaboralType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="884">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PublicacionType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="1071">
+              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -183,9 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoProyecto.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoRecomendacion.php" />
-        <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/TipoReconocimiento.php" />
         <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Aptitud.php" />
         <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/CentroEstudio.php" />
         <option value="$PROJECT_DIR$/src/cobe/CurriculosBundle/Entity/Estudio.php" />
@@ -234,6 +158,9 @@
         <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/EstadoPublicacion.php" />
         <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Objeto.php" />
         <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Pais.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" />
+        <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Repository/ObjectRepository.php" />
+        <option value="$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php" />
       </list>
     </option>
   </component>
@@ -316,6 +243,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -536,6 +464,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaginasBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -615,6 +569,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="OfertasLaboralesBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cobe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OfertasLaboralesBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1358,7 +1338,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1465,20 +1444,20 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.369171" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1699" y="140" width="1181" height="578" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36895674" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1699" y="140" width="1181" height="578" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32253885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935733" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="1604" y="0" width="388" height="769" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19512194" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20694087" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="1991" y="-2" width="448" height="770" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21208227" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="1991" y="-2" width="448" height="770" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18894601" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32253885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -1529,83 +1508,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/TipoArchivo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="1241">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/EstadoArchivo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33758864" vertical-offset="17" max-vertical-offset="1241">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoUsuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="952">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTraduccion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="952">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoTrabajo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="952">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoReconocimientoPersona.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="952">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoRecomendacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="952">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Entity/ArchivoPublicacion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26524824" vertical-offset="17" max-vertical-offset="952">
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1613,9 +1519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24113475" vertical-offset="17" max-vertical-offset="952">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1623,9 +1526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="952">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1633,9 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="952">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1643,9 +1540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="952">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1653,9 +1547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="1003">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1663,9 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="1003">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1673,9 +1561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="952">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1683,7 +1568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="935">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1691,9 +1575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="952">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1701,9 +1582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="952">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1711,9 +1589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="952">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1721,9 +1596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="17" max-vertical-offset="986">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1731,9 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="17" max-vertical-offset="986">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1741,9 +1610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="17" max-vertical-offset="935">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1751,9 +1617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="17" max-vertical-offset="935">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1761,9 +1624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="17" max-vertical-offset="935">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1771,9 +1631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="2856">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1781,7 +1638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2839">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1789,9 +1645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="2856">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1799,7 +1652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="2856">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1807,9 +1659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="2856">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1817,9 +1666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43404254" vertical-offset="0" max-vertical-offset="5950">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1827,9 +1673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24113475" vertical-offset="17" max-vertical-offset="952">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1837,9 +1680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="17" max-vertical-offset="1088">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1847,9 +1687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="9044">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1857,9 +1694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07234043" vertical-offset="0" max-vertical-offset="2839">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1867,9 +1701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="17" max-vertical-offset="1275">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#43#75#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1877,7 +1708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1885,7 +1715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1893,7 +1722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1901,7 +1729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1909,7 +1736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1917,7 +1743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1925,7 +1750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1933,7 +1757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3094">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1941,9 +1764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04735376" vertical-offset="34" max-vertical-offset="5729">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#42#74#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1951,9 +1771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04735376" vertical-offset="34" max-vertical-offset="3298">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#42#74#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1971,9 +1788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07103064" vertical-offset="17" max-vertical-offset="1258">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#42#74#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1981,9 +1795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04735376" vertical-offset="17" max-vertical-offset="2380">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <element signature="e#42#74#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1991,7 +1802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1999,19 +1809,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07103064" vertical-offset="17" max-vertical-offset="1292">
           <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/ColeccionesBundle/Controller/Api/ApiArchivoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8976">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.615385" vertical-offset="1377" max-vertical-offset="9316">
+          <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="22" />
           <folding>
             <element signature="e#43#75#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php">
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3551532" vertical-offset="0" max-vertical-offset="9316">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding>
-            <element signature="e#43#75#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="1071">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Controller/Api/ApiPublicacionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.076923" vertical-offset="4004" max-vertical-offset="8058">
+          <caret line="276" column="73" selection-start-line="276" selection-start-column="73" selection-end-line="276" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Form/OfertaLaboralType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Repository/ObjectRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.846154" vertical-offset="441" max-vertical-offset="3145">
+          <caret line="43" column="73" selection-start-line="43" selection-start-column="73" selection-end-line="43" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Controller/Api/ApiOfertaLaboralController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="2754" max-vertical-offset="8058">
+          <caret line="194" column="84" selection-start-line="194" selection-start-column="84" selection-end-line="194" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/OfertasLaboralesBundle/Entity/OfertaLaboral.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5769231" vertical-offset="867" max-vertical-offset="8653">
+          <caret line="68" column="83" selection-start-line="68" selection-start-column="83" selection-end-line="68" selection-end-column="83" />
+          <folding />
         </state>
       </provider>
     </entry>
