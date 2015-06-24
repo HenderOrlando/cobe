@@ -43,6 +43,6 @@ class OfertaLaboralType extends ObjectType
      */
     public function getName()
     {
-        return 'oofertalaboral';
+        return 'ofertalaboral';
     }
 }

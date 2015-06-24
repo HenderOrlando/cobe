@@ -160,6 +160,28 @@ class ApiController extends Controller
         $saved = false;
         $errors = array();
         if($request){
+            $data = $request->get($type->getName(), null);
+            /*var_dump($data);
+            if(isset($data['etiquetas']) && substr_count($data['etiquetas'],'[') == 1 && substr_count($data['etiquetas'],']') == 1 && substr_count($data['etiquetas'],',') >= 1){
+                $etiquetas = explode(',',str_replace('[','',str_replace(']','',str_replace(' ','',$data['etiquetas']))));
+                foreach($etiquetas as $i => $etiqueta){
+                    $qb = $this->getManager()->getRepository('cobeCommonBundle:Etiqueta')->createQueryBuilder('e')->select('e.id');
+                    $prams = array('nombre' => $etiqueta);
+                    if($this->validateTypeField('guid',$etiqueta)){
+                        $params = array('id' => $etiqueta);
+                        $qb->createQueryBuilder('e')->andWhere($qb->expr()->like('e.nombre',$qb->expr()->literal('%'.$etiqueta.'%')));
+                    }
+                    var_dump($qb->getDQL());
+                    $etiqueta = $qb->execute();
+                    if(!empty($etiqueta)){
+                        $etiqueta = $etiqueta[0];
+                        $data[$i] = $etiqueta['id'];
+                    }else{
+                        //crear la etiqueta
+                    }
+                }
+            }
+            die;*/
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $isValid = true;
@@ -251,7 +273,7 @@ class ApiController extends Controller
                     if(is_string($value)){
                         $valid = true;
                         if($qb){
-                            $valid = $qb->expr()->literal($value);
+                            $valid = $qb->expr()->literal(trim($value));
                         }
                     }
                     break;
@@ -259,7 +281,16 @@ class ApiController extends Controller
                 case 'time':
                 case 'datetime':
                 case 'datetimetz':
-                    if((is_object($value) && is_a($value,'DateTime')) || (is_string($value) && \DateTime::createFromFormat('m/d/Y', $value) !== false)){
+                    if((is_object($value) && is_a($value,'DateTime')) || (is_string($value) && (
+                            \DateTime::createFromFormat('Y/m/d H:i:s', $value) !== false ||
+                            \DateTime::createFromFormat('Y-m-d H:i:s', $value) !== false ||
+                            \DateTime::createFromFormat('d/m/Y H:i:s', $value) !== false ||
+                            \DateTime::createFromFormat('d-m-Y H:i:s', $value) !== false ||
+                            \DateTime::createFromFormat('d/m/Y', $value) !== false ||
+                            \DateTime::createFromFormat('d-m-Y', $value) !== false ||
+                            \DateTime::createFromFormat('Y/m/d', $value) !== false ||
+                            \DateTime::createFromFormat('Y-m-d', $value) !== false
+                        ))){
                         $valid = true;
                         if($qb){
                             $valid = $qb->expr()->literal($value);
@@ -294,7 +325,7 @@ class ApiController extends Controller
                     }
                     break;
                 case 'guid':
-                    if(preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', $value)){
+                    if(preg_match('/^\{?[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}\}?$/', $value)){
                         $valid = true;
                         if($qb){
                             $valid = $value;
