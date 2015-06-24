@@ -2,6 +2,7 @@
 namespace cobe\ColeccionesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -60,23 +61,27 @@ class Archivo extends Objeto
     private $ext;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioArchivo", mappedBy="archivo")
      */
     private $comentarios;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\EstadoArchivo", inversedBy="archivosEstado")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estado;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\TipoArchivo", inversedBy="archivosTipo")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipo;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="archivos")
      * @ORM\JoinTable(
      *     name="Etiqueta2Archivo",

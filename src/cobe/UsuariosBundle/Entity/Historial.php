@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\HistorialRepository")
@@ -41,6 +42,7 @@ class Historial extends Objeto
     private $ipv6;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="historiales")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=false)
      */

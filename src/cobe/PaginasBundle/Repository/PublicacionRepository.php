@@ -12,4 +12,7 @@ use cobe\CommonBundle\Repository\ObjectRepository;
  */
 class PublicacionRepository extends ObjectRepository
 {
+    public function getAllObj(){
+        return $this->createQueryBuilder('o')->getQuery()->getResult();
+    }
 }

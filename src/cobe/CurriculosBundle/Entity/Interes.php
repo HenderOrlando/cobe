@@ -2,6 +2,7 @@
 namespace cobe\CurriculosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Etiqueta;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\InteresRepository")
@@ -10,21 +11,25 @@ use cobe\CommonBundle\Entity\Etiqueta;
 class Interes extends Etiqueta
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaInteres", mappedBy="interes")
      */
     private $estadisticasInteres;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", mappedBy="intereses")
      */
     private $empresas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Persona", mappedBy="intereses", cascade={"all"})
      */
     private $personas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="cobe\GruposBundle\Entity\Grupo", mappedBy="interesesGrupo")
      */
     private $gruposInteres;

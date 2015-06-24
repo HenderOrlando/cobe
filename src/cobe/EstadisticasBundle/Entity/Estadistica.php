@@ -2,6 +2,7 @@
 namespace cobe\EstadisticasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\EstadisticasBundle\Repository\EstadisticaRepository")
@@ -9,63 +10,75 @@ use cobe\CommonBundle\Entity\Objeto;
 class Estadistica extends Objeto
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaPublicacion", mappedBy="estadistica")
      */
     private $estadisticasPublicacion;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral", mappedBy="estadistica")
      */
     private $estadisticasOfertaLaboral;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaUsuario", mappedBy="estadistica")
      */
     private $estadisticasUsuario;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaMensaje", mappedBy="estadistica")
      */
     private $estadisticasMensaje;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa", mappedBy="estadistica")
      */
     private $estadisticasEmpresa;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante", mappedBy="estadistica")
      */
     private $estadisticasEstudiante;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaGrupo", mappedBy="estadistica")
      */
     private $estadisticasGrupo;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaInteres", mappedBy="estadistica")
      */
     private $estadisticasInteres;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaAptitud", mappedBy="estadistica")
      */
     private $estadisticasAptitud;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\TipoEstadistica", inversedBy="estadisticasTipo")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipo;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\EstadoEstadistica", inversedBy="estadisticasEstado")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estado;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="estadisticasEtiqueta")
      * @ORM\JoinTable(
      *     name="Etiqueta2Estadistica",
@@ -76,6 +89,7 @@ class Estadistica extends Objeto
     private $etiquetas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Caracteristica", inversedBy="estadisticasCaracteristica")
      * @ORM\JoinTable(
      *     name="Caracteristica2Estadistica",

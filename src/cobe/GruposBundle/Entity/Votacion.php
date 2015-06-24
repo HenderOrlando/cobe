@@ -2,6 +2,7 @@
 namespace cobe\GruposBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\GruposBundle\Repository\VotacionRepository")
@@ -30,11 +31,13 @@ class Votacion extends Obj
     private $opcionSeleccionada;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\VotacionGrupoPersona", mappedBy="votacion")
      */
     private $votacionesGrupoPersona;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\EstadoVotacion", inversedBy="votaciones")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */

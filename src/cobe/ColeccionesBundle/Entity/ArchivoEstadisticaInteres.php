@@ -2,6 +2,7 @@
 namespace cobe\ColeccionesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\ColeccionesBundle\Entity\Archivo;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -9,6 +10,7 @@ use cobe\ColeccionesBundle\Entity\Archivo;
 class ArchivoEstadisticaInteres extends Archivo
 {
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaInteres", inversedBy="archivosEstadisticaInteres")
      * @ORM\JoinColumn(name="estadistica", referencedColumnName="id", nullable=false)
      */

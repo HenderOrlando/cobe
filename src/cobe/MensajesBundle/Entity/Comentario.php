@@ -3,6 +3,7 @@ namespace cobe\MensajesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\MensajesBundle\Entity\Mensaje;
 
+
 /**
  * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\ComentarioRepository")
  * @ORM\Table(options={"comment":"Comentarios en el sistema"})

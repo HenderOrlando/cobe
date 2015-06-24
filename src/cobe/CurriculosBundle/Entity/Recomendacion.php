@@ -3,6 +3,7 @@ namespace cobe\CurriculosBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\RecomendacionRepository")
@@ -14,23 +15,27 @@ use cobe\CommonBundle\Entity\Objeto;
 class Recomendacion extends Objeto
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion", mappedBy="recomendacion")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="recomendados")
      * @ORM\JoinColumn(name="recomienda", referencedColumnName="id", nullable=false)
      */
     private $recomienda;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="recomendaciones")
      * @ORM\JoinColumn(name="recomendado", referencedColumnName="id", nullable=false)
      */
     private $recomendado;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\TipoRecomendacion", inversedBy="recomendaciones")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */

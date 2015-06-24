@@ -5,6 +5,7 @@ namespace cobe\CommonBundle\Controller\Api;
 use cobe\UsuariosBundle\Entity\RolUsuario;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Query\QueryBuilder;
+use JMS\Serializer\SerializationContext;
 use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -83,7 +84,7 @@ class ApiController extends Controller
         if(is_array($objs) || is_a($objs, 'Doctrine\ORM\QueryBuilder') || is_a($objs,'Hateoas\Representation\PaginatedRepresentation') && $route){
             $objs = $this->getPagerfanta($objs, $route);
         }
-        $datos = $this->container->get('serializer')->serialize($objs, $format);
+        $datos = $this->container->get('serializer')->serialize($objs, $format, SerializationContext::create()->enableMaxDepthChecks());
 
         /*foreach($objs as $id => $dato){
             if(is_object($dato) && method_exists($dato,'getId')){

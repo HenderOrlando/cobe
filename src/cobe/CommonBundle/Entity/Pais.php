@@ -2,6 +2,7 @@
 namespace cobe\CommonBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\PaisRepository")
@@ -10,6 +11,7 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Pais extends Obj
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CommonBundle\Entity\Ciudad", mappedBy="pais")
      */
     private $ciudades;

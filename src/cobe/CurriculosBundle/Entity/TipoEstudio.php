@@ -2,6 +2,7 @@
 namespace cobe\CurriculosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Tipo;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\TipoEstudioRepository")
@@ -10,6 +11,7 @@ use cobe\CommonBundle\Entity\Tipo;
 class TipoEstudio extends Tipo
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\Estudio", mappedBy="tipo")
      */
     private $estudios;

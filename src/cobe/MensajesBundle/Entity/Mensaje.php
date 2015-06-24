@@ -2,6 +2,7 @@
 namespace cobe\MensajesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\MensajeRepository")
@@ -23,39 +24,46 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Mensaje extends Obj
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Destinatario", mappedBy="mensaje")
      */
     private $destinatarios;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoMensaje", mappedBy="mensaje")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaMensaje", mappedBy="mensaje")
      */
     private $estadisticasMensaje;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="mensajesUsuario")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=false)
      */
     private $usuarioMensaje;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\EstadoMensaje", inversedBy="mensajes")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estadoMensaje;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaMensaje", inversedBy="mensajes")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", inversedBy="mensajesRespuesta")
      * @ORM\JoinTable(
      *     name="Mensaje2Mensaje",
@@ -66,6 +74,7 @@ class Mensaje extends Obj
     private $mensajes;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", mappedBy="mensajes")
      */
     private $mensajesRespuesta;

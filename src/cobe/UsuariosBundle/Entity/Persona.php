@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\UsuariosBundle\Entity\Usuario;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\PersonaRepository")
@@ -54,62 +55,74 @@ class Persona extends Usuario
     private $apellidos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\RepresentanteEmpresa", mappedBy="persona")
      */
     private $empresas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\EstudioPersona", mappedBy="persona")
      */
     private $estudiosPersona;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\Recomendacion", mappedBy="recomienda")
      */
     private $recomendados;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\Recomendacion", mappedBy="recomendado")
      */
     private $recomendaciones;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\IdiomaPersona", mappedBy="persona")
      */
     private $idiomasPersona;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="persona")
      */
     private $proyectosPersona;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ReconocimientoPersona", mappedBy="persona")
      */
     private $reconocimientosPersona;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="persona")
      */
     private $gruposPersona;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona", mappedBy="persona")
      */
     private $ofertasLaboralesPersona;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="autor")
      */
     private $publicaciones;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CommonBundle\Entity\Ciudad", inversedBy="personas")
      * @ORM\JoinColumn(name="ciudad", referencedColumnName="id")
      */
     private $ciudad;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="personas")
      * @ORM\JoinTable(
      *     name="Interes2Persona",
@@ -120,6 +133,7 @@ class Persona extends Usuario
     private $intereses;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Aptitud", inversedBy="personas")
      * @ORM\JoinTable(
      *     name="Aptitud2Persona",

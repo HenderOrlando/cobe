@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\UsuariosBundle\Entity\Persona;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\EstudianteRepository")
@@ -20,23 +21,27 @@ class Estudiante extends Persona
     private $fechaGrado;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\CentroEstudio", inversedBy="estudiantes")
      * @ORM\JoinColumn(name="centroEstudio", referencedColumnName="id", nullable=true)
      */
     private $centroEstudio;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante", mappedBy="estudiante")
      */
     private $estadisticasEstudiante;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaEstudiante", inversedBy="estudiantes")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantillaEstudiante;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="estudiantes")
      * @ORM\JoinTable(
      *     name="Etiqueta2Estudiante",

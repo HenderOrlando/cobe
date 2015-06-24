@@ -1,6 +1,7 @@
 <?php
 namespace cobe\CurriculosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\ReconocimientoPersonaRepository")
@@ -19,6 +20,7 @@ class ReconocimientoPersona
     private $id;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(
      *     targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona",
      *     mappedBy="reconocimientoPersona"
@@ -27,12 +29,14 @@ class ReconocimientoPersona
     private $archivos;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="reconocimientosPersona")
      * @ORM\JoinColumn(name="persona", referencedColumnName="id", nullable=false)
      */
     private $persona;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Reconocimiento", inversedBy="reconocimientoPersonas")
      * @ORM\JoinColumn(name="reconocimiento", referencedColumnName="id", nullable=false)
      */

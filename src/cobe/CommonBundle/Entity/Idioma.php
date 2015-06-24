@@ -2,6 +2,7 @@
 namespace cobe\CommonBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="\cobe\CommonBundle\Repository\IdiomaRepository")
@@ -10,20 +11,25 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Idioma extends Obj
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\CommonBundle\Entity\Traduccion", mappedBy="idiomaTraductor")
      */
     private $traduccionesTraductor;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\CommonBundle\Entity\Traduccion", mappedBy="idiomaTraducido")
      */
     private $traduccionesTraducido;
+
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\CurriculosBundle\Entity\IdiomaPersona", mappedBy="idioma")
      */
     private $idiomaPersonas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="idiomas")
      */
     private $ofertasLaborales;

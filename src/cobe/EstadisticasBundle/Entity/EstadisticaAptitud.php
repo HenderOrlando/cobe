@@ -1,6 +1,7 @@
 <?php
 namespace cobe\EstadisticasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -20,17 +21,20 @@ class EstadisticaAptitud
     private $fechaCreado;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud", mappedBy="estadisticaAptitud")
      */
     private $archivosEstadisticaAptitud;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", inversedBy="estadisticasAptitud")
      * @ORM\JoinColumn(name="estadistica", referencedColumnName="id", nullable=false)
      */
     private $estadistica;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\CurriculosBundle\Entity\Aptitud", inversedBy="estadisticasAptitud")
      * @ORM\JoinColumn(name="aptitud", referencedColumnName="id", nullable=false)
      */

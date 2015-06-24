@@ -1,6 +1,7 @@
 <?php
 namespace cobe\CommonBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\TraduccionRepository")
@@ -16,17 +17,20 @@ class Traduccion
     private $id;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoTraduccion", mappedBy="traduccion")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CommonBundle\Entity\Idioma", inversedBy="traduccionesTraducido")
      * @ORM\JoinColumn(name="idiomaTraducir", referencedColumnName="id", nullable=false)
      */
     private $idiomaTraducido;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CommonBundle\Entity\Idioma", inversedBy="traduccionesTraductor")
      * @ORM\JoinColumn(name="idiomaTraductor", referencedColumnName="id", nullable=false)
      */

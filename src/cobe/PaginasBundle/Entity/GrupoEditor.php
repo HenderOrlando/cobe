@@ -5,6 +5,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\GruposBundle\Entity\Grupo;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\GrupoEditorRepository")
@@ -13,6 +14,7 @@ use cobe\GruposBundle\Entity\Grupo;
 class GrupoEditor extends Grupo
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="grupoEditor")
      */
     private $publicaciones;

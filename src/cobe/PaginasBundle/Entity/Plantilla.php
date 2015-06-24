@@ -2,6 +2,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PlantillaRepository")
@@ -22,28 +23,33 @@ use cobe\CommonBundle\Entity\Objeto;
 class Plantilla extends Objeto
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Plantilla", mappedBy="plantilla")
      */
     private $subplantillas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoPlantilla", mappedBy="plantilla")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Plantilla", inversedBy="subplantillas")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=false)
      */
     private $plantilla;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPlantilla", inversedBy="plantillas")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipo;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPlantilla", inversedBy="plantillas")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */

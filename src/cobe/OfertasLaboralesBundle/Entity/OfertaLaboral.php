@@ -2,6 +2,7 @@
 namespace cobe\OfertasLaboralesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto as Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\OfertasLaboralesBundle\Repository\OfertaLaboralRepository")
@@ -13,55 +14,64 @@ use cobe\CommonBundle\Entity\Objeto as Obj;
 class OfertaLaboral extends Obj
 {
     /**
-     * 
+     * @ORM\Column(type="datetime", nullable=true, options={"comment":"Fecha limite de la oferta laboral."})
      */
     private $fechaLimite;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona", mappedBy="ofertaLaboral")
      */
     private $ofertaLaboralPersonas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral", mappedBy="ofertaLaboral")
      */
     private $comentarios;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoTrabajo", mappedBy="ofertaLaboral")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral", mappedBy="ofertaLaboral")
      */
     private $estadisticas;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral", inversedBy="ofertasLaboralesEstado")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estadoOfertasLaborales;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral", inversedBy="ofertasLaboralesTipo")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipoOfertasLaborales;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="ofertasLaborales")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=false)
      */
     private $usuario;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", inversedBy="ofertasLaborales")
      * @ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)
      */
     private $publicacion;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Aptitud", inversedBy="ofertasLaboralesAptitud")
      * @ORM\JoinTable(
      *     name="Aptitud2OfertaLaboral",
@@ -72,6 +82,7 @@ class OfertaLaboral extends Obj
     private $aptitudes;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="ofertasLaborales")
      * @ORM\JoinTable(
      *     name="Etiqueta2OfertaLaboral",
@@ -82,6 +93,7 @@ class OfertaLaboral extends Obj
     private $etiquetas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Idioma", inversedBy="ofertasLaborales")
      * @ORM\JoinTable(
      *     name="Idioma2OfertaLaboral",
@@ -92,6 +104,7 @@ class OfertaLaboral extends Obj
     private $idiomas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Ciudad", inversedBy="ofertasLaborales")
      * @ORM\JoinTable(
      *     name="Ciudad2OfertaLaboral",
@@ -446,5 +459,47 @@ class OfertaLaboral extends Obj
     public function getCiudades()
     {
         return $this->ciudades;
+    }
+
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function setFechaLimite($fechaLimite)
+    {
+        if(!is_a($fechaLimite,'DateTime')){
+            try{
+                $formats = array(
+                    'Y-m-d', 'y-m-d', 'y/m/d', 'Y/m/d',
+                    'Y-m-d H:i:s', 'y-m-d H:i:s', 'y/m/d H:i:s', 'Y/m/d H:i:s'
+                );
+                foreach($formats as $format){
+                    $fechaLimite = new \DateTime($fechaLimite);
+                    if(\DateTime::createFromFormat($format,$fechaLimite)){
+                        $fechaLimite = \DateTime::createFromFormat($format,$fechaLimite);
+                        break;
+                    }
+                }
+                if(!is_a($fechaLimite,'DateTime')){
+                    $fechaLimite = $this->getFechaLimite();
+                }
+            }catch(\Exception $e){
+                $fechaLimite = $this->getFechaLimite();
+            }
+        }
+        $this->fechaLimite = $fechaLimite;
+        return $this;
+    }
+
+    /**
+     * Get fechaCreado
+     *
+     * @return \DateTime
+     */
+    public function getFechaLimite()
+    {
+        return $this->fechaLimite;
     }
 }

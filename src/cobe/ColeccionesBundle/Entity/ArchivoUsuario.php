@@ -2,6 +2,7 @@
 namespace cobe\ColeccionesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\ColeccionesBundle\Entity\Archivo;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -9,6 +10,7 @@ use cobe\ColeccionesBundle\Entity\Archivo;
 class ArchivoUsuario extends Archivo
 {
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="archivos")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=false)
      */

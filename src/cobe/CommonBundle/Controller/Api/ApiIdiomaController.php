@@ -382,11 +382,12 @@ class ApiIdiomaController extends ApiController
             $em = $this->getManager();
             $metadata = $em->getClassMetadata(get_class($idioma));
             $isModify = false;
+            $noModify = array('id');
             foreach($datos as $id => $dato){
                 /*
                  * Falta modificar asociaciones
                 */
-                if($metadata->hasField($id)){
+                if($metadata->hasField($id) && !in_array($id, $noModify)){
                     $tipo = $metadata->getTypeOfField($id);
                     $dato = $repo->sanearDato($dato, $tipo);
                     $accessor = PropertyAccess::createPropertyAccessor();

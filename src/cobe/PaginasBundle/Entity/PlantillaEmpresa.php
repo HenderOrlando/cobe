@@ -2,6 +2,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\PaginasBundle\Entity\Plantilla;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PlantillaEmpresaRepository")
@@ -10,6 +11,7 @@ use cobe\PaginasBundle\Entity\Plantilla;
 class PlantillaEmpresa extends Plantilla
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", mappedBy="plantillaEmpresa")
      */
     private $empresas;

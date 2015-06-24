@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Estado;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\EstadoUsuarioRepository")
@@ -10,6 +11,7 @@ use cobe\CommonBundle\Entity\Estado;
 class EstadoUsuario extends Estado
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", mappedBy="estado")
      */
     private $usuarios;

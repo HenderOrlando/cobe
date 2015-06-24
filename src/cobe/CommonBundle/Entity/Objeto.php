@@ -71,7 +71,6 @@ class Objeto
     {
         $this->nombre = $nombre;
 
-
         $this->canonical = Normalizacion::normalizarTexto($nombre);
 
         return $this;

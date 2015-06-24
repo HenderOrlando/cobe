@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Rol;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\RolUsuarioRepository")
@@ -10,6 +11,7 @@ use cobe\CommonBundle\Entity\Rol;
 class RolUsuario extends Rol
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", mappedBy="rol")
      */
     private $usuarios;

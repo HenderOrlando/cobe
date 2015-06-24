@@ -1,6 +1,7 @@
 <?php
 namespace cobe\MensajesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\DestinatarioRepository")
@@ -24,18 +25,21 @@ class Destinatario
     private $fechaCreado;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", inversedBy="destinatarios")
      * @ORM\JoinColumn(name="mensaje", referencedColumnName="id", nullable=false)
      */
     private $mensaje;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="destinatarios")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=false)
      */
     private $usuario;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\EstadoDestinatario", inversedBy="destinatarios")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */

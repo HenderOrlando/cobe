@@ -2,6 +2,7 @@
 namespace cobe\EstadisticasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Tipo;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -9,6 +10,7 @@ use cobe\CommonBundle\Entity\Tipo;
 class TipoEstadistica extends Tipo
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", mappedBy="tipo")
      */
     private $estadisticasTipo;

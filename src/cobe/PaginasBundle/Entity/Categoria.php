@@ -2,6 +2,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Etiqueta;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\CategoriaRepository")
@@ -10,16 +11,19 @@ use cobe\CommonBundle\Entity\Etiqueta;
 class Categoria extends Etiqueta
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Categoria", mappedBy="categoria")
      */
     private $subcategorias;
 
     /**
+     * @MaxDepth(1)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="categoriaPublicacion")
      */
     private $publicacionesCategoria;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="subcategorias")
      * @ORM\JoinColumn(name="categoria", referencedColumnName="id")
      */

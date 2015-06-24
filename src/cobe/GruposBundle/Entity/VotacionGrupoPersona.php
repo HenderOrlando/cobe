@@ -1,6 +1,7 @@
 <?php
 namespace cobe\GruposBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -20,12 +21,14 @@ class VotacionGrupoPersona
     private $opcion;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", inversedBy="votacionGrupoPersona")
      * @ORM\JoinColumn(name="grupoPersona", referencedColumnName="id", nullable=false)
      */
     private $grupoPersona;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Votacion", inversedBy="votacionesGrupoPersona")
      * @ORM\JoinColumn(name="votacion", referencedColumnName="id", nullable=false)
      */

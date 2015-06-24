@@ -2,6 +2,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Estado;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\EstadoPlantillaRepository")
@@ -10,6 +11,7 @@ use cobe\CommonBundle\Entity\Estado;
 class EstadoPlantilla extends Estado
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Plantilla", mappedBy="estado")
      */
     private $plantillas;

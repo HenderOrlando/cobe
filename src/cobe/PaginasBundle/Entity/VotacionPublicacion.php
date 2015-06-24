@@ -2,6 +2,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\GruposBundle\Entity\Votacion;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\VotacionPublicacionRepository")
@@ -10,12 +11,14 @@ use cobe\GruposBundle\Entity\Votacion;
 class VotacionPublicacion extends Votacion
 {
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoVotacionPublicacion", inversedBy="votaciones")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipo;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", inversedBy="votacion")
      * @ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)
      */

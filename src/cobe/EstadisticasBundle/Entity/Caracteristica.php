@@ -2,6 +2,7 @@
 namespace cobe\EstadisticasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Etiqueta;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\EstadisticasBundle\Repository\CaracteristicaRepository")
@@ -9,6 +10,7 @@ use cobe\CommonBundle\Entity\Etiqueta;
 class Caracteristica extends Etiqueta
 {
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", mappedBy="caracteristicas")
      */
     private $estadisticasCaracteristica;

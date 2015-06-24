@@ -2,6 +2,7 @@
 namespace cobe\CurriculosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\CentroEstudioRepository")
@@ -10,16 +11,19 @@ use cobe\CommonBundle\Entity\Objeto;
 class CentroEstudio extends Objeto
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\Estudio", mappedBy="centroEstudio")
      */
     private $estudios;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoCentroEstudio", mappedBy="centroEstudio")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Estudiante", mappedBy="centroEstudio")
      */
     private $estudiantes;

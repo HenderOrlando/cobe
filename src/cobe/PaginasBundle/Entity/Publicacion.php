@@ -2,6 +2,7 @@
 namespace cobe\PaginasBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PublicacionRepository")
@@ -28,68 +29,80 @@ class Publicacion extends Obj
     private $idexada;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="publicacion")
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="publicacion", fetch="EXTRA_LAZY")
      */
     private $ofertasLaborales;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioPublicacion", mappedBy="publicacion")
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
      */
     private $comentarios;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\VotacionPublicacion", mappedBy="publicacion")
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\VotacionPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
      */
     private $votacion;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion", mappedBy="publicacion")
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
      */
     private $archivosPublicacion;
 
     /**
-     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaPublicacion", mappedBy="publicacion")
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
      */
     private $estadisticas;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicacionesCategoria")
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicacionesCategoria", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)
      */
     private $categoriaPublicacion;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPublicacion", inversedBy="publicacionesEstado")
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPublicacion", inversedBy="publicacionesEstado", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estadoPublicacion;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPublicacion", inversedBy="publicacionesTipo")
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPublicacion", inversedBy="publicacionesTipo", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipoPublicacion;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaPublicacion", inversedBy="publicaciones")
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaPublicacion", inversedBy="publicaciones", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="publicaciones")
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="publicaciones", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="autor", referencedColumnName="id", nullable=false)
      */
     private $autor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\GrupoEditor", inversedBy="publicaciones")
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\GrupoEditor", inversedBy="publicaciones", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=true)
      */
     private $grupoEditor;
 
     /**
-     * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="publicaciones")
+     * @MaxDepth(2)
+     * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="publicaciones", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(
      *     name="Etiqueta2Publicacion",
      *     joinColumns={@ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)},

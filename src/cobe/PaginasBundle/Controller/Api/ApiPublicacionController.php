@@ -208,7 +208,7 @@ class ApiPublicacionController extends ApiController
     public function getPublicacionesAction(Request $request)
     {
         $repository = $this->getPublicacionRepository();
-        $list = $repository->getAll();
+        $list = $repository->getAllObj();
 
         return $this->getJsonResponse($list, $request);
     }
@@ -382,11 +382,12 @@ class ApiPublicacionController extends ApiController
             $em = $this->getManager();
             $metadata = $em->getClassMetadata(get_class($publicacion));
             $isModify = false;
+            $noModify = array('id', 'autor');
             foreach($datos as $id => $dato){
                 /*
                  * Falta modificar asociaciones
                 */
-                if($metadata->hasField($id)){
+                if($metadata->hasField($id) && !in_array($id, $noModify)){
                     $tipo = $metadata->getTypeOfField($id);
                     $dato = $repo->sanearDato($dato, $tipo);
                     $accessor = PropertyAccess::createPropertyAccessor();

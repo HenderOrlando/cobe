@@ -2,6 +2,7 @@
 namespace cobe\CurriculosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Etiqueta;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\NivelIdiomaRepository")
@@ -9,6 +10,7 @@ use cobe\CommonBundle\Entity\Etiqueta;
 class NivelIdioma extends Etiqueta
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\IdiomaPersona", mappedBy="nivelIdioma")
      */
     private $idiomaPersona;

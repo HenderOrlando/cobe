@@ -2,6 +2,7 @@
 namespace cobe\GruposBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\GruposBundle\Repository\GrupoRepository")
@@ -16,32 +17,38 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Grupo extends Obj
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="grupo")
      */
     private $grupoPersonas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioGrupo", mappedBy="grupo")
      */
     private $comentarios;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoGrupo", mappedBy="grupo")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaGrupo", mappedBy="grupo")
      */
     private $estadisticasGrupo;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaGrupo", inversedBy="grupos")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="gruposInteres")
      * @ORM\JoinTable(
      *     name="Interes2Grupo",
@@ -52,6 +59,7 @@ class Grupo extends Obj
     private $interesesGrupo;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="grupos")
      * @ORM\JoinTable(
      *     name="Etiqueta2Grupo",

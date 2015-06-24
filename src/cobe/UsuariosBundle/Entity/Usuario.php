@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\UsuarioRepository")
@@ -54,59 +55,70 @@ class Usuario extends Objeto
     private $token;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Historial", mappedBy="usuario")
      */
     private $historiales;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="usuario")
      */
     private $ofertasLaborales;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", mappedBy="usuarioMensaje")
      */
     private $mensajesUsuario;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Destinatario", mappedBy="usuario")
      */
     private $destinatarios;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioUsuario", mappedBy="usuario")
      */
     private $comentariosUsuario;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoUsuario", mappedBy="usuario")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaUsuario", mappedBy="usuario")
      */
     private $estadisticas;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\RolUsuario", inversedBy="usuarios")
      * @ORM\JoinColumn(name="rol", referencedColumnName="id", nullable=false)
      */
     private $rol;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\EstadoUsuario", inversedBy="usuarios")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estado;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaUsuario", inversedBy="usuarios")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="solicitados")
      * @ORM\JoinTable(
      *     name="Amistad",
@@ -117,6 +129,7 @@ class Usuario extends Objeto
     private $solicitantes;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", mappedBy="solicitantes")
      */
     private $solicitados;

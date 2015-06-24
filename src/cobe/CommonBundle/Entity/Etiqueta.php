@@ -2,6 +2,7 @@
 namespace cobe\CommonBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\EtiquetaRepository")
@@ -22,35 +23,43 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Etiqueta extends Obj
 {
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Estudiante", mappedBy="etiquetas")
      */
     private $estudiantes;
+
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", mappedBy="etiquetas")
      */
     private $empresas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="cobe\GruposBundle\Entity\Grupo", mappedBy="etiquetas")
      */
     private $grupos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="etiquetas")
      */
     private $ofertasLaborales;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="etiquetas")
      */
     private $publicaciones;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\ColeccionesBundle\Entity\Archivo", mappedBy="etiquetas")
      */
     private $archivos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", mappedBy="etiquetas")
      */
     private $estadisticasEtiqueta;

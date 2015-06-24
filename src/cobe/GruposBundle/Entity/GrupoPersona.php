@@ -1,6 +1,7 @@
 <?php
 namespace cobe\GruposBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\GruposBundle\Repository\GrupoPersonaRepository")
@@ -19,29 +20,34 @@ class GrupoPersona
     private $id;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\VotacionGrupoPersona", mappedBy="grupoPersona")
      */
     private $votacionGrupoPersona;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="grupoPersonas")
      * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)
      */
     private $grupo;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="gruposPersona")
      * @ORM\JoinColumn(name="persona", referencedColumnName="id", nullable=false)
      */
     private $persona;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\RolGrupoPersona", inversedBy="grupoPersona")
      * @ORM\JoinColumn(name="rolPersona", referencedColumnName="id", nullable=false)
      */
     private $rolPersona;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\EstadoGrupoPersona", inversedBy="grupoPersona")
      * @ORM\JoinColumn(name="estadoPersona", referencedColumnName="id", nullable=false)
      */

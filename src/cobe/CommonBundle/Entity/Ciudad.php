@@ -2,6 +2,7 @@
 namespace cobe\CommonBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\CommonBundle\Entity\Objeto AS Obj;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\CiudadRepository")
@@ -9,22 +10,26 @@ use cobe\CommonBundle\Entity\Objeto AS Obj;
 class Ciudad extends Obj
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\Persona", mappedBy="ciudad")
      */
     private $personas;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\CommonBundle\Entity\Pais", inversedBy="ciudades")
      * @ORM\JoinColumn(name="pais", referencedColumnName="id", nullable=false)
      */
     private $pais;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", mappedBy="ciudades")
      */
     private $empresas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="ciudades")
      */
     private $ofertasLaborales;

@@ -2,6 +2,7 @@
 namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\UsuariosBundle\Entity\Persona;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\EmpresaRepository")
@@ -10,22 +11,26 @@ use cobe\UsuariosBundle\Entity\Persona;
 class Empresa extends Persona
 {
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\UsuariosBundle\Entity\RepresentanteEmpresa", mappedBy="empresa")
      */
     private $representantes;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa", mappedBy="empresa")
      */
     private $estadisticasEmpresa;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaEmpresa", inversedBy="empresas")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantillaEmpresa;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="empresas")
      * @ORM\JoinTable(
      *     name="Etiqueta2Empresa",
@@ -36,6 +41,7 @@ class Empresa extends Persona
     private $etiquetas;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Ciudad", inversedBy="empresas")
      * @ORM\JoinTable(
      *     name="Ciudad2Empresa",
@@ -46,6 +52,7 @@ class Empresa extends Persona
     private $ciudades;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="empresas")
      * @ORM\JoinTable(
      *     name="Interes2Empresa",
@@ -56,6 +63,7 @@ class Empresa extends Persona
     private $intereses;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", inversedBy="empresas")
      * @ORM\JoinTable(
      *     name="Proyecto2Empresa",
@@ -66,6 +74,7 @@ class Empresa extends Persona
     private $proyectos;
 
     /**
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Reconocimiento", mappedBy="empresas")
      */
     private $reconocimientos;

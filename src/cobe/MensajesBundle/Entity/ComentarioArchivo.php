@@ -2,6 +2,7 @@
 namespace cobe\MensajesBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\MensajesBundle\Entity\Comentario;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -9,6 +10,7 @@ use cobe\MensajesBundle\Entity\Comentario;
 class ComentarioArchivo extends Comentario
 {
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\Archivo", inversedBy="comentarios")
      * @ORM\JoinColumn(name="archivo", referencedColumnName="id")
      */
