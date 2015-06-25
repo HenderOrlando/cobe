@@ -461,6 +461,7 @@ class ApiController extends Controller
 
     public function getColeccionObject(ClassMetadata $metadata, $data, $type, $request, $collectionName, $returnObjs = false){
         if(isset($data[$collectionName])){
+            $collections = null;
             if(is_string($data[$collectionName]) && substr_count($data[$collectionName],'[') == 1 && substr_count($data[$collectionName],']') == 1 && substr_count($data[$collectionName],',') >= 1){
                 $collections = explode(',',str_replace('[','',str_replace(']','',str_replace(' ','',$data[$collectionName]))));
             }elseif(is_array($data[$collectionName])){

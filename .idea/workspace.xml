@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="86653faa-3454-4ddd-81e3-dea4d92279f2" name="Default" comment="Terminado Patch para actualizar&#10;&#10;Flta revisar los métodos para resetear y guardar los cambios en todas las entities.&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" afterPath="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cobe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,8 +126,8 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5072464" vertical-offset="8133" max-vertical-offset="8823">
-              <caret line="522" column="5" selection-start-line="522" selection-start-column="5" selection-end-line="522" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.5550725" vertical-offset="7233" max-vertical-offset="8840">
+              <caret line="471" column="55" selection-start-line="471" selection-start-column="55" selection-end-line="471" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -1910,8 +1909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5072464" vertical-offset="8133" max-vertical-offset="8823">
-          <caret line="522" column="5" selection-start-line="522" selection-start-column="5" selection-end-line="522" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.5550725" vertical-offset="7233" max-vertical-offset="8840">
+          <caret line="471" column="55" selection-start-line="471" selection-start-column="55" selection-end-line="471" selection-end-column="55" />
           <folding />
         </state>
       </provider>
