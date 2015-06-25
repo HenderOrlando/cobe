@@ -161,7 +161,7 @@ class ApiController extends Controller
         $saved = false;
         $errors = array();
         if($request){
-            $this->getColectionsObjects($obj, $type->getName(), $request);
+            $this->getColectionsObjects($obj, $type, $request);
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $isValid = true;
