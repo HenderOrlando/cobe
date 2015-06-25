@@ -384,16 +384,28 @@ class ApiRecomendacionController extends ApiController
             $isModify = false;
             $noModify = array('id');
             foreach($datos as $id => $dato){
-                /*
-                 * Falta modificar asociaciones
-                */
-                if($metadata->hasField($id) && !in_array($id, $noModify)){
-                    $tipo = $metadata->getTypeOfField($id);
-                    $dato = $repo->sanearDato($dato, $tipo);
-                    $accessor = PropertyAccess::createPropertyAccessor();
-                    if($accessor->getValue($recomendacion, $id) !== $dato){
-                        $accessor->setValue($recomendacion, $id, $dato);
-                        $isModify = true;
+                if(!in_array($id, $noModify)){
+                    if($metadata->hasField($id)){
+                        $tipo = $metadata->getTypeOfField($id);
+                        $dato = $repo->sanearDato($dato, $tipo);
+                        $accessor = PropertyAccess::createPropertyAccessor();
+                        if($accessor->getValue($recomendacion, $id) !== $dato){
+                            $accessor->setValue($recomendacion, $id, $dato);
+                            $isModify = true;
+                        }
+                    }elseif($metadata->isCollectionValuedAssociation($id)){
+                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                        //$datos_ = $request->request->get($type->getName(), false);
+                        //$dato = $datos[$id] = $datos_[$id];
+                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                        if(empty($msgs)){
+                            $set = 'set'.ucfirst($id);
+                            if(method_exists($recomendacion,$set)){
+                                //$collection = new ArrayCollection($collection);
+                                $recomendacion->$set($collection);
+                            }
+                            $isModify = true;
+                        }
                     }
                 }
             }

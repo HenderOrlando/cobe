@@ -484,17 +484,30 @@ class ApiUsuarioController extends ApiController
             $em = $this->getManager();
             $metadata = $em->getClassMetadata(get_class($usuario));
             $isModify = false;
+            $noModify = array('id');
             foreach($datos as $id => $dato){
-                /*
-                 * Falta modificar asociaciones
-                */
-                if($metadata->hasField($id)){
-                    $tipo = $metadata->getTypeOfField($id);
-                    $dato = $repo->sanearDato($dato, $tipo);
-                    $accessor = PropertyAccess::createPropertyAccessor();
-                    if($accessor->getValue($usuario, $id) !== $dato){
-                        $accessor->setValue($usuario, $id, $dato);
-                        $isModify = true;
+                if(!in_array($id, $noModify)){
+                    if($metadata->hasField($id)){
+                        $tipo = $metadata->getTypeOfField($id);
+                        $dato = $repo->sanearDato($dato, $tipo);
+                        $accessor = PropertyAccess::createPropertyAccessor();
+                        if($accessor->getValue($usuario, $id) !== $dato){
+                            $accessor->setValue($usuario, $id, $dato);
+                            $isModify = true;
+                        }
+                    }elseif($metadata->isCollectionValuedAssociation($id)){
+                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                        //$datos_ = $request->request->get($type->getName(), false);
+                        //$dato = $datos[$id] = $datos_[$id];
+                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                        if(empty($msgs)){
+                            $set = 'set'.ucfirst($id);
+                            if(method_exists($usuario,$set)){
+                                //$collection = new ArrayCollection($collection);
+                                $usuario->$set($collection);
+                            }
+                            $isModify = true;
+                        }
                     }
                 }
             }

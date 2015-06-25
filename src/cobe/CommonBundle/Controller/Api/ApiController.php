@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Query\QueryBuilder;
 use JMS\Serializer\SerializationContext;
 use Pagerfanta\Pagerfanta;
+use Proxies\__CG__\cobe\CommonBundle\Entity\Etiqueta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -160,28 +161,7 @@ class ApiController extends Controller
         $saved = false;
         $errors = array();
         if($request){
-            $data = $request->get($type->getName(), null);
-            /*var_dump($data);
-            if(isset($data['etiquetas']) && substr_count($data['etiquetas'],'[') == 1 && substr_count($data['etiquetas'],']') == 1 && substr_count($data['etiquetas'],',') >= 1){
-                $etiquetas = explode(',',str_replace('[','',str_replace(']','',str_replace(' ','',$data['etiquetas']))));
-                foreach($etiquetas as $i => $etiqueta){
-                    $qb = $this->getManager()->getRepository('cobeCommonBundle:Etiqueta')->createQueryBuilder('e')->select('e.id');
-                    $prams = array('nombre' => $etiqueta);
-                    if($this->validateTypeField('guid',$etiqueta)){
-                        $params = array('id' => $etiqueta);
-                        $qb->createQueryBuilder('e')->andWhere($qb->expr()->like('e.nombre',$qb->expr()->literal('%'.$etiqueta.'%')));
-                    }
-                    var_dump($qb->getDQL());
-                    $etiqueta = $qb->execute();
-                    if(!empty($etiqueta)){
-                        $etiqueta = $etiqueta[0];
-                        $data[$i] = $etiqueta['id'];
-                    }else{
-                        //crear la etiqueta
-                    }
-                }
-            }
-            die;*/
+            $this->getColectionsObjects($obj, $type->getName(), $request);
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $isValid = true;
@@ -375,37 +355,26 @@ class ApiController extends Controller
         $msgs = array();
         $accessor = PropertyAccess::createPropertyAccessor();
         foreach($classMetadata->getAssociationNames() as $associationName){
-            $association = $classMetadata->getAssociationMapping($associationName);
-            $configJoin = null;
             $value = $accessor->getValue($obj, $associationName);
-            if(isset($association['joinColumns'])){
-                $configJoin = $association['joinColumns'];
-            }
-            if($value){
-                $valid = true;
-                if($classMetadata->isCollectionValuedAssociation($associationName) && is_array($value)){
-                    //$objs = new ArrayCollection();
-                    foreach($value as $v){
-                        if(!is_a($v, $association['targetEntity'])){
-                            if($this->validateTypeField('guid', $v)){
-                                $entity = $this->getManager()->getRepository($association['targetEntity'])->find($v);
-                                if(!$entity){
-                                    $valid = false;
-                                }
-                            }else{
-                                $valid = false;
-                            }
-                            if(!$valid){
-                                break;
-                            }
-                        }
-                    }
-                    if(!$valid){
-                        $msgs[$associationName]['valid'] = '"'.$associationName.'" no es una colección de Objetos de "'.strtoupper($association['targetEntity']).'".';
-                    }
-                }elseif($classMetadata->isSingleValuedAssociation($associationName)){
-                    if(!is_a($value, $association['targetEntity'])){
-                        if($this->validateTypeField('guid', $value)){
+            $msgs = $this->validateOneAssociation($classMetadata, $value, $associationName);
+        }
+        return $msgs;
+    }
+
+    public function validateOneAssociation(ClassMetadata $classMetadata, $value, $associationName){
+        $msgs = array();
+        $association = $classMetadata->getAssociationMapping($associationName);
+        $configJoin = null;
+        if(isset($association['joinColumns'])){
+            $configJoin = $association['joinColumns'];
+        }
+        if($value){
+            $valid = true;
+            if($classMetadata->isCollectionValuedAssociation($associationName) && is_array($value)){
+                //$objs = new ArrayCollection();
+                foreach($value as $v){
+                    if(!is_a($v, $association['targetEntity'])){
+                        if($this->validateTypeField('guid', $v)){
                             $entity = $this->getManager()->getRepository($association['targetEntity'])->find($v);
                             if(!$entity){
                                 $valid = false;
@@ -413,17 +382,34 @@ class ApiController extends Controller
                         }else{
                             $valid = false;
                         }
-                    }
-                    if(!$valid){
-                        $msgs[$associationName]['valid'] = 'Se esperaba que "'.$associationName.'" fuera un Objeto "'.strtoupper($association['targetEntity']).'".';
+                        if(!$valid){
+                            break;
+                        }
                     }
                 }
-            }/*elseif($classMetadata->isNullable($associationName)){
+                if(!$valid){
+                    $msgs[$associationName]['valid'] = '"'.$associationName.'" no es una colección de Objetos de "'.strtoupper($association['targetEntity']).'".';
+                }
+            }elseif($classMetadata->isSingleValuedAssociation($associationName)){
+                if(!is_a($value, $association['targetEntity'])){
+                    if($this->validateTypeField('guid', $value)){
+                        $entity = $this->getManager()->getRepository($association['targetEntity'])->find($value);
+                        if(!$entity){
+                            $valid = false;
+                        }
+                    }else{
+                        $valid = false;
+                    }
+                }
+                if(!$valid){
+                    $msgs[$associationName]['valid'] = 'Se esperaba que "'.$associationName.'" fuera un Objeto "'.strtoupper($association['targetEntity']).'".';
+                }
+            }
+        }/*elseif($classMetadata->isNullable($associationName)){
                 $msgs[$associationName]['valid'] = '"'.$associationName.'" no debe ser VACÍO.';
             }*/
-            elseif($configJoin && !$configJoin[0]['nullable']){
-                $msgs[$associationName]['valid'] = '"'.$associationName.'" no es válido.';
-            }
+        elseif($configJoin && !$configJoin[0]['nullable']){
+            $msgs[$associationName]['valid'] = '"'.$associationName.'" no es válido.';
         }
         return $msgs;
     }
@@ -471,6 +457,80 @@ class ApiController extends Controller
             );
         }
         return $obj;
+    }
+
+    public function getColeccionObject(ClassMetadata $metadata, $data, $type, $request, $collectionName, $returnObjs = false){
+        if(isset($data[$collectionName])){
+            if(is_string($data[$collectionName]) && substr_count($data[$collectionName],'[') == 1 && substr_count($data[$collectionName],']') == 1 && substr_count($data[$collectionName],',') >= 1){
+                $collections = explode(',',str_replace('[','',str_replace(']','',str_replace(' ','',$data[$collectionName]))));
+            }elseif(is_array($data[$collectionName])){
+                $collections = $data[$collectionName];
+            }
+            if(is_array($collections)){
+                $className = $metadata->getAssociationTargetClass($collectionName);
+                foreach($collections as $i => $nombre){
+                    $qb = $this->getManager()->getRepository($className)->createQueryBuilder('e');
+                    if(!$returnObjs){
+                        $qb->select('e.id');
+                    }
+                    if(!$this->validateTypeField('guid',$nombre)){
+                        $qb->andWhere($qb->expr()->like('e.nombre',$qb->expr()->literal('%'.$nombre.'%')));
+                    }else{
+                        $qb->andWhere($qb->expr()->eq('e.nombre',$qb->expr()->literal($nombre)));
+                    }
+                    $collection = $qb->getQuery()->execute();
+                    $id = false;
+                    if(empty($collection)){
+                        $collection = new $className();
+                        $collection
+                            ->setNombre($nombre)
+                            ->setDescripcion($nombre)
+                        ;
+                        $this->getManager()->persist($collection);
+                        $this->getManager()->flush();
+                        if($returnObjs){
+                            $id = $collection;
+                        }else{
+                            $id = $collection->getId();
+                        }
+                    }elseif(isset($collection[0])){
+                        $collection = $collection[0];
+                        if(is_array($collection) && isset($collection['id'])){
+                            $id = $collection['id'];
+                        }elseif($returnObjs){
+                            $id = $collection;
+                        }
+                    }
+                    if($id){
+                        $collections[$i] = $id;
+                    }
+                }
+                $data[$collectionName] = $collections;
+                if($returnObjs){
+                    return $collections;
+                }
+                if($request->query->get($type->getName())){
+                    $request->query->set($type->getName(), $data);
+                }
+                if($request->attributes->get($type->getName())){
+                    $request->attributes->set($type->getName(), $data);
+                }
+                if($request->request->get($type->getName())){
+                    $request->request->set($type->getName(), $data);
+                }
+            }
+        }
+    }
+
+    public function getColectionsObjects($obj, $type, $request, $coleccionsNames = null){
+        $data = $request->get($type->getName(), null);
+        $metadata = $this->getClassMetadata($obj);
+        if(!is_array($coleccionsNames)){
+            $coleccionsNames = $metadata->getAssociationNames();
+        }
+        foreach($coleccionsNames as $cn){
+            $this->getColeccionObject($metadata, $data, $type, $request, $cn);
+        }
     }
 
 }

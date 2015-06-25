@@ -2,6 +2,7 @@
 
 namespace cobe\PaginasBundle\Controller\Api;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -161,6 +162,8 @@ class ApiPublicacionController extends ApiController
                 'examples'       => array(
                     '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/?publicacion[etiquetas][]=etiqueta1,publicacion[etiquetas][]=etiqueta2,publicacion[etiquetas][]=etiqueta2',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2?publicacion[etiquetas]=[etiqueta1,etiqueta2 ,etiqueta3]',
                 ),
             ),
             array(
@@ -170,6 +173,8 @@ class ApiPublicacionController extends ApiController
                 'examples'       => array(
                     '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/',
                     '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2/?publicacion[etiquetas][]=etiqueta1,publicacion[etiquetas][]=etiqueta2,publicacion[etiquetas][]=etiqueta2',
+                    '/publicaciones/038a3156-c9c1-11e4-b1eb-0022b003a0e2?publicacion[etiquetas]=[etiqueta1,etiqueta2 ,etiqueta3]',
                 ),
             ),
             array(
@@ -365,6 +370,7 @@ class ApiPublicacionController extends ApiController
     public function patchPublicacionAction(Request $request, $slug)
     {
         $publicacion = $this->getPublicacionRepository()->find($slug);
+        //$publicacion = new Publicacion();
         $type = new PublicacionType();
         $datos = $request->get($type->getName(), false);
 
@@ -384,16 +390,28 @@ class ApiPublicacionController extends ApiController
             $isModify = false;
             $noModify = array('id', 'autor');
             foreach($datos as $id => $dato){
-                /*
-                 * Falta modificar asociaciones
-                */
-                if($metadata->hasField($id) && !in_array($id, $noModify)){
-                    $tipo = $metadata->getTypeOfField($id);
-                    $dato = $repo->sanearDato($dato, $tipo);
-                    $accessor = PropertyAccess::createPropertyAccessor();
-                    if($accessor->getValue($publicacion, $id) !== $dato){
-                        $accessor->setValue($publicacion, $id, $dato);
-                        $isModify = true;
+                if(!in_array($id, $noModify)){
+                    if($metadata->hasField($id)){
+                        $tipo = $metadata->getTypeOfField($id);
+                        $dato = $repo->sanearDato($dato, $tipo);
+                        $accessor = PropertyAccess::createPropertyAccessor();
+                        if($accessor->getValue($publicacion, $id) !== $dato){
+                            $accessor->setValue($publicacion, $id, $dato);
+                            $isModify = true;
+                        }
+                    }elseif($metadata->isCollectionValuedAssociation($id)){
+                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                        //$datos_ = $request->request->get($type->getName(), false);
+                        //$dato = $datos[$id] = $datos_[$id];
+                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                        if(empty($msgs)){
+                            $set = 'set'.ucfirst($id);
+                            if(method_exists($publicacion,$set)){
+                                //$collection = new ArrayCollection($collection);
+                                $publicacion->$set($collection);
+                            }
+                            $isModify = true;
+                        }
                     }
                 }
             }

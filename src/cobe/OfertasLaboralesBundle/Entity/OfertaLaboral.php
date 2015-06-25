@@ -205,6 +205,39 @@ class OfertaLaboral extends Obj
     }
 
     /**
+     * Add archivos
+     *
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos
+     * @return OfertaLaboral
+     */
+    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
+    {
+        $this->archivos[] = $archivos;
+
+        return $this;
+    }
+
+    /**
+     * Remove archivos
+     *
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos
+     */
+    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
+    {
+        $this->archivos->removeElement($archivos);
+    }
+
+    /**
+     * Get archivos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArchivos()
+    {
+        return $this->archivos;
+    }
+
+    /**
      * Add estadisticas
      *
      * @param \cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas

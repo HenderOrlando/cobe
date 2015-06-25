@@ -30,79 +30,79 @@ class Publicacion extends Obj
 
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="publicacion", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="publicacion")
      */
     private $ofertasLaborales;
 
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioPublicacion", mappedBy="publicacion")
      */
     private $comentarios;
 
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\VotacionPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\VotacionPublicacion", mappedBy="publicacion")
      */
     private $votacion;
 
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion", mappedBy="publicacion")
      */
     private $archivosPublicacion;
 
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaPublicacion", mappedBy="publicacion", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaPublicacion", mappedBy="publicacion")
      */
     private $estadisticas;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicacionesCategoria", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicacionesCategoria")
      * @ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)
      */
     private $categoriaPublicacion;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPublicacion", inversedBy="publicacionesEstado", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPublicacion", inversedBy="publicacionesEstado")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estadoPublicacion;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPublicacion", inversedBy="publicacionesTipo", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPublicacion", inversedBy="publicacionesTipo")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipoPublicacion;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaPublicacion", inversedBy="publicaciones", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\PlantillaPublicacion", inversedBy="publicaciones")
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="publicaciones", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="publicaciones")
      * @ORM\JoinColumn(name="autor", referencedColumnName="id", nullable=false)
      */
     private $autor;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\GrupoEditor", inversedBy="publicaciones", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\GrupoEditor", inversedBy="publicaciones")
      * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=true)
      */
     private $grupoEditor;
 
     /**
      * @MaxDepth(2)
-     * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="publicaciones", fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="publicaciones")
      * @ORM\JoinTable(
      *     name="Etiqueta2Publicacion",
      *     joinColumns={@ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)},
@@ -507,6 +507,24 @@ class Publicacion extends Obj
     }
 
     /**
+     * set etiquetas
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Publicacion
+     */
+    public function setEtiquetas($etiquetas)
+    {
+        if(is_array($etiquetas)){
+            $this->removeAllEtiqueta();
+            foreach($etiquetas as $e){
+                $this->addEtiqueta($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * Add etiquetas
      *
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
@@ -527,6 +545,19 @@ class Publicacion extends Obj
     public function removeEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas->removeElement($etiquetas);
+    }
+
+    /**
+     * Remove All etiquetas
+     *
+     * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
+     */
+    public function removeAllEtiqueta()
+    {
+        foreach($this->getEtiquetas() as $et){
+            $this->etiquetas->removeElement($et);
+        }
+        return $this->getEtiquetas();
     }
 
     /**
