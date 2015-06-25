@@ -36,6 +36,31 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class ApiController extends Controller
 {
+    /**
+     * Regresa opciones de la API.
+     *
+     * @Route("/All", name="options_Api")
+     * @Route("/All/", name="options_Api_")
+     * @Route("/all", name="options_api")
+     * @Route("/all/", name="options_api_")
+     * @Template()
+     * @Method("OPTIONS")
+     */
+    public function getOptionsAction(Request $request){
+        $options = array(
+            "Grupo"     => array(
+                'route'         => '/grupos',
+                'method'        => 'GET',
+                'description'   => 'Lista todos los grupos.',
+                'examples'       => array(
+                    '/grupos',
+                    '/grupos/',
+                ),
+            ),
+        );
+        return $this->getJsonResponse($options, $request);
+    }
+
     protected $page = 1;
     protected $offset = 1;
     protected $limit = 5;
@@ -166,6 +191,10 @@ class ApiController extends Controller
             //$isValid = $form->isValid();
             $isValid = true;
             if($isValid){
+                $datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
+                /*var_dump($obj);
+                var_dump($request->get($form->getName()));
+                die;*/
                 if($save){
                     $em = $this->getManager();
                     $em->persist($obj);
@@ -418,8 +447,8 @@ class ApiController extends Controller
         try{
             $em->flush();
         }catch(\Exception $e){
-            /*var_dump($e);
-            die;*/
+            var_dump($e);
+            die;
             $classMetadata = $this->getClassMetadata($obj);
             $msgs = 'No details.';
             if($classMetadata){

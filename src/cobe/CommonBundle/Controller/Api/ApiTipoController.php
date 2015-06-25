@@ -61,6 +61,7 @@ class ApiTipoController extends ApiController
             "Recomendacion"         => "Tipo para una Recomendación",
             "Reconocimiento"        => "Tipo para un Reconocimiento",
             "Proyecto"              => "Tipo para un Proyecto",
+            "Ofertalaboral"         => "Tipo para una Oferta Laboral",
             "OfertaLaboral"         => "Tipo para una Oferta Laboral",
             "Publicacion"           => "Tipo para una Publicación",
             "VotacionPublicacion"   => "Tipo para una Votación en una Publicación",

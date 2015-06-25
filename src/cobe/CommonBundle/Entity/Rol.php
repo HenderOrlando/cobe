@@ -25,8 +25,11 @@ class Rol extends Obj
             "Rol"=>'\cobe\CommonBundle\Entity\Rol',
             "Usuario"=>'\cobe\UsuariosBundle\Entity\RolUsuario',
             "ProyectoPersona"=>'\cobe\CurriculosBundle\Entity\RolProyectoPersona',
+            "Proyectopersona"=>'\cobe\CurriculosBundle\Entity\RolProyectoPersona',
             "GrupoPersona"=>'\cobe\GruposBundle\Entity\RolGrupoPersona',
-            "TrabajoPersona"=>'\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona'
+            "Grupopersona"=>'\cobe\GruposBundle\Entity\RolGrupoPersona',
+            "TrabajoPersona"=>'\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona',
+            "Trabajopersona"=>'\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona'
         );
     }
 

@@ -36,8 +36,10 @@ class Tipo extends Obj
       'Reconocimiento'      =>'\cobe\CurriculosBundle\Entity\TipoProyecto',
       'Proyecto'            =>'\cobe\CurriculosBundle\Entity\TipoReconocimiento',
       'OfertaLaboral'       =>'\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral',
+      'Ofertalaboral'       =>'\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral',
       'Publicacion'         =>'\cobe\PaginasBundle\Entity\TipoPublicacion',
       'VotacionPublicacion' =>'\cobe\PaginasBundle\Entity\TipoVotacionPublicacion',
+      'Votacionpublicacion' =>'\cobe\PaginasBundle\Entity\TipoVotacionPublicacion',
       'Archivo'             =>'\cobe\ColeccionesBundle\Entity\TipoArchivo',
       'Estadistica'         =>'\cobe\EstadisticasBundle\Entity\TipoEstadistica',
       'Plantilla'           =>'\cobe\PaginasBundle\Entity\TipoPlantilla'
