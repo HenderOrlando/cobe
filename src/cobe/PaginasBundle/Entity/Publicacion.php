@@ -62,7 +62,7 @@ class Publicacion extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicaciones")
      * @ORM\JoinTable(
-     *     name="Categoria2Publicacion",
+     *     name="categoria2publicacion",
      *     joinColumns={@ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)}
      * )
@@ -108,7 +108,7 @@ class Publicacion extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="publicaciones")
      * @ORM\JoinTable(
-     *     name="Etiqueta2Publicacion",
+     *     name="etiqueta2publicacion",
      *     joinColumns={@ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )

@@ -32,7 +32,7 @@ class Reconocimiento extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", inversedBy="reconocimientos")
      * @ORM\JoinTable(
-     *     name="Empresa2Reconocimiento",
+     *     name="empresa2reconocimiento",
      *     joinColumns={@ORM\JoinColumn(name="reconocimiento", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="empresa", referencedColumnName="id", nullable=false)}
      * )

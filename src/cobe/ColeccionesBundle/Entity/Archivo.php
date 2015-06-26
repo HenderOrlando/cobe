@@ -84,7 +84,7 @@ class Archivo extends Objeto
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="archivos")
      * @ORM\JoinTable(
-     *     name="Etiqueta2Archivo",
+     *     name="etiqueta2archivo",
      *     joinColumns={@ORM\JoinColumn(name="archivo", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )

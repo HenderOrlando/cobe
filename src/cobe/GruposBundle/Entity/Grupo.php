@@ -51,7 +51,7 @@ class Grupo extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="gruposInteres")
      * @ORM\JoinTable(
-     *     name="Interes2Grupo",
+     *     name="interes2grupo",
      *     joinColumns={@ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="interes", referencedColumnName="id", nullable=false)}
      * )
@@ -62,7 +62,7 @@ class Grupo extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="grupos")
      * @ORM\JoinTable(
-     *     name="Etiqueta2Grupo",
+     *     name="etiqueta2grupo",
      *     joinColumns={@ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )

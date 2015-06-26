@@ -44,7 +44,7 @@ class Estudiante extends Persona
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="estudiantes")
      * @ORM\JoinTable(
-     *     name="Etiqueta2Estudiante",
+     *     name="etiqueta2estudiante",
      *     joinColumns={@ORM\JoinColumn(name="estudiante", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )

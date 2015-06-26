@@ -136,7 +136,7 @@ class Persona extends Usuario
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Aptitud", inversedBy="personas")
      * @ORM\JoinTable(
-     *     name="Aptitud2Persona",
+     *     name="aptitud2persona",
      *     joinColumns={@ORM\JoinColumn(name="persona", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="aptitud", referencedColumnName="id", nullable=false)}
      * )

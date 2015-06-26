@@ -81,7 +81,7 @@ class Estadistica extends Objeto
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="estadisticasEtiqueta")
      * @ORM\JoinTable(
-     *     name="Etiqueta2Estadistica",
+     *     name="etiqueta2estadistica",
      *     joinColumns={@ORM\JoinColumn(name="estadistica", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
@@ -92,7 +92,7 @@ class Estadistica extends Objeto
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Caracteristica", inversedBy="estadisticasCaracteristica")
      * @ORM\JoinTable(
-     *     name="Caracteristica2Estadistica",
+     *     name="caracteristica2estadistica",
      *     joinColumns={@ORM\JoinColumn(name="estadistica", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="caracteristica", referencedColumnName="id", nullable=false)}
      * )

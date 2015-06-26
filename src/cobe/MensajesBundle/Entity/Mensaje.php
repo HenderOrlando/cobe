@@ -66,7 +66,7 @@ class Mensaje extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", inversedBy="mensajesRespuesta")
      * @ORM\JoinTable(
-     *     name="Mensaje2Mensaje",
+     *     name="mensaje2mensaje",
      *     joinColumns={@ORM\JoinColumn(name="mensajeRespuesta", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="mensaje", referencedColumnName="id", nullable=false)}
      * )

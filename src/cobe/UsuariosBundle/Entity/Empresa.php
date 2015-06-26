@@ -33,7 +33,7 @@ class Empresa extends Persona
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="empresas")
      * @ORM\JoinTable(
-     *     name="Etiqueta2Empresa",
+     *     name="etiqueta2empresa",
      *     joinColumns={@ORM\JoinColumn(name="empresa", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
@@ -44,7 +44,7 @@ class Empresa extends Persona
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Ciudad", inversedBy="empresas")
      * @ORM\JoinTable(
-     *     name="Ciudad2Empresa",
+     *     name="ciudad2empresa",
      *     joinColumns={@ORM\JoinColumn(name="empresa", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="ciudad", referencedColumnName="id", nullable=false)}
      * )
@@ -55,7 +55,7 @@ class Empresa extends Persona
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="empresas")
      * @ORM\JoinTable(
-     *     name="Interes2Empresa",
+     *     name="interes2empresa",
      *     joinColumns={@ORM\JoinColumn(name="empresa", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="interes", referencedColumnName="id", nullable=false)}
      * )
@@ -66,7 +66,7 @@ class Empresa extends Persona
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", inversedBy="empresas")
      * @ORM\JoinTable(
-     *     name="Proyecto2Empresa",
+     *     name="proyecto2empresa",
      *     joinColumns={@ORM\JoinColumn(name="empresa", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="proyecto", referencedColumnName="id", nullable=false)}
      * )

@@ -121,7 +121,7 @@ class Usuario extends Objeto
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="solicitados")
      * @ORM\JoinTable(
-     *     name="Amistad",
+     *     name="amistad",
      *     joinColumns={@ORM\JoinColumn(name="solicitado", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="solicitante", referencedColumnName="id", nullable=false)}
      * )

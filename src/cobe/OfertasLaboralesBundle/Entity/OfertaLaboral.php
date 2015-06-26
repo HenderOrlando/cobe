@@ -74,7 +74,7 @@ class OfertaLaboral extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Aptitud", inversedBy="ofertasLaboralesAptitud")
      * @ORM\JoinTable(
-     *     name="Aptitud2OfertaLaboral",
+     *     name="aptitud2ofertaLaboral",
      *     joinColumns={@ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="aptitud", referencedColumnName="id", nullable=false)}
      * )
@@ -85,7 +85,7 @@ class OfertaLaboral extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="ofertasLaborales")
      * @ORM\JoinTable(
-     *     name="Etiqueta2OfertaLaboral",
+     *     name="etiqueta2ofertaLaboral",
      *     joinColumns={@ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
@@ -96,7 +96,7 @@ class OfertaLaboral extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Idioma", inversedBy="ofertasLaborales")
      * @ORM\JoinTable(
-     *     name="Idioma2OfertaLaboral",
+     *     name="idioma2ofertaLaboral",
      *     joinColumns={@ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="idioma", referencedColumnName="id", nullable=false)}
      * )
@@ -107,7 +107,7 @@ class OfertaLaboral extends Obj
      * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Ciudad", inversedBy="ofertasLaborales")
      * @ORM\JoinTable(
-     *     name="Ciudad2OfertaLaboral",
+     *     name="ciudad2ofertaLaboral",
      *     joinColumns={@ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="ciudad", referencedColumnName="id", nullable=false)}
      * )
