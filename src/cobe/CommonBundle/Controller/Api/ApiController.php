@@ -186,16 +186,18 @@ class ApiController extends Controller
         $saved = false;
         $errors = array();
         if($request){
+            /*var_dump($request->get($form->getName()));
+            echo "=====================================================================================";
             $this->getColectionsObjects($obj, $type, $request);
+            $datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
+            var_dump(json_decode($datos));
+            echo "=====================================================================================";
+            var_dump($request->get($form->getName()));
+            die;*/
             $form->handleRequest($request);
             //$isValid = $form->isValid();
             $isValid = true;
             if($isValid){
-                /*$datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
-                var_dump(json_decode($datos));
-                var_dump(get_class($obj->getAutor()));
-                var_dump($request->get($form->getName()));
-                die;*/
                 if($save){
                     $em = $this->getManager();
                     $em->persist($obj);
@@ -493,7 +495,7 @@ class ApiController extends Controller
     public function getColeccionObject(ClassMetadata $metadata, $data, $type, $request, $collectionName, $returnObjs = false){
         if(isset($data[$collectionName])){
             $collections = null;
-            if(is_string($data[$collectionName]) && substr_count($data[$collectionName],'[') == 1 && substr_count($data[$collectionName],']') == 1 && substr_count($data[$collectionName],',') >= 1){
+            if(is_string($data[$collectionName]) && substr_count($data[$collectionName],'[') == 1 && substr_count($data[$collectionName],']') == 1){
                 $collections = explode(',',str_replace('[','',str_replace(']','',$data[$collectionName])));
             }elseif(is_array($data[$collectionName])){
                 $collections = $data[$collectionName];
@@ -507,7 +509,9 @@ class ApiController extends Controller
                         $qb->select('e.id');
                     }
                     if(!$this->validateTypeField('guid',$nombre)){
-                        $qb->andWhere($qb->expr()->like('e.nombre',$qb->expr()->literal('%'.$nombre.'%')));
+                        $qb
+                            ->orWhere($qb->expr()->like('e.nombre',$qb->expr()->literal('%'.$nombre.'%')))
+                            ->orWhere($qb->expr()->like('e.canonical',$qb->expr()->literal('%'.$nombre.'%')));
                     }else{
                         $qb->andWhere($qb->expr()->eq('e.id',$qb->expr()->literal($nombre)));
                     }
@@ -564,6 +568,7 @@ class ApiController extends Controller
         foreach($coleccionsNames as $cn){
             $this->getColeccionObject($metadata, $data, $type, $request, $cn);
         }
+        echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     }
 
 }

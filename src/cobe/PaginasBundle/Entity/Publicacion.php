@@ -127,6 +127,7 @@ class Publicacion extends Obj
         $this->archivosPublicacion = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -373,24 +374,34 @@ class Publicacion extends Obj
     }
 
     /**
-     * Set categoriaPublicacion
+     * Add categorias
      *
-     * @param \cobe\PaginasBundle\Entity\Categoria $categorias
+     * @param \cobe\ColeccionesBundle\Entity\Categoria $categorias
      * @return Publicacion
      */
-    public function setCategoria(\cobe\PaginasBundle\Entity\Categoria $categorias)
+    public function addCategorias(\cobe\ColeccionesBundle\Entity\Categoria $categorias)
     {
-        $this->categorias = $categorias;
+        $this->categorias[] = $categorias;
 
         return $this;
     }
 
     /**
-     * Get categoriaPublicacion
+     * Remove categorias
      *
-     * @return \cobe\PaginasBundle\Entity\Categoria
+     * @param \cobe\ColeccionesBundle\Entity\Categoria $categorias
      */
-    public function getCategoria()
+    public function removeCategorias(\cobe\ColeccionesBundle\Entity\Categorias $categorias)
+    {
+        $this->categorias->removeElement($categorias);
+    }
+
+    /**
+     * Get categorias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorias()
     {
         return $this->categorias;
     }
