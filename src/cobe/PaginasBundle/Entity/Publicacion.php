@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\MaxDepth;
  * @ORM\Entity(repositoryClass="cobe\PaginasBundle\Repository\PublicacionRepository")
  * @ORM\Table(
  *     options={"comment":"Publicaciones realizadas en el sistema"},
- *     indexes={@ORM\Index(name="categorias", columns={"categorias"}),@ORM\Index(name="grupo_editor", columns={})}
+ *     indexes={@ORM\Index(name="grupo_editor", columns={})}
  * )
  */
 class Publicacion extends Obj
