@@ -378,7 +378,7 @@ class Publicacion extends Obj
      * @param \cobe\PaginasBundle\Entity\Categoria $categorias
      * @return Publicacion
      */
-    public function setCategoriaPublicacion(\cobe\PaginasBundle\Entity\Categoria $categorias)
+    public function setCategoria(\cobe\PaginasBundle\Entity\Categoria $categorias)
     {
         $this->categorias = $categorias;
 
@@ -390,7 +390,7 @@ class Publicacion extends Obj
      *
      * @return \cobe\PaginasBundle\Entity\Categoria
      */
-    public function getCategoriaPublicacion()
+    public function getCategoria()
     {
         return $this->categorias;
     }
