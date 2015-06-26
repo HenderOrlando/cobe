@@ -97,7 +97,7 @@ class Grupo extends Obj
      * @param \cobe\GruposBundle\Entity\GrupoPersona $personasGrupo
      * @return Grupo
      */
-    public function addGrupoPersona(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
+    public function addPersonasGrupo(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
     {
         $this->personasGrupo[] = $personasGrupo;
 
@@ -109,7 +109,7 @@ class Grupo extends Obj
      *
      * @param \cobe\GruposBundle\Entity\GrupoPersona $personasGrupo
      */
-    public function removeGrupoPersona(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
+    public function removePersonasGrupo(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
     {
         $this->personasGrupo->removeElement($personasGrupo);
     }
@@ -119,7 +119,7 @@ class Grupo extends Obj
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGrupoPersonas()
+    public function getPersonasGrupo()
     {
         return $this->personasGrupo;
     }

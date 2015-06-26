@@ -280,8 +280,8 @@ class ApiRolController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $rol->getHerencias();
-            $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
             if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
                 $rolHerencia = $herencias[$datos['herencia']];
                 $rol = new $rolHerencia();
                 $type = new RolType($this->generateUrl('post_roles'), 'POST', array(), $rolHerencia);

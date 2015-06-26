@@ -282,8 +282,8 @@ class ApiMensajeController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $mensaje->getHerencias();
-            $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
             if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
                 $mensajeHerencia = $herencias[$datos['herencia']];
                 $mensaje = new $mensajeHerencia();
                 $type = new MensajeType($this->generateUrl('post_mensajes'), 'POST', array(), $mensajeHerencia);

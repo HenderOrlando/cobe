@@ -191,10 +191,11 @@ class ApiController extends Controller
             //$isValid = $form->isValid();
             $isValid = true;
             if($isValid){
-                //$datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
-                var_dump($obj);
+                /*$datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
+                var_dump(json_decode($datos));
+                var_dump(get_class($obj->getAutor()));
                 var_dump($request->get($form->getName()));
-                die;
+                die;*/
                 if($save){
                     $em = $this->getManager();
                     $em->persist($obj);
@@ -508,7 +509,7 @@ class ApiController extends Controller
                     if(!$this->validateTypeField('guid',$nombre)){
                         $qb->andWhere($qb->expr()->like('e.nombre',$qb->expr()->literal('%'.$nombre.'%')));
                     }else{
-                        $qb->andWhere($qb->expr()->eq('e.nombre',$qb->expr()->literal($nombre)));
+                        $qb->andWhere($qb->expr()->eq('e.id',$qb->expr()->literal($nombre)));
                     }
                     $collection = $qb->getQuery()->execute();
                     $id = false;

@@ -281,8 +281,8 @@ class ApiEtiquetaController extends ApiController
         if($request->get($type->getName(), false)){
             $datos = $request->get($type->getName(), false);
             $herencias = $etiqueta->getHerencias();
-            $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
             if(isset($datos['herencia']) && is_array($herencias) && array_key_exists($datos['herencia'],$herencias)){
+                $datos['herencia'] = ucfirst(strtolower($datos['herencia']));
                 $etiquetaHerencia = $herencias[$datos['herencia']];
                 $etiqueta = new $etiquetaHerencia();
                 $type = new EtiquetaType($this->generateUrl('post_etiquetas'), 'POST', array(), $etiquetaHerencia);
