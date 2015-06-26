@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86653faa-3454-4ddd-81e3-dea4d92279f2" name="Default" comment="Terminado Patch para actualizar&#10;&#10;Flta revisar los métodos para resetear y guardar los cambios en todas las entities.&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" afterPath="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" />
     </list>
     <ignored path="cobe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,20 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublicacionType.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PublicacionType.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="204" max-vertical-offset="1071">
-              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.13934426" vertical-offset="204" max-vertical-offset="1071">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Publicacion.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Publicacion.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8406828" vertical-offset="6124" max-vertical-offset="9384">
+            <state vertical-scroll-proportion="-10.745455" vertical-offset="6124" max-vertical-offset="9384">
               <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
               <folding>
                 <element signature="e#43#75#0#PHP" expanded="true" />
@@ -159,9 +159,9 @@
         <option value="$PROJECT_DIR$/src/cobe/GruposBundle/Entity/Grupo.php" />
         <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Controller/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php" />
-        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" />
         <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Categoria.php" />
         <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php" />
+        <option value="$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php" />
       </list>
     </option>
   </component>
@@ -1996,14 +1996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077" vertical-offset="204" max-vertical-offset="1071">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/CommonBundle/Entity/Etiqueta.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077" vertical-offset="459" max-vertical-offset="5695">
@@ -2030,11 +2022,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Entity/Publicacion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8406828" vertical-offset="6124" max-vertical-offset="9384">
+        <state vertical-scroll-proportion="-10.745455" vertical-offset="6124" max-vertical-offset="9384">
           <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
           <folding>
             <element signature="e#43#75#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cobe/PaginasBundle/Form/PublicacionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13934426" vertical-offset="204" max-vertical-offset="1071">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

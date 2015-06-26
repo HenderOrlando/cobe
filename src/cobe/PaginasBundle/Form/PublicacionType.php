@@ -18,7 +18,7 @@ class PublicacionType extends ObjectType
 
         $builder
             ->add('autor')
-            ->add('categoriaPublicacion')
+            ->add('categorias')
             ->add('fechaArchiva')
             ->add('estadoPublicacion')
             ->add('grupoEditor')
