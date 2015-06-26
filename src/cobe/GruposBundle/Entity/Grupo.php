@@ -20,7 +20,7 @@ class Grupo extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="grupo")
      */
-    private $grupoPersonas;
+    private $personasGrupo;
 
     /**
      * @MaxDepth(2)
@@ -67,14 +67,14 @@ class Grupo extends Obj
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $etiquetas;
+    protected $etiquetas;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->grupoPersonas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personasGrupo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasGrupo = new \Doctrine\Common\Collections\ArrayCollection();
@@ -94,12 +94,12 @@ class Grupo extends Obj
     /**
      * Add grupoPersonas
      *
-     * @param \cobe\GruposBundle\Entity\GrupoPersona $grupoPersonas
+     * @param \cobe\GruposBundle\Entity\GrupoPersona $personasGrupo
      * @return Grupo
      */
-    public function addGrupoPersona(\cobe\GruposBundle\Entity\GrupoPersona $grupoPersonas)
+    public function addGrupoPersona(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
     {
-        $this->grupoPersonas[] = $grupoPersonas;
+        $this->personasGrupo[] = $personasGrupo;
 
         return $this;
     }
@@ -107,11 +107,11 @@ class Grupo extends Obj
     /**
      * Remove grupoPersonas
      *
-     * @param \cobe\GruposBundle\Entity\GrupoPersona $grupoPersonas
+     * @param \cobe\GruposBundle\Entity\GrupoPersona $personasGrupo
      */
-    public function removeGrupoPersona(\cobe\GruposBundle\Entity\GrupoPersona $grupoPersonas)
+    public function removeGrupoPersona(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
     {
-        $this->grupoPersonas->removeElement($grupoPersonas);
+        $this->personasGrupo->removeElement($personasGrupo);
     }
 
     /**
@@ -121,7 +121,7 @@ class Grupo extends Obj
      */
     public function getGrupoPersonas()
     {
-        return $this->grupoPersonas;
+        return $this->personasGrupo;
     }
 
     /**

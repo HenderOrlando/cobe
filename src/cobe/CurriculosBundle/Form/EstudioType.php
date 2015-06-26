@@ -17,7 +17,9 @@ class EstudioType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
+            ->add('archivos')
             ->add('centroEstudio')
+            ->add('personasEstudio')
             ->add('tipo')
             ->add('titulacion')
         ;

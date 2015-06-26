@@ -17,6 +17,7 @@ class RecomendacionType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
+            ->add('archivos')
             ->add('recomienda')
             ->add('recomendado')
             ->add('tipo')

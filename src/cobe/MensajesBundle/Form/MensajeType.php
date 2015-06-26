@@ -20,6 +20,9 @@ class MensajeType extends ObjectType
             ->add('estadoMensaje')
             ->add('plantilla')
             ->add('usuarioMensaje')
+            ->add('destinatarios')
+            ->add('archivos')
+            ->add('mensajes')
         ;
 
         $builder->setMethod($this->method);

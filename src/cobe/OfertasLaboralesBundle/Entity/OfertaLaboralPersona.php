@@ -28,7 +28,7 @@ class OfertaLaboralPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", inversedBy="ofertaLaboralPersonas")
+     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", inversedBy="personasOfertaLaboral")
      * @ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)
      */
     private $ofertaLaboral;

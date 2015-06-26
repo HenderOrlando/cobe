@@ -17,7 +17,9 @@ class ReconocimientoType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
+            ->add('empresas')
             ->add('fechaOtorgado')
+            ->add('reconocimientoPersonas')
             ->add('tipo')
         ;
 

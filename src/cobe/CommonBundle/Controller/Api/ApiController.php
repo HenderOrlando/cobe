@@ -191,10 +191,10 @@ class ApiController extends Controller
             //$isValid = $form->isValid();
             $isValid = true;
             if($isValid){
-                $datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
-                /*var_dump($obj);
+                //$datos = $this->container->get('serializer')->serialize($obj, 'json', SerializationContext::create()->enableMaxDepthChecks());
+                var_dump($obj);
                 var_dump($request->get($form->getName()));
-                die;*/
+                die;
                 if($save){
                     $em = $this->getManager();
                     $em->persist($obj);
@@ -444,7 +444,8 @@ class ApiController extends Controller
     }
 
     public function captureErrorFlush($em, $obj, $msg){
-        try{
+        $em->flush();
+        /*try{
             $em->flush();
         }catch(\Exception $e){
             var_dump($e);
@@ -484,7 +485,7 @@ class ApiController extends Controller
                     ),
                 ),
             );
-        }
+        }*/
         return $obj;
     }
 
@@ -492,13 +493,14 @@ class ApiController extends Controller
         if(isset($data[$collectionName])){
             $collections = null;
             if(is_string($data[$collectionName]) && substr_count($data[$collectionName],'[') == 1 && substr_count($data[$collectionName],']') == 1 && substr_count($data[$collectionName],',') >= 1){
-                $collections = explode(',',str_replace('[','',str_replace(']','',str_replace(' ','',$data[$collectionName]))));
+                $collections = explode(',',str_replace('[','',str_replace(']','',$data[$collectionName])));
             }elseif(is_array($data[$collectionName])){
                 $collections = $data[$collectionName];
             }
             if(is_array($collections)){
                 $className = $metadata->getAssociationTargetClass($collectionName);
                 foreach($collections as $i => $nombre){
+                    $nombre = trim($nombre);
                     $qb = $this->getManager()->getRepository($className)->createQueryBuilder('e');
                     if(!$returnObjs){
                         $qb->select('e.id');

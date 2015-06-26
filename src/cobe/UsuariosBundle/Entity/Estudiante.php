@@ -49,7 +49,7 @@ class Estudiante extends Persona
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $etiquetas;
+    protected $etiquetas;
     /**
      * Constructor
      */

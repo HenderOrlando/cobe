@@ -27,11 +27,20 @@ class PersonaType extends UsuarioType
 
         $builder
             ->add('apellidos')
+            ->add('aptitudes')
             ->add('ciudad')
             ->add('direccion')
             ->add('doc_id')
+            ->add('empresas')
+            ->add('estudiosPersona')
             ->add('fechaNace')
+            ->add('gruposPersona')
+            ->add('idiomasPersona')
+            ->add('intereses')
             ->add('nombres')
+            ->add('proyectosPersona')
+            ->add('recomendados')
+            ->add('reconocimientosPersona')
             ->add('telefono')
         ;
     }

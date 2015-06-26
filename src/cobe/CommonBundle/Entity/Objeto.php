@@ -143,6 +143,39 @@ class Objeto
     }
 
     /**
+     * set etiquetas
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Objeto
+     */
+    public function setEtiquetas($etiquetas)
+    {
+        if(is_array($etiquetas)){
+            $this->removeAllEtiqueta();
+            foreach($etiquetas as $e){
+                $this->addEtiqueta($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All etiquetas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllEtiqueta()
+    {
+        /*foreach($this->getEtiquetas() as $et){
+            $this->etiquetas->removeElement($et);
+        }*/
+        $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getEtiquetas();
+    }
+
+    /**
      * __toString
      *
      * @return string

@@ -18,6 +18,8 @@ class CategoriaType extends ObjectType
 
         $builder
             ->add('categoria')
+            ->add('subcategorias')
+            ->add('publicacionesCategoria')
         ;
 
         $builder->setMethod($this->method);

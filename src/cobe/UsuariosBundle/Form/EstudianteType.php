@@ -21,6 +21,7 @@ class EstudianteType extends PersonaType
         $builder
             ->add('centroEstudio')
             ->add('codigo')
+            ->add('etiquetas')
             ->add('fechaGrado')
             ->add('plantillaEstudiante')
         ;

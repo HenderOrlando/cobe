@@ -42,7 +42,7 @@ class EstudioPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Estudio", inversedBy="estudioPersonas")
+     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Estudio", inversedBy="personasEstudio")
      * @ORM\JoinColumn(name="estudio", referencedColumnName="id", nullable=false)
      */
     private $estudio;

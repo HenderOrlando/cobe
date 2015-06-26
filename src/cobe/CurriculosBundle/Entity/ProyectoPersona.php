@@ -36,7 +36,7 @@ class ProyectoPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", inversedBy="proyectoPersonas")
+     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", inversedBy="personasProyecto")
      * @ORM\JoinColumn(name="proyecto", referencedColumnName="id", nullable=false)
      */
     private $proyecto;

@@ -24,11 +24,14 @@ class UsuarioType extends ObjectType
 
     public function getBuilderUsuarioForm(FormBuilderInterface $builder, array $options){
         $builder
+            ->add('archivos')
             ->add('clave')
+            ->add('comentariosUsuario')
             ->add('email')
             ->add('estado')
             ->add('plantilla')
             ->add('rol')
+            ->add('solicitados')
         ;
     }
     

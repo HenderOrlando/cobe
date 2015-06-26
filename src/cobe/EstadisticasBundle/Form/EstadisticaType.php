@@ -17,8 +17,18 @@ class EstadisticaType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            ->add('tipo')
+            ->add('caracteristicas')
             ->add('estado')
+            ->add('estadisticasAptitud')
+            ->add('estadisticasEmpresa')
+            ->add('estadisticasGrupo')
+            ->add('estadisticasInteres')
+            ->add('estadisticasMensaje')
+            ->add('estadisticasOfertaLaboral')
+            ->add('estadisticasPublicacion')
+            ->add('estadisticasUsuario')
+            ->add('etiquetas')
+            ->add('tipo')
         ;
 
         $builder->setMethod($this->method);

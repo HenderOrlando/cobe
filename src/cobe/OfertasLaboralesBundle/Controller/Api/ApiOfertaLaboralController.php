@@ -337,7 +337,7 @@ class ApiOfertaLaboralController extends ApiController
         $form = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear la OfertaLaboral.',
+                    'message'   => 'No se encuentran los datos para Sobreescribir la OfertaLaboral.',
                     'code'      => '400',
                 ),
             ),
@@ -371,12 +371,11 @@ class ApiOfertaLaboralController extends ApiController
         $rta = array(
             'errors' => array(
                 '400' => array(
-                    'message'   => 'No se encuentran los datos para crear la OfertaLaboral.',
+                    'message'   => 'No se encuentran los datos para Actualizar la OfertaLaboral.',
                     'code'      => '400',
                 ),
             ),
         );
-
         if($datos && $ofertalaboral){
             $repo = $this->getOfertaLaboralRepository();
             $em = $this->getManager();

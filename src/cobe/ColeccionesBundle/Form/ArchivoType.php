@@ -17,12 +17,13 @@ class ArchivoType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            /*->add('url')
+            ->add('url')
             ->add('fullUrl')
             ->add('size')
             ->add('ext')
             ->add('estado')
-            ->add('tipo')*/
+            ->add('tipo')
+            ->add('comentarios')
             ->add('etiquetas')
         ;
 

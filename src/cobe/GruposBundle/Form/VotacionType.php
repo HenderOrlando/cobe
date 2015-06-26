@@ -21,6 +21,7 @@ class VotacionType extends ObjectType
             ->add('fechaFin')
             ->add('opciones')
             ->add('opcionSeleccionada')
+            ->add('votacionesGrupoPersona')
         ;
 
         $builder->setMethod($this->method);

@@ -27,7 +27,7 @@ class Estudio extends Objeto
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\EstudioPersona", mappedBy="estudio")
      */
-    private $estudioPersonas;
+    private $personasEstudio;
 
     /**
      * @MaxDepth(2)
@@ -54,7 +54,7 @@ class Estudio extends Objeto
     public function __construct()
     {
         parent::__construct();
-        $this->estudioPersonas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personasEstudio = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -93,12 +93,12 @@ class Estudio extends Objeto
     /**
      * Add estudioPersonas
      *
-     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $estudioPersonas
+     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio
      * @return Estudio
      */
-    public function addEstudioPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $estudioPersonas)
+    public function addEstudioPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio)
     {
-        $this->estudioPersonas[] = $estudioPersonas;
+        $this->personasEstudio[] = $personasEstudio;
 
         return $this;
     }
@@ -106,11 +106,11 @@ class Estudio extends Objeto
     /**
      * Remove estudioPersonas
      *
-     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $estudioPersonas
+     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio
      */
-    public function removeEstudioPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $estudioPersonas)
+    public function removeEstudioPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio)
     {
-        $this->estudioPersonas->removeElement($estudioPersonas);
+        $this->personasEstudio->removeElement($personasEstudio);
     }
 
     /**
@@ -120,7 +120,7 @@ class Estudio extends Objeto
      */
     public function getEstudioPersonas()
     {
-        return $this->estudioPersonas;
+        return $this->personasEstudio;
     }
 
     /**

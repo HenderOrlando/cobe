@@ -16,10 +16,11 @@ class AptitudType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        /*$builder
-            ->add('personas')
+        $builder
+            ->add('archivosAptitud')
+            ->add('estadisticasAptitud')
             ->add('ofertasLaboralesAptitud')
-        ;*/
+        ;
         $builder->setMethod($this->method);
         $this->addSubmit($builder);
     }

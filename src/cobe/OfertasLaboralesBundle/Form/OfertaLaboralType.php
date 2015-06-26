@@ -17,8 +17,15 @@ class OfertaLaboralType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
+            ->add('aptitudes')
+            ->add('archivos')
+            ->add('ciudades')
+            ->add('comentarios')
+            ->add('etiquetas')
             ->add('estadoOfertasLaborales')
             ->add('fechaLimite')
+            ->add('idiomas')
+            ->add('personasOfertaLaboral')
             ->add('publicacion')
             ->add('tipoOfertasLaborales')
             ->add('usuario')

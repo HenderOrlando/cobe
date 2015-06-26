@@ -17,8 +17,11 @@ class ProyectoType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
+            ->add('archivos')
+            ->add('empresas')
             ->add('fechaInicio')
             ->add('fechaFin')
+            ->add('personasProyecto')
             ->add('tipo')
         ;
 

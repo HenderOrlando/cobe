@@ -22,7 +22,7 @@ class OfertaLaboral extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona", mappedBy="ofertaLaboral")
      */
-    private $ofertaLaboralPersonas;
+    private $personasOfertaLaboral;
 
     /**
      * @MaxDepth(2)
@@ -90,7 +90,7 @@ class OfertaLaboral extends Obj
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $etiquetas;
+    protected $etiquetas;
 
     /**
      * @MaxDepth(2)
@@ -119,7 +119,7 @@ class OfertaLaboral extends Obj
     public function __construct()
     {
         parent::__construct();
-        $this->ofertaLaboralPersonas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personasOfertaLaboral = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
@@ -141,12 +141,12 @@ class OfertaLaboral extends Obj
     /**
      * Add ofertaLaboralPersonas
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersonas
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral
      * @return OfertaLaboral
      */
-    public function addOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersonas)
+    public function addOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral)
     {
-        $this->ofertaLaboralPersonas[] = $ofertaLaboralPersonas;
+        $this->personasOfertaLaboral[] = $personasOfertaLaboral;
 
         return $this;
     }
@@ -154,11 +154,11 @@ class OfertaLaboral extends Obj
     /**
      * Remove ofertaLaboralPersonas
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersonas
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral
      */
-    public function removeOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersonas)
+    public function removeOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral)
     {
-        $this->ofertaLaboralPersonas->removeElement($ofertaLaboralPersonas);
+        $this->personasOfertaLaboral->removeElement($personasOfertaLaboral);
     }
 
     /**
@@ -168,7 +168,7 @@ class OfertaLaboral extends Obj
      */
     public function getOfertaLaboralPersonas()
     {
-        return $this->ofertaLaboralPersonas;
+        return $this->personasOfertaLaboral;
     }
 
     /**

@@ -16,9 +16,9 @@ class CaracteristicaType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        /*$builder
+        $builder
             ->add('estadisticasCaracteristica')
-        ;*/
+        ;
 
         $builder->setMethod($this->method);
         $this->addSubmit($builder);

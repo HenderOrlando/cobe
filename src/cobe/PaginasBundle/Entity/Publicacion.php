@@ -109,7 +109,7 @@ class Publicacion extends Obj
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $etiquetas;
+    protected $etiquetas;
     /**
      * Constructor
      */
@@ -150,7 +150,7 @@ class Publicacion extends Obj
     /**
      * Get metadatos
      *
-     * @return array 
+     * @return array
      */
     public function getMetadatos()
     {
@@ -173,7 +173,7 @@ class Publicacion extends Obj
     /**
      * Get fechaArchiva
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFechaArchiva()
     {
@@ -196,7 +196,7 @@ class Publicacion extends Obj
     /**
      * Get idexada
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIdexada()
     {
@@ -229,7 +229,7 @@ class Publicacion extends Obj
     /**
      * Get ofertasLaborales
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getOfertasLaborales()
     {
@@ -262,7 +262,7 @@ class Publicacion extends Obj
     /**
      * Get comentarios
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getComentarios()
     {
@@ -295,7 +295,7 @@ class Publicacion extends Obj
     /**
      * Get votacion
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getVotacion()
     {
@@ -328,7 +328,7 @@ class Publicacion extends Obj
     /**
      * Get archivosPublicacion
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getArchivosPublicacion()
     {
@@ -361,7 +361,7 @@ class Publicacion extends Obj
     /**
      * Get estadisticas
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEstadisticas()
     {
@@ -384,7 +384,7 @@ class Publicacion extends Obj
     /**
      * Get categoriaPublicacion
      *
-     * @return \cobe\PaginasBundle\Entity\Categoria 
+     * @return \cobe\PaginasBundle\Entity\Categoria
      */
     public function getCategoriaPublicacion()
     {
@@ -507,24 +507,6 @@ class Publicacion extends Obj
     }
 
     /**
-     * set etiquetas
-     *
-     * @param \Doctrine\Common\Collections\Collection
-     * @return Publicacion
-     */
-    public function setEtiquetas($etiquetas)
-    {
-        if(is_array($etiquetas)){
-            $this->removeAllEtiqueta();
-            foreach($etiquetas as $e){
-                $this->addEtiqueta($e);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * Add etiquetas
      *
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
@@ -545,19 +527,6 @@ class Publicacion extends Obj
     public function removeEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas->removeElement($etiquetas);
-    }
-
-    /**
-     * Remove All etiquetas
-     *
-     * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
-     */
-    public function removeAllEtiqueta()
-    {
-        foreach($this->getEtiquetas() as $et){
-            $this->etiquetas->removeElement($et);
-        }
-        return $this->getEtiquetas();
     }
 
     /**

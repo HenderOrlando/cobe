@@ -17,6 +17,7 @@ class TraduccionType extends ObjectType
         $builder
             ->add('idiomaTraducido')
             ->add('idiomaTraductor')
+            ->add('archivos')
         ;
         if(is_string($this->action)){
             $builder->setAction($this->action);

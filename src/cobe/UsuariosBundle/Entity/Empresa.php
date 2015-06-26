@@ -38,7 +38,7 @@ class Empresa extends Persona
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $etiquetas;
+    protected $etiquetas;
 
     /**
      * @MaxDepth(2)
@@ -355,6 +355,5 @@ class Empresa extends Persona
     {
         return $this->reconocimientos;
     }
-
 
 }

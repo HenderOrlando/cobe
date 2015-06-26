@@ -24,7 +24,7 @@ class Proyecto extends Objeto
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="proyecto")
      */
-    private $proyectoPersonas;
+    private $personasProyecto;
 
     /**
      * @MaxDepth(2)
@@ -50,7 +50,7 @@ class Proyecto extends Objeto
     public function __construct()
     {
         parent::__construct();
-        $this->proyectoPersonas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personasProyecto = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -113,12 +113,12 @@ class Proyecto extends Objeto
     /**
      * Add proyectoPersonas
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersonas
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto
      * @return Proyecto
      */
-    public function addProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersonas)
+    public function addProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto)
     {
-        $this->proyectoPersonas[] = $proyectoPersonas;
+        $this->personasProyecto[] = $personasProyecto;
 
         return $this;
     }
@@ -126,11 +126,11 @@ class Proyecto extends Objeto
     /**
      * Remove proyectoPersonas
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersonas
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto
      */
-    public function removeProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectoPersonas)
+    public function removeProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto)
     {
-        $this->proyectoPersonas->removeElement($proyectoPersonas);
+        $this->personasProyecto->removeElement($personasProyecto);
     }
 
     /**
@@ -140,7 +140,7 @@ class Proyecto extends Objeto
      */
     public function getProyectoPersonas()
     {
-        return $this->proyectoPersonas;
+        return $this->personasProyecto;
     }
 
     /**

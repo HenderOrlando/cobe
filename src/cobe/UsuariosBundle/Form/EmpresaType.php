@@ -20,7 +20,11 @@ class EmpresaType extends PersonaType
 
         $builder
             ->add('ciudades')
+            ->add('etiquetas')
+            ->add('intereses')
             ->add('plantillaEmpresa')
+            ->add('reconocimientos')
+            ->add('representantes')
         ;
 
         $builder->setMethod($this->method);

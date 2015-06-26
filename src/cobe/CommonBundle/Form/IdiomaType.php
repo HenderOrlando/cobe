@@ -16,9 +16,10 @@ class IdiomaType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        /*$builder
-            ->add('ofertasLaborales')
-        ;*/
+        $builder
+            ->add('traduccionesTraducido')
+            ->add('traduccionesTraductor')
+        ;
 
         if(is_string($this->action)){
             $builder->setAction($this->action);

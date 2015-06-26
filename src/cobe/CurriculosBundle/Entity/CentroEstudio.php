@@ -35,6 +35,7 @@ class CentroEstudio extends Objeto
         parent::__construct();
         $this->estudios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estudiantes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -133,5 +134,14 @@ class CentroEstudio extends Objeto
     public function removeEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
     {
         $this->estudiantes->removeElement($estudiantes);
+    }
+    /**
+     * Get estudiantes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEstudiantes()
+    {
+        return $this->estudiantes;
     }
 }

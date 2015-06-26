@@ -27,7 +27,7 @@ class GrupoPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="grupoPersonas")
+     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="personasGrupo")
      * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)
      */
     private $grupo;

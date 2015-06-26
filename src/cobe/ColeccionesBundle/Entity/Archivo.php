@@ -89,7 +89,7 @@ class Archivo extends Objeto
      *     inverseJoinColumns={@ORM\JoinColumn(name="etiqueta", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $etiquetas;
+    protected $etiquetas;
     /**
      * Constructor
      */

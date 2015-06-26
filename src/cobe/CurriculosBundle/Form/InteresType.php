@@ -16,11 +16,11 @@ class InteresType extends ObjectType
     {
         $this->addObjectForm($builder, $options);
 
-        /*$builder
+        $builder
             ->add('empresas')
             ->add('personas')
             ->add('gruposInteres')
-        ;*/
+        ;
 
         $builder->setMethod($this->method);
         $this->addSubmit($builder);
