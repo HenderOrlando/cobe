@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\EtiquetaRepository")
  * @ORM\Table(options={"comment":"Etiquetas de los Objetos del sistema."})
- * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="herencia", type="string")
  * @ORM\DiscriminatorMap(
  *     {

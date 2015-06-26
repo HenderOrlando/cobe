@@ -31,7 +31,7 @@ class PublicacionType extends ObjectType
             ->add('comentarios')
             ->add('votacion')
             ->add('archivosPublicacion')
-            ->add('categoriaPublicacion')
+            ->add('categorias')
             ->add('etiquetas')
         ;
 

@@ -59,7 +59,7 @@ class Publicacion extends Obj
     private $estadisticas;
 
     /**
-     * @MaxDepth(1)
+     * @MaxDepth(2)
      * @ORM\ManyToMany(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicaciones")
      * @ORM\JoinTable(
      *     name="Categoria2Publicacion",
@@ -67,7 +67,7 @@ class Publicacion extends Obj
      *     inverseJoinColumns={@ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $categorias;
+    protected $categorias;
 
     /**
      * @MaxDepth(1)
