@@ -60,10 +60,14 @@ class Publicacion extends Obj
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicacionesCategoria")
-     * @ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToMany(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="publicaciones")
+     * @ORM\JoinTable(
+     *     name="Categoria2Publicacion",
+     *     joinColumns={@ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)}
+     * )
      */
-    private $categoriaPublicacion;
+    private $categorias;
 
     /**
      * @MaxDepth(1)
@@ -371,12 +375,12 @@ class Publicacion extends Obj
     /**
      * Set categoriaPublicacion
      *
-     * @param \cobe\PaginasBundle\Entity\Categoria $categoriaPublicacion
+     * @param \cobe\PaginasBundle\Entity\Categoria $categorias
      * @return Publicacion
      */
-    public function setCategoriaPublicacion(\cobe\PaginasBundle\Entity\Categoria $categoriaPublicacion)
+    public function setCategoriaPublicacion(\cobe\PaginasBundle\Entity\Categoria $categorias)
     {
-        $this->categoriaPublicacion = $categoriaPublicacion;
+        $this->categorias = $categorias;
 
         return $this;
     }
@@ -388,7 +392,7 @@ class Publicacion extends Obj
      */
     public function getCategoriaPublicacion()
     {
-        return $this->categoriaPublicacion;
+        return $this->categorias;
     }
 
     /**

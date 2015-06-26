@@ -17,10 +17,10 @@ class Categoria extends Etiqueta
     private $subcategorias;
 
     /**
-     * @MaxDepth(1)
-     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="categoriaPublicacion")
+     * @MaxDepth(2)
+     * @ORM\ManyToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="categorias")
      */
-    private $publicacionesCategoria;
+    private $publicaciones;
 
     /**
      * @MaxDepth(1)
@@ -35,7 +35,7 @@ class Categoria extends Etiqueta
     {
         parent::__construct();
         $this->subcategorias = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->publicacionesCategoria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -83,12 +83,12 @@ class Categoria extends Etiqueta
     /**
      * Add publicacionesCategoria
      *
-     * @param \cobe\PaginasBundle\Entity\Publicacion $publicacionesCategoria
+     * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      * @return Categoria
      */
-    public function addPublicacionesCategorium(\cobe\PaginasBundle\Entity\Publicacion $publicacionesCategoria)
+    public function addPublicacionesCategorium(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
-        $this->publicacionesCategoria[] = $publicacionesCategoria;
+        $this->publicaciones[] = $publicaciones;
 
         return $this;
     }
@@ -96,11 +96,11 @@ class Categoria extends Etiqueta
     /**
      * Remove publicacionesCategoria
      *
-     * @param \cobe\PaginasBundle\Entity\Publicacion $publicacionesCategoria
+     * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      */
-    public function removePublicacionesCategorium(\cobe\PaginasBundle\Entity\Publicacion $publicacionesCategoria)
+    public function removePublicacionesCategorium(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
-        $this->publicacionesCategoria->removeElement($publicacionesCategoria);
+        $this->publicaciones->removeElement($publicaciones);
     }
 
     /**
@@ -110,7 +110,7 @@ class Categoria extends Etiqueta
      */
     public function getPublicacionesCategoria()
     {
-        return $this->publicacionesCategoria;
+        return $this->publicaciones;
     }
 
     /**
