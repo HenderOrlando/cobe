@@ -20,7 +20,7 @@ class Empresa extends Persona
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa", mappedBy="empresa")
      */
-    private $estadisticasEmpresa;
+    private $estadisticas;
 
     /**
      * @MaxDepth(1)
@@ -85,10 +85,9 @@ class Empresa extends Persona
     {
         parent::__construct();
         $this->representantes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estadisticasEmpresa = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ciudades = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->intereses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->proyectos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->reconocimientos = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -138,34 +137,34 @@ class Empresa extends Persona
     /**
      * Add estadisticasEmpresa
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticasEmpresa
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticas
      * @return Empresa
      */
-    public function addEstadisticasEmpresa(\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticasEmpresa)
+    public function addEstadisticasEmpresa(\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticas)
     {
-        $this->estadisticasEmpresa[] = $estadisticasEmpresa;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasEmpresa
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticasEmpresa
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticas
      */
-    public function removeEstadisticasEmpresa(\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticasEmpresa)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaEmpresa $estadisticas)
     {
-        $this->estadisticasEmpresa->removeElement($estadisticasEmpresa);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
-     * Get estadisticasEmpresa
+     * Get estadisticas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstadisticasEmpresa()
+    public function getEstadisticas()
     {
-        return $this->estadisticasEmpresa;
+        return $this->estadisticas;
     }
 
     /**

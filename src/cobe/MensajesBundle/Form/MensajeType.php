@@ -17,12 +17,11 @@ class MensajeType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
-            ->add('estadoMensaje')
+            ->add('estado')
             ->add('plantilla')
-            ->add('usuarioMensaje')
+            ->add('usuario')
             ->add('destinatarios')
             ->add('archivos')
-            ->add('mensajes')
         ;
 
         $builder->setMethod($this->method);

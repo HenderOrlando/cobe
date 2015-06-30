@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Tipo de una Estadística"})
  */
 class TipoEstadistica extends Tipo
 {
@@ -13,14 +14,14 @@ class TipoEstadistica extends Tipo
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", mappedBy="tipo")
      */
-    private $estadisticasTipo;
+    private $estadisticas;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->estadisticasTipo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -33,35 +34,35 @@ class TipoEstadistica extends Tipo
     }
 
     /**
-     * Add estadisticasTipo
+     * Add estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticasTipo
+     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticas
      * @return TipoEstadistica
      */
-    public function addEstadisticasTipo(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticasTipo)
+    public function addEstadisticas(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticas)
     {
-        $this->estadisticasTipo[] = $estadisticasTipo;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasTipo
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticasTipo
+     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticas
      */
-    public function removeEstadisticasTipo(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticasTipo)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticas)
     {
-        $this->estadisticasTipo->removeElement($estadisticasTipo);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
-     * Get estadisticasTipo
+     * Get estadisticas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
     public function getEstadisticasTipo()
     {
-        return $this->estadisticasTipo;
+        return $this->estadisticas;
     }
 }

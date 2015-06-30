@@ -12,7 +12,7 @@ class RolGrupoPersona extends Rol
 {
     /**
      * @MaxDepth(1)
-     * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="rolPersona")
+     * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="rol")
      */
     private $grupoPersona;
     /**

@@ -43,7 +43,7 @@ class Destinatario
      * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\EstadoDestinatario", inversedBy="destinatarios")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
-    private $estadoDestinatario;
+    private $estado;
 
     /**
      * Get id
@@ -125,25 +125,25 @@ class Destinatario
     }
 
     /**
-     * Set estadoDestinatario
+     * Set estado
      *
-     * @param \cobe\MensajesBundle\Entity\EstadoDestinatario $estadoDestinatario
+     * @param \cobe\MensajesBundle\Entity\EstadoDestinatario $estado
      * @return Destinatario
      */
-    public function setEstadoDestinatario(\cobe\MensajesBundle\Entity\EstadoDestinatario $estadoDestinatario)
+    public function setEstado(\cobe\MensajesBundle\Entity\EstadoDestinatario $estado)
     {
-        $this->estadoDestinatario = $estadoDestinatario;
+        $this->estado = $estado;
 
         return $this;
     }
 
     /**
-     * Get estadoDestinatario
+     * Get estado
      *
      * @return \cobe\MensajesBundle\Entity\EstadoDestinatario 
      */
-    public function getEstadoDestinatario()
+    public function getEstado()
     {
-        return $this->estadoDestinatario;
+        return $this->estado;
     }
 }

@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Tipo de un Archivo"})
  */
 class TipoArchivo extends Tipo
 {
@@ -13,14 +14,14 @@ class TipoArchivo extends Tipo
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\Archivo", mappedBy="tipo")
      */
-    private $archivosTipo;
+    private $archivos;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->archivosTipo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -35,12 +36,12 @@ class TipoArchivo extends Tipo
     /**
      * Add archivosTipo
      *
-     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivosTipo
+     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivos
      * @return TipoArchivo
      */
-    public function addArchivosTipo(\cobe\ColeccionesBundle\Entity\Archivo $archivosTipo)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\Archivo $archivos)
     {
-        $this->archivosTipo[] = $archivosTipo;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
@@ -48,11 +49,11 @@ class TipoArchivo extends Tipo
     /**
      * Remove archivosTipo
      *
-     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivosTipo
+     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivos
      */
-    public function removeArchivosTipo(\cobe\ColeccionesBundle\Entity\Archivo $archivosTipo)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\Archivo $archivos)
     {
-        $this->archivosTipo->removeElement($archivosTipo);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
@@ -60,8 +61,8 @@ class TipoArchivo extends Tipo
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosTipo()
+    public function getArchivos()
     {
-        return $this->archivosTipo;
+        return $this->archivos;
     }
 }

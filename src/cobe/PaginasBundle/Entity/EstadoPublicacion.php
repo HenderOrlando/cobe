@@ -12,16 +12,16 @@ class EstadoPublicacion extends Estado
 {
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="estadoPublicacion")
+     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="estado")
      */
-    private $publicacionesEstado;
+    private $publicaciones;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->publicacionesEstado = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -34,36 +34,36 @@ class EstadoPublicacion extends Estado
     }
 
     /**
-     * Add publicacionesEstado
+     * Add publicaciones
      *
-     * @param \cobe\PaginasBundle\Entity\Publicacion $publicacionesEstado
+     * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      * @return EstadoPublicacion
      */
-    public function addPublicacionesEstado(\cobe\PaginasBundle\Entity\Publicacion $publicacionesEstado)
+    public function addPublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
-        $this->publicacionesEstado[] = $publicacionesEstado;
+        $this->publicaciones[] = $publicaciones;
 
         return $this;
     }
 
     /**
-     * Remove publicacionesEstado
+     * Remove publicaciones
      *
-     * @param \cobe\PaginasBundle\Entity\Publicacion $publicacionesEstado
+     * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      */
-    public function removePublicacionesEstado(\cobe\PaginasBundle\Entity\Publicacion $publicacionesEstado)
+    public function removePublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
-        $this->publicacionesEstado->removeElement($publicacionesEstado);
+        $this->publicaciones->removeElement($publicaciones);
     }
 
     /**
-     * Get publicacionesEstado
+     * Get publicaciones
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPublicacionesEstado()
+    public function getPublicaciones()
     {
-        return $this->publicacionesEstado;
+        return $this->publicaciones;
     }
 
 

@@ -6,11 +6,12 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Archivo de una Estadística de una Aptitud"})
  */
 class ArchivoEstadisticaAptitud extends Archivo
 {
     /**
-     * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaAptitud", inversedBy="archivosEstadisticaAptitud")
+     * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaAptitud", inversedBy="archivos")
      * @ORM\JoinColumn(name="estadistica", referencedColumnName="id", nullable=false)
      */
     private $estadisticaAptitud;

@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Comentarios a un Archivo"})
  */
 class ComentarioArchivo extends Comentario
 {

@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation\MaxDepth;
  *     "Aptitud"="\cobe\CurriculosBundle\Entity\Aptitud",
  *     "NivelIdioma"="\cobe\CurriculosBundle\Entity\NivelIdioma",
  *     "Categoria"="\cobe\PaginasBundle\Entity\Categoria",
+ *     "Opcion"="\cobe\GruposBundle\Entity\Opcion",
  *     "Caracteristica"="\cobe\EstadisticasBundle\Entity\Caracteristica"
  * }
  * )
@@ -60,9 +61,9 @@ class Etiqueta extends Obj
 
     /**
      * @MaxDepth(2)
-     * @ORM\ManyToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", mappedBy="etiquetas")
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta", mappedBy="etiqueta")
      */
-    private $estadisticasEtiqueta;
+    private $estadisticas;
     /**
      * Constructor
      */
@@ -75,7 +76,7 @@ class Etiqueta extends Obj
         $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
         $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estadisticasEtiqueta = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -288,12 +289,12 @@ class Etiqueta extends Obj
     /**
      * Add estadisticasEtiqueta
      *
-     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEtiqueta
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta $estadisticas
      * @return Etiqueta
      */
-    public function addEstadisticasEtiquetum(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEtiqueta)
+    public function addEstadisticas($estadisticas)
     {
-        $this->estadisticasEtiqueta[] = $estadisticasEtiqueta;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
@@ -301,11 +302,11 @@ class Etiqueta extends Obj
     /**
      * Remove estadisticasEtiqueta
      *
-     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEtiqueta
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta $estadisticas
      */
-    public function removeEstadisticasEtiquetum(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEtiqueta)
+    public function removeEstadisticas($estadisticas)
     {
-        $this->estadisticasEtiqueta->removeElement($estadisticasEtiqueta);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
@@ -313,9 +314,9 @@ class Etiqueta extends Obj
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstadisticasEtiqueta()
+    public function getEstadisticas()
     {
-        return $this->estadisticasEtiqueta;
+        return $this->estadisticas;
     }
     
     public function getHerencias(){

@@ -19,7 +19,7 @@ class VotacionPublicacion extends Votacion
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", inversedBy="votacion")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", inversedBy="votaciones")
      * @ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)
      */
     private $publicacion;

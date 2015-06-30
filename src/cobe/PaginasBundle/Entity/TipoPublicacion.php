@@ -12,16 +12,16 @@ class TipoPublicacion extends Tipo
 {
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="tipoPublicacion")
+     * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\Publicacion", mappedBy="tipo")
      */
-    private $publicacionesTipo;
+    private $publicaciones;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->publicacionesTipo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -34,36 +34,36 @@ class TipoPublicacion extends Tipo
     }
 
     /**
-     * Add publicacionesTipo
+     * Add publicaciones
      *
-     * @param \cobe\PaginasBundle\Entity\Publicacion $publicacionesTipo
+     * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      * @return TipoPublicacion
      */
-    public function addPublicacionesTipo(\cobe\PaginasBundle\Entity\Publicacion $publicacionesTipo)
+    public function addPublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
-        $this->publicacionesTipo[] = $publicacionesTipo;
+        $this->publicaciones[] = $publicaciones;
 
         return $this;
     }
 
     /**
-     * Remove publicacionesTipo
+     * Remove publicaciones
      *
-     * @param \cobe\PaginasBundle\Entity\Publicacion $publicacionesTipo
+     * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      */
-    public function removePublicacionesTipo(\cobe\PaginasBundle\Entity\Publicacion $publicacionesTipo)
+    public function removePublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
-        $this->publicacionesTipo->removeElement($publicacionesTipo);
+        $this->publicaciones->removeElement($publicaciones);
     }
 
     /**
-     * Get publicacionesTipo
+     * Get publicaciones
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPublicacionesTipo()
+    public function getPublicaciones()
     {
-        return $this->publicacionesTipo;
+        return $this->publicaciones;
     }
 
 }

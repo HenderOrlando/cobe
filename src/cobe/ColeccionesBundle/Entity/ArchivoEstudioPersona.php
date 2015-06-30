@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Archivo que acredita un Estudio realizado por una Persona"})
  */
 class ArchivoEstudioPersona extends Archivo
 {

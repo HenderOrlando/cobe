@@ -44,13 +44,13 @@ class Publicacion extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\PaginasBundle\Entity\VotacionPublicacion", mappedBy="publicacion")
      */
-    private $votacion;
+    private $votaciones;
 
     /**
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion", mappedBy="publicacion")
      */
-    private $archivosPublicacion;
+    private $archivos;
 
     /**
      * @MaxDepth(2)
@@ -71,17 +71,17 @@ class Publicacion extends Obj
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPublicacion", inversedBy="publicacionesEstado")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\EstadoPublicacion", inversedBy="publicaciones")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
-    private $estadoPublicacion;
+    private $estado;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPublicacion", inversedBy="publicacionesTipo")
+     * @ORM\ManyToOne(targetEntity="\cobe\PaginasBundle\Entity\TipoPublicacion", inversedBy="publicaciones")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
-    private $tipoPublicacion;
+    private $tipo;
 
     /**
      * @MaxDepth(1)
@@ -123,8 +123,8 @@ class Publicacion extends Obj
         $this->indexada = false;
         $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->votacion = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->archivosPublicacion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->votaciones = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
@@ -277,12 +277,12 @@ class Publicacion extends Obj
     /**
      * Add votacion
      *
-     * @param \cobe\PaginasBundle\Entity\VotacionPublicacion $votacion
+     * @param \cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones
      * @return Publicacion
      */
-    public function addVotacion(\cobe\PaginasBundle\Entity\VotacionPublicacion $votacion)
+    public function addVotaciones(\cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones)
     {
-        $this->votacion[] = $votacion;
+        $this->votaciones[] = $votaciones;
 
         return $this;
     }
@@ -290,11 +290,11 @@ class Publicacion extends Obj
     /**
      * Remove votacion
      *
-     * @param \cobe\PaginasBundle\Entity\VotacionPublicacion $votacion
+     * @param \cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones
      */
-    public function removeVotacion(\cobe\PaginasBundle\Entity\VotacionPublicacion $votacion)
+    public function removeVotaciones(\cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones)
     {
-        $this->votacion->removeElement($votacion);
+        $this->votaciones->removeElement($votaciones);
     }
 
     /**
@@ -302,20 +302,20 @@ class Publicacion extends Obj
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getVotacion()
+    public function getVotaciones()
     {
-        return $this->votacion;
+        return $this->votaciones;
     }
 
     /**
      * Add archivosPublicacion
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivosPublicacion
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivos
      * @return Publicacion
      */
-    public function addArchivosPublicacion(\cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivosPublicacion)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivos)
     {
-        $this->archivosPublicacion[] = $archivosPublicacion;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
@@ -323,11 +323,11 @@ class Publicacion extends Obj
     /**
      * Remove archivosPublicacion
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivosPublicacion
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivos
      */
-    public function removeArchivosPublicacion(\cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivosPublicacion)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoPublicacion $archivos)
     {
-        $this->archivosPublicacion->removeElement($archivosPublicacion);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
@@ -335,9 +335,9 @@ class Publicacion extends Obj
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getArchivosPublicacion()
+    public function getArchivos()
     {
-        return $this->archivosPublicacion;
+        return $this->archivos;
     }
 
     /**
@@ -376,10 +376,10 @@ class Publicacion extends Obj
     /**
      * Add categorias
      *
-     * @param \cobe\ColeccionesBundle\Entity\Categoria $categorias
+     * @param \cobe\PaginasBundle\Entity\Categoria $categorias
      * @return Publicacion
      */
-    public function addCategorias(\cobe\ColeccionesBundle\Entity\Categoria $categorias)
+    public function addCategorias(\cobe\PaginasBundle\Entity\Categoria $categorias)
     {
         $this->categorias[] = $categorias;
 
@@ -389,9 +389,9 @@ class Publicacion extends Obj
     /**
      * Remove categorias
      *
-     * @param \cobe\ColeccionesBundle\Entity\Categoria $categorias
+     * @param \cobe\PaginasBundle\Entity\Categoria $categorias
      */
-    public function removeCategorias(\cobe\ColeccionesBundle\Entity\Categorias $categorias)
+    public function removeCategorias(\cobe\PaginasBundle\Entity\Categoria $categorias)
     {
         $this->categorias->removeElement($categorias);
     }
@@ -407,49 +407,82 @@ class Publicacion extends Obj
     }
 
     /**
-     * Set estadoPublicacion
+     * set categorias
      *
-     * @param \cobe\PaginasBundle\Entity\EstadoPublicacion $estadoPublicacion
+     * @param \Doctrine\Common\Collections\Collection
+     * @param \Doctrine\Common\Collections\Collection
      * @return Publicacion
      */
-    public function setEstadoPublicacion(\cobe\PaginasBundle\Entity\EstadoPublicacion $estadoPublicacion)
+    public function setCategorias($categorias)
     {
-        $this->estadoPublicacion = $estadoPublicacion;
+        if(is_array($categorias)){
+            $this->removeAllCategorias();
+            foreach($categorias as $e){
+                $this->addCategorias($e);
+            }
+        }
 
         return $this;
     }
 
     /**
-     * Get estadoPublicacion
+     * Remove All categorias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllCategorias()
+    {
+        /*foreach($this->getCategorias() as $et){
+            $this->categorias->removeElement($et);
+        }*/
+        $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getCategorias();
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \cobe\PaginasBundle\Entity\EstadoPublicacion $estado
+     * @return Publicacion
+     */
+    public function setEstado(\cobe\PaginasBundle\Entity\EstadoPublicacion $estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
      *
      * @return \cobe\PaginasBundle\Entity\EstadoPublicacion 
      */
-    public function getEstadoPublicacion()
+    public function getEstado()
     {
-        return $this->estadoPublicacion;
+        return $this->estado;
     }
 
     /**
-     * Set tipoPublicacion
+     * Set tipo
      *
-     * @param \cobe\PaginasBundle\Entity\TipoPublicacion $tipoPublicacion
+     * @param \cobe\PaginasBundle\Entity\TipoPublicacion $tipo
      * @return Publicacion
      */
-    public function setTipoPublicacion(\cobe\PaginasBundle\Entity\TipoPublicacion $tipoPublicacion)
+    public function setTipo(\cobe\PaginasBundle\Entity\TipoPublicacion $tipo)
     {
-        $this->tipoPublicacion = $tipoPublicacion;
+        $this->tipo = $tipo;
 
         return $this;
     }
 
     /**
-     * Get tipoPublicacion
+     * Get tipo
      *
      * @return \cobe\PaginasBundle\Entity\TipoPublicacion 
      */
-    public function getTipoPublicacion()
+    public function getTipo()
     {
-        return $this->tipoPublicacion;
+        return $this->tipo;
     }
 
     /**

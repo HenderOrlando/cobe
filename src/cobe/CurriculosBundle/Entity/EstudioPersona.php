@@ -42,14 +42,14 @@ class EstudioPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Estudio", inversedBy="personasEstudio")
+     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Estudio", inversedBy="personas")
      * @ORM\JoinColumn(name="estudio", referencedColumnName="id", nullable=false)
      */
     private $estudio;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="estudiosPersona")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="estudios")
      * @ORM\JoinColumn(name="persona", referencedColumnName="id", nullable=false)
      */
     private $persona;
@@ -146,7 +146,7 @@ class EstudioPersona
      * @param \cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona $archivos
      * @return EstudioPersona
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -158,7 +158,7 @@ class EstudioPersona
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstudioPersona $archivos)
     {
         $this->archivos->removeElement($archivos);
     }

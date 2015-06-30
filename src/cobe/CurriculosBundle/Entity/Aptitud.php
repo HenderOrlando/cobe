@@ -14,13 +14,13 @@ class Aptitud extends Etiqueta
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoAptitud", mappedBy="aptitud")
      */
-    private $archivosAptitud;
+    private $archivos;
 
     /**
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaAptitud", mappedBy="aptitud")
      */
-    private $estadisticasAptitud;
+    private $estadisticas;
 
     /**
      * @MaxDepth(2)
@@ -39,8 +39,8 @@ class Aptitud extends Etiqueta
     public function __construct()
     {
         parent::__construct();
-        $this->archivosAptitud = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estadisticasAptitud = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->personas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ofertasLaboralesAptitud = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -55,59 +55,59 @@ class Aptitud extends Etiqueta
     }
 
     /**
-     * Add archivosAptitud
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivosAptitud
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivos
      * @return Aptitud
      */
-    public function addArchivosAptitud(\cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivosAptitud)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivos)
     {
-        $this->archivosAptitud[] = $archivosAptitud;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosAptitud
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivosAptitud
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivos
      */
-    public function removeArchivosAptitud(\cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivosAptitud)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoAptitud $archivos)
     {
-        $this->archivosAptitud->removeElement($archivosAptitud);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosAptitud
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosAptitud()
+    public function getArchivos()
     {
-        return $this->archivosAptitud;
+        return $this->archivos;
     }
 
     /**
-     * Add estadisticasAptitud
+     * Add estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaAptitud $estadisticasAptitud
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaAptitud $estadisticas
      * @return Aptitud
      */
-    public function addEstadisticasAptitud(\cobe\EstadisticasBundle\Entity\EstadisticaAptitud $estadisticasAptitud)
+    public function addEstadisticas($estadisticas)
     {
-        $this->estadisticasAptitud[] = $estadisticasAptitud;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasAptitud
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaAptitud $estadisticasAptitud
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaAptitud $estadisticas
      */
-    public function removeEstadisticasAptitud(\cobe\EstadisticasBundle\Entity\EstadisticaAptitud $estadisticasAptitud)
+    public function removeEstadisticas($estadisticas)
     {
-        $this->estadisticasAptitud->removeElement($estadisticasAptitud);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
@@ -115,9 +115,9 @@ class Aptitud extends Etiqueta
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstadisticasAptitud()
+    public function getEstadisticas()
     {
-        return $this->estadisticasAptitud;
+        return $this->estadisticas;
     }
 
     /**

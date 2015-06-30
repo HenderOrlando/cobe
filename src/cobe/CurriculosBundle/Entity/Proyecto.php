@@ -16,7 +16,7 @@ class Proyecto extends Objeto
     private $fechaInicio;
 
     /**
-     * @ORM\Column(type="date", nullable=false, options={"comment":"Fecha de Fin del Proyecto"})
+     * @ORM\Column(type="date", nullable=true, options={"comment":"Fecha de Fin del Proyecto"})
      */
     private $fechaFin;
 
@@ -24,7 +24,7 @@ class Proyecto extends Objeto
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="proyecto")
      */
-    private $personasProyecto;
+    private $personas;
 
     /**
      * @MaxDepth(2)
@@ -50,7 +50,7 @@ class Proyecto extends Objeto
     public function __construct()
     {
         parent::__construct();
-        $this->personasProyecto = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -111,26 +111,26 @@ class Proyecto extends Objeto
     }
 
     /**
-     * Add proyectoPersonas
+     * Add proyecto
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $personas
      * @return Proyecto
      */
-    public function addProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto)
+    public function addPersonas(\cobe\CurriculosBundle\Entity\ProyectoPersona $personas)
     {
-        $this->personasProyecto[] = $personasProyecto;
+        $this->personas[] = $personas;
 
         return $this;
     }
 
     /**
-     * Remove proyectoPersonas
+     * Remove proyecto
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $personas
      */
-    public function removeProyectoPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $personasProyecto)
+    public function removePersonas(\cobe\CurriculosBundle\Entity\ProyectoPersona $personas)
     {
-        $this->personasProyecto->removeElement($personasProyecto);
+        $this->personas->removeElement($personas);
     }
 
     /**
@@ -138,9 +138,9 @@ class Proyecto extends Objeto
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProyectoPersonas()
+    public function getPersonas()
     {
-        return $this->personasProyecto;
+        return $this->personas;
     }
 
     /**
@@ -149,7 +149,7 @@ class Proyecto extends Objeto
      * @param \cobe\ColeccionesBundle\Entity\ArchivoProyecto $archivos
      * @return Proyecto
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoProyecto $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoProyecto $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -161,7 +161,7 @@ class Proyecto extends Objeto
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoProyecto $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoProyecto $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoProyecto $archivos)
     {
         $this->archivos->removeElement($archivos);
     }
@@ -205,7 +205,7 @@ class Proyecto extends Objeto
      * @param \cobe\UsuariosBundle\Entity\Empresa $empresas
      * @return Proyecto
      */
-    public function addEmpresa(\cobe\UsuariosBundle\Entity\Empresa $empresas)
+    public function addEmpresas(\cobe\UsuariosBundle\Entity\Empresa $empresas)
     {
         $this->empresas[] = $empresas;
 
@@ -217,7 +217,7 @@ class Proyecto extends Objeto
      *
      * @param \cobe\UsuariosBundle\Entity\Empresa $empresas
      */
-    public function removeEmpresa(\cobe\UsuariosBundle\Entity\Empresa $empresas)
+    public function removeEmpresas(\cobe\UsuariosBundle\Entity\Empresa $empresas)
     {
         $this->empresas->removeElement($empresas);
     }

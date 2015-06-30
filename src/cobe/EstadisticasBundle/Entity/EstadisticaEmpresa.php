@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_empresa", columns={"estadistica","empresa"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_empresa", columns={"estadistica","empresa"})}, options={"comment":"Estadísticas de una Empresa"})
  */
 class EstadisticaEmpresa
 {
@@ -25,7 +25,7 @@ class EstadisticaEmpresa
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa", mappedBy="estadisticaEmpresa")
      */
-    private $archivosEstadisticaEmpresa;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -36,7 +36,7 @@ class EstadisticaEmpresa
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", inversedBy="estadisticasEmpresa")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Empresa", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="empresa", referencedColumnName="id", nullable=false)
      */
     private $empresa;
@@ -45,7 +45,7 @@ class EstadisticaEmpresa
      */
     public function __construct()
     {
-        $this->archivosEstadisticaEmpresa = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -82,36 +82,36 @@ class EstadisticaEmpresa
     }
 
     /**
-     * Add archivosEstadisticaEmpresa
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivosEstadisticaEmpresa
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivos
      * @return EstadisticaEmpresa
      */
-    public function addArchivosEstadisticaEmpresa(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivosEstadisticaEmpresa)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivos)
     {
-        $this->archivosEstadisticaEmpresa[] = $archivosEstadisticaEmpresa;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaEmpresa
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivosEstadisticaEmpresa
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivos
      */
-    public function removeArchivosEstadisticaEmpresa(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivosEstadisticaEmpresa)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa $archivos)
     {
-        $this->archivosEstadisticaEmpresa->removeElement($archivosEstadisticaEmpresa);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaEmpresa
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaEmpresa()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaEmpresa;
+        return $this->archivos;
     }
 
     /**

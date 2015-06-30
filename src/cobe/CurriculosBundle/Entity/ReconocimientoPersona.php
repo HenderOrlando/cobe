@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\ReconocimientoPersonaRepository")
  * @ORM\Table(
- *     options={"comment":"Reconocimientos de la Persona"},
+ *     options={"comment":"Reconocimientos hechos a una Persona"},
  *     uniqueConstraints={@ORM\UniqueConstraint(name="persona_reconocimiento", columns={"persona","reconocimiento"})}
  * )
  */
@@ -65,7 +65,7 @@ class ReconocimientoPersona
      * @param \cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona $archivos
      * @return ReconocimientoPersona
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -77,7 +77,7 @@ class ReconocimientoPersona
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoReconocimientoPersona $archivos)
     {
         $this->archivos->removeElement($archivos);
     }

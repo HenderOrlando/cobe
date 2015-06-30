@@ -39,7 +39,7 @@ class PlantillaPublicacion extends Plantilla
      * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      * @return PlantillaPublicacion
      */
-    public function addPublicacione(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
+    public function addPublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
         $this->publicaciones[] = $publicaciones;
 
@@ -51,7 +51,7 @@ class PlantillaPublicacion extends Plantilla
      *
      * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      */
-    public function removePublicacione(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
+    public function removePublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
         $this->publicaciones->removeElement($publicaciones);
     }

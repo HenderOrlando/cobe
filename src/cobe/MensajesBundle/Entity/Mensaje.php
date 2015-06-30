@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\MensajeRepository")
  * @ORM\Table(options={"comment":"Mensajes en el sistema"})
- * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="herenciaMensaje", length=25, type="string")
  * @ORM\DiscriminatorMap(
  *     {
@@ -39,21 +39,21 @@ class Mensaje extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaMensaje", mappedBy="mensaje")
      */
-    private $estadisticasMensaje;
+    private $estadisticas;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="mensajesUsuario")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="mensajes")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=false)
      */
-    private $usuarioMensaje;
+    private $usuario;
 
     /**
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\EstadoMensaje", inversedBy="mensajes")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
-    private $estadoMensaje;
+    private $estado;
 
     /**
      * @MaxDepth(1)
@@ -61,6 +61,17 @@ class Mensaje extends Obj
      * @ORM\JoinColumn(name="plantilla", referencedColumnName="id", nullable=true)
      */
     private $plantilla;
+
+    /**
+     * @MaxDepth(2)
+     * @ORM\ManyToMany(targetEntity="\cobe\PaginasBundle\Entity\Categoria", inversedBy="mensajes")
+     * @ORM\JoinTable(
+     *     name="categoria2mensaje",
+     *     joinColumns={@ORM\JoinColumn(name="publicacion", referencedColumnName="id", nullable=false)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="categoria", referencedColumnName="id", nullable=false)}
+     * )
+     */
+    protected $categorias;
 
     /**
      * @MaxDepth(2)
@@ -86,7 +97,8 @@ class Mensaje extends Obj
         parent::__construct();
         $this->destinatarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estadisticasMensaje = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
         $this->mensajes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->mensajesRespuesta = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -106,7 +118,7 @@ class Mensaje extends Obj
      * @param \cobe\MensajesBundle\Entity\Destinatario $destinatarios
      * @return Mensaje
      */
-    public function addDestinatario(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
+    public function addDestinatarios(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
     {
         $this->destinatarios[] = $destinatarios;
 
@@ -118,7 +130,7 @@ class Mensaje extends Obj
      *
      * @param \cobe\MensajesBundle\Entity\Destinatario $destinatarios
      */
-    public function removeDestinatario(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
+    public function removeDestinatarios(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
     {
         $this->destinatarios->removeElement($destinatarios);
     }
@@ -134,12 +146,45 @@ class Mensaje extends Obj
     }
 
     /**
+     * set destinatarios
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Objeto
+     */
+    public function setDestinatarios($destinatarios)
+    {
+        if(is_array($destinatarios)){
+            $this->removeAllDestinatarios();
+            foreach($destinatarios as $e){
+                $this->addDestinatarios($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All destinatarios
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllDestinatarios()
+    {
+        /*foreach($this->getDestinatarios() as $et){
+            $this->destinatarios->removeElement($et);
+        }*/
+        $this->destinatarios = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getDestinatarios();
+    }
+
+    /**
      * Add archivos
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoMensaje $archivos
      * @return Mensaje
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoMensaje $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoMensaje $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -151,7 +196,7 @@ class Mensaje extends Obj
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoMensaje $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoMensaje $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoMensaje $archivos)
     {
         $this->archivos->removeElement($archivos);
     }
@@ -167,82 +212,82 @@ class Mensaje extends Obj
     }
 
     /**
-     * Add estadisticasMensaje
+     * Add estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticasMensaje
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticas
      * @return Mensaje
      */
-    public function addEstadisticasMensaje(\cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticasMensaje)
+    public function addEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticas)
     {
-        $this->estadisticasMensaje[] = $estadisticasMensaje;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasMensaje
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticasMensaje
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticas
      */
-    public function removeEstadisticasMensaje(\cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticasMensaje)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaMensaje $estadisticas)
     {
-        $this->estadisticasMensaje->removeElement($estadisticasMensaje);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
-     * Get estadisticasMensaje
+     * Get estadisticas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
     public function getEstadisticasMensaje()
     {
-        return $this->estadisticasMensaje;
+        return $this->estadisticas;
     }
 
     /**
-     * Set usuarioMensaje
+     * Set usuario
      *
-     * @param \cobe\UsuariosBundle\Entity\Usuario $usuarioMensaje
+     * @param \cobe\UsuariosBundle\Entity\Usuario $usuario
      * @return Mensaje
      */
-    public function setUsuarioMensaje(\cobe\UsuariosBundle\Entity\Usuario $usuarioMensaje)
+    public function setUsuario(\cobe\UsuariosBundle\Entity\Usuario $usuario)
     {
-        $this->usuarioMensaje = $usuarioMensaje;
+        $this->usuario = $usuario;
 
         return $this;
     }
 
     /**
-     * Get usuarioMensaje
+     * Get usuario
      *
      * @return \cobe\UsuariosBundle\Entity\Usuario 
      */
-    public function getUsuarioMensaje()
+    public function getUsuario()
     {
-        return $this->usuarioMensaje;
+        return $this->usuario;
     }
 
     /**
-     * Set estadoMensaje
+     * Set estado
      *
-     * @param \cobe\MensajesBundle\Entity\EstadoMensaje $estadoMensaje
+     * @param \cobe\MensajesBundle\Entity\EstadoMensaje $estado
      * @return Mensaje
      */
-    public function setEstadoMensaje(\cobe\MensajesBundle\Entity\EstadoMensaje $estadoMensaje)
+    public function setEstado(\cobe\MensajesBundle\Entity\EstadoMensaje $estado)
     {
-        $this->estadoMensaje = $estadoMensaje;
+        $this->estado = $estado;
 
         return $this;
     }
 
     /**
-     * Get estadoMensaje
+     * Get estado
      *
      * @return \cobe\MensajesBundle\Entity\EstadoMensaje 
      */
-    public function getEstadoMensaje()
+    public function getEstado()
     {
-        return $this->estadoMensaje;
+        return $this->estado;
     }
 
     /**
@@ -269,12 +314,45 @@ class Mensaje extends Obj
     }
 
     /**
+     * Add categorias
+     *
+     * @param \cobe\PaginasBundle\Entity\Categoria $categorias
+     * @return Mensaje
+     */
+    public function addCategorias(\cobe\PaginasBundle\Entity\Categoria $categorias)
+    {
+        $this->categorias[] = $categorias;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorias
+     *
+     * @param \cobe\PaginasBundle\Entity\Categoria $categorias
+     */
+    public function removeCategorias(\cobe\PaginasBundle\Entity\Categoria $categorias)
+    {
+        $this->categorias->removeElement($categorias);
+    }
+
+    /**
+     * Get categorias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorias()
+    {
+        return $this->categorias;
+    }
+
+    /**
      * Add mensajes
      *
      * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      * @return Mensaje
      */
-    public function addMensaje(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
+    public function addMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
         $this->mensajes[] = $mensajes;
 
@@ -286,7 +364,7 @@ class Mensaje extends Obj
      *
      * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      */
-    public function removeMensaje(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
+    public function removeMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
         $this->mensajes->removeElement($mensajes);
     }

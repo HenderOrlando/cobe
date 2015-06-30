@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\EstadisticasBundle\Repository\EstadisticaRepository")
+ * @ORM\Table(options={"comment":"Estadísticas del sistema"})
  */
 class Estadistica extends Objeto
 {
@@ -53,6 +54,12 @@ class Estadistica extends Objeto
 
     /**
      * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaOpcion", mappedBy="estadistica")
+     */
+    private $estadisticasOpcion;
+
+    /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaInteres", mappedBy="estadistica")
      */
     private $estadisticasInteres;
@@ -64,22 +71,40 @@ class Estadistica extends Objeto
     private $estadisticasAptitud;
 
     /**
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta", mappedBy="estadistica")
+     */
+    private $estadisticasEtiqueta;
+
+    /**
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma", mappedBy="estadistica")
+     */
+    private $estadisticasNivelIdioma;
+
+    /**
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaCategoria", mappedBy="estadistica")
+     */
+    private $estadisticasCategoria;
+
+    /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\TipoEstadistica", inversedBy="estadisticasTipo")
+     * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\TipoEstadistica", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipo;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\EstadoEstadistica", inversedBy="estadisticasEstado")
+     * @ORM\ManyToOne(targetEntity="\cobe\EstadisticasBundle\Entity\EstadoEstadistica", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estado;
 
     /**
      * @MaxDepth(2)
-     * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="estadisticasEtiqueta")
+     * @ORM\ManyToMany(targetEntity="\cobe\CommonBundle\Entity\Etiqueta", inversedBy="estadisticas")
      * @ORM\JoinTable(
      *     name="etiqueta2estadistica",
      *     joinColumns={@ORM\JoinColumn(name="estadistica", referencedColumnName="id", nullable=false)},
@@ -110,10 +135,12 @@ class Estadistica extends Objeto
         $this->estadisticasMensaje = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasEmpresa = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasGrupo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticasOpcion = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasInteres = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticasAptitud = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticasEstudiante = new \Doctrine\Common\Collections\ArrayCollection();
         $this->caracteristicas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -348,12 +375,45 @@ class Estadistica extends Objeto
     }
 
     /**
+     * Add estadisticasOpcion
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaOpcion $estadisticasOpcion
+     * @return Estadistica
+     */
+    public function addEstadisticasOpcion(\cobe\EstadisticasBundle\Entity\EstadisticaOpcion $estadisticasOpcion)
+    {
+        $this->estadisticasOpcion[] = $estadisticasOpcion;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadisticasOpcion
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaOpcion $estadisticasOpcion
+     */
+    public function removeEstadisticasOpcion(\cobe\EstadisticasBundle\Entity\EstadisticaOpcion $estadisticasOpcion)
+    {
+        $this->estadisticasOpcion->removeElement($estadisticasOpcion);
+    }
+
+    /**
+     * Get estadisticasOpcion
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstadisticasOpcion()
+    {
+        return $this->estadisticasOpcion;
+    }
+
+    /**
      * Add estadisticasInteres
      *
      * @param \cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres
      * @return Estadistica
      */
-    public function addEstadisticasIntere(\cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres)
+    public function addEstadisticasInteres(\cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres)
     {
         $this->estadisticasInteres[] = $estadisticasInteres;
 
@@ -365,7 +425,7 @@ class Estadistica extends Objeto
      *
      * @param \cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres
      */
-    public function removeEstadisticasIntere(\cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres)
+    public function removeEstadisticasInteres(\cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres)
     {
         $this->estadisticasInteres->removeElement($estadisticasInteres);
     }
@@ -411,6 +471,105 @@ class Estadistica extends Objeto
     public function getEstadisticasAptitud()
     {
         return $this->estadisticasAptitud;
+    }
+
+    /**
+     * Add estadisticasEtiqueta
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta $estadisticasEtiqueta
+     * @return Estadistica
+     */
+    public function addEstadisticasEtiqueta(\cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta $estadisticasEtiqueta)
+    {
+        $this->estadisticasEtiqueta[] = $estadisticasEtiqueta;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadisticasEtiqueta
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta $estadisticasEtiqueta
+     */
+    public function removeEstadisticasEtiqueta(\cobe\EstadisticasBundle\Entity\EstadisticaEtiqueta $estadisticasEtiqueta)
+    {
+        $this->estadisticasEtiqueta->removeElement($estadisticasEtiqueta);
+    }
+
+    /**
+     * Get estadisticasEtiqueta
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstadisticasEtiqueta()
+    {
+        return $this->estadisticasEtiqueta;
+    }
+
+    /**
+     * Add estadisticasNivelIdioma
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma $estadisticasNivelIdioma
+     * @return Estadistica
+     */
+    public function addEstadisticasNivelIdioma(\cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma $estadisticasNivelIdioma)
+    {
+        $this->estadisticasNivelIdioma[] = $estadisticasNivelIdioma;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadisticasNivelIdioma
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma $estadisticasNivelIdioma
+     */
+    public function removeEstadisticasNivelIdioma(\cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma $estadisticasNivelIdioma)
+    {
+        $this->estadisticasNivelIdioma->removeElement($estadisticasNivelIdioma);
+    }
+
+    /**
+     * Get estadisticasNivelIdioma
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstadisticasNivelIdioma()
+    {
+        return $this->estadisticasNivelIdioma;
+    }
+
+    /**
+     * Add estadisticasCategoria
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaCategoria $estadisticasCategoria
+     * @return Estadistica
+     */
+    public function addEstadisticasCategoria(\cobe\EstadisticasBundle\Entity\EstadisticaCategoria $estadisticasCategoria)
+    {
+        $this->estadisticasCategoria[] = $estadisticasCategoria;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadisticasCategoria
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaCategoria $estadisticasCategoria
+     */
+    public function removeEstadisticasCategoria(\cobe\EstadisticasBundle\Entity\EstadisticaCategoria $estadisticasCategoria)
+    {
+        $this->estadisticasCategoria->removeElement($estadisticasCategoria);
+    }
+
+    /**
+     * Get estadisticasCategoria
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstadisticasCategoria()
+    {
+        return $this->estadisticasCategoria;
     }
 
     /**
@@ -465,7 +624,7 @@ class Estadistica extends Objeto
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
      * @return Estadistica
      */
-    public function addEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
+    public function addEtiquetas(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas[] = $etiquetas;
 
@@ -477,7 +636,7 @@ class Estadistica extends Objeto
      *
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
      */
-    public function removeEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
+    public function removeEtiquetas(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas->removeElement($etiquetas);
     }
@@ -498,7 +657,7 @@ class Estadistica extends Objeto
      * @param \cobe\EstadisticasBundle\Entity\Caracteristica $caracteristicas
      * @return Estadistica
      */
-    public function addCaracteristica(\cobe\EstadisticasBundle\Entity\Caracteristica $caracteristicas)
+    public function addCaracteristicas(\cobe\EstadisticasBundle\Entity\Caracteristica $caracteristicas)
     {
         $this->caracteristicas[] = $caracteristicas;
 
@@ -510,7 +669,7 @@ class Estadistica extends Objeto
      *
      * @param \cobe\EstadisticasBundle\Entity\Caracteristica $caracteristicas
      */
-    public function removeCaracteristica(\cobe\EstadisticasBundle\Entity\Caracteristica $caracteristicas)
+    public function removeCaracteristicas(\cobe\EstadisticasBundle\Entity\Caracteristica $caracteristicas)
     {
         $this->caracteristicas->removeElement($caracteristicas);
     }

@@ -19,7 +19,7 @@ class EtiquetaType extends ObjectType
         $builder
             ->add('archivos')
             ->add('empresas')
-            ->add('estadisticasEtiqueta')
+            ->add('estadisticas')
             ->add('estudiantes')
             ->add('grupos')
             ->add('ofertasLaborales')

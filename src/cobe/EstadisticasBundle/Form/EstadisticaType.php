@@ -21,6 +21,7 @@ class EstadisticaType extends ObjectType
             ->add('estado')
             ->add('estadisticasAptitud')
             ->add('estadisticasEmpresa')
+            ->add('estadisticasEstudiante')
             ->add('estadisticasGrupo')
             ->add('estadisticasInteres')
             ->add('estadisticasMensaje')

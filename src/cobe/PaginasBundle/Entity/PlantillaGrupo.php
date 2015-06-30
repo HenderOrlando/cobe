@@ -39,7 +39,7 @@ class PlantillaGrupo extends Plantilla
      * @param \cobe\GruposBundle\Entity\Grupo $grupos
      * @return PlantillaGrupo
      */
-    public function addGrupo(\cobe\GruposBundle\Entity\Grupo $grupos)
+    public function addGrupos(\cobe\GruposBundle\Entity\Grupo $grupos)
     {
         $this->grupos[] = $grupos;
 
@@ -51,7 +51,7 @@ class PlantillaGrupo extends Plantilla
      *
      * @param \cobe\GruposBundle\Entity\Grupo $grupos
      */
-    public function removeGrupo(\cobe\GruposBundle\Entity\Grupo $grupos)
+    public function removeGrupos(\cobe\GruposBundle\Entity\Grupo $grupos)
     {
         $this->grupos->removeElement($grupos);
     }

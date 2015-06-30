@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\EstudioRepository")
  * @ORM\Table(
- *     options={"comment":"Estudios del Centro de Estudio"},
+ *     options={"comment":"Estudios de un Centro de Estudio"},
  *     uniqueConstraints={@ORM\UniqueConstraint(name="titulacion_centro_estudio", columns={"centroEstudio","titulacion"})}
  * )
  */
@@ -27,7 +27,7 @@ class Estudio extends Objeto
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\EstudioPersona", mappedBy="estudio")
      */
-    private $personasEstudio;
+    private $personas;
 
     /**
      * @MaxDepth(2)
@@ -54,7 +54,7 @@ class Estudio extends Objeto
     public function __construct()
     {
         parent::__construct();
-        $this->personasEstudio = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -93,12 +93,12 @@ class Estudio extends Objeto
     /**
      * Add estudioPersonas
      *
-     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio
+     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $personas
      * @return Estudio
      */
-    public function addEstudioPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio)
+    public function addPersonas(\cobe\CurriculosBundle\Entity\EstudioPersona $personas)
     {
-        $this->personasEstudio[] = $personasEstudio;
+        $this->personas[] = $personas;
 
         return $this;
     }
@@ -106,11 +106,11 @@ class Estudio extends Objeto
     /**
      * Remove estudioPersonas
      *
-     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio
+     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $personas
      */
-    public function removeEstudioPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $personasEstudio)
+    public function removePersonas(\cobe\CurriculosBundle\Entity\EstudioPersona $personas)
     {
-        $this->personasEstudio->removeElement($personasEstudio);
+        $this->personas->removeElement($personas);
     }
 
     /**
@@ -118,9 +118,9 @@ class Estudio extends Objeto
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstudioPersonas()
+    public function getPersonas()
     {
-        return $this->personasEstudio;
+        return $this->personas;
     }
 
     /**

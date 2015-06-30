@@ -439,18 +439,31 @@ class ApiEstadoController extends ApiController
                             $accessor->setValue($estado, $id, $dato);
                             $isModify = true;
                         }
-                    }elseif($metadata->isCollectionValuedAssociation($id)){
-                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
-                        //$datos_ = $request->request->get($type->getName(), false);
-                        //$dato = $datos[$id] = $datos_[$id];
-                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
-                        if(empty($msgs)){
-                            $set = 'set'.ucfirst($id);
-                            if(method_exists($estado,$set)){
-                                //$collection = new ArrayCollection($collection);
-                                $estado->$set($collection);
+                    }elseif($metadata->hasAssociation($id)){
+                        if($metadata->isCollectionValuedAssociation($id)){
+                            $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                            //$datos_ = $request->request->get($type->getName(), false);
+                            //$dato = $datos[$id] = $datos_[$id];
+                            $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                            if(empty($msgs)){
+                                $set = 'set'.ucfirst($id);
+                                if(method_exists($estado,$set)){
+                                    //$collection = new ArrayCollection($collection);
+                                    $estado->$set($collection);
+                                }
+                                $isModify = true;
                             }
-                            $isModify = true;
+                        }else{
+                            $dato = $repo->sanearDato($dato, 'guid');
+                            $accessor = PropertyAccess::createPropertyAccessor();
+                            $dato_ = $accessor->getValue($estado, $id);
+                            if($dato && (!$dato_ || (is_object($dato_) && method_exists($dato_,'getId') && $dato_->getId() !== $dato))){
+                                $association = $this->getManager()->getRepository($metadata->getAssociationTargetClass($id))->find($dato);
+                                if($association && $association->getId()){
+                                    $accessor->setValue($estado, $id, $association);
+                                    $isModify = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -527,7 +540,7 @@ class ApiEstadoController extends ApiController
                 $em->remove($estado);
                 $estado = $this->captureErrorFlush($em, $estado, 'borrar');
                 $rta = $estado;
-                if(!$rta['errors']){
+                if(!is_array($rta) && method_exists($rta, 'getId') && !$rta->getId()){
                     $deleted = true;
                 }
             }

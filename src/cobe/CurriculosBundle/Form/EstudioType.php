@@ -19,7 +19,7 @@ class EstudioType extends ObjectType
         $builder
             ->add('archivos')
             ->add('centroEstudio')
-            ->add('personasEstudio')
+            ->add('personas')
             ->add('tipo')
             ->add('titulacion')
         ;

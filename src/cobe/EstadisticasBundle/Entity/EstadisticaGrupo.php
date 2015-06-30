@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_grupo", columns={"estadistica","grupo"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_grupo", columns={"estadistica","grupo"})}, options={"comment":"Estadísticas de un Grupo"})
  */
 class EstadisticaGrupo
 {
@@ -25,7 +25,7 @@ class EstadisticaGrupo
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo", mappedBy="estadisticaGrupo")
      */
-    private $archivosEstadisticaGrupo;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -36,7 +36,7 @@ class EstadisticaGrupo
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="estadisticasGrupo")
+     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)
      */
     private $grupo;
@@ -45,7 +45,7 @@ class EstadisticaGrupo
      */
     public function __construct()
     {
-        $this->archivosEstadisticaGrupo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -82,36 +82,36 @@ class EstadisticaGrupo
     }
 
     /**
-     * Add archivosEstadisticaGrupo
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivosEstadisticaGrupo
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivos
      * @return EstadisticaGrupo
      */
-    public function addArchivosEstadisticaGrupo(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivosEstadisticaGrupo)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivos)
     {
-        $this->archivosEstadisticaGrupo[] = $archivosEstadisticaGrupo;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaGrupo
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivosEstadisticaGrupo
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivos
      */
-    public function removeArchivosEstadisticaGrupo(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivosEstadisticaGrupo)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaGrupo $archivos)
     {
-        $this->archivosEstadisticaGrupo->removeElement($archivosEstadisticaGrupo);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaGrupo
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaGrupo()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaGrupo;
+        return $this->archivos;
     }
 
     /**

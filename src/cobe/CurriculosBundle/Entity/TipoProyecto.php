@@ -39,7 +39,7 @@ class TipoProyecto extends Tipo
      * @param \cobe\CurriculosBundle\Entity\Proyecto $proyectos
      * @return TipoProyecto
      */
-    public function addProyecto(\cobe\CurriculosBundle\Entity\Proyecto $proyectos)
+    public function addProyectos(\cobe\CurriculosBundle\Entity\Proyecto $proyectos)
     {
         $this->proyectos[] = $proyectos;
 
@@ -51,7 +51,7 @@ class TipoProyecto extends Tipo
      *
      * @param \cobe\CurriculosBundle\Entity\Proyecto $proyectos
      */
-    public function removeProyecto(\cobe\CurriculosBundle\Entity\Proyecto $proyectos)
+    public function removeProyectos(\cobe\CurriculosBundle\Entity\Proyecto $proyectos)
     {
         $this->proyectos->removeElement($proyectos);
     }

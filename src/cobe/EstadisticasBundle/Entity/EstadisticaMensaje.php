@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_mensaje", columns={"estadistica","mensaje"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_mensaje", columns={"estadistica","mensaje"})}, options={"comment":"Estadísticas de un Mensaje"})
  */
 class EstadisticaMensaje
 {
@@ -25,7 +25,7 @@ class EstadisticaMensaje
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje", mappedBy="estadisticaMensaje")
      */
-    private $archivosEstadisticaMensaje;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -36,7 +36,7 @@ class EstadisticaMensaje
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", inversedBy="estadisticasMensaje")
+     * @ORM\ManyToOne(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="mensaje", referencedColumnName="id", nullable=false)
      */
     private $mensaje;
@@ -45,7 +45,7 @@ class EstadisticaMensaje
      */
     public function __construct()
     {
-        $this->archivosEstadisticaMensaje = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -82,36 +82,36 @@ class EstadisticaMensaje
     }
 
     /**
-     * Add archivosEstadisticaMensaje
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivosEstadisticaMensaje
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivos
      * @return EstadisticaMensaje
      */
-    public function addArchivosEstadisticaMensaje(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivosEstadisticaMensaje)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivos)
     {
-        $this->archivosEstadisticaMensaje[] = $archivosEstadisticaMensaje;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaMensaje
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivosEstadisticaMensaje
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivos
      */
-    public function removeArchivosEstadisticaMensaje(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivosEstadisticaMensaje)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje $archivos)
     {
-        $this->archivosEstadisticaMensaje->removeElement($archivosEstadisticaMensaje);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaMensaje
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaMensaje()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaMensaje;
+        return $this->archivos;
     }
 
     /**

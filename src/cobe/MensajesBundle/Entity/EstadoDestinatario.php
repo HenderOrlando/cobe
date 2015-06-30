@@ -12,7 +12,7 @@ class EstadoDestinatario extends Estado
 {
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Destinatario", mappedBy="estadoDestinatario")
+     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Destinatario", mappedBy="estado")
      */
     private $destinatarios;
     /**
@@ -39,7 +39,7 @@ class EstadoDestinatario extends Estado
      * @param \cobe\MensajesBundle\Entity\Destinatario $destinatarios
      * @return EstadoDestinatario
      */
-    public function addDestinatario(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
+    public function addDestinatarios(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
     {
         $this->destinatarios[] = $destinatarios;
 
@@ -51,7 +51,7 @@ class EstadoDestinatario extends Estado
      *
      * @param \cobe\MensajesBundle\Entity\Destinatario $destinatarios
      */
-    public function removeDestinatario(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
+    public function removeDestinatarios(\cobe\MensajesBundle\Entity\Destinatario $destinatarios)
     {
         $this->destinatarios->removeElement($destinatarios);
     }

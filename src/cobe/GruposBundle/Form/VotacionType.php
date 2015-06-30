@@ -18,10 +18,10 @@ class VotacionType extends ObjectType
 
         $builder
             ->add('estado')
-            ->add('fechaFin')
+            ->add('fechaFin', null, array(
+                'widget' => 'single_text'
+            ))
             ->add('opciones')
-            ->add('opcionSeleccionada')
-            ->add('votacionesGrupoPersona')
         ;
 
         $builder->setMethod($this->method);

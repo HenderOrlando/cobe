@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\TipoReconocimientoRepository")
+ * @ORM\Table(options={"comment":"Tipos de Reconocimientos"})
  */
 class TipoReconocimiento extends Tipo
 {
@@ -38,7 +39,7 @@ class TipoReconocimiento extends Tipo
      * @param \cobe\CurriculosBundle\Entity\Reconocimiento $reconocimientos
      * @return TipoReconocimiento
      */
-    public function addReconocimiento(\cobe\CurriculosBundle\Entity\Reconocimiento $reconocimientos)
+    public function addReconocimientos(\cobe\CurriculosBundle\Entity\Reconocimiento $reconocimientos)
     {
         $this->reconocimientos[] = $reconocimientos;
 
@@ -50,7 +51,7 @@ class TipoReconocimiento extends Tipo
      *
      * @param \cobe\CurriculosBundle\Entity\Reconocimiento $reconocimientos
      */
-    public function removeReconocimiento(\cobe\CurriculosBundle\Entity\Reconocimiento $reconocimientos)
+    public function removeReconocimientos(\cobe\CurriculosBundle\Entity\Reconocimiento $reconocimientos)
     {
         $this->reconocimientos->removeElement($reconocimientos);
     }

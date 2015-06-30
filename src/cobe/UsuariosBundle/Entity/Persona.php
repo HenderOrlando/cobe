@@ -64,7 +64,7 @@ class Persona extends Usuario
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\EstudioPersona", mappedBy="persona")
      */
-    private $estudiosPersona;
+    private $estudios;
 
     /**
      * @MaxDepth(2)
@@ -82,19 +82,19 @@ class Persona extends Usuario
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\IdiomaPersona", mappedBy="persona")
      */
-    private $idiomasPersona;
+    private $idiomas;
 
     /**
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ProyectoPersona", mappedBy="persona")
      */
-    private $proyectosPersona;
+    private $proyectos;
 
     /**
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\ReconocimientoPersona", mappedBy="persona")
      */
-    private $reconocimientosPersona;
+    private $reconocimientos;
 
     /**
      * @MaxDepth(2)
@@ -149,12 +149,12 @@ class Persona extends Usuario
     {
         parent::__construct();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estudiosPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estudios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->recomendados = new \Doctrine\Common\Collections\ArrayCollection();
         $this->recomendaciones = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idiomasPersona = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->proyectosPersona = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reconocimientosPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idiomas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->proyectos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reconocimientos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->gruposPersona = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ofertasLaboralesPersona = new \Doctrine\Common\Collections\ArrayCollection();
         $this->publicaciones = new \Doctrine\Common\Collections\ArrayCollection();
@@ -321,7 +321,7 @@ class Persona extends Usuario
      * @param \cobe\UsuariosBundle\Entity\RepresentanteEmpresa $empresas
      * @return Persona
      */
-    public function addEmpresa(\cobe\UsuariosBundle\Entity\RepresentanteEmpresa $empresas)
+    public function addEmpresas(\cobe\UsuariosBundle\Entity\RepresentanteEmpresa $empresas)
     {
         $this->empresas[] = $empresas;
 
@@ -333,7 +333,7 @@ class Persona extends Usuario
      *
      * @param \cobe\UsuariosBundle\Entity\RepresentanteEmpresa $empresas
      */
-    public function removeEmpresa(\cobe\UsuariosBundle\Entity\RepresentanteEmpresa $empresas)
+    public function removeEmpresas(\cobe\UsuariosBundle\Entity\RepresentanteEmpresa $empresas)
     {
         $this->empresas->removeElement($empresas);
     }
@@ -349,36 +349,101 @@ class Persona extends Usuario
     }
 
     /**
-     * Add estudiosPersona
+     * set empresas
      *
-     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $estudiosPersona
+     * @param \Doctrine\Common\Collections\Collection
      * @return Persona
      */
-    public function addEstudiosPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $estudiosPersona)
+    public function setEmpresas($empresas)
     {
-        $this->estudiosPersona[] = $estudiosPersona;
+        if(is_array($empresas)){
+            $this->removeAllEmpresas();
+            foreach($empresas as $e){
+                $this->addEmpresas($e);
+            }
+        }
 
         return $this;
     }
 
     /**
-     * Remove estudiosPersona
+     * Remove All empresas
      *
-     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $estudiosPersona
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function removeEstudiosPersona(\cobe\CurriculosBundle\Entity\EstudioPersona $estudiosPersona)
+    public function removeAllEmpresas()
     {
-        $this->estudiosPersona->removeElement($estudiosPersona);
+        /*foreach($this->getEmpresas() as $et){
+            $this->empresas->removeElement($et);
+        }*/
+        $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getEmpresas();
     }
 
     /**
-     * Get estudiosPersona
+     * Add estudios
+     *
+     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $estudios
+     * @return Persona
+     */
+    public function addEstudios(\cobe\CurriculosBundle\Entity\EstudioPersona $estudios)
+    {
+        $this->estudios[] = $estudios;
+
+        return $this;
+    }
+
+    /**
+     * Remove estudios
+     *
+     * @param \cobe\CurriculosBundle\Entity\EstudioPersona $estudios
+     */
+    public function removeEstudios(\cobe\CurriculosBundle\Entity\EstudioPersona $estudios)
+    {
+        $this->estudios->removeElement($estudios);
+    }
+
+    /**
+     * Get estudios
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstudiosPersona()
+    public function getEstudios()
     {
-        return $this->estudiosPersona;
+        return $this->estudios;
+    }
+
+    /**
+     * set estudios
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Persona
+     */
+    public function setEstudios($estudios)
+    {
+        if(is_array($estudios)){
+            $this->removeAllEstudios();
+            foreach($estudios as $e){
+                $this->addEstudios($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All estudios
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllEstudios()
+    {
+        /*foreach($this->getEstudios() as $et){
+            $this->estudios->removeElement($et);
+        }*/
+        $this->estudios = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getEstudios();
     }
 
     /**
@@ -387,7 +452,7 @@ class Persona extends Usuario
      * @param \cobe\CurriculosBundle\Entity\Recomendacion $recomendados
      * @return Persona
      */
-    public function addRecomendado(\cobe\CurriculosBundle\Entity\Recomendacion $recomendados)
+    public function addRecomendados(\cobe\CurriculosBundle\Entity\Recomendacion $recomendados)
     {
         $this->recomendados[] = $recomendados;
 
@@ -399,7 +464,7 @@ class Persona extends Usuario
      *
      * @param \cobe\CurriculosBundle\Entity\Recomendacion $recomendados
      */
-    public function removeRecomendado(\cobe\CurriculosBundle\Entity\Recomendacion $recomendados)
+    public function removeRecomendados(\cobe\CurriculosBundle\Entity\Recomendacion $recomendados)
     {
         $this->recomendados->removeElement($recomendados);
     }
@@ -420,7 +485,7 @@ class Persona extends Usuario
      * @param \cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones
      * @return Persona
      */
-    public function addRecomendacione(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
+    public function addRecomendaciones(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
     {
         $this->recomendaciones[] = $recomendaciones;
 
@@ -432,7 +497,7 @@ class Persona extends Usuario
      *
      * @param \cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones
      */
-    public function removeRecomendacione(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
+    public function removeRecomendaciones(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
     {
         $this->recomendaciones->removeElement($recomendaciones);
     }
@@ -448,47 +513,79 @@ class Persona extends Usuario
     }
 
     /**
-     * Add idiomasPersona
+     * Add idiomas
      *
-     * @param \cobe\CurriculosBundle\Entity\IdiomaPersona $idiomasPersona
+     * @param \cobe\CurriculosBundle\Entity\IdiomaPersona $idiomas
      * @return Persona
      */
-    public function addIdiomasPersona(\cobe\CurriculosBundle\Entity\IdiomaPersona $idiomasPersona)
+    public function addIdiomas(\cobe\CurriculosBundle\Entity\IdiomaPersona $idiomas)
     {
-        $this->idiomasPersona[] = $idiomasPersona;
+        $this->idiomas[] = $idiomas;
 
         return $this;
     }
 
     /**
-     * Remove idiomasPersona
+     * Remove idiomas
      *
-     * @param \cobe\CurriculosBundle\Entity\IdiomaPersona $idiomasPersona
+     * @param \cobe\CurriculosBundle\Entity\IdiomaPersona $idiomas
      */
-    public function removeIdiomasPersona(\cobe\CurriculosBundle\Entity\IdiomaPersona $idiomasPersona)
+    public function removeIdiomas(\cobe\CurriculosBundle\Entity\IdiomaPersona $idiomas)
     {
-        $this->idiomasPersona->removeElement($idiomasPersona);
+        $this->idiomas->removeElement($idiomas);
     }
 
     /**
-     * Get idiomasPersona
+     * Get idiomas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdiomasPersona()
+    public function getIdiomas()
     {
-        return $this->idiomasPersona;
+        return $this->idiomas;
+    }
+
+    /**
+     * set idiomas
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Persona
+     */
+    public function setIdiomas($idiomas)
+    {
+        if(is_array($idiomas)){
+            $this->removeAllIdiomas();
+            foreach($idiomas as $e){
+                $this->addIdiomas($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All idiomas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllIdiomas()
+    {
+        /*foreach($this->getIdiomas() as $et){
+            $this->idiomas->removeElement($et);
+        }*/
+        $this->idiomas = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getIdiomas();
     }
 
     /**
      * Add proyectosPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectos
      * @return Persona
      */
-    public function addProyectosPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
+    public function addProyectos(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectos)
     {
-        $this->proyectosPersona[] = $proyectosPersona;
+        $this->proyectos[] = $proyectos;
 
         return $this;
     }
@@ -496,11 +593,11 @@ class Persona extends Usuario
     /**
      * Remove proyectosPersona
      *
-     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona
+     * @param \cobe\CurriculosBundle\Entity\ProyectoPersona $proyectos
      */
-    public function removeProyectosPersona(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectosPersona)
+    public function removeProyectos(\cobe\CurriculosBundle\Entity\ProyectoPersona $proyectos)
     {
-        $this->proyectosPersona->removeElement($proyectosPersona);
+        $this->proyectos->removeElement($proyectos);
     }
 
     /**
@@ -508,42 +605,106 @@ class Persona extends Usuario
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProyectosPersona()
+    public function getProyectos()
     {
-        return $this->proyectosPersona;
+        return $this->proyectos;
     }
 
     /**
-     * Add reconocimientosPersona
+     * set proyectos
      *
-     * @param \cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientosPersona
+     * @param \Doctrine\Common\Collections\Collection
      * @return Persona
      */
-    public function addReconocimientosPersona(\cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientosPersona)
+    public function setProyectos($proyectos)
     {
-        $this->reconocimientosPersona[] = $reconocimientosPersona;
+        if(is_array($proyectos)){
+            $this->removeAllProyectos();
+            foreach($proyectos as $e){
+                $this->addProyectos($e);
+            }
+        }
+    
+        return $this;
+    }
+    
+    /**
+     * Remove All proyectos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllProyectos()
+    {
+        /*foreach($this->getProyectos() as $et){
+            $this->proyectos->removeElement($et);
+        }*/
+        $this->proyectos = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getProyectos();
+    }
+
+    /**
+     * Add reconocimientos
+     *
+     * @param \cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientos
+     * @return Persona
+     */
+    public function addReconocimientos(\cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientos)
+    {
+        $this->reconocimientos[] = $reconocimientos;
 
         return $this;
     }
 
     /**
-     * Remove reconocimientosPersona
+     * Remove reconocimientos
      *
-     * @param \cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientosPersona
+     * @param \cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientos
      */
-    public function removeReconocimientosPersona(\cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientosPersona)
+    public function removeReconocimientos(\cobe\CurriculosBundle\Entity\ReconocimientoPersona $reconocimientos)
     {
-        $this->reconocimientosPersona->removeElement($reconocimientosPersona);
+        $this->reconocimientos->removeElement($reconocimientos);
     }
 
     /**
-     * Get reconocimientosPersona
+     * Get reconocimientos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getReconocimientosPersona()
+    public function getReconocimientos()
     {
-        return $this->reconocimientosPersona;
+        return $this->reconocimientos;
+    }
+
+    /**
+     * set reconocimientos
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Persona
+     */
+    public function setReconocimientos($reconocimientos)
+    {
+        if(is_array($reconocimientos)){
+            $this->removeAllReconocimientos();
+            foreach($reconocimientos as $e){
+                $this->addReconocimientos($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All reconocimientos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllReconocimientos()
+    {
+        /*foreach($this->getReconocimientos() as $et){
+            $this->reconocimientos->removeElement($et);
+        }*/
+        $this->reconocimientos = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getReconocimientos();
     }
 
     /**
@@ -618,7 +779,7 @@ class Persona extends Usuario
      * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      * @return Persona
      */
-    public function addPublicacione(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
+    public function addPublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
         $this->publicaciones[] = $publicaciones;
 
@@ -630,7 +791,7 @@ class Persona extends Usuario
      *
      * @param \cobe\PaginasBundle\Entity\Publicacion $publicaciones
      */
-    public function removePublicacione(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
+    public function removePublicaciones(\cobe\PaginasBundle\Entity\Publicacion $publicaciones)
     {
         $this->publicaciones->removeElement($publicaciones);
     }
@@ -674,7 +835,7 @@ class Persona extends Usuario
      * @param \cobe\CurriculosBundle\Entity\Interes $intereses
      * @return Persona
      */
-    public function addInterese(\cobe\CurriculosBundle\Entity\Interes $intereses)
+    public function addIntereses(\cobe\CurriculosBundle\Entity\Interes $intereses)
     {
         $this->intereses[] = $intereses;
 
@@ -686,7 +847,7 @@ class Persona extends Usuario
      *
      * @param \cobe\CurriculosBundle\Entity\Interes $intereses
      */
-    public function removeInterese(\cobe\CurriculosBundle\Entity\Interes $intereses)
+    public function removeIntereses(\cobe\CurriculosBundle\Entity\Interes $intereses)
     {
         $this->intereses->removeElement($intereses);
     }
@@ -702,12 +863,44 @@ class Persona extends Usuario
     }
 
     /**
+     * set intereses
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Persona
+     */
+    public function setIntereses($intereses)
+    {
+        if(is_array($intereses)){
+            $this->removeAllInteres();
+            foreach($intereses as $e){
+                $this->addIntereses($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All intereses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllInteres()
+    {
+        /*foreach($this->getIntereses() as $et){
+            $this->intereses->removeElement($et);
+        }*/
+        $this->intereses = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getIntereses();
+    }
+
+    /**
      * Add aptitudes
      *
      * @param \cobe\CurriculosBundle\Entity\Aptitud $aptitudes
      * @return Persona
      */
-    public function addAptitude(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
+    public function addAptitudes(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
     {
         $this->aptitudes[] = $aptitudes;
 
@@ -719,7 +912,7 @@ class Persona extends Usuario
      *
      * @param \cobe\CurriculosBundle\Entity\Aptitud $aptitudes
      */
-    public function removeAptitude(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
+    public function removeAptitudes(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
     {
         $this->aptitudes->removeElement($aptitudes);
     }
@@ -732,6 +925,38 @@ class Persona extends Usuario
     public function getAptitudes()
     {
         return $this->aptitudes;
+    }
+
+    /**
+     * set aptitudes
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Persona
+     */
+    public function setAptitudes($aptitudes)
+    {
+        if(is_array($aptitudes)){
+            $this->removeAllAptitudes();
+            foreach($aptitudes as $e){
+                $this->addAptitudes($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All aptitudes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllAptitudes()
+    {
+        /*foreach($this->getAptitudes() as $et){
+            $this->aptitudes->removeElement($et);
+        }*/
+        $this->aptitudes = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getAptitudes();
     }
 
 }

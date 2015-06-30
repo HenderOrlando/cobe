@@ -39,7 +39,7 @@ class TipoEstudio extends Tipo
      * @param \cobe\CurriculosBundle\Entity\Estudio $estudios
      * @return TipoEstudio
      */
-    public function addEstudio(\cobe\CurriculosBundle\Entity\Estudio $estudios)
+    public function addEstudios(\cobe\CurriculosBundle\Entity\Estudio $estudios)
     {
         $this->estudios[] = $estudios;
 
@@ -51,7 +51,7 @@ class TipoEstudio extends Tipo
      *
      * @param \cobe\CurriculosBundle\Entity\Estudio $estudios
      */
-    public function removeEstudio(\cobe\CurriculosBundle\Entity\Estudio $estudios)
+    public function removeEstudios(\cobe\CurriculosBundle\Entity\Estudio $estudios)
     {
         $this->estudios->removeElement($estudios);
     }

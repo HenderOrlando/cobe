@@ -19,7 +19,7 @@ class InteresType extends ObjectType
         $builder
             ->add('empresas')
             ->add('personas')
-            ->add('gruposInteres')
+            ->add('grupos')
         ;
 
         $builder->setMethod($this->method);

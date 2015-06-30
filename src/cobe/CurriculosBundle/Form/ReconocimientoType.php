@@ -18,7 +18,9 @@ class ReconocimientoType extends ObjectType
 
         $builder
             ->add('empresas')
-            ->add('fechaOtorgado')
+            ->add('fechaOtorgado', null, array(
+                'widget' => 'single_text'
+            ))
             ->add('reconocimientoPersonas')
             ->add('tipo')
         ;

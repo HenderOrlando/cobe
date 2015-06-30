@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\CiudadRepository")
+ * @ORM\Table(options={"comment":"Ciudades"})
  */
 class Ciudad extends Obj
 {

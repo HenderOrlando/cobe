@@ -6,22 +6,22 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\OfertasLaboralesBundle\Repository\TipoOfertaLaboralRepository")
- * @ORM\Table(options={"comment":"Tipos de las OfertaLaboral"})
+ * @ORM\Table(options={"comment":"Tipos de las Oferta Laboral"})
  */
 class TipoOfertaLaboral extends Tipo
 {
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="tipoOfertasLaborales")
+     * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", mappedBy="tipo")
      */
-    private $ofertasLaboralesTipo;
+    private $ofertasLaborales;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->ofertasLaboralesTipo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -34,35 +34,35 @@ class TipoOfertaLaboral extends Tipo
     }
 
     /**
-     * Add ofertasLaboralesTipo
+     * Add ofertasLaborales
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaboralesTipo
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaborales
      * @return TipoOfertaLaboral
      */
-    public function addOfertasLaboralesTipo(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaboralesTipo)
+    public function addOfertasLaborales(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaborales)
     {
-        $this->ofertasLaboralesTipo[] = $ofertasLaboralesTipo;
+        $this->ofertasLaborales[] = $ofertasLaborales;
 
         return $this;
     }
 
     /**
-     * Remove ofertasLaboralesTipo
+     * Remove ofertasLaborales
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaboralesTipo
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaborales
      */
-    public function removeOfertasLaboralesTipo(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaboralesTipo)
+    public function removeOfertasLaborales(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral $ofertasLaborales)
     {
-        $this->ofertasLaboralesTipo->removeElement($ofertasLaboralesTipo);
+        $this->ofertasLaborales->removeElement($ofertasLaborales);
     }
 
     /**
-     * Get ofertasLaboralesTipo
+     * Get ofertasLaborales
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getOfertasLaboralesTipo()
+    public function getOfertasLaborales()
     {
-        return $this->ofertasLaboralesTipo;
+        return $this->ofertasLaborales;
     }
 }

@@ -393,18 +393,31 @@ class ApiEmpresaController extends ApiController
                             $accessor->setValue($empresa, $id, $dato);
                             $isModify = true;
                         }
-                    }elseif($metadata->isCollectionValuedAssociation($id)){
-                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
-                        //$datos_ = $request->request->get($type->getName(), false);
-                        //$dato = $datos[$id] = $datos_[$id];
-                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
-                        if(empty($msgs)){
-                            $set = 'set'.ucfirst($id);
-                            if(method_exists($empresa,$set)){
-                                //$collection = new ArrayCollection($collection);
-                                $empresa->$set($collection);
+                    }elseif($metadata->hasAssociation($id)){
+                        if($metadata->isCollectionValuedAssociation($id)){
+                            $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                            //$datos_ = $request->request->get($type->getName(), false);
+                            //$dato = $datos[$id] = $datos_[$id];
+                            $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                            if(empty($msgs)){
+                                $set = 'set'.ucfirst($id);
+                                if(method_exists($empresa,$set)){
+                                    //$collection = new ArrayCollection($collection);
+                                    $empresa->$set($collection);
+                                }
+                                $isModify = true;
                             }
-                            $isModify = true;
+                        }else{
+                            $dato = $repo->sanearDato($dato, 'guid');
+                            $accessor = PropertyAccess::createPropertyAccessor();
+                            $dato_ = $accessor->getValue($empresa, $id);
+                            if($dato && (!$dato_ || (is_object($dato_) && method_exists($dato_,'getId') && $dato_->getId() !== $dato))){
+                                $association = $this->getManager()->getRepository($metadata->getAssociationTargetClass($id))->find($dato);
+                                if($association && $association->getId()){
+                                    $accessor->setValue($empresa, $id, $association);
+                                    $isModify = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -481,8 +494,9 @@ class ApiEmpresaController extends ApiController
                 $em->remove($empresa);
                 $empresa = $this->captureErrorFlush($em, $empresa, 'borrar');
                 $rta = $empresa;
-                if(!$empresa['errors'])
-                $deleted = true;
+                if(!is_array($rta) && method_exists($rta, 'getId') && !$rta->getId()){
+                    $deleted = true;
+                }
             }
             if(!$deleted){
                 $rta = array(

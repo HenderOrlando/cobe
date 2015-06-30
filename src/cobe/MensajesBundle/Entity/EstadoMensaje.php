@@ -6,13 +6,13 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\MensajesBundle\Repository\EstadoMensajeRepository")
- * @ORM\Table(options={"comment":"Estados de los Mensajes enviados"})
+ * @ORM\Table(options={"comment":"Estado de un Mensajes"})
  */
 class EstadoMensaje extends Estado
 {
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", mappedBy="estadoMensaje")
+     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", mappedBy="estado")
      */
     private $mensajes;
     /**
@@ -39,7 +39,7 @@ class EstadoMensaje extends Estado
      * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      * @return EstadoMensaje
      */
-    public function addMensaje(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
+    public function addMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
         $this->mensajes[] = $mensajes;
 
@@ -51,7 +51,7 @@ class EstadoMensaje extends Estado
      *
      * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      */
-    public function removeMensaje(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
+    public function removeMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
         $this->mensajes->removeElement($mensajes);
     }

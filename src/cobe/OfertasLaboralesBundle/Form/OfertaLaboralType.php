@@ -21,13 +21,15 @@ class OfertaLaboralType extends ObjectType
             ->add('archivos')
             ->add('ciudades')
             ->add('comentarios')
+            ->add('estado')
             ->add('etiquetas')
-            ->add('estadoOfertasLaborales')
-            ->add('fechaLimite')
+            ->add('fechaLimite', null, array(
+                'widget' => 'single_text'
+            ))
             ->add('idiomas')
-            ->add('personasOfertaLaboral')
+            ->add('proponentes')
             ->add('publicacion')
-            ->add('tipoOfertasLaborales')
+            ->add('tipo')
             ->add('usuario')
         ;
 

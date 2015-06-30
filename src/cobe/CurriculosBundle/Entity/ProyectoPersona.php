@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\ProyectoPersonaRepository")
  * @ORM\Table(
- *     options={"comment":"Proyectos donde la Persona ha participado"},
+ *     options={"comment":"Proyectos donde una Empresa o una Persona ha participado"},
  *     indexes={@ORM\Index(name="proyecto_persona", columns={"proyecto","persona"})}
  * )
  */
@@ -36,14 +36,14 @@ class ProyectoPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", inversedBy="personasProyecto")
+     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Proyecto", inversedBy="personas")
      * @ORM\JoinColumn(name="proyecto", referencedColumnName="id", nullable=false)
      */
     private $proyecto;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="proyectosPersona")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Persona", inversedBy="proyectos")
      * @ORM\JoinColumn(name="persona", referencedColumnName="id", nullable=false)
      */
     private $persona;

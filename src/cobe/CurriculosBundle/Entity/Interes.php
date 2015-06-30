@@ -14,7 +14,7 @@ class Interes extends Etiqueta
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaInteres", mappedBy="interes")
      */
-    private $estadisticasInteres;
+    private $estadisticas;
 
     /**
      * @MaxDepth(2)
@@ -24,25 +24,25 @@ class Interes extends Etiqueta
 
     /**
      * @MaxDepth(2)
-     * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Persona", mappedBy="intereses", cascade={"all"})
+     * @ORM\ManyToMany(targetEntity="\cobe\UsuariosBundle\Entity\Persona", mappedBy="intereses")
      */
     private $personas;
 
     /**
      * @MaxDepth(2)
-     * @ORM\ManyToMany(targetEntity="cobe\GruposBundle\Entity\Grupo", mappedBy="interesesGrupo")
+     * @ORM\ManyToMany(targetEntity="\cobe\GruposBundle\Entity\Grupo", mappedBy="intereses")
      */
-    private $gruposInteres;
+    private $grupos;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->estadisticasInteres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->empresas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->personas = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->gruposInteres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->grupos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -57,12 +57,12 @@ class Interes extends Etiqueta
     /**
      * Add estadisticasInteres
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticas
      * @return Interes
      */
-    public function addEstadisticasIntere(\cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres)
+    public function addEstadisticas($estadisticas)
     {
-        $this->estadisticasInteres[] = $estadisticasInteres;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
@@ -70,11 +70,11 @@ class Interes extends Etiqueta
     /**
      * Remove estadisticasInteres
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticas
      */
-    public function removeEstadisticasIntere(\cobe\EstadisticasBundle\Entity\EstadisticaInteres $estadisticasInteres)
+    public function removeEstadisticas($estadisticas)
     {
-        $this->estadisticasInteres->removeElement($estadisticasInteres);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
@@ -82,9 +82,9 @@ class Interes extends Etiqueta
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstadisticasInteres()
+    public function getEstadisticas()
     {
-        return $this->estadisticasInteres;
+        return $this->estadisticas;
     }
 
     /**
@@ -156,12 +156,12 @@ class Interes extends Etiqueta
     /**
      * Add gruposInteres
      *
-     * @param \cobe\GruposBundle\Entity\Grupo $gruposInteres
+     * @param \cobe\GruposBundle\Entity\Grupo $grupos
      * @return Interes
      */
-    public function addGruposIntere(\cobe\GruposBundle\Entity\Grupo $gruposInteres)
+    public function addGrupos(\cobe\GruposBundle\Entity\Grupo $grupos)
     {
-        $this->gruposInteres[] = $gruposInteres;
+        $this->grupos[] = $grupos;
 
         return $this;
     }
@@ -169,11 +169,11 @@ class Interes extends Etiqueta
     /**
      * Remove gruposInteres
      *
-     * @param \cobe\GruposBundle\Entity\Grupo $gruposInteres
+     * @param \cobe\GruposBundle\Entity\Grupo $grupos
      */
-    public function removeGruposIntere(\cobe\GruposBundle\Entity\Grupo $gruposInteres)
+    public function removeGrupos(\cobe\GruposBundle\Entity\Grupo $grupos)
     {
-        $this->gruposInteres->removeElement($gruposInteres);
+        $this->grupos->removeElement($grupos);
     }
 
     /**
@@ -181,8 +181,8 @@ class Interes extends Etiqueta
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGruposInteres()
+    public function getGrupos()
     {
-        return $this->gruposInteres;
+        return $this->grupos;
     }
 }

@@ -427,18 +427,31 @@ class ApiVotacionController extends ApiController
                             $accessor->setValue($votacion, $id, $dato);
                             $isModify = true;
                         }
-                    }elseif($metadata->isCollectionValuedAssociation($id)){
-                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
-                        //$datos_ = $request->request->get($type->getName(), false);
-                        //$dato = $datos[$id] = $datos_[$id];
-                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
-                        if(empty($msgs)){
-                            $set = 'set'.ucfirst($id);
-                            if(method_exists($votacion,$set)){
-                                //$collection = new ArrayCollection($collection);
-                                $votacion->$set($collection);
+                    }elseif($metadata->hasAssociation($id)){
+                        if($metadata->isCollectionValuedAssociation($id)){
+                            $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                            //$datos_ = $request->request->get($type->getName(), false);
+                            //$dato = $datos[$id] = $datos_[$id];
+                            $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                            if(empty($msgs)){
+                                $set = 'set'.ucfirst($id);
+                                if(method_exists($votacion,$set)){
+                                    //$collection = new ArrayCollection($collection);
+                                    $votacion->$set($collection);
+                                }
+                                $isModify = true;
                             }
-                            $isModify = true;
+                        }else{
+                            $dato = $repo->sanearDato($dato, 'guid');
+                            $accessor = PropertyAccess::createPropertyAccessor();
+                            $dato_ = $accessor->getValue($votacion, $id);
+                            if($dato && (!$dato_ || (is_object($dato_) && method_exists($dato_,'getId') && $dato_->getId() !== $dato))){
+                                $association = $this->getManager()->getRepository($metadata->getAssociationTargetClass($id))->find($dato);
+                                if($association && $association->getId()){
+                                    $accessor->setValue($votacion, $id, $association);
+                                    $isModify = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -515,7 +528,7 @@ class ApiVotacionController extends ApiController
                 $em->remove($votacion);
                 $votacion = $this->captureErrorFlush($em, $votacion, 'borrar');
                 $rta = $votacion;
-                if(!$votacion['errors']){
+                if(!is_array($rta) && method_exists($rta, 'getId') && !$rta->getId()){
                     $deleted = true;
                 }
             }

@@ -23,11 +23,11 @@ class GrupoPersona
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\VotacionGrupoPersona", mappedBy="grupoPersona")
      */
-    private $votacionGrupoPersona;
+    private $votaciones;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="personasGrupo")
+     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\Grupo", inversedBy="personas")
      * @ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)
      */
     private $grupo;
@@ -44,20 +44,20 @@ class GrupoPersona
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\RolGrupoPersona", inversedBy="grupoPersona")
      * @ORM\JoinColumn(name="rolPersona", referencedColumnName="id", nullable=false)
      */
-    private $rolPersona;
+    private $rol;
 
     /**
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\EstadoGrupoPersona", inversedBy="grupoPersona")
      * @ORM\JoinColumn(name="estadoPersona", referencedColumnName="id", nullable=false)
      */
-    private $estadoPersona;
+    private $estado;
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->votacionGrupoPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->votaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -71,36 +71,36 @@ class GrupoPersona
     }
 
     /**
-     * Add votacionGrupoPersona
+     * Add votaciones
      *
-     * @param \cobe\GruposBundle\Entity\VotacionGrupoPersona $votacionGrupoPersona
+     * @param \cobe\GruposBundle\Entity\VotacionGrupoPersona $votaciones
      * @return GrupoPersona
      */
-    public function addVotacionGrupoPersona(\cobe\GruposBundle\Entity\VotacionGrupoPersona $votacionGrupoPersona)
+    public function addVotaciones(\cobe\GruposBundle\Entity\VotacionGrupoPersona $votaciones)
     {
-        $this->votacionGrupoPersona[] = $votacionGrupoPersona;
+        $this->votaciones[] = $votaciones;
 
         return $this;
     }
 
     /**
-     * Remove votacionGrupoPersona
+     * Remove votacion
      *
-     * @param \cobe\GruposBundle\Entity\VotacionGrupoPersona $votacionGrupoPersona
+     * @param \cobe\GruposBundle\Entity\VotacionGrupoPersona $votaciones
      */
-    public function removeVotacionGrupoPersona(\cobe\GruposBundle\Entity\VotacionGrupoPersona $votacionGrupoPersona)
+    public function removeVotaciones(\cobe\GruposBundle\Entity\VotacionGrupoPersona $votaciones)
     {
-        $this->votacionGrupoPersona->removeElement($votacionGrupoPersona);
+        $this->votaciones->removeElement($votaciones);
     }
 
     /**
-     * Get votacionGrupoPersona
+     * Get votacion
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getVotacionGrupoPersona()
+    public function getVotaciones()
     {
-        return $this->votacionGrupoPersona;
+        return $this->votaciones;
     }
 
     /**
@@ -150,48 +150,48 @@ class GrupoPersona
     }
 
     /**
-     * Set rolPersona
+     * Set rol
      *
-     * @param \cobe\GruposBundle\Entity\RolGrupoPersona $rolPersona
+     * @param \cobe\GruposBundle\Entity\RolGrupoPersona $rol
      * @return GrupoPersona
      */
-    public function setRolPersona(\cobe\GruposBundle\Entity\RolGrupoPersona $rolPersona)
+    public function setRol(\cobe\GruposBundle\Entity\RolGrupoPersona $rol)
     {
-        $this->rolPersona = $rolPersona;
+        $this->rol = $rol;
 
         return $this;
     }
 
     /**
-     * Get rolPersona
+     * Get rol
      *
      * @return \cobe\GruposBundle\Entity\RolGrupoPersona 
      */
-    public function getRolPersona()
+    public function getRol()
     {
-        return $this->rolPersona;
+        return $this->rol;
     }
 
     /**
-     * Set estadoPersona
+     * Set estado
      *
-     * @param \cobe\GruposBundle\Entity\EstadoGrupoPersona $estadoPersona
+     * @param \cobe\GruposBundle\Entity\EstadoGrupoPersona $estado
      * @return GrupoPersona
      */
-    public function setEstadoPersona(\cobe\GruposBundle\Entity\EstadoGrupoPersona $estadoPersona)
+    public function setEstado(\cobe\GruposBundle\Entity\EstadoGrupoPersona $estado)
     {
-        $this->estadoPersona = $estadoPersona;
+        $this->estado = $estado;
 
         return $this;
     }
 
     /**
-     * Get estadoPersona
+     * Get estado
      *
      * @return \cobe\GruposBundle\Entity\EstadoGrupoPersona 
      */
-    public function getEstadoPersona()
+    public function getEstado()
     {
-        return $this->estadoPersona;
+        return $this->estado;
     }
 }

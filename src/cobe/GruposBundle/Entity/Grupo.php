@@ -20,7 +20,7 @@ class Grupo extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="grupo")
      */
-    private $personasGrupo;
+    private $personas;
 
     /**
      * @MaxDepth(2)
@@ -38,7 +38,7 @@ class Grupo extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaGrupo", mappedBy="grupo")
      */
-    private $estadisticasGrupo;
+    private $estadisticas;
 
     /**
      * @MaxDepth(1)
@@ -49,14 +49,14 @@ class Grupo extends Obj
 
     /**
      * @MaxDepth(2)
-     * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="gruposInteres")
+     * @ORM\ManyToMany(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="grupos")
      * @ORM\JoinTable(
      *     name="interes2grupo",
      *     joinColumns={@ORM\JoinColumn(name="grupo", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="interes", referencedColumnName="id", nullable=false)}
      * )
      */
-    private $interesesGrupo;
+    private $intereses;
 
     /**
      * @MaxDepth(2)
@@ -74,11 +74,11 @@ class Grupo extends Obj
     public function __construct()
     {
         parent::__construct();
-        $this->personasGrupo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estadisticasGrupo = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->interesesGrupo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->intereses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -92,36 +92,36 @@ class Grupo extends Obj
     }
 
     /**
-     * Add grupoPersonas
+     * Add personas
      *
-     * @param \cobe\GruposBundle\Entity\GrupoPersona $personasGrupo
+     * @param \cobe\GruposBundle\Entity\GrupoPersona $personas
      * @return Grupo
      */
-    public function addPersonasGrupo(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
+    public function addPersonas(\cobe\GruposBundle\Entity\GrupoPersona $personas)
     {
-        $this->personasGrupo[] = $personasGrupo;
+        $this->personas[] = $personas;
 
         return $this;
     }
 
     /**
-     * Remove grupoPersonas
+     * Remove personas
      *
-     * @param \cobe\GruposBundle\Entity\GrupoPersona $personasGrupo
+     * @param \cobe\GruposBundle\Entity\GrupoPersona $personas
      */
-    public function removePersonasGrupo(\cobe\GruposBundle\Entity\GrupoPersona $personasGrupo)
+    public function removePersonas(\cobe\GruposBundle\Entity\GrupoPersona $personas)
     {
-        $this->personasGrupo->removeElement($personasGrupo);
+        $this->personas->removeElement($personas);
     }
 
     /**
-     * Get grupoPersonas
+     * Get personas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPersonasGrupo()
+    public function getPersonas()
     {
-        return $this->personasGrupo;
+        return $this->personas;
     }
 
     /**
@@ -130,7 +130,7 @@ class Grupo extends Obj
      * @param \cobe\MensajesBundle\Entity\ComentarioGrupo $comentarios
      * @return Grupo
      */
-    public function addComentario(\cobe\MensajesBundle\Entity\ComentarioGrupo $comentarios)
+    public function addComentarios(\cobe\MensajesBundle\Entity\ComentarioGrupo $comentarios)
     {
         $this->comentarios[] = $comentarios;
 
@@ -142,7 +142,7 @@ class Grupo extends Obj
      *
      * @param \cobe\MensajesBundle\Entity\ComentarioGrupo $comentarios
      */
-    public function removeComentario(\cobe\MensajesBundle\Entity\ComentarioGrupo $comentarios)
+    public function removeComentarios(\cobe\MensajesBundle\Entity\ComentarioGrupo $comentarios)
     {
         $this->comentarios->removeElement($comentarios);
     }
@@ -163,7 +163,7 @@ class Grupo extends Obj
      * @param \cobe\ColeccionesBundle\Entity\ArchivoGrupo $archivos
      * @return Grupo
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoGrupo $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoGrupo $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -175,7 +175,7 @@ class Grupo extends Obj
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoGrupo $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoGrupo $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoGrupo $archivos)
     {
         $this->archivos->removeElement($archivos);
     }
@@ -191,36 +191,36 @@ class Grupo extends Obj
     }
 
     /**
-     * Add estadisticasGrupo
+     * Add estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticasGrupo
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticas
      * @return Grupo
      */
-    public function addEstadisticasGrupo(\cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticasGrupo)
+    public function addEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticas)
     {
-        $this->estadisticasGrupo[] = $estadisticasGrupo;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasGrupo
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticasGrupo
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticas
      */
-    public function removeEstadisticasGrupo(\cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticasGrupo)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaGrupo $estadisticas)
     {
-        $this->estadisticasGrupo->removeElement($estadisticasGrupo);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
-     * Get estadisticasGrupo
+     * Get estadisticas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstadisticasGrupo()
+    public function getEstadisticas()
     {
-        return $this->estadisticasGrupo;
+        return $this->estadisticas;
     }
 
     /**
@@ -247,36 +247,36 @@ class Grupo extends Obj
     }
 
     /**
-     * Add interesesGrupo
+     * Add intereses
      *
-     * @param \cobe\CurriculosBundle\Entity\Interes $interesesGrupo
+     * @param \cobe\CurriculosBundle\Entity\Interes $intereses
      * @return Grupo
      */
-    public function addInteresesGrupo(\cobe\CurriculosBundle\Entity\Interes $interesesGrupo)
+    public function addIntereses(\cobe\CurriculosBundle\Entity\Interes $intereses)
     {
-        $this->interesesGrupo[] = $interesesGrupo;
+        $this->intereses[] = $intereses;
 
         return $this;
     }
 
     /**
-     * Remove interesesGrupo
+     * Remove intereses
      *
-     * @param \cobe\CurriculosBundle\Entity\Interes $interesesGrupo
+     * @param \cobe\CurriculosBundle\Entity\Interes $intereses
      */
-    public function removeInteresesGrupo(\cobe\CurriculosBundle\Entity\Interes $interesesGrupo)
+    public function removeIntereses(\cobe\CurriculosBundle\Entity\Interes $intereses)
     {
-        $this->interesesGrupo->removeElement($interesesGrupo);
+        $this->intereses->removeElement($intereses);
     }
 
     /**
-     * Get interesesGrupo
+     * Get intereses
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getInteresesGrupo()
+    public function getIntereses()
     {
-        return $this->interesesGrupo;
+        return $this->intereses;
     }
 
     /**
@@ -285,11 +285,15 @@ class Grupo extends Obj
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
      * @return Grupo
      */
-    public function addEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
+    public function addEtiquetas(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas[] = $etiquetas;
 
         return $this;
+    }
+
+    public function addEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas){
+        return $this->addEtiquetas($etiquetas);
     }
 
     /**
@@ -297,7 +301,7 @@ class Grupo extends Obj
      *
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
      */
-    public function removeEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
+    public function removeEtiquetas(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas->removeElement($etiquetas);
     }

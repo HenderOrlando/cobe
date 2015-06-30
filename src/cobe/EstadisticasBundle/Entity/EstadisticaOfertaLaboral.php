@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_oferta_laboral", columns={"estadistica","ofertaLaboral"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_oferta_laboral", columns={"estadistica","ofertaLaboral"})}, options={"comment":"Estadísticas de una Oferta Laboral"})
  */
 class EstadisticaOfertaLaboral
 {
@@ -28,7 +28,7 @@ class EstadisticaOfertaLaboral
      *     mappedBy="estadisticaOfertaLaboral"
      * )
      */
-    private $archivosEstadisticaOfertaLaboral;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -48,7 +48,7 @@ class EstadisticaOfertaLaboral
      */
     public function __construct()
     {
-        $this->archivosEstadisticaOfertaLaboral = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -85,36 +85,36 @@ class EstadisticaOfertaLaboral
     }
 
     /**
-     * Add archivosEstadisticaOfertaLaboral
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivosEstadisticaOfertaLaboral
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivos
      * @return EstadisticaOfertaLaboral
      */
-    public function addArchivosEstadisticaOfertaLaboral(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivosEstadisticaOfertaLaboral)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivos)
     {
-        $this->archivosEstadisticaOfertaLaboral[] = $archivosEstadisticaOfertaLaboral;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaOfertaLaboral
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivosEstadisticaOfertaLaboral
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivos
      */
-    public function removeArchivosEstadisticaOfertaLaboral(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivosEstadisticaOfertaLaboral)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOfertaLaboral $archivos)
     {
-        $this->archivosEstadisticaOfertaLaboral->removeElement($archivosEstadisticaOfertaLaboral);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaOfertaLaboral
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaOfertaLaboral()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaOfertaLaboral;
+        return $this->archivos;
     }
 
     /**

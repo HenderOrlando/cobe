@@ -39,7 +39,7 @@ class EstadoPlantilla extends Estado
      * @param \cobe\PaginasBundle\Entity\Plantilla $plantillas
      * @return EstadoPlantilla
      */
-    public function addPlantilla(\cobe\PaginasBundle\Entity\Plantilla $plantillas)
+    public function addPlantillas(\cobe\PaginasBundle\Entity\Plantilla $plantillas)
     {
         $this->plantillas[] = $plantillas;
 
@@ -51,7 +51,7 @@ class EstadoPlantilla extends Estado
      *
      * @param \cobe\PaginasBundle\Entity\Plantilla $plantillas
      */
-    public function removePlantilla(\cobe\PaginasBundle\Entity\Plantilla $plantillas)
+    public function removePlantillas(\cobe\PaginasBundle\Entity\Plantilla $plantillas)
     {
         $this->plantillas->removeElement($plantillas);
     }

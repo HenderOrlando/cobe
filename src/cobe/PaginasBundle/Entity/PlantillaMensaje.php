@@ -39,7 +39,7 @@ class PlantillaMensaje extends Plantilla
      * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      * @return PlantillaMensaje
      */
-    public function addMensaje(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
+    public function addMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
         $this->mensajes[] = $mensajes;
 
@@ -51,7 +51,7 @@ class PlantillaMensaje extends Plantilla
      *
      * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      */
-    public function removeMensaje(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
+    public function removeMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
         $this->mensajes->removeElement($mensajes);
     }

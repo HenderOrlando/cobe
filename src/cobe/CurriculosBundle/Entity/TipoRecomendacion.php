@@ -39,7 +39,7 @@ class TipoRecomendacion extends Tipo
      * @param \cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones
      * @return TipoRecomendacion
      */
-    public function addRecomendacione(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
+    public function addRecomendaciones(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
     {
         $this->recomendaciones[] = $recomendaciones;
 
@@ -51,7 +51,7 @@ class TipoRecomendacion extends Tipo
      *
      * @param \cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones
      */
-    public function removeRecomendacione(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
+    public function removeRecomendaciones(\cobe\CurriculosBundle\Entity\Recomendacion $recomendaciones)
     {
         $this->recomendaciones->removeElement($recomendaciones);
     }

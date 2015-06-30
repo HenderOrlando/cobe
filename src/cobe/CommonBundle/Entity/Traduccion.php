@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CommonBundle\Repository\TraduccionRepository")
- * @ORM\Table(options={"comment":"Traducciones."})
+ * @ORM\Table(options={"comment":"Traducciones"})
  */
 class Traduccion
 {

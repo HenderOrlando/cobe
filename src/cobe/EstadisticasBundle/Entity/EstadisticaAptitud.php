@@ -5,6 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Estadísticas de una Aptitud"})
  */
 class EstadisticaAptitud
 {
@@ -24,7 +25,7 @@ class EstadisticaAptitud
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud", mappedBy="estadisticaAptitud")
      */
-    private $archivosEstadisticaAptitud;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -35,7 +36,7 @@ class EstadisticaAptitud
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="cobe\CurriculosBundle\Entity\Aptitud", inversedBy="estadisticasAptitud")
+     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Aptitud", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="aptitud", referencedColumnName="id", nullable=false)
      */
     private $aptitud;
@@ -44,7 +45,7 @@ class EstadisticaAptitud
      */
     public function __construct()
     {
-        $this->archivosEstadisticaAptitud = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -81,36 +82,36 @@ class EstadisticaAptitud
     }
 
     /**
-     * Add archivosEstadisticaAptitud
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivosEstadisticaAptitud
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivos
      * @return EstadisticaAptitud
      */
-    public function addArchivosEstadisticaAptitud(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivosEstadisticaAptitud)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivos)
     {
-        $this->archivosEstadisticaAptitud[] = $archivosEstadisticaAptitud;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaAptitud
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivosEstadisticaAptitud
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivos
      */
-    public function removeArchivosEstadisticaAptitud(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivosEstadisticaAptitud)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud $archivos)
     {
-        $this->archivosEstadisticaAptitud->removeElement($archivosEstadisticaAptitud);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaAptitud
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaAptitud()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaAptitud;
+        return $this->archivos;
     }
 
     /**

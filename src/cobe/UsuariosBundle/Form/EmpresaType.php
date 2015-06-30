@@ -22,7 +22,7 @@ class EmpresaType extends PersonaType
             ->add('ciudades')
             ->add('etiquetas')
             ->add('intereses')
-            ->add('plantillaEmpresa')
+            ->add('plantilla')
             ->add('reconocimientos')
             ->add('representantes')
         ;

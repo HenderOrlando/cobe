@@ -79,7 +79,7 @@ class Plantilla extends Objeto
      * @param \cobe\PaginasBundle\Entity\Plantilla $subplantillas
      * @return Plantilla
      */
-    public function addSubplantilla(\cobe\PaginasBundle\Entity\Plantilla $subplantillas)
+    public function addSubplantillas(\cobe\PaginasBundle\Entity\Plantilla $subplantillas)
     {
         $this->subplantillas[] = $subplantillas;
 
@@ -91,7 +91,7 @@ class Plantilla extends Objeto
      *
      * @param \cobe\PaginasBundle\Entity\Plantilla $subplantillas
      */
-    public function removeSubplantilla(\cobe\PaginasBundle\Entity\Plantilla $subplantillas)
+    public function removeSubplantillas(\cobe\PaginasBundle\Entity\Plantilla $subplantillas)
     {
         $this->subplantillas->removeElement($subplantillas);
     }
@@ -112,7 +112,7 @@ class Plantilla extends Objeto
      * @param \cobe\ColeccionesBundle\Entity\ArchivoPlantilla $archivos
      * @return Plantilla
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoPlantilla $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoPlantilla $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -124,7 +124,7 @@ class Plantilla extends Objeto
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoPlantilla $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoPlantilla $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoPlantilla $archivos)
     {
         $this->archivos->removeElement($archivos);
     }

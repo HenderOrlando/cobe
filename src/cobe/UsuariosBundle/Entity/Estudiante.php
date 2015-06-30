@@ -3,6 +3,7 @@ namespace cobe\UsuariosBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use cobe\UsuariosBundle\Entity\Persona;
 use JMS\Serializer\Annotation\MaxDepth;
+use cobe\CurriculosBundle\Entity\CentroEstudio;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\UsuariosBundle\Repository\EstudianteRepository")
@@ -31,7 +32,7 @@ class Estudiante extends Persona
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante", mappedBy="estudiante")
      */
-    private $estadisticasEstudiante;
+    private $estadisticas;
 
     /**
      * @MaxDepth(1)
@@ -56,8 +57,7 @@ class Estudiante extends Persona
     public function __construct()
     {
         parent::__construct();
-        $this->representantes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estadisticasEstudiante = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->etiquetas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -132,7 +132,7 @@ class Estudiante extends Persona
     /**
      * Get centroEstudio
      *
-     * @return datetime
+     * @return /cobe/CentroEstudio
      */
     public function getCentroEstudio()
     {
@@ -140,36 +140,36 @@ class Estudiante extends Persona
     }
 
     /**
-     * Add estadisticasEstudiante
+     * Add estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticas
      * @return Estudiante
      */
-    public function addEstadisticasEstudiante(\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante)
+    public function addEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticas)
     {
-        $this->estadisticasEstudiante[] = $estadisticasEstudiante;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasEstudiante
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticas
      */
-    public function removeEstadisticasEstudiante(\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticasEstudiante)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaEstudiante $estadisticas)
     {
-        $this->estadisticasEstudiante->removeElement($estadisticasEstudiante);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
-     * Get estadisticasEstudiante
+     * Get estadisticasE
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEstadisticasEstudiante()
+    public function getEstadisticas()
     {
-        return $this->estadisticasEstudiante;
+        return $this->estadisticas;
     }
 
     /**

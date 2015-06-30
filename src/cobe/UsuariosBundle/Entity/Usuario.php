@@ -68,9 +68,9 @@ class Usuario extends Objeto
 
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", mappedBy="usuarioMensaje")
+     * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\Mensaje", mappedBy="usuario")
      */
-    private $mensajesUsuario;
+    private $mensajes;
 
     /**
      * @MaxDepth(2)
@@ -82,7 +82,7 @@ class Usuario extends Objeto
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\MensajesBundle\Entity\ComentarioUsuario", mappedBy="usuario")
      */
-    private $comentariosUsuario;
+    private $comentarios;
 
     /**
      * @MaxDepth(2)
@@ -141,9 +141,9 @@ class Usuario extends Objeto
         parent::__construct();
         $this->historiales = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ofertasLaborales = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->mensajesUsuario = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->mensajes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->destinatarios = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->comentariosUsuario = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->solicitantes = new \Doctrine\Common\Collections\ArrayCollection();
@@ -183,7 +183,7 @@ class Usuario extends Objeto
     /**
      * Get clave
      *
-     * @return string 
+     * @return string
      */
     public function getClave()
     {
@@ -206,7 +206,7 @@ class Usuario extends Objeto
     /**
      * Get salt
      *
-     * @return guid 
+     * @return guid
      */
     public function getSalt()
     {
@@ -230,7 +230,7 @@ class Usuario extends Objeto
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -253,7 +253,7 @@ class Usuario extends Objeto
     /**
      * Get token
      *
-     * @return guid 
+     * @return guid
      */
     public function getToken()
     {
@@ -286,7 +286,7 @@ class Usuario extends Objeto
     /**
      * Get historiales
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getHistoriales()
     {
@@ -319,7 +319,7 @@ class Usuario extends Objeto
     /**
      * Get ofertasLaborales
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getOfertasLaborales()
     {
@@ -327,36 +327,36 @@ class Usuario extends Objeto
     }
 
     /**
-     * Add mensajesUsuario
+     * Add mensajes
      *
-     * @param \cobe\MensajesBundle\Entity\Mensaje $mensajesUsuario
+     * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      * @return Usuario
      */
-    public function addMensajesUsuario(\cobe\MensajesBundle\Entity\Mensaje $mensajesUsuario)
+    public function addMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
-        $this->mensajesUsuario[] = $mensajesUsuario;
+        $this->mensajes[] = $mensajes;
 
         return $this;
     }
 
     /**
-     * Remove mensajesUsuario
+     * Remove mensajes
      *
-     * @param \cobe\MensajesBundle\Entity\Mensaje $mensajesUsuario
+     * @param \cobe\MensajesBundle\Entity\Mensaje $mensajes
      */
-    public function removeMensajesUsuario(\cobe\MensajesBundle\Entity\Mensaje $mensajesUsuario)
+    public function removeMensajes(\cobe\MensajesBundle\Entity\Mensaje $mensajes)
     {
-        $this->mensajesUsuario->removeElement($mensajesUsuario);
+        $this->mensajes->removeElement($mensajes);
     }
 
     /**
-     * Get mensajesUsuario
+     * Get mensajes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getMensajesUsuario()
+    public function getMensajes()
     {
-        return $this->mensajesUsuario;
+        return $this->mensajes;
     }
 
     /**
@@ -393,36 +393,36 @@ class Usuario extends Objeto
     }
 
     /**
-     * Add comentariosUsuario
+     * Add comentarios
      *
-     * @param \cobe\MensajesBundle\Entity\ComentarioUsuario $comentariosUsuario
+     * @param \cobe\MensajesBundle\Entity\ComentarioUsuario $comentarios
      * @return Usuario
      */
-    public function addComentariosUsuario(\cobe\MensajesBundle\Entity\ComentarioUsuario $comentariosUsuario)
+    public function addComentarios(\cobe\MensajesBundle\Entity\ComentarioUsuario $comentarios)
     {
-        $this->comentariosUsuario[] = $comentariosUsuario;
+        $this->comentarios[] = $comentarios;
 
         return $this;
     }
 
     /**
-     * Remove comentariosUsuario
+     * Remove comentarios
      *
-     * @param \cobe\MensajesBundle\Entity\ComentarioUsuario $comentariosUsuario
+     * @param \cobe\MensajesBundle\Entity\ComentarioUsuario $comentarios
      */
-    public function removeComentariosUsuario(\cobe\MensajesBundle\Entity\ComentarioUsuario $comentariosUsuario)
+    public function removeComentarios(\cobe\MensajesBundle\Entity\ComentarioUsuario $comentarios)
     {
-        $this->comentariosUsuario->removeElement($comentariosUsuario);
+        $this->comentarios->removeElement($comentarios);
     }
 
     /**
-     * Get comentariosUsuario
+     * Get comentarios
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getComentariosUsuario()
+    public function getComentarios()
     {
-        return $this->comentariosUsuario;
+        return $this->comentarios;
     }
 
     /**

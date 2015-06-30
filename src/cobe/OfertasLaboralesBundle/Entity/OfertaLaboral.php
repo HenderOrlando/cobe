@@ -22,7 +22,7 @@ class OfertaLaboral extends Obj
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona", mappedBy="ofertaLaboral")
      */
-    private $personasOfertaLaboral;
+    private $proponentes;
 
     /**
      * @MaxDepth(2)
@@ -44,17 +44,17 @@ class OfertaLaboral extends Obj
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral", inversedBy="ofertasLaboralesEstado")
+     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral", inversedBy="ofertasLaborales")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
-    private $estadoOfertasLaborales;
+    private $estado;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral", inversedBy="ofertasLaboralesTipo")
+     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral", inversedBy="ofertasLaborales")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
-    private $tipoOfertasLaborales;
+    private $tipo;
 
     /**
      * @MaxDepth(1)
@@ -119,7 +119,7 @@ class OfertaLaboral extends Obj
     public function __construct()
     {
         parent::__construct();
-        $this->personasOfertaLaboral = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->proponentes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
         $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
@@ -139,36 +139,36 @@ class OfertaLaboral extends Obj
     }
 
     /**
-     * Add ofertaLaboralPersonas
+     * Add propuestas
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes
      * @return OfertaLaboral
      */
-    public function addOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral)
+    public function addProponentes(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes)
     {
-        $this->personasOfertaLaboral[] = $personasOfertaLaboral;
+        $this->proponentes[] = $proponentes;
 
         return $this;
     }
 
     /**
-     * Remove ofertaLaboralPersonas
+     * Remove propuestas
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes
      */
-    public function removeOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $personasOfertaLaboral)
+    public function removeProponentes(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes)
     {
-        $this->personasOfertaLaboral->removeElement($personasOfertaLaboral);
+        $this->proponentes->removeElement($proponentes);
     }
 
     /**
-     * Get ofertaLaboralPersonas
+     * Get propuestas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getOfertaLaboralPersonas()
+    public function getProponentes()
     {
-        return $this->personasOfertaLaboral;
+        return $this->proponentes;
     }
 
     /**
@@ -177,7 +177,7 @@ class OfertaLaboral extends Obj
      * @param \cobe\MensajesBundle\Entity\ComentarioOfertaLaboral $comentarios
      * @return OfertaLaboral
      */
-    public function addComentario(\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral $comentarios)
+    public function addComentarios(\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral $comentarios)
     {
         $this->comentarios[] = $comentarios;
 
@@ -189,7 +189,7 @@ class OfertaLaboral extends Obj
      *
      * @param \cobe\MensajesBundle\Entity\ComentarioOfertaLaboral $comentarios
      */
-    public function removeComentario(\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral $comentarios)
+    public function removeComentarios(\cobe\MensajesBundle\Entity\ComentarioOfertaLaboral $comentarios)
     {
         $this->comentarios->removeElement($comentarios);
     }
@@ -210,7 +210,7 @@ class OfertaLaboral extends Obj
      * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos
      * @return OfertaLaboral
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -222,7 +222,7 @@ class OfertaLaboral extends Obj
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoTrabajo $archivos)
     {
         $this->archivos->removeElement($archivos);
     }
@@ -243,7 +243,7 @@ class OfertaLaboral extends Obj
      * @param \cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas
      * @return OfertaLaboral
      */
-    public function addEstadistica(\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas)
+    public function addEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas)
     {
         $this->estadisticas[] = $estadisticas;
 
@@ -255,7 +255,7 @@ class OfertaLaboral extends Obj
      *
      * @param \cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas
      */
-    public function removeEstadistica(\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\EstadisticaOfertaLaboral $estadisticas)
     {
         $this->estadisticas->removeElement($estadisticas);
     }
@@ -271,49 +271,49 @@ class OfertaLaboral extends Obj
     }
 
     /**
-     * Set estadoOfertasLaborales
+     * Set estado
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral $estadoOfertasLaborales
+     * @param \cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral $estado
      * @return OfertaLaboral
      */
-    public function setEstadoOfertasLaborales(\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral $estadoOfertasLaborales)
+    public function setEstado(\cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral $estado)
     {
-        $this->estadoOfertasLaborales = $estadoOfertasLaborales;
+        $this->estado = $estado;
 
         return $this;
     }
 
     /**
-     * Get estadoOfertasLaborales
+     * Get estado
      *
      * @return \cobe\OfertasLaboralesBundle\Entity\EstadoOfertaLaboral 
      */
-    public function getEstadoOfertasLaborales()
+    public function getEstado()
     {
-        return $this->estadoOfertasLaborales;
+        return $this->estado;
     }
 
     /**
-     * Set tipoOfertasLaborales
+     * Set tipo
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral $tipoOfertasLaborales
+     * @param \cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral $tipo
      * @return OfertaLaboral
      */
-    public function setTipoOfertasLaborales(\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral $tipoOfertasLaborales)
+    public function setTipo(\cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral $tipo)
     {
-        $this->tipoOfertasLaborales = $tipoOfertasLaborales;
+        $this->tipo = $tipo;
 
         return $this;
     }
 
     /**
-     * Get tipoOfertasLaborales
+     * Get tipo
      *
      * @return \cobe\OfertasLaboralesBundle\Entity\TipoOfertaLaboral 
      */
-    public function getTipoOfertasLaborales()
+    public function getTipo()
     {
-        return $this->tipoOfertasLaborales;
+        return $this->tipo;
     }
 
     /**
@@ -368,7 +368,7 @@ class OfertaLaboral extends Obj
      * @param \cobe\CurriculosBundle\Entity\Aptitud $aptitudes
      * @return OfertaLaboral
      */
-    public function addAptitude(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
+    public function addAptitudes(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
     {
         $this->aptitudes[] = $aptitudes;
 
@@ -380,7 +380,7 @@ class OfertaLaboral extends Obj
      *
      * @param \cobe\CurriculosBundle\Entity\Aptitud $aptitudes
      */
-    public function removeAptitude(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
+    public function removeAptitudes(\cobe\CurriculosBundle\Entity\Aptitud $aptitudes)
     {
         $this->aptitudes->removeElement($aptitudes);
     }
@@ -396,12 +396,44 @@ class OfertaLaboral extends Obj
     }
 
     /**
+     * set aptitudes
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Persona
+     */
+    public function setAptitudes($aptitudes)
+    {
+        if(is_array($aptitudes)){
+            $this->removeAllAptitudes();
+            foreach($aptitudes as $e){
+                $this->addAptitudes($e);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove All aptitudes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function removeAllAptitudes()
+    {
+        /*foreach($this->getAptitudes() as $et){
+            $this->aptitudes->removeElement($et);
+        }*/
+        $this->aptitudes = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->getAptitudes();
+    }
+
+    /**
      * Add etiquetas
      *
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
      * @return OfertaLaboral
      */
-    public function addEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
+    public function addEtiquetas(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas[] = $etiquetas;
 
@@ -413,7 +445,7 @@ class OfertaLaboral extends Obj
      *
      * @param \cobe\CommonBundle\Entity\Etiqueta $etiquetas
      */
-    public function removeEtiqueta(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
+    public function removeEtiquetas(\cobe\CommonBundle\Entity\Etiqueta $etiquetas)
     {
         $this->etiquetas->removeElement($etiquetas);
     }
@@ -467,7 +499,7 @@ class OfertaLaboral extends Obj
      * @param \cobe\CommonBundle\Entity\Ciudad $ciudades
      * @return OfertaLaboral
      */
-    public function addCiudade(\cobe\CommonBundle\Entity\Ciudad $ciudades)
+    public function addCiudades(\cobe\CommonBundle\Entity\Ciudad $ciudades)
     {
         $this->ciudades[] = $ciudades;
 
@@ -479,7 +511,7 @@ class OfertaLaboral extends Obj
      *
      * @param \cobe\CommonBundle\Entity\Ciudad $ciudades
      */
-    public function removeCiudade(\cobe\CommonBundle\Entity\Ciudad $ciudades)
+    public function removeCiudades(\cobe\CommonBundle\Entity\Ciudad $ciudades)
     {
         $this->ciudades->removeElement($ciudades);
     }

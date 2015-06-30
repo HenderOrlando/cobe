@@ -12,7 +12,7 @@ class EstadoGrupoPersona extends Estado
 {
     /**
      * @MaxDepth(2)
-     * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="estadoPersona")
+     * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", mappedBy="estado")
      */
     private $grupoPersona;
     /**

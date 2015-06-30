@@ -5,6 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Opción seleccionada de una Votacion por una Persona de un Grupo"})
  */
 class VotacionGrupoPersona
 {
@@ -16,13 +17,8 @@ class VotacionGrupoPersona
     private $id;
 
     /**
-     * @ORM\Column(type="smallint", length=2, nullable=false, options={"unsigned":true})
-     */
-    private $opcion;
-
-    /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", inversedBy="votacionGrupoPersona")
+     * @ORM\ManyToOne(targetEntity="cobe\GruposBundle\Entity\GrupoPersona", inversedBy="votaciones")
      * @ORM\JoinColumn(name="grupoPersona", referencedColumnName="id", nullable=false)
      */
     private $grupoPersona;
@@ -35,6 +31,26 @@ class VotacionGrupoPersona
     private $votacion;
 
     /**
+     * @MaxDepth(2)
+     * @ORM\ManyToMany(targetEntity="\cobe\GruposBundle\Entity\Opcion", inversedBy="selecciones")
+     * @ORM\JoinTable(
+     *     name="opcion2votacionGrupoPersona",
+     *     joinColumns={@ORM\JoinColumn(name="votacionGrupoPersona", referencedColumnName="id", nullable=false)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="opcion", referencedColumnName="id", nullable=false)}
+     * )
+     */
+    private $seleccionados;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->seleccionados = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return guid 
@@ -42,29 +58,6 @@ class VotacionGrupoPersona
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set opcion
-     *
-     * @param integer $opcion
-     * @return VotacionGrupoPersona
-     */
-    public function setOpcion($opcion)
-    {
-        $this->opcion = $opcion;
-
-        return $this;
-    }
-
-    /**
-     * Get opcion
-     *
-     * @return integer 
-     */
-    public function getOpcion()
-    {
-        return $this->opcion;
     }
 
     /**
@@ -111,5 +104,38 @@ class VotacionGrupoPersona
     public function getVotacion()
     {
         return $this->votacion;
+    }
+
+    /**
+     * Add votacionesGrupoPersona
+     *
+     * @param \cobe\GruposBundle\Entity\VotacionGrupoPersona $seleccionados
+     * @return Votacion
+     */
+    public function addSeleccionados(\cobe\GruposBundle\Entity\Opcion $seleccionados)
+    {
+        $this->seleccionados[] = $seleccionados;
+
+        return $this;
+    }
+
+    /**
+     * Remove seleccionados
+     *
+     * @param \cobe\GruposBundle\Entity\Opcion $seleccionados
+     */
+    public function removeSeleccionados(\cobe\GruposBundle\Entity\Opcion $seleccionados)
+    {
+        $this->seleccionados->removeElement($seleccionados);
+    }
+
+    /**
+     * Get seleccionadoa
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSeleccionados()
+    {
+        return $this->seleccionados;
     }
 }

@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity
  * @ORM\Table(indexes={@ORM\Index(name="ext", columns={"ext"})})
- * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="herenciaArchivo", type="string")
  * @ORM\DiscriminatorMap(
  *     {
@@ -31,8 +31,13 @@ use JMS\Serializer\Annotation\MaxDepth;
  *     "EstadisticaEmpresa"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEmpresa",
  *     "EstadisticaEstudiante"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante",
  *     "EstadisticaMensaje"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaMensaje",
- *     "Publicacion"="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion",
  *     "EstadisticaAptitud"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaAptitud",
+ *     "EstadisticaOpcion"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaOpcion",
+ *     "EstadisticaCaractertica"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaCaracteristica",
+ *     "EstadisticaCategoria"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaCategoria",
+ *     "EstadisticaEtiqueta"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEtiqueta",
+ *     "EstadisticaNivelIdioma"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaNivelIdioma",
+ *     "Publicacion"="\cobe\ColeccionesBundle\Entity\ArchivoPublicacion",
  *     "EstadisticaInteres"="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres",
  *     "Traduccion"="\cobe\ColeccionesBundle\Entity\ArchivoTraduccion"
  * }
@@ -68,14 +73,14 @@ class Archivo extends Objeto
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\EstadoArchivo", inversedBy="archivosEstado")
+     * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\EstadoArchivo", inversedBy="archivos")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estado;
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\TipoArchivo", inversedBy="archivosTipo")
+     * @ORM\ManyToOne(targetEntity="\cobe\ColeccionesBundle\Entity\TipoArchivo", inversedBy="archivos")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id", nullable=false)
      */
     private $tipo;

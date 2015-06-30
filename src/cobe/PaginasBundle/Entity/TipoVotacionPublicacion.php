@@ -39,7 +39,7 @@ class TipoVotacionPublicacion extends Tipo
      * @param \cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones
      * @return TipoVotacionPublicacion
      */
-    public function addVotacione(\cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones)
+    public function addVotaciones(\cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones)
     {
         $this->votaciones[] = $votaciones;
 
@@ -51,7 +51,7 @@ class TipoVotacionPublicacion extends Tipo
      *
      * @param \cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones
      */
-    public function removeVotacione(\cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones)
+    public function removeVotaciones(\cobe\PaginasBundle\Entity\VotacionPublicacion $votaciones)
     {
         $this->votaciones->removeElement($votaciones);
     }

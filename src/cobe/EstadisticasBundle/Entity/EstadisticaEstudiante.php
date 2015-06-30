@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_estudiante", columns={"estadistica","estudiante"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_estudiante", columns={"estadistica","estudiante"})}, options={"comment":"Estadísticas de un Estudiante"})
  */
 class EstadisticaEstudiante
 {
@@ -25,7 +25,7 @@ class EstadisticaEstudiante
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante", mappedBy="estadisticaEstudiante")
      */
-    private $archivosEstadisticaEstudiante;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -36,7 +36,7 @@ class EstadisticaEstudiante
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Estudiante", inversedBy="estadisticasEstudiante")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Estudiante", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="estudiante", referencedColumnName="id", nullable=false)
      */
     private $estudiante;
@@ -45,7 +45,7 @@ class EstadisticaEstudiante
      */
     public function __construct()
     {
-        $this->archivosEstadisticaEstudiante = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -82,36 +82,36 @@ class EstadisticaEstudiante
     }
 
     /**
-     * Add archivosEstadisticaEstudiante
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivosEstadisticaEstudiante
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivos
      * @return EstadisticaEstudiante
      */
-    public function addArchivosEstadisticaEstudiante(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivosEstadisticaEstudiante)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivos)
     {
-        $this->archivosEstadisticaEstudiante[] = $archivosEstadisticaEstudiante;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaEstudiante
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivosEstadisticaEstudiante
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivos
      */
-    public function removeArchivosEstadisticaEstudiante(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivosEstadisticaEstudiante)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaEstudiante $archivos)
     {
-        $this->archivosEstadisticaEstudiante->removeElement($archivosEstadisticaEstudiante);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaEstudiante
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaEstudiante()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaEstudiante;
+        return $this->archivos;
     }
 
     /**

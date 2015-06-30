@@ -19,9 +19,10 @@ class GrupoType extends ObjectType
         $builder
             ->add('archivos')
             ->add('comentarios')
+            ->add('estadisticas')
             ->add('etiquetas')
-            ->add('interesesGrupo')
-            ->add('personasGrupo')
+            ->add('intereses')
+            ->add('personas')
             ->add('plantilla')
         ;
 

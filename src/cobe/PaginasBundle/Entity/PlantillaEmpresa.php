@@ -39,7 +39,7 @@ class PlantillaEmpresa extends Plantilla
      * @param \cobe\UsuariosBundle\Entity\Empresa $empresas
      * @return PlantillaEmpresa
      */
-    public function addEmpresa(\cobe\UsuariosBundle\Entity\Empresa $empresas)
+    public function addEmpresas(\cobe\UsuariosBundle\Entity\Empresa $empresas)
     {
         $this->empresas[] = $empresas;
 
@@ -51,7 +51,7 @@ class PlantillaEmpresa extends Plantilla
      *
      * @param \cobe\UsuariosBundle\Entity\Empresa $empresas
      */
-    public function removeEmpresa(\cobe\UsuariosBundle\Entity\Empresa $empresas)
+    public function removeEmpresas(\cobe\UsuariosBundle\Entity\Empresa $empresas)
     {
         $this->empresas->removeElement($empresas);
     }

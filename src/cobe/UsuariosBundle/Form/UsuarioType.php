@@ -26,7 +26,7 @@ class UsuarioType extends ObjectType
         $builder
             ->add('archivos')
             ->add('clave')
-            ->add('comentariosUsuario')
+            ->add('comentarios')
             ->add('email')
             ->add('estado')
             ->add('plantilla')

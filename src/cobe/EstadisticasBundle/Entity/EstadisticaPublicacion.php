@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_publicacion", columns={"publicacion","estadistica"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_publicacion", columns={"publicacion","estadistica"})}, options={"comment":"Estadísticas de una Publicación"})
  */
 class EstadisticaPublicacion
 {
@@ -87,7 +87,7 @@ class EstadisticaPublicacion
      * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion $archivos
      * @return EstadisticaPublicacion
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -99,7 +99,7 @@ class EstadisticaPublicacion
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaPublicacion $archivos)
     {
         $this->archivos->removeElement($archivos);
     }

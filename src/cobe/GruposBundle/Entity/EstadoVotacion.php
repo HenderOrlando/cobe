@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Estado de una Votación"})
  */
 class EstadoVotacion extends Estado
 {
@@ -38,7 +39,7 @@ class EstadoVotacion extends Estado
      * @param \cobe\GruposBundle\Entity\Votacion $votaciones
      * @return EstadoVotacion
      */
-    public function addVotacione(\cobe\GruposBundle\Entity\Votacion $votaciones)
+    public function addVotaciones(\cobe\GruposBundle\Entity\Votacion $votaciones)
     {
         $this->votaciones[] = $votaciones;
 
@@ -50,7 +51,7 @@ class EstadoVotacion extends Estado
      *
      * @param \cobe\GruposBundle\Entity\Votacion $votaciones
      */
-    public function removeVotacione(\cobe\GruposBundle\Entity\Votacion $votaciones)
+    public function removeVotaciones(\cobe\GruposBundle\Entity\Votacion $votaciones)
     {
         $this->votaciones->removeElement($votaciones);
     }

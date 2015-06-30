@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\OfertasLaboralesBundle\Repository\OfertaLaboralPersonaRepository")
  * @ORM\Table(
- *     options={"comment":"Personas asociadas a la Oferta Laboral"},
+ *     options={"comment":"Personas que aplican en la Oferta Laboral"},
  *     uniqueConstraints={@ORM\UniqueConstraint(name="oferta_laboral_persona", columns={"persona","ofertaLaboral"})}
  * )
  */
@@ -28,7 +28,7 @@ class OfertaLaboralPersona
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", inversedBy="personasOfertaLaboral")
+     * @ORM\ManyToOne(targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboral", inversedBy="proponentes")
      * @ORM\JoinColumn(name="ofertaLaboral", referencedColumnName="id", nullable=false)
      */
     private $ofertaLaboral;
@@ -37,11 +37,11 @@ class OfertaLaboralPersona
      * @MaxDepth(1)
      * @ORM\ManyToOne(
      *     targetEntity="\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona",
-     *     inversedBy="ofertaLaboralPersona"
+     *     inversedBy="proponentes"
      * )
      * @ORM\JoinColumn(name="rolPersona", referencedColumnName="id", nullable=false)
      */
-    private $rolOfertaLaboralPersona;
+    private $rol;
 
     /**
      * Get id
@@ -100,25 +100,25 @@ class OfertaLaboralPersona
     }
 
     /**
-     * Set rolOfertaLaboralPersona
+     * Set rol
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona $rolOfertaLaboralPersona
+     * @param \cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona $rol
      * @return OfertaLaboralPersona
      */
-    public function setRolOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona $rolOfertaLaboralPersona)
+    public function setRol(\cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona $rol)
     {
-        $this->rolOfertaLaboralPersona = $rolOfertaLaboralPersona;
+        $this->rol = $rol;
 
         return $this;
     }
 
     /**
-     * Get rolOfertaLaboralPersona
+     * Get rol
      *
      * @return \cobe\OfertasLaboralesBundle\Entity\RolOfertaLaboralPersona 
      */
-    public function getRolOfertaLaboralPersona()
+    public function getRol()
     {
-        return $this->rolOfertaLaboralPersona;
+        return $this->rol;
     }
 }

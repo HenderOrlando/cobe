@@ -17,8 +17,12 @@ class RepresentanteEmpresaType extends AbstractType
         $builder
             ->add('actual')
             ->add('empresa')
-            ->add('fechaInicio')
-            ->add('fechaFin')
+            ->add('fechaInicio', null, array(
+                'widget' => 'single_text'
+            ))
+            ->add('fechaFin', null, array(
+                'widget' => 'single_text'
+            ))
             ->add('persona')
         ;
     }

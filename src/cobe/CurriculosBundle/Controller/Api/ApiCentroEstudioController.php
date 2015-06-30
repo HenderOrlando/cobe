@@ -393,18 +393,31 @@ class ApiCentroEstudioController extends ApiController
                             $accessor->setValue($centroestudio, $id, $dato);
                             $isModify = true;
                         }
-                    }elseif($metadata->isCollectionValuedAssociation($id)){
-                        $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
-                        //$datos_ = $request->request->get($type->getName(), false);
-                        //$dato = $datos[$id] = $datos_[$id];
-                        $msgs = $this->validateOneAssociation($metadata, $collection, $id);
-                        if(empty($msgs)){
-                            $set = 'set'.ucfirst($id);
-                            if(method_exists($centroestudio,$set)){
-                                //$collection = new ArrayCollection($collection);
-                                $centroestudio->$set($collection);
+                    }elseif($metadata->hasAssociation($id)){
+                        if($metadata->isCollectionValuedAssociation($id)){
+                            $collection = $this->getColeccionObject($metadata, $datos, $type, $request, $id, true);
+                            //$datos_ = $request->request->get($type->getName(), false);
+                            //$dato = $datos[$id] = $datos_[$id];
+                            $msgs = $this->validateOneAssociation($metadata, $collection, $id);
+                            if(empty($msgs)){
+                                $set = 'set'.ucfirst($id);
+                                if(method_exists($centroestudio,$set)){
+                                    //$collection = new ArrayCollection($collection);
+                                    $centroestudio->$set($collection);
+                                }
+                                $isModify = true;
                             }
-                            $isModify = true;
+                        }else{
+                            $dato = $repo->sanearDato($dato, 'guid');
+                            $accessor = PropertyAccess::createPropertyAccessor();
+                            $dato_ = $accessor->getValue($centroestudio, $id);
+                            if($dato && (!$dato_ || (is_object($dato_) && method_exists($dato_,'getId') && $dato_->getId() !== $dato))){
+                                $association = $this->getManager()->getRepository($metadata->getAssociationTargetClass($id))->find($dato);
+                                if($association && $association->getId()){
+                                    $accessor->setValue($centroestudio, $id, $association);
+                                    $isModify = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -481,7 +494,7 @@ class ApiCentroEstudioController extends ApiController
                 $em->remove($centroestudio);
                 $centroestudio = $this->captureErrorFlush($em, $centroestudio, 'borrar');
                 $rta = $centroestudio;
-                if(!$rta['errors']){
+                if(!is_array($rta) && method_exists($rta, 'getId') && !$rta->getId()){
                     $deleted = true;
                 }
             }

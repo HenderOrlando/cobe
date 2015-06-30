@@ -17,21 +17,24 @@ class PublicacionType extends ObjectType
         $this->addObjectForm($builder, $options);
 
         $builder
+            ->add('archivos')
             ->add('autor')
             ->add('categorias')
-            ->add('fechaArchiva')
-            ->add('estadoPublicacion')
+            ->add('comentarios')
+            ->add('fechaArchiva', null, array(
+                'widget' => 'single_text'
+            ))
+            ->add('estado')
             ->add('grupoEditor')
             ->add('indexada')
             ->add('metadatos')
             ->add('plantilla')
             ->add('idexada')
-            ->add('tipoPublicacion')
+            ->add('tipo')
             ->add('ofertasLaborales')
-            ->add('comentarios')
-            ->add('votacion')
-            ->add('archivosPublicacion')
+            ->add('votaciones')
             ->add('etiquetas')
+            ->add('plantilla')
         ;
 
         $builder->setMethod($this->method);

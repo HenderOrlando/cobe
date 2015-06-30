@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Estado de un Archivo"})
  */
 class EstadoArchivo extends Estado
 {
@@ -13,14 +14,14 @@ class EstadoArchivo extends Estado
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\Archivo", mappedBy="estado")
      */
-    private $archivosEstado;
+    private $archivos;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->archivosEstado = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -35,12 +36,12 @@ class EstadoArchivo extends Estado
     /**
      * Add archivosEstado
      *
-     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivosEstado
+     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivos
      * @return EstadoArchivo
      */
-    public function addArchivosEstado(\cobe\ColeccionesBundle\Entity\Archivo $archivosEstado)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\Archivo $archivos)
     {
-        $this->archivosEstado[] = $archivosEstado;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
@@ -48,11 +49,11 @@ class EstadoArchivo extends Estado
     /**
      * Remove archivosEstado
      *
-     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivosEstado
+     * @param \cobe\ColeccionesBundle\Entity\Archivo $archivos
      */
-    public function removeArchivosEstado(\cobe\ColeccionesBundle\Entity\Archivo $archivosEstado)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\Archivo $archivos)
     {
-        $this->archivosEstado->removeElement($archivosEstado);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
@@ -60,8 +61,8 @@ class EstadoArchivo extends Estado
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstado()
+    public function getArchivos()
     {
-        return $this->archivosEstado;
+        return $this->archivos;
     }
 }

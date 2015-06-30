@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\NivelIdiomaRepository")
+ * @ORM\Table(options={"comment":"Nivel de idioma de una Persona"})
  */
 class NivelIdioma extends Etiqueta
 {
@@ -14,6 +15,13 @@ class NivelIdioma extends Etiqueta
      * @ORM\OneToMany(targetEntity="\cobe\CurriculosBundle\Entity\IdiomaPersona", mappedBy="nivelIdioma")
      */
     private $idiomaPersona;
+
+    /**
+     * @MaxDepth(2)
+     * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\EstadisticaInteres", mappedBy="interes")
+     */
+    private $estadisticas;
+
     /**
      * Constructor
      */
@@ -30,6 +38,39 @@ class NivelIdioma extends Etiqueta
      */
     public function getId(){
         return parent::getId();
+    }
+
+    /**
+     * Add estadisticasNivelIdioma
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma $estadisticas
+     * @return Interes
+     */
+    public function addEstadisticas($estadisticas)
+    {
+        $this->estadisticas[] = $estadisticas;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadisticasNivelIdioma
+     *
+     * @param \cobe\EstadisticasBundle\Entity\EstadisticaNivelIdioma $estadisticas
+     */
+    public function removeEstadisticas($estadisticas)
+    {
+        $this->estadisticas->removeElement($estadisticas);
+    }
+
+    /**
+     * Get estadisticasNivelIdioma
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEstadisticas()
+    {
+        return $this->estadisticas;
     }
 
     /**

@@ -5,7 +5,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={@ORM\Index(name="estadistica_interes", columns={"estadistica","interes"})})
+ * @ORM\Table(indexes={@ORM\Index(name="estadistica_interes", columns={"estadistica","interes"})}, options={"comment":"Estadísticas de un Interés"})
  */
 class EstadisticaInteres
 {
@@ -25,7 +25,7 @@ class EstadisticaInteres
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres", mappedBy="estadisticaInteres")
      */
-    private $archivosEstadisticaInteres;
+    private $archivos;
 
     /**
      * @MaxDepth(1)
@@ -36,7 +36,7 @@ class EstadisticaInteres
 
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="estadisticasInteres")
+     * @ORM\ManyToOne(targetEntity="\cobe\CurriculosBundle\Entity\Interes", inversedBy="estadisticas")
      * @ORM\JoinColumn(name="interes", referencedColumnName="id", nullable=false)
      */
     private $interes;
@@ -45,7 +45,7 @@ class EstadisticaInteres
      */
     public function __construct()
     {
-        $this->archivosEstadisticaInteres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -82,36 +82,36 @@ class EstadisticaInteres
     }
 
     /**
-     * Add archivosEstadisticaInteres
+     * Add archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivosEstadisticaInteres
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivos
      * @return EstadisticaInteres
      */
-    public function addArchivosEstadisticaIntere(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivosEstadisticaInteres)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivos)
     {
-        $this->archivosEstadisticaInteres[] = $archivosEstadisticaInteres;
+        $this->archivos[] = $archivos;
 
         return $this;
     }
 
     /**
-     * Remove archivosEstadisticaInteres
+     * Remove archivos
      *
-     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivosEstadisticaInteres
+     * @param \cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivos
      */
-    public function removeArchivosEstadisticaIntere(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivosEstadisticaInteres)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoEstadisticaInteres $archivos)
     {
-        $this->archivosEstadisticaInteres->removeElement($archivosEstadisticaInteres);
+        $this->archivos->removeElement($archivos);
     }
 
     /**
-     * Get archivosEstadisticaInteres
+     * Get archivos
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getArchivosEstadisticaInteres()
+    public function getArchivos()
     {
-        return $this->archivosEstadisticaInteres;
+        return $this->archivos;
     }
 
     /**

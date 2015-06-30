@@ -39,7 +39,7 @@ class PlantillaEstudiante extends Plantilla
      * @param \cobe\UsuariosBundle\Entity\Estudiante $estudiantes
      * @return PlantillaEstudiante
      */
-    public function addEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
+    public function addEstudiantes(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
     {
         $this->estudiantes[] = $estudiantes;
 
@@ -51,7 +51,7 @@ class PlantillaEstudiante extends Plantilla
      *
      * @param \cobe\UsuariosBundle\Entity\Estudiante $estudiantes
      */
-    public function removeEstudiante(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
+    public function removeEstudiantes(\cobe\UsuariosBundle\Entity\Estudiante $estudiantes)
     {
         $this->estudiantes->removeElement($estudiantes);
     }

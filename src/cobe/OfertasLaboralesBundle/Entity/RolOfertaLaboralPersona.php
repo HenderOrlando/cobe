@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\OfertasLaboralesBundle\Repository\RolOfertaLaboralPersonaRepository")
- * @ORM\Table(options={"comment":"Roles de la Persona en la OfertaLaboral"})
+ * @ORM\Table(options={"comment":"Roles de la Persona en la Oferta Laboral"})
  */
 class RolOfertaLaboralPersona extends Rol
 {
@@ -14,17 +14,17 @@ class RolOfertaLaboralPersona extends Rol
      * @MaxDepth(2)
      * @ORM\OneToMany(
      *     targetEntity="\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona",
-     *     mappedBy="rolOfertaLaboralPersona"
+     *     mappedBy="rol"
      * )
      */
-    private $ofertaLaboralPersona;
+    private $proponentes;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->ofertaLaboralPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->proponentes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -37,35 +37,35 @@ class RolOfertaLaboralPersona extends Rol
     }
 
     /**
-     * Add ofertaLaboralPersona
+     * Add proponentes
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersona
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes
      * @return RolOfertaLaboralPersona
      */
-    public function addOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersona)
+    public function addProponente(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes)
     {
-        $this->ofertaLaboralPersona[] = $ofertaLaboralPersona;
+        $this->proponentes[] = $proponentes;
 
         return $this;
     }
 
     /**
-     * Remove ofertaLaboralPersona
+     * Remove proponentes
      *
-     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersona
+     * @param \cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes
      */
-    public function removeOfertaLaboralPersona(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $ofertaLaboralPersona)
+    public function removeProponente(\cobe\OfertasLaboralesBundle\Entity\OfertaLaboralPersona $proponentes)
     {
-        $this->ofertaLaboralPersona->removeElement($ofertaLaboralPersona);
+        $this->proponentes->removeElement($proponentes);
     }
 
     /**
-     * Get ofertaLaboralPersona
+     * Get proponentes
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getOfertaLaboralPersona()
+    public function getProponente()
     {
-        return $this->ofertaLaboralPersona;
+        return $this->proponentes;
     }
 }

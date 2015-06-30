@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\ReconocimientoRepository")
- * @ORM\Table(options={"comment":"Reconocimientos en el sistema"})
+ * @ORM\Table(options={"comment":"Reconocimientos hechas a Personas"})
  */
 class Reconocimiento extends Obj
 {
@@ -142,7 +142,7 @@ class Reconocimiento extends Obj
      * @param \cobe\UsuariosBundle\Entity\Empresa $empresas
      * @return Reconocimiento
      */
-    public function addEmpresa(\cobe\UsuariosBundle\Entity\Empresa $empresas)
+    public function addEmpresas(\cobe\UsuariosBundle\Entity\Empresa $empresas)
     {
         $this->empresas[] = $empresas;
 
@@ -154,7 +154,7 @@ class Reconocimiento extends Obj
      *
      * @param \cobe\UsuariosBundle\Entity\Empresa $empresas
      */
-    public function removeEmpresa(\cobe\UsuariosBundle\Entity\Empresa $empresas)
+    public function removeEmpresas(\cobe\UsuariosBundle\Entity\Empresa $empresas)
     {
         $this->empresas->removeElement($empresas);
     }

@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="cobe\CurriculosBundle\Repository\RecomendacionRepository")
  * @ORM\Table(
- *     options={"comment":"Recomendaciones e el sistema"},
+ *     options={"comment":"Recomendaciones de una Persona a otra Persona"},
  *     uniqueConstraints={@ORM\UniqueConstraint(name="recomienda_recomendado", columns={"recomienda","recomendado"})}
  * )
  */
@@ -55,7 +55,7 @@ class Recomendacion extends Objeto
      * @param \cobe\ColeccionesBundle\Entity\ArchivoRecomendacion $archivos
      * @return Recomendacion
      */
-    public function addArchivo(\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion $archivos)
+    public function addArchivos(\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion $archivos)
     {
         $this->archivos[] = $archivos;
 
@@ -67,7 +67,7 @@ class Recomendacion extends Objeto
      *
      * @param \cobe\ColeccionesBundle\Entity\ArchivoRecomendacion $archivos
      */
-    public function removeArchivo(\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion $archivos)
+    public function removeArchivos(\cobe\ColeccionesBundle\Entity\ArchivoRecomendacion $archivos)
     {
         $this->archivos->removeElement($archivos);
     }

@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Estado de una Estadística"})
  */
 class EstadoEstadistica extends Estado
 {
@@ -13,14 +14,14 @@ class EstadoEstadistica extends Estado
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="\cobe\EstadisticasBundle\Entity\Estadistica", mappedBy="estado")
      */
-    private $estadisticasEstado;
+    private $estadisticas;
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->estadisticasEstado = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estadisticas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -33,35 +34,35 @@ class EstadoEstadistica extends Estado
     }
 
     /**
-     * Add estadisticasEstado
+     * Add estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEstado
+     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticas
      * @return EstadoEstadistica
      */
-    public function addEstadisticasEstado(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEstado)
+    public function addEstadisticas(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticas)
     {
-        $this->estadisticasEstado[] = $estadisticasEstado;
+        $this->estadisticas[] = $estadisticas;
 
         return $this;
     }
 
     /**
-     * Remove estadisticasEstado
+     * Remove estadisticas
      *
-     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEstado
+     * @param \cobe\EstadisticasBundle\Entity\Estadistica $estadisticas
      */
-    public function removeEstadisticasEstado(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticasEstado)
+    public function removeEstadisticas(\cobe\EstadisticasBundle\Entity\Estadistica $estadisticas)
     {
-        $this->estadisticasEstado->removeElement($estadisticasEstado);
+        $this->estadisticas->removeElement($estadisticas);
     }
 
     /**
-     * Get estadisticasEstado
+     * Get estadisticas
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEstadisticasEstado()
+    public function getEstadisticas()
     {
-        return $this->estadisticasEstado;
+        return $this->estadisticas;
     }
 }

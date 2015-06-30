@@ -36,6 +36,7 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class ApiController extends Controller
 {
+    private $autocreateOk = array('etiquetas', 'aptitudes', 'intereses', 'idiomas', 'paises', 'ciudades'/*, 'estudios', 'proyectos', 'empresas',*/);
     /**
      * Regresa opciones de la API.
      *
@@ -186,6 +187,7 @@ class ApiController extends Controller
         $saved = false;
         $errors = array();
         if($request){
+            $form->handleRequest($request);
             /*var_dump($request->get($form->getName()));
             echo "=====================================================================================";
             $this->getColectionsObjects($obj, $type, $request);
@@ -194,7 +196,6 @@ class ApiController extends Controller
             echo "=====================================================================================";
             var_dump($request->get($form->getName()));
             die;*/
-            $form->handleRequest($request);
             //$isValid = $form->isValid();
             $isValid = true;
             if($isValid){
@@ -500,13 +501,19 @@ class ApiController extends Controller
             }elseif(is_array($data[$collectionName])){
                 $collections = $data[$collectionName];
             }
+            //var_dump($collections);
             if(is_array($collections)){
                 $className = $metadata->getAssociationTargetClass($collectionName);
                 foreach($collections as $i => $nombre){
-                    $nombre = trim($nombre);
+                    $dataItem = $nombre;
                     $qb = $this->getManager()->getRepository($className)->createQueryBuilder('e');
                     if(!$returnObjs){
                         $qb->select('e.id');
+                    }
+                    if(is_string($nombre)){
+                        $nombre = trim($nombre);
+                    }elseif(is_array($nombre) && isset($dataItem['id'])){
+                        $nombre = $dataItem['id'];
                     }
                     if(!$this->validateTypeField('guid',$nombre)){
                         $qb
@@ -517,14 +524,8 @@ class ApiController extends Controller
                     }
                     $collection = $qb->getQuery()->execute();
                     $id = false;
-                    if(empty($collection)){
-                        $collection = new $className();
-                        $collection
-                            ->setNombre($nombre)
-                            ->setDescripcion($nombre)
-                        ;
-                        $this->getManager()->persist($collection);
-                        $this->getManager()->flush();
+                    if(empty($collection) && in_array($collectionName, $this->autocreateOk)){
+                        $collection = $this->createObjectToAddCollection($metadata, $className, $dataItem);
                         if($returnObjs){
                             $id = $collection;
                         }else{
@@ -536,6 +537,8 @@ class ApiController extends Controller
                             $id = $collection['id'];
                         }elseif($returnObjs){
                             $id = $collection;
+                        }elseif(is_object($collection) && method_exists($collection,'getId')){
+                            $id = $collection->getId();
                         }
                     }
                     if($id){
@@ -558,6 +561,21 @@ class ApiController extends Controller
             }
         }
     }
+    
+    public function createObjectToAddCollection($metadata, $className, $data){
+        $obj = new $className();
+        if(is_string($data)){
+            $obj
+                ->setNombre($data)
+                ->setDescripcion($data)
+            ;
+        }elseif(is_array($data)){
+            // Se debe crear el objeto con los datos en $data
+        }
+        $this->getManager()->persist($obj);
+        $this->getManager()->flush();
+        return $obj;
+    }
 
     public function getColectionsObjects($obj, $type, $request, $coleccionsNames = null){
         $data = $request->get($type->getName(), null);
@@ -568,7 +586,7 @@ class ApiController extends Controller
         foreach($coleccionsNames as $cn){
             $this->getColeccionObject($metadata, $data, $type, $request, $cn);
         }
-        echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
+        //echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     }
 
 }

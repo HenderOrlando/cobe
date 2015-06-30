@@ -6,12 +6,13 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(options={"comment":"Comentarios a un Usuario"})
  */
 class ComentarioUsuario extends Comentario
 {
     /**
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="comentariosUsuario")
+     * @ORM\ManyToOne(targetEntity="\cobe\UsuariosBundle\Entity\Usuario", inversedBy="comentarios")
      * @ORM\JoinColumn(name="usuario", referencedColumnName="id")
      */
     private $usuario;

@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="cobe\GruposBundle\Repository\VotacionRepository")
+ * @ORM\Table(options={"comment":"Votaciones realizadas y a realizar"})
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="herenciaVotacion", type="string")
  * @ORM\DiscriminatorMap({
@@ -16,23 +17,25 @@ use JMS\Serializer\Annotation\MaxDepth;
 class Votacion extends Obj
 {
     /**
-     * @ORM\Column(type="json_array", nullable=false)
+     * @MaxDepth(2)
+     * @ORM\ManyToMany(targetEntity="cobe\GruposBundle\Entity\Opcion", inversedBy="votaciones")
+     * @ORM\JoinTable(
+     *     name="opcion2votacion",
+     *     joinColumns={@ORM\JoinColumn(name="opcion", referencedColumnName="id", nullable=false)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="votacion", referencedColumnName="id", nullable=false)}
+     * )
      */
     private $opciones;
-
+    
     /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $fechaFin;
 
     /**
-     * @ORM\Column(type="smallint", length=2, nullable=true, options={"unsigned":true})
-     */
-    private $opcionSeleccionada;
-
-    /**
      * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="cobe\GruposBundle\Entity\VotacionGrupoPersona", mappedBy="votacion")
+     * @ORM\JoinColumn(name="votacionesGrupoPersona", referencedColumnName="id", nullable=true)
      */
     private $votacionesGrupoPersona;
 
@@ -42,6 +45,7 @@ class Votacion extends Obj
      * @ORM\JoinColumn(name="estado", referencedColumnName="id", nullable=false)
      */
     private $estado;
+
     /**
      * Constructor
      */
@@ -49,6 +53,7 @@ class Votacion extends Obj
     {
         parent::__construct();
         $this->votacionesGrupoPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->opciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -61,22 +66,32 @@ class Votacion extends Obj
     }
 
     /**
-     * Set opciones
+     * Add opciones
      *
-     * @param array $opciones
+     * @param \cobe\GruposBundle\Entity\Opcion $opciones
      * @return Votacion
      */
-    public function setOpciones($opciones)
+    public function addOpciones(\cobe\GruposBundle\Entity\Opcion $opciones)
     {
-        $this->opciones = $opciones;
+        $this->opciones[] = $opciones;
 
         return $this;
     }
 
     /**
+     * Remove opciones
+     *
+     * @param \cobe\GruposBundle\Entity\Opcion $opciones
+     */
+    public function removeOpciones(\cobe\GruposBundle\Entity\Opcion $opciones)
+    {
+        $this->opciones->removeElement($opciones);
+    }
+
+    /**
      * Get opciones
      *
-     * @return array 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getOpciones()
     {
@@ -104,29 +119,6 @@ class Votacion extends Obj
     public function getFechaFin()
     {
         return $this->fechaFin;
-    }
-
-    /**
-     * Set opcionSeleccionada
-     *
-     * @param integer $opcionSeleccionada
-     * @return Votacion
-     */
-    public function setOpcionSeleccionada($opcionSeleccionada)
-    {
-        $this->opcionSeleccionada = $opcionSeleccionada;
-
-        return $this;
-    }
-
-    /**
-     * Get opcionSeleccionada
-     *
-     * @return integer 
-     */
-    public function getOpcionSeleccionada()
-    {
-        return $this->opcionSeleccionada;
     }
 
     /**
